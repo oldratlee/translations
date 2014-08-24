@@ -24,6 +24,8 @@
 
 功能分支工作流以中心化工作流为基础，不同的是为各个新功能分配一个单独的分支开发。这样可以在把新功能合并到正式主干前，用`Pull Requests`的方式讨论变更。
 
+[了解更多 »](workflow-feature-branch.md)
+
 ![Git Workflows: Feature Branch](git-workflow-feature_branch.png)
 
 ### `Gitflow`工作流
