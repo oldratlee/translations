@@ -16,6 +16,8 @@
 
 如果你的开发团队成员已经很熟悉`Subversion`，中心化工作流让你可以无需去适应一个全新流程就可以使用上`Git`带来的收益。这个工作流也是一个向更`Git`工作流迁移的友好过渡。
 
+[了解更多 »](workflow-centralized.md)
+
 ![Git Workflows: SVN-style](git-workflow-svn.png)
 
 ### 功能分支（Feature Branch）工作流
