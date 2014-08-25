@@ -1,7 +1,7 @@
 中心化（Centralized）工作流
 =================================
 
-![Git Workflows: SVN-style](git-workflow-svn.png)
+![Git Workflows: SVN-style](images/git-workflow-svn.png)
 
 转到分布式版本控制系统看起来像个吓人的任务，但不需要改变你已有流程就可以用上Git的好处。你的团队可以用和`Subversion`完全不变的方式来开发项目。
 
@@ -19,14 +19,14 @@
 
 要发布修改到正式项目中，开发者执行`push`操作，把本地`master`分支的修改『推』到中央仓库中。这相当于`svn commit`操作，但`push`操作会把所有还不在中央仓库的本地提交都推上去。
 
-![git-workflow-svn-push-local](git-workflow-svn-push-local.png)
+![git-workflow-svn-push-local](images/git-workflow-svn-push-local.png)
 
 :beer: 冲突解决
 ---------------------
 
 中央仓库代表了正式项目，所以提交历史应该被尊重且稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，`Git`会拒绝修改提交否则会覆盖已经在中央库的提交。
 
-![git-workflow-svn-managingconflicts](git-workflow-svn-managingconflicts.png)
+![git-workflow-svn-managingconflicts](images/git-workflow-svn-managingconflicts.png)
 
 在开发者发布自己功能修改前，需要先`fetch`在中央库的提交，`rebase`自己提交到中央库提交历史之上。
 这样做的意思是在说，『我要把自己的修改加到别人已经完成的修改上。』最终的结果是一个完美的线性历史，就像以前的`SVN`的工作流中一样。
@@ -40,7 +40,7 @@
 
 ### 有个人初始化好中央仓库
 
-![](git-workflow-svn-initialize.png)
+![](images/git-workflow-svn-initialize.png)
 
 第一步，有个人在服务器上要创建中央仓库。如果是新项目，你可以初始化一个空仓库；否则你要导入已有的`Git`或`SVN`仓库。
 
@@ -55,7 +55,7 @@ git init --bare /path/to/repo.git
 
 ### 所有人克隆中央仓库
 
-![](git-workflow-svn-clone.png)
+![](images/git-workflow-svn-clone.png)
 
 下一步，各个开发者创建整个项目的本地拷贝。通过[`git clone`](https://www.atlassian.com/git/tutorial/git-basics#!clone)命令完成：
 
@@ -67,7 +67,7 @@ git clone ssh://user@host/path/to/repo.git
 
 ### 小明开发功能
 
-![](git-workflow-svn-1.png)
+![](images/git-workflow-svn-1.png)
 
 在小明的本地仓库中，他使用标准的`Git`过程开发功能：编辑、暂存（`Stage`）和提交。
 如果你不熟悉暂存区，简单的说它其实是可以不用把工作目录中所有的修改都提交掉的一个方法。这样你可以创建一个聚焦的提交，尽管你本地修改很多内容。
@@ -83,14 +83,14 @@ git commit # 提交文件
 
 ### 小红开发功能
 
-![](git-workflow-svn-2.png)
+![](images/git-workflow-svn-2.png)
 
 与此同时，小红在自己的本地仓库中用相同的编辑、暂存和提交过程开发功能。和小明一样，她也不关心在中央仓库在做什么操作；
 当然更不关心小明在他的本地仓库中的操作，因为所有本地仓库都是私有的。
 
 ### 小明发布功能
 
-![](git-workflow-svn-3.png)
+![](images/git-workflow-svn-3.png)
 
 一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其它团队成员可以看到他的修改。他可以用下面的`git push`命令：
 
@@ -103,7 +103,7 @@ git push origin master
 
 ### 小红试着发布功能
 
-![](git-workflow-svn-4.png)
+![](images/git-workflow-svn-4.png)
 
 一起来看看在小明发布修改后，小红`push`修改会怎么样？她使用一样的`push`命令：
 
@@ -125,7 +125,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 ### 小红在小明的提交之上`rebase`
 
-![](git-workflow-svn-5.png)
+![](images/git-workflow-svn-5.png)
 
 小红用`git pull`合并上游的修改到自己的仓库中。这条命令类似`svn like`——拉取所有上游提交命令到小红的本地仓库，并尝试和她的本地修改合并：
 
@@ -135,14 +135,14 @@ git pull --rebase origin master
 
 `--rebase`选项让`Git`把小红的提交移到 同步了中央仓库修改后的`master`分支的顶部，如下图所示：
 
-![](git-workflow-svn-6.png)
+![](images/git-workflow-svn-6.png)
 
 如果你忘加了这个选项，`pull`操作仍然可以完成，但每次`pull`操作要同步别人修改时，提交历史会以一个多余的『合并提交』结尾。
 对于中心化工作流，最好是使用`rebase`而不是生成一个合并提交。
 
 ### 小红解决合并冲突
 
-![](git-workflow-svn-7.png)
+![](images/git-workflow-svn-7.png)
 
 `rebase`所做的操作是把本地提交一次一个地迁移到更新中央仓库提交的`master`分支上。
 这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含所有提交的大型合并所出现的冲突。
@@ -154,7 +154,7 @@ git pull --rebase origin master
 CONFLICT (content): Merge conflict in <some-file>
 ```
 
-![](git-workflow-svn-8.png)
+![](images/git-workflow-svn-8.png)
 
 `Git`很赞的一点是，可以任何人可以解决自己的冲突。在这个例子中，小红可以简单的运行`git status`命令来查看哪里有问题。
 冲突文件列在`Unmerged paths`（未合并路径）一节中：
@@ -184,7 +184,7 @@ git rebase --abort
 
 ### 小红成功发布功能
 
-![](git-workflow-svn-9.png)
+![](images/git-workflow-svn-9.png)
 
 小红完成中央仓库的同步后，就能成功发布她的修改了：
 
@@ -200,5 +200,6 @@ git push origin master
 如果你的团队适应了中心化工作流，并想更流畅的协作效果，绝对值得探索一下[功能分支工作流](workflow-feature-branch.md)。
 通过为一个功能分配一个隔离分支，使得一个新增功能集成到正式项目前对新功能进行深入讨论成为可能。
 
+-----------------
 
-[« Overview](README.md) -------------------------------------------------------- [功能分支工作流 »](workflow-feature-branch.md)
+[« Overview](README.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[功能分支工作流 »](workflow-feature-branch.md)
