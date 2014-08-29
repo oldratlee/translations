@@ -195,11 +195,11 @@ git push origin master
 :beer: 下一站
 -----------------
 
-如你所见，仅使用几个`Git`命令就我们就可以模拟传统`Subversion`开发环境。对于要从`SVN`迁移的团队来说这太好了，但这没有发挥出`Git`分布式本质。
+如你所见，仅使用几个`Git`命令就我们就可以模拟传统`Subversion`开发环境。对于要从`SVN`迁移的团队来说这太好了，但这没有发挥出`Git`分布式本质的优势。
 
 如果你的团队适应了集中式工作流，并想更流畅的协作效果，绝对值得探索一下[功能分支工作流](workflow-feature-branch.md)。
 通过为一个功能分配一个隔离分支，使得一个新增功能集成到正式项目前对新功能进行深入讨论成为可能。
 
 -----------------
 
-[« Overview](README.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[功能分支工作流 »](workflow-feature-branch.md)
+[« 概述](README.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[功能分支工作流 »](workflow-feature-branch.md)
