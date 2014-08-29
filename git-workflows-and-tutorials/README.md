@@ -52,7 +52,6 @@
 
 ![Workflows: Pull Requests](images/pull-request.png)
 
-
 -----------------
 
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[集中式工作流 »](workflow-centralized.md)
