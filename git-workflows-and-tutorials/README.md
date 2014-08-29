@@ -46,7 +46,7 @@
 
 ### `Pull Requests`
 
-`Pull requests`是`Bitbucket`让开发者更方便地进行协作的功能，提供了友好的Web界面可以在合并得提交的修改到官方项目之前对修改进行讨论。
+`Pull requests`是`Bitbucket`让开发者更方便地进行协作的功能，提供了友好的`Web`界面可以在合并得提交的修改到官方项目之前对修改进行讨论。
 
 [了解更多 »](pull-request.md)
 
