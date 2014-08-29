@@ -139,7 +139,7 @@ git push
 :beer: 下一站
 -----------------
 
-现在但愿你发现了功能分支可以很直接地在[集中式工作流](workflow-centralized.md)的仅有的`master`分支上完成多功能的开发。
+到了这里，但愿你发现了功能分支可以很直接地在[集中式工作流](workflow-centralized.md)的仅有的`master`分支上完成多功能的开发。
 另外，功能分支还使用了`Pull Request`，使得可以在你的版本控制`GUI`客户端中讨论某个提交。
 
 功能分支工作流是开发项目异常灵活的方式。问题是，有时候太灵活了。对于大型团队，常常需要给不同分支分配一个更具体的角色。
@@ -147,4 +147,4 @@ git push
 
 -----------------
 
-[集中式工作流 »](workflow-centralized.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[`Gitflow`工作流 »](workflow-gitflow.md)
+[« 集中式工作流](workflow-centralized.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[`Gitflow`工作流 »](workflow-gitflow.md)
