@@ -10,6 +10,8 @@
 
 对于`Git`工作流主题，目前网上资料很少，多是零散地操作说明，希望这篇文章能让你更深入理解并在工作中灵活有效地使用起来。
 
+自己理解粗浅，翻译不合适和不对的地方，欢迎建议（[提交Issue](https://github.com/quickhack/translations/issues))和指正（[Fork后提交代码](https://github.com/quickhack/translations/fork)）！
+
 `Git`工作流指南
 ======================
 
