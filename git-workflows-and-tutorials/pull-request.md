@@ -10,9 +10,9 @@
 开发者完成功能开发后，通过`Bitbucket`账号发起一个`Pull Request`。
 这样让涉及这个功能的所有人知道要去做`Code Review`和合并到`master`分支。
 
-但是，`Pull Request`远不止一个简单的通知，而是一个专门为提交的功能的论坛。
-如果变更有任何问题，团队成员反馈在`Pull Request`中，甚至`push`提交微调功能。
-在`Pull Request`中，所有的这些活动都直接跟踪了。
+但是，`Pull Request`远不止一个简单的通知，而是为讨论提交的功能的一个专门论坛。
+如果变更有任何问题，团队成员反馈在`Pull Request`中，甚至`push`新的提交微调功能。
+所有的这些活动都直接跟踪在`Pull Request`中。
 
 ![](images/pull-request-overview.png)
 
@@ -29,15 +29,15 @@
 
 ![](images/pull-request-anatomy.png)
 
-这几值多数`Bitbucket`会设置合适的缺省值。但取决你用的协作工作流，你的团队可能会指定不同的值。
+这几值多数`Bitbucket`都会设置上合适的缺省值。但取决你用的协作工作流，你的团队可能会要指定不同的值。
 上图显示了一个`Pull Request`请求合并一个功能分支到正式的`master`分支上，但可以有多种不同的`Pull Request`用法。
 
 :beer: 工作方式
 ---------------------
 
 `Pull Request`可以和[功能分支工作流](workflow-feature-branch.md)、[`Gitflow`工作流](workflow-gitflow.md)或[`Forking`工作流](workflow-forking.md)一起使用。
-但一个`Pull Request`需求要么分支不同要么仓库不同，所以不能用于[集中式工作流](workflow-centralized.md)。
-在不同的工作流中使用`Pull Request`会稍许不同，但基本的过程是这样的：
+但一个`Pull Request`要求要么分支不同要么仓库不同，所以不能用于[集中式工作流](workflow-centralized.md)。
+在不同的工作流中使用`Pull Request`会有一些不同，但基本的过程是这样的：
 
 1. 开发者在本地仓库中新建一个专门的分支开发功能。
 1. 开发者`push`分支修改到公开的`Bitbucket`仓库中。
@@ -45,12 +45,12 @@
 1. 团队的其它成员`review` `code`，讨论并修改。
 1. 项目维护者合并功能到官方仓库中并关闭`Pull Request`。
 
-本方后面内容说明，`Pull Request`如何在不同协作工作流应用。
+本文后面内容说明，`Pull Request`在不同协作工作流中如何应用。
 
 ### 在功能分支工作流中使用`Pull Request`
 
 功能分支工作流用一个共享的`Bitbucket`仓库来管理协作，开发者在专门的分支上开发功能。
-但不是合并到`master`分支上，而是在合并到主代码库之前开发者应该开一个`Pull Request`发起功能的讨论。
+但不是立即合并到`master`分支上，而是在合并到主代码库之前开发者应该开一个`Pull Request`发起功能的讨论。
 
 ![](images/pull-request-feature-branch.png)
 
@@ -67,7 +67,8 @@
 ### 在`Gitflow`工作流中使用`Pull Request`
 
 `Gitflow`工作流和功能分支工作流类似，但围绕项目发布定义一个严格的分支模型。
-在`Gitflow`工作流中使用`Pull Request`让开发者在工作时可以有个方便的地方关于发布分支或是维护分支进行交流。
+在`Gitflow`工作流中使用`Pull Request`让开发者在发布分支或是维护分支上工作时，
+可以有个方便的地方对关于发布分支或是维护分支的问题进行交流。
 
 ![](images/gitflow-workflow-pull-request.png)
 
@@ -88,11 +89,11 @@
 
 ![](images/pull-request-forking-workflow-1.png)
 
-由于各个开发有自己的分开仓库，`Pull Request`的源仓库和目标仓库不是同一个。
+由于各个开发有自己的公开仓库，`Pull Request`的源仓库和目标仓库不是同一个。
 源仓库是开发者的公开仓库，源分支是包含了修改的分支。
 如果开发者要合并修改到正式代码库中，那么目标仓库是正式仓库，目标分支是`master`分支。
 
-`Pull Request`也可以用于正式项目之外的其它开发之前的协作。
+`Pull Request`也可以用于正式项目之外的其它开发者之间的协作。
 比如，如果一个开发者和一个团队成员一起开发一个功能，他们可以发起一个`Pull Request`，
 用团队成员的`Bitbucket`仓库作为目标，而不是正式项目的仓库。
 然后使用相同的功能分支作为源和目标分支。
@@ -100,7 +101,7 @@
 ![](images/pull-request-forking-workflow-2.png)
 
 2个开发者之间可以在`Pull Request`中讨论和开发功能。
-完成开发后，他们可以另一个`Pull Request`，请求合并功能到正式的`master`分支。
+完成开发后，他们可以发起另一个`Pull Request`，请求合并功能到正式的`master`分支。
 在`Forking`工作流中，这样的灵活性让`Pull Request`成为一个强有力的协作工具。
 
 :beer: 示例
@@ -132,7 +133,7 @@
 git clone https://user@bitbucket.org/user/repo.git
 ```
 
-注意，`git clone`会自动创建`origin`远程别名，指向小红`fork`的仓库。
+请记住，`git clone`会自动创建`origin`远程别名，是指向小红`fork`出来的仓库。
 
 ### 小红开发新功能
 
@@ -142,12 +143,12 @@ git clone https://user@bitbucket.org/user/repo.git
 
 ```bash
 git checkout -b some-feature
-# Edit some code
+# 编辑代码
 git commit -a -m "Add first draft of some feature"
 ```
 
 在新功能分支上，小红按需要添加提交。甚至如果小红觉得功能分支上的提交历史太乱了，她可以用[交互式`rebase`](https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase-i)来删除或压制提交。
-对于大型项目，整理功能分支的历史让项目维护者更容易看出在`Pull Request`中做了什么内容。
+对于大型项目，整理功能分支的历史可以让项目维护者更容易看出在`Pull Request`中做了什么内容。
 
 ### 小红`push`功能到她的`Bitbucket`仓库中
 
@@ -159,7 +160,7 @@ git commit -a -m "Add first draft of some feature"
 git push origin some-branch
 ```
 
-这时你的变更可以让项目维护者看到了（或者任何想要看的协作者）。
+这时她的变更可以让项目维护者看到了（或者任何想要看的协作者）。
 
 ### 小红发起`Pull Request`
 
@@ -169,9 +170,9 @@ git push origin some-branch
 点右上角的【`Pull Request`】按钮，发起一个`Pull Request`。
 弹出的表单自动设置小红的仓库为源仓库，询问小红以指定源分支、目标仓库和目标分支。
 
-小红想要合并功能到正式仓库，可以源分支是她的功能分支，目标仓库是小明的公开仓库，
+小红想要合并功能到正式仓库，所以源分支是她的功能分支，目标仓库是小明的公开仓库，
 而目标分支是`master`分支。另外，小红需要提供`Pull Request`的标题和描述信息。
-如果需要小明以后的人审核批准代码，她可以把这些人填在【Reviewers】文本框中。
+如果需要小明以外的人审核批准代码，她可以把这些人填在【Reviewers】文本框中。
 
 ![](images/pull-request-7.png)
 
@@ -181,10 +182,10 @@ git push origin some-branch
 
 ![](images/pull-request-8.png)
 
-在小明的`Bitbucket`仓库页面的【`Pull Request` Tab】可以看到所有人发起的`Pull Request`.
+在小明的`Bitbucket`仓库页面的【`Pull Request`】Tab可以看到所有人发起的`Pull Request`。
 点击小红的`Pull Request`会显示出`Pull Request`的描述、功能的提交历史和每个变更的差异（`diff`）。
 
-如果小明可以合并到项目中，只要点一下【`Merge`】按钮，就可以同意`Pull Request`并合并到`master`分支。
+如果小明想要合并到项目中，只要点一下【`Merge`】按钮，就可以同意`Pull Request`并合并到`master`分支。
 
 但如果像这个示例中一样小明发现了在小红的代码中的一个小`Bug`，要小红在合并前修复。
 小明可以在整个`Pull Request`上加上评注，或是选择历史中的某个提交加上评注。
@@ -196,7 +197,7 @@ git push origin some-branch
 如果小红对反馈有任何疑问，可以在`Pull Request`中响应，把`Pull Request`当作是她功能讨论的论坛。
 
 小红在她的功能分支新加提交以解决代码问题，并`push`到她的`Bitbucket`仓库中，就像前一轮中的做法一样。
-这些提交会进行原有的`Pull Request`，在小明原来的评注旁边可以再次`review`变更。
+这些提交会进入的`Pull Request`，小明在原来的评注旁边可以再次`review`变更。
 
 ### 小明接受`Pull Request`
 
@@ -207,7 +208,7 @@ git push origin some-branch
 -----------------
 
 到了这里，你应该有了所有需要的工具来集成`Pull Request`到你自己的工作流。
-记住，`Pull Request`并不是为了替代任何[基于`Git`的协作工作流](README.md)，
+请记住，`Pull Request`并不是为了替代任何[基于`Git`的协作工作流](README.md)，
 而是它们的一个便利的补充，让团队成员间的协作更轻松方便。
 
 -----------------
