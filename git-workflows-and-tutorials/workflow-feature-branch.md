@@ -3,40 +3,40 @@
 
 ![](images/git-workflow-feature-branch-1.png)
 
-一旦你玩转了[集中式工作流](workflow-centralized.md)，在开发过程中加上功能分支是用来鼓励开发者之间协作和简化交流一个很简单的做法。
+一旦你玩转了[集中式工作流](workflow-centralized.md)，在开发过程中可以很简单地加上功能分支，用来鼓励开发者之间协作和简化交流。
 
 功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在`master`分支上。
-这个隔离让可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。
+这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。
 另外，也保证了`master`分支的代码一定不会是有问题的，极大有利于集成环境。
 
-功能开发隔离也让[`pull requests`](pull-request.md)工作流成功可能，
-[`pull requests`](pull-request.md)工作流能为每个分支发起一个讨论，给另外开发者在分支合入正式项目之前表示赞同机会。
+功能开发隔离也让[`pull requests`工作流](pull-request.md)成功可能，
+`pull requests`工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。
 另外，如果你在功能开发中有问题卡住了，可以开一个`pull requests`来向同学们征求建议。
 这些做法的重点就是，`pull requests`让团队成员之间互相评论工作变成非常方便！
 
 :beer: 工作方式
 ---------------------
 
-功能分支工作流仍然用中央仓库，并且`master`分支还是代码正式的项目历史。
+功能分支工作流仍然用中央仓库，并且`master`分支还是代表了正式项目的历史。
 但不是直接提交本地历史到各自的本地`master`分支，开发者每次在开始新功能前先创建一个新分支。
-功能分支应该有个有描述性的名字，比如`animated-menu-items`或`issue-#1061`，这样可以让分支有个清楚且高聚焦的目标。
+功能分支应该有个有描述性的名字，比如`animated-menu-items`或`issue-#1061`，这样可以让分支有个清楚且高聚焦的用途。
 
-在`master`分支和功能分支，`Git`是没有技术上的区别，所以开发者可以用和集中式工作流中完全一样的方式编辑、暂存和提交修改到功能分支上。
+在`master`分支和功能分支之间，`Git`是没有技术上的区别，所以开发者可以用和集中式工作流中完全一样的方式编辑、暂存和提交修改到功能分支上。
 
-并且功能分支也可以（且应该）`push`到中央仓库中。这样不修改正式代码不可以和其它开发者分享提交的功能。
-在中央仓库上有多个功能分支不会带任何问题，而`master`仅有的一个『特殊』分支。当然，这也是备份大家本地提交一个便利的做法。
+另外，功能分支也可以（且应该）`push`到中央仓库中。这样不修改正式代码就可以和其它开发者分享提交的功能。
+由于`master`仅有的一个『特殊』分支，在中央仓库上存多个功能分支不会有任何问题。当然，这样做也可以很方便地备份各自的本地提交。
 
 ### `Pull Requests`
 
-分支除了可以隔离功能的开发，也使得通过[`Pull Requests`](pull-request.md)讨论变更成为可能。
-一旦某个开发完成一个功能，不是立即合并到`master`，而是`push`到中央仓库的功能分支上并发起一个`Pull Request`请求合并修改到`master`。
+功能分支除了可以隔离功能的开发，也使得通过[`Pull Requests`](pull-request.md)讨论变更成为可能。
+一旦某个开发完成一个功能，不是立即合并到`master`，而是`push`到中央仓库的功能分支上并发起一个`Pull Request`请求去合并修改到`master`。
 在修改成为主干代码前，这让其它的开发者有机会先去`Review`变更。
 
-`Code Review`是`Pull Requests`的一个重要的收益，但Code Review实践的目的实际上是讨论代码一个通用方式。
+`Code Review`是`Pull Requests`的一个重要的收益，但`Pull Requests`目的是讨论代码一个通用方式。
 你可以把`Pull Requests`作为专门给某个分支的讨论。这意味着可以在更早的开发过程中就可以进行`Code Review`。
-比如，一个开发者开发功能时需要帮助，要做的就是发起一个`Pull Request`，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。
+比如，一个开发者开发功能需要帮助时，要做的就是发起一个`Pull Request`，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。
 
-一旦`Pull Request`被接受了，发布功能要做的和集中式工作流就很像了。
+一旦`Pull Request`被接受了，发布功能要做的就和集中式工作流就很像了。
 首先，确定本地的`master`分支和上游的`master`分支是同步的。然后合并功能分支到本地`master`分支并`push`已经更新的本地`master`分支到中央仓库。
 
 仓库管理的产品解决方案像[`Bitbucket`](http://bitbucket.org/)或[`Stash`](http://www.atlassian.com/stash)，可以良好地支持`Pull Requests`。可以看看`Stash`的[`Pull Requests`文档](https://confluence.atlassian.com/display/STASH/Using+pull+requests+in+Stash)。
@@ -70,7 +70,7 @@ git commit
 ![](images/git-workflow-feature-branch-3.png)
 
 早上小红为新功能添加一些提交。
-去吃午饭前，`push`功能分支到中央仓库是很好的做法，这是一个方便的备份，如果和其它开发协作，也让他们可以看到小红的提交。
+去吃午饭前，`push`功能分支到中央仓库是很好的做法，这样可以方便地备份，如果和其它开发协作，也让他们可以看到小红的提交。
 
 ```bash
 git push -u origin marys-feature
@@ -91,7 +91,7 @@ git push
 ```
 
 然后，在她的`Git` `GUI`客户端中发起`Pull Request`，请求合并`marys-feature`到`master`，团队成员会自动收到通知。
-`Pull Request`很酷的是可以在相关的提交旁边显示评注，所以可以很对某个变更集提问。
+`Pull Request`很酷的是可以在相关的提交旁边显示评注，所以你可以很对某个变更集提问。
 
 ### 小黑收到`Pull Request`
 
@@ -120,7 +120,7 @@ git pull origin marys-feature
 git push
 ```
 
-无论谁来做合并，首先要检出`master`分支并确认是它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到和远程一致的本地`master`分支。
+无论谁来做合并，首先要检出`master`分支并确认是它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到和已经和远程一致的本地`master`分支。
 你可以使用简单`git merge marys-feature`命令，但前面的命令可以保证总是最新的新功能分支。
 最后更新的`master`分支要重新`push`回到`origin`。
 
@@ -130,7 +130,7 @@ git push
 一些`GUI`客户端可以只要点一下『接受』按钮执行好上面的命令来自动化`Pull Request`接受过程。
 如果你的不能这样，至少在功能合并到`master`分支后能自动关闭`Pull Request`。
 
-与此同时，小明在做小红一样的事
+### 与此同时，小明在做和小红一样的事
 
 当小红和小黑在`marys-feature`上工作并讨论她的`Pull Request`的时候，小明在自己的功能分支上做完全一样的事。
 
