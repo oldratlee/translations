@@ -106,7 +106,109 @@
 :beer: 示例
 ---------------------
 
+下面的示例演示了`Pull Request`如何在在`Forking`工作流中使用。
+也同样适用于小团队的开发协作和第三方开发者向开源项目的贡献。
 
+在示例中，小红是个开发，小明是项目维护者。他们各自有一个公有的`Bitbucket`仓库，而小明的仓库包含了正式工程。
+
+### 小红`fork`正式项目
+
+![](images/pull-request-1.png)
+
+小红先要`fork`小明的`Bitbucket`仓库，开始项目的开发。她登陆`Bitbucket`，浏览到小明的仓库页面，
+点`Fork`按钮。
+
+![](images/pull-request-2.png)
+
+然后为`fork`出来的仓库填写名字和描述，这样小红就有了服务端的项目拷贝了。
+
+### 小红克隆她的`Bitbucket`仓库
+
+![](images/pull-request-3.png)
+
+下一步，小红克隆自己刚才`fork`出来的`Bitbucket`仓库，以在本机上准备出工作拷贝。命令如下：
+
+```bash
+git clone https://user@bitbucket.org/user/repo.git
+```
+
+注意，`git clone`会自动创建`origin`远程别名，指向小红`fork`的仓库。
+
+### 小红开发新功能
+
+![](images/pull-request-4.png)
+
+在开始改代码前，小红要为新功能先新建一个新分支。她会用这个分支作为`Pull Request`的源分支。
+
+```bash
+git checkout -b some-feature
+# Edit some code
+git commit -a -m "Add first draft of some feature"
+```
+
+在新功能分支上，小红按需要添加提交。甚至如果小红觉得功能分支上的提交历史太乱了，她可以用[交互式`rebase`](https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase-i)来删除或压制提交。
+对于大型项目，整理功能分支的历史让项目维护者更容易看出在`Pull Request`中做了什么内容。
+
+### 小红`push`功能到她的`Bitbucket`仓库中
+
+![](images/pull-request-5.png)
+
+小红完成了功能后，`push`功能到她自己的`Bitbucket`仓库中（不是正式仓库），用下面简单的命令：
+
+```bash
+git push origin some-branch
+```
+
+这时你的变更可以让项目维护者看到了（或者任何想要看的协作者）。
+
+### 小红发起`Pull Request`
+
+![](images/example-6.png)
+
+`Bitbucket`上有了她的功能分支后，小红可以用她的`Bitbucket`账号浏览到她的`fork`出来的仓库页面，
+点右上角的【`Pull Request`】按钮，发起一个`Pull Request`。
+弹出的表单自动设置小红的仓库为源仓库，询问小红以指定源分支、目标仓库和目标分支。
+
+小红想要合并功能到正式仓库，可以源分支是她的功能分支，目标仓库是小明的公开仓库，
+而目标分支是`master`分支。另外，小红需要提供`Pull Request`的标题和描述信息。
+如果需要小明以后的人审核批准代码，她可以把这些人填在【Reviewers】文本框中。
+
+![](images/pull-request-7.png)
+
+创建好了`Pull Request`，通知会通过`Bitbucket`系统消息或邮件（可选）发给小明。
+
+### 小明review `Pull Request`
+
+![](images/pull-request-8.png)
+
+在小明的`Bitbucket`仓库页面的【`Pull Request` Tab】可以看到所有人发起的`Pull Request`.
+点击小红的`Pull Request`会显示出`Pull Request`的描述、功能的提交历史和每个变更的差异（`diff`）。
+
+如果小明可以合并到项目中，只要点一下【`Merge`】按钮，就可以同意`Pull Request`并合并到`master`分支。
+
+但如果像这个示例中一样小明发现了在小红的代码中的一个小`Bug`，要小红在合并前修复。
+小明可以在整个`Pull Request`上加上评注，或是选择历史中的某个提交加上评注。
+
+![](images/pull-request-9.png)
+
+### 小红补加提交
+
+如果小红对反馈有任何疑问，可以在`Pull Request`中响应，把`Pull Request`当作是她功能讨论的论坛。
+
+小红在她的功能分支新加提交以解决代码问题，并`push`到她的`Bitbucket`仓库中，就像前一轮中的做法一样。
+这些提交会进行原有的`Pull Request`，在小明原来的评注旁边可以再次`review`变更。
+
+### 小明接受`Pull Request`
+
+最终，小明接受变更，合并功能分支到`master`分支，并关闭`Pull Request`。
+至此，功能集成到项目中，其它的项目开发者可以用标准的`git pull`命令`pull`这些变更到自己的本地仓库中。
+
+:beer: 下一站
+-----------------
+
+到了这里，你应该有了所有需要的工具来集成`Pull Request`到你自己的工作流。
+记住，`Pull Request`并不是为了替代任何[基于`Git`的协作工作流](README.md)，
+而是它们的一个便利的补充，让团队成员间的协作更轻松方便。
 
 -----------------
 
