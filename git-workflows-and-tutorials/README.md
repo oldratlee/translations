@@ -4,13 +4,13 @@
 
 工作流其实不是一个初级主题，背后本质的问题其实是有效的项目流程管理和高效的开发协同约定，不仅是`Git`和`SVN`工具的使用。
 
-这篇指南以大家在`SVN`中已经广为熟悉使用的集中式工作流开始，循序渐进地发展到高效的分布式工作流，及如何配合使用便利的`Pull Request`功能，体系地讲解了各种工作流应用。
+这篇指南以大家在`SVN`中已经广为熟悉使用的集中式工作流开始，循序渐进地演进到其它高效的分布式工作流，及如何配合使用便利的`Pull Request`功能，体系地讲解了各种工作流的应用。
 
-行文中实践原则和操作示例并重，对于`Git`的资深玩家可以梳理思考提升，而新接触的同学，一样可以跟着step-by-step操作来学习操练并在实际工作使用。
+行文中实践原则和操作示例并重，对于`Git`的资深玩家可以梳理思考提升，而新接触的同学，一样可以跟着step-by-step操作来操练学习并在实际工作中上手使用。
 
 对于`Git`工作流主题，目前网上资料很少，多是零散地操作说明，希望这篇文章能让你更深入理解并在工作中灵活有效地使用起来。
 
-自己理解粗浅，翻译不合适和不对的地方，欢迎建议（[提交Issue](https://github.com/quickhack/translations/issues))和指正（[Fork后提交代码](https://github.com/quickhack/translations/fork)）！
+[自己](http://weibo.com/oldratlee)理解粗浅，翻译不合适和不对的地方，欢迎建议（[提交Issue](https://github.com/quickhack/translations/issues)）和指正（[Fork后提交代码](https://github.com/quickhack/translations/fork)）！
 
 `Git`工作流指南
 ======================
