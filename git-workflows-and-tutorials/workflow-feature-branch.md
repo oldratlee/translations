@@ -147,4 +147,4 @@ git push
 
 -----------------
 
-[« 集中式工作流](workflow-centralized.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[`Gitflow`工作流 »](workflow-gitflow.md)
+[« 集中式工作流](workflow-centralized.md)　　　　[`Gitflow`工作流 »](workflow-gitflow.md)

@@ -186,4 +186,4 @@ git pull upstream master
 
 -----------------
 
-[« `Gitflow`工作流](workflow-gitflow.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[`Pull Requests` »](pull-request.md)
+[« `Gitflow`工作流](workflow-gitflow.md)　　　　[`Pull Requests` »](pull-request.md)

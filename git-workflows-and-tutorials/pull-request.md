@@ -110,4 +110,4 @@
 
 -----------------
 
-[« `Forking`工作流](workflow-forking.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　[概述 »](README.md)
+[« `Forking`工作流](workflow-forking.md)　　　　[概述 »](README.md)

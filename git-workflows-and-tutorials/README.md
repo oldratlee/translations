@@ -54,4 +54,4 @@
 
 -----------------
 
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[集中式工作流 »](workflow-centralized.md)
+　　　　　　　　[集中式工作流 »](workflow-centralized.md)

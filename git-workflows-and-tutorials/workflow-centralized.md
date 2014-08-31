@@ -202,4 +202,4 @@ git push origin master
 
 -----------------
 
-[« 概述](README.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[功能分支工作流 »](workflow-feature-branch.md)
+[« 概述](README.md)　　　　[功能分支工作流 »](workflow-feature-branch.md)

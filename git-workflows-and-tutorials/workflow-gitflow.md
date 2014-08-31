@@ -200,4 +200,4 @@ git branch -d issue-#001
 
 -----------------
 
-[« 功能分支工作流](workflow-feature-branch.md)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　[`Forking`工作流 »](workflow-forking.md)
+[« 功能分支工作流](workflow-feature-branch.md)　　　　[`Forking`工作流 »](workflow-forking.md)
