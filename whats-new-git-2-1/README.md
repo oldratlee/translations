@@ -161,6 +161,73 @@ $ git replace master --graft
 
 再次说明，没有好的理由基本上不应该这么做。通常重写历史的首选方法是用明智的`git rebase`。
 
+更合理的`tag`排序通过`tag.sort`
+------------------
+
+> `git tag`开始注意`tag.sort`配置问题了，这个配置在没有指定`--sort`选项时做为缺省排序。
+
+如果你在`tag`名中使用版本号（我想99.9%你就是这么做的），这真是好消息。
+一旦你发布一个版本号中有一段多于一个数字（比如 `v10`或`v1.10`），`git`缺省的字典排序就不好用了。
+举个例子，看看`Atlassian Stash`的`git`仓库的缺省`tag`排序：
+
+```bash
+src/stash $ git tag -l *.*.0
+..
+stash-parent-2.0.0
+stash-parent-2.1.0
+stash-parent-2.10.0
+stash-parent-2.11.0
+stash-parent-2.12.0
+stash-parent-2.2.0
+stash-parent-2.3.0
+stash-parent-2.4.0
+stash-parent-2.5.0
+stash-parent-2.6.0
+stash-parent-2.7.0
+stash-parent-2.8.0
+stash-parent-2.9.0
+stash-parent-3.0.0
+..
+```
+
+不对啊！`2.10.0`是`2.3.0`之后发的，所以缺省的`tag`排序不对的。
+从`git` `2.0.0`开始，可以用`--sort`选项可以正确按数据版本排序：
+
+```bash
+src/stash $ git tag --sort="version:refname" -l *.*.0
+..
+stash-parent-2.0.0
+stash-parent-2.1.0
+stash-parent-2.2.0
+stash-parent-2.3.0
+stash-parent-2.4.0
+stash-parent-2.5.0
+stash-parent-2.6.0
+stash-parent-2.7.0
+stash-parent-2.8.0
+stash-parent-2.9.0
+stash-parent-2.10.0
+stash-parent-2.11.0
+stash-parent-2.12.0
+stash-parent-3.0.0
+..
+```
+
+这好多了。在`git` `2.1.0`中，可以设定这种排序成缺省方式，运行命令：
+
+```bash
+$ git config --global tag.sort version:refname
+```
+
+顺便说一下，`git tag`可以用灵巧的`-l`选项，上面的例子限制了只显示符合指定模式的`tag`名。
+`-l *.*.0`用于只显示大版本（`major`）和小版本（`minor`）的Stash的发布。
+
+更简单地验证有签名的提交
+------------------
+
+> 新加了`git verify-commit`命令用于检查有签名提交的`GPG`签名，使用方式和`git verify-tag`检查签名的`tag`类似。
+
+
 等等，还有还有！
 ------------------
 
