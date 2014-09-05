@@ -31,7 +31,7 @@ Python Philosophy（Python哲学）
 10. In the face of ambiguity, refuse the temptation to guess.  
 面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
-显而易见的做法应该是一个，并且宁愿只有一个，即是那个显而易见的做法。
+应该有一个，并且宁愿只有一个做法，一个显而易见的做法。
     * Although that way may not be obvious at first unless you're Dutch ***[4]***.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人`Python`之父。
 12.  Now is better than never.  
