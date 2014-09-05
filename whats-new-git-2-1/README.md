@@ -80,15 +80,15 @@ issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | 
 请记住，补全功能的脚本在`contrib/`目录下，不是`git`核心的一部分，
 所以如果你要使用这个功能，不要忘了更新`Bash profile`指向新版本的`contrib/completion/git-completion.bash`。
 
-`git commit`命令使用大概时间（`approxidate`）
+`git commit`命令使用`approxidate`
 ------------------
 
 > `git commit ‐‐date=<date>`选项有了更多的时间戳格式选项，包括`--date=now`。
 
 当严格的`parse_date()`函数不能解析给的日期字符串时，
-`git`提交的`--date`选项现在会回退到`git`酷炫的（也有些怪异的）`approxidate`（大概时间）解析器。
+`git`提交的`--date`选项现在会回退到`git`酷炫的（也有些怪异的）`approxidate`（大概日期）解析器。
 `approxidate`可以处理显而易见的值，像`--date=now`，也允许一些略复杂格式，像`--date="midnight the 12th of october, anno domini 1979"`或是`--date=teatime`。
-如果你想了解更多，Alex Peattie有一篇优秀的[关于`git`酷炫的日期处理的博文](http://alexpeattie.com/blog/working-with-dates-in-git/)。
+如果你想了解更多，Alex Peattie有一篇优秀的[关于`git`酷炫日期处理的博文](http://alexpeattie.com/blog/working-with-dates-in-git/)。
 
 更好的路径显示方式`grep.fullname`
 ------------------
@@ -112,10 +112,56 @@ $ git config --global grep.fullname true
 
 在你的配置文件开启这个选项。
 
-`--global`选项把选项应用到`$HOME/.gitconfig`文件中，这样选项值就会我系统上所有`git`仓库的缺省行为。
+`--global`选项把配置应用到`$HOME/.gitconfig`文件中，这样配置值就会我系统上所有`git`仓库的缺省行为。
 如果有必要，你可以也只在仓库级别覆盖配置值。
 
-等等，还有更多
+更聪明的`git replace`
+------------------
+
+先停一下！先看看`git replace`做了什么？
+
+简单地说，`git replace`重写`git`仓库中的某个对象并且不保持对应树或是提交的`SHA`不变。
+如果你是第一次听到`git replace`并且知道`git`的数据模型，会觉得这样的做法听起来很逆天！
+我就是这么觉得。我有另一篇正在写的博文讨论什么时候和为什么要使用这样的功能。
+如果现在你想了解更多，看[这篇文章](http://git-scm.com/blog/2010/03/17/replace.html)比看`man`手册好得多，
+手册中只有很少且不充分的用例说明。
+
+> `git replace`会读取`--edit`选项，可以编辑一个已有的对象再做替换。
+
+`--edit`选项会`dump`一个对象的内容到一个临时文件，启动你喜欢的编辑器，这样就方便地拷贝和替换这个对象。
+要替换`master`分支的最近那次提交，可以简单运行命令：
+
+```bash
+$ git replace --edit master
+```
+
+或者编辑最近那次提交的`blob`，假设是文件`jira-components/pom.xml`，可以运行命令：
+
+```bash
+$ git replace --edit master:jira-components/pom.xml
+```
+
+应该这么做？基本上不会 :smile: 大部分情况应该用`git rebase`重写对象，这样会正确的重写提交的`SHA`，保证历史是健全的（`sane history`）。
+
+> `git replace`会读取`--graft`选项，可以编辑父提交。
+
+`--graft`选项是替换一个提交有相同的内容但用不同的父提交的快捷操作。
+这可以方便地完成一个稍微正常一点的`git replace`的用例，[缩短`git`历史](http://git-scm.com/blog/2010/03/17/replace.html)。
+要替换`master`分支的最近那次提交的父，可以简单运行命令：
+
+```bash
+$ git replace master --graft [new parent]..
+```
+
+或者要砍掉某个点之后的历史，可以忽略所有父提交让这个提交成为孤儿提交：
+
+```bash
+$ git replace master --graft
+```
+
+再次说明，没有好的理由基本上不应该这么做。通常重写历史的首选方法是用明智的`git rebase`。
+
+等等，还有还有！
 ------------------
 
 在`git` `2.1.0`中还有其它很好的内容我没有在一篇文章中涉及到，所以有兴趣可以看看[完整的发布说明文档](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.1.0.txt)。
