@@ -25,7 +25,7 @@
 
 这个只会影响你日志的输出，如果你用的是一个窄的终端，或者在提交消息中有长行。
 一般`git`推荐提交日志信息[不要超过72字符宽度](http://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting)，
-但如果觉得折行还烦，可以通过恢复原来的行为来关闭：
+但如果觉得折行很烦，可以通过恢复原来的行为来关闭：
 
 ```bash
 $ git config core.pager "less -S"
@@ -55,3 +55,70 @@ $ git config pager.blame "less -S"
 ```bash
 issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
 ```
+
+所有的命令行参数传给`git log`命令，这样可以限制提交的范围用于返回`issue`主键。
+比如，`git issues -n 1`只会显示我的分支最近一次提交所关联的`issue`主键。
+在`2.1.0`中，`git`的`Bash`补全让我就像`git log`命令一样去补全`git`的`issue`别名。
+
+在`git` `2.0.3`下，键入`git issues m<tab>`会退化成缺省的`Bash`补全行为，列出当前目录下`m`开头的文件。
+在`git` `2.1.0`下，正确地补全成`master`，就和`git log`命令下补全动作一样。
+通过在别名加上空命令前缀`:`前缀，就可以触发`Bash`的补全。
+如果要补全的不是别名中的第一个命令，这个很有用。举个例子：
+
+```bash
+issues = "!f() { echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
+```
+
+这个别名不能正常补全，因为`git`不能把`echo`命令识别为补全目标。
+但如果加上前缀成`: git log;`，补全就正确了：
+
+```bash
+issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
+```
+
+这是个可用性巨大改进，如你喜欢编写复杂的别名脚本！
+请记住，补全功能的脚本在`contrib/`目录下，不是`git`核心的一部分，
+所以如果你要使用这个功能，不要忘了更新`Bash profile`指向新版本的`contrib/completion/git-completion.bash`。
+
+`git commit`命令使用大概时间（`approxidate`）
+------------------
+
+> `git commit ‐‐date=<date>`选项有了更多的时间戳格式选项，包括`--date=now`。
+
+当严格的`parse_date()`函数不能解析给的日期字符串时，
+`git`提交的`--date`选项现在会回退到`git`酷炫的（也有些怪异的）`approxidate`（大概时间）解析器。
+`approxidate`可以处理显而易见的值，像`--date=now`，也允许一些略复杂格式，像`--date="midnight the 12th of october, anno domini 1979"`或是`--date=teatime`。
+如果你想了解更多，Alex Peattie有一篇优秀的[关于`git`酷炫的日期处理的博文](http://alexpeattie.com/blog/working-with-dates-in-git/)。
+
+更好的路径显示方式`grep.fullname`
+------------------
+
+> `git grep`会读取`grep.fullname`配置变量，强制`‐‐full-name`成为缺省。
+这可能会让使用脚本的用户出错，这些用户不期望这样的新行为。
+
+省得你去翻`git-grep`的`man`，下面是`--full-name`选项的文档说明：
+
+> --full-name
+>
+> 当从子目录运行时，命令输出的路径通常相对于当前目录。这个选项强制输出的路径是相对项目的顶级目录。
+
+非常贴心！这个缺省行为非常符合我的工作方式，我常常会运行`git grep`找出一个文件的路径，
+拷贝粘贴到一个`XML`文件中（我这么做出卖了其实我是个`Java`开发）。
+如果你也觉得有用，只要简单运行：
+
+```bash
+$ git config --global grep.fullname true
+```
+
+在你的配置文件开启这个选项。
+
+`--global`选项把选项应用到`$HOME/.gitconfig`文件中，这样选项值就会我系统上所有`git`仓库的缺省行为。
+如果有必要，你可以也只在仓库级别覆盖配置值。
+
+等等，还有更多
+------------------
+
+在`git` `2.1.0`中还有其它很好的内容我没有在一篇文章中涉及到，所以有兴趣可以看看[完整的发布说明文档](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.1.0.txt)。
+由衷地感谢`git`团队又提供了一个高质量和丰富新功能的版本。
+如果你有兴趣了解更多有关于`git`的实用小建议和花边新闻，
+欢迎在Twitter上关注我（[@kannonboy](https://twitter.com/kannonboy)）和Atlassian开发工具（[@atldevtools](https://twitter.com/atldevtools)）。
