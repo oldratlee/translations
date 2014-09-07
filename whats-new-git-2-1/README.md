@@ -76,7 +76,7 @@ issues = "!f() { echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-
 issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
 ```
 
-这是个可用性巨大改进，如你喜欢编写复杂的别名脚本！
+如果你喜欢编写复杂的别名脚本，这是个可用性的巨大改进！
 请记住，补全功能的脚本在`contrib/`目录下，不是`git`核心的一部分，
 所以如果你要使用这个功能，不要忘了更新`Bash profile`指向新版本的`contrib/completion/git-completion.bash`。
 
@@ -128,7 +128,7 @@ $ git config --global grep.fullname true
 
 > `git replace`会读取`--edit`选项，可以编辑一个已有的对象再做替换。
 
-`--edit`选项会`dump`一个对象的内容到一个临时文件，启动你喜欢的编辑器，这样就方便地拷贝和替换这个对象。
+`--edit`选项会`dump`一个对象的内容到一个临时文件，启动你喜欢的编辑器，这样就可以方便地拷贝和替换这个对象。
 要替换`master`分支的最近那次提交，可以简单运行命令：
 
 ```bash
@@ -159,15 +159,15 @@ $ git replace master --graft [new parent]..
 $ git replace master --graft
 ```
 
-再次说明，没有好的理由基本上不应该这么做。通常重写历史的首选方法是用明智的`git rebase`。
+再次说明，如果没有好的理由基本上不应该这么做。通常重写历史的首选方法是用明智的`git rebase`。
 
 更合理的`tag`排序通过`tag.sort`
 ------------------
 
-> `git tag`开始注意`tag.sort`配置问题了，这个配置在没有指定`--sort`选项时做为缺省排序。
+> `git tag`开始注意`tag.sort`的配置问题了，这个配置在没有指定`--sort`选项时做为缺省排序。
 
 如果你在`tag`名中使用版本号（我想99.9%你就是这么做的），这真是好消息。
-一旦你发布一个版本号中有一段多于一个数字（比如 `v10`或`v1.10`），`git`缺省的字典排序就不好用了。
+一旦你发布的版本号中有一段多于一个数字（比如 `v10`或`v1.10`），`git`缺省的字典排序就不好用了。
 举个例子，看看`Atlassian Stash`的`git`仓库的缺省`tag`排序：
 
 ```bash
@@ -191,7 +191,7 @@ stash-parent-3.0.0
 ```
 
 有问题啊！`2.10.0`是`2.3.0`之后发的，所以缺省的`tag`排序不对的。
-从`git` `2.0.0`开始，可以用`--sort`选项可以正确按数据版本排序：
+从`git` `2.0.0`开始，可以用`--sort`选项可以正确按数值做版本排序：
 
 ```bash
 src/stash $ git tag --sort="version:refname" -l *.*.0
@@ -219,32 +219,32 @@ stash-parent-3.0.0
 $ git config --global tag.sort version:refname
 ```
 
-顺便说一下，`git tag`可以用灵巧的`-l`选项，上面的例子限制了只显示符合指定模式的`tag`名。
-`-l *.*.0`用于只显示大版本（`major`）和小版本（`minor`）的Stash的发布。
+顺便说一下，上面的示例`git tag`命令中使用了方便的`-l`选项，限制了只显示符合指定模式的`tag`名。
+`-l *.*.0`用于只显示大版本（`major`）和小版本（`minor`）的`Stash`的发布。
 
 更简单地验证有签名的提交
 ------------------
 
 > 新加了`git verify-commit`命令用于检查有签名提交的`GPG`签名，使用方式和`git verify-tag`检查签名的`tag`类似。
 
-如果你要用提交签名来认证提交的作者，`verify-commit`命令大大简化了核实签名操作。不再需要自己写个脚本去分析`git log --show-signature`，
-只要简单把要核实签名的那些提交传给`git verify-commit`。
-有可能你没有用签名提交（在`Atlassian`我们没有用），因为这们做需要有`Key`管理和开发额外麻烦的操作。
-对于多数项目，一般签名的`Tag`是在方便和安全之间一个更好的平衡。
-如果你想知道为什么有项目会使用签名提交，Mike Gerwitz讲了一个在假设场景下[`git`的恐怖故事](http://mikegerwitz.com/papers/git-horror-story)，这个场景下签名提交是非常有用的。
+如果你要用提交签名来认证提交的作者，`verify-commit`命令大大简化了验证签名的操作。不再需要自己写个脚本去分析`git log --show-signature`，
+只要简单把要验证签名的那些提交传给`git verify-commit`。
+有可能你没有用签名提交（在`Atlassian`我们没有用），因为这么做需要管理`Key`和开发额外麻烦的操作。
+对于多数项目，一般情况下签名的`Tag`是在方便性和安全性之间一个更好的平衡。
+如果你想知道为什么有项目要使用签名提交，Mike Gerwitz讲了一个在假设场景下[`git`的恐怖故事](http://mikegerwitz.com/papers/git-horror-story)，这个场景下签名提交是非常有用的。
 所以如果你在特别敏感的企业工作，可能要把它加入到工作流中。
 
 更多的性能加速
 ------------------
 
-`git` `2.1.0`也带来了一个不错的性能提升。
+`git` `2.1.0`也带来了一些不错的性能提升。
 
-> 引入了使用2个文件（一个基础文件和一个相应的增量文件）的试验性格式来表示索引；
+> 引入了使用2个文件（一个基础文件和一个相应的增量文件）来表示索引的试验性格式；
 当要重写只有小部分工作树变化的大索引时，这样可能减少I/O消耗。
 
-复述一下意思是：如果你的提交有大量文件修改时，运行`git add`可能会更快。
-我本地的任何增量操作，`git add`已经像闪电一样快了，所以我测看不出和测试的`git`版本之间有什么大的性能变化。
-有意思的是，第一次的`add`大量文件时好像快了一点。
+复述一下意思就是：如果你的提交有大量文件修改时，运行`git add`可能会更快。
+我本地的任何增量操作，`git add`已经像闪电一样快了，所以我看不出和测试的`git`版本之间有什么大的性能变化。
+有意思的是，大量文件的第一次`add`好像快了一点。
 做了个快糙猛的性能测试，我试着暂存所有在`JIRA`代码库从`JIRA 5`到`JIRA 6`的修改。
 
 ```bash
@@ -255,7 +255,7 @@ $ time git add --all
 
 `git` `2.0.3`平均使用2.44秒。而`git` `2.1.0`平均使用2.18秒 ——
 节省超过10%的时间！注意，由于实验条件这是个很不准确的测试，添加14500+个文件到索引中节省了1/4秒，所以在日常`git`使用中不会看到大的变化。
-关于新索引格式可以在[索引格式文件](https://code.google.com/p/git-core/source/browse/Documentation/technical/index-format.txt)中可以了解更多。
+关于新索引格式可以在[索引格式文档](https://code.google.com/p/git-core/source/browse/Documentation/technical/index-format.txt)中了解更多。
 
 > 缺省开启了`core.preloadindex`配置项，以充分利用现代平台的多核。
 
@@ -271,7 +271,7 @@ $ time git add --all
 我很高兴看到这个改进，就是说`git-guilt`（我写的一个小工具，用于研究[如何`blame`提交的修改](https://blogs.atlassian.com/2014/07/git-guilt-blame-code-review/)）
 可以有相当的性能提高，因为它重度依赖于`blame`到函数的输出。
 
-又来一个快糙猛的测试，看一下算出`git`源码仓库从`2.0.0`到`2.1.0`的`guilt`要花多长时间。
+又来一个快糙猛的测试，看一下算出`git`源码仓库从`2.0.0`到`2.1.0`的『罪行证据』（`guilt transfer`）要花多长时间。
 这个操作`git-guilt`要在`git` `2.0.0`到`2.1.0`修改过的不同大小的文件上调用886次`git blame`命令。
 
 ```bash
@@ -283,7 +283,7 @@ $ git guilt v2.0.0 v2.1.0
 （Karsten Blees的66 LOC行的实现，以微弱优势胜出Junio C Hamano）。
 
 上面的性能测试都有些随意，但我们正在进行`Bitbucket`的`git` `2.1.0`升级。
-线上会监控升级前后功能，可以确定新版本对这些操作的性能影响，特别是`blame`和`diff`操作。
+线上会监控升级前后的功能，可以确定新版本对这些操作的性能影响，特别是`blame`和`diff`操作。
 过几周我会发出结果让大家知道。
 
 等等，还有还有！
