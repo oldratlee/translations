@@ -33,7 +33,7 @@ Python Philosophy（Python哲学）
 11. There should be one -- and preferably only one -- obvious way to do it.  
 应该有一个，并且宁愿只有一个做法，一个显而易见的做法。
     * Although that way may not be obvious at first unless you're Dutch ***[4]***.  
-      尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人`Python`之父。
+      尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
 12.  Now is better than never.  
 “现在” 优于 “决不”。
     * Although never is often better than **right** now.    
@@ -63,7 +63,9 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 `C`的Geek，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
 在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的负作用），也降低了代码的可读性。
 
-***[4]*** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)
+***[4]*** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。
+
+体现了`Python`即含蓄地表达了对`Python`之父Guido的敬意，又体现了作为`Python`开发的傲娇，不是吗？ :grin:
 
 个人讨论
 ----------------------
