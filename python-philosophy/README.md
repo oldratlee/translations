@@ -1,4 +1,7 @@
-Python Philosophy（Python哲学）
+Python Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)    
+译文发在：[Python Philosophy（Python哲学）翻译及简析](http://oldratlee.com/147/tech/python/python-philosophy.html)，2010-09-28
+
+Python Philosophy（Python哲学）翻译及简析
 ============================================
 
 ![Python-Programming-Language](Python-Programming-Language.png)
@@ -83,7 +86,6 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 参考/阅读资料
 ----------------------
 
-1. Python Philosophy原文及相关说明 [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)
 1. [Python(programming language) - Wikipedia](http://en.wikipedia.org/wiki/Python_%28programming_language%29#Programming_philosophy)
 1. [No programming language offers what Python does philosophically.](http://www.indicthreads.com/1062/no-programming-language-offers-what-python-does-philosophically/)  
 在编程哲学上，Python超越了其它编程语言。
