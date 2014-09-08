@@ -3,6 +3,8 @@
 `Git` `2.1`新特性
 ======================
 
+![git](git.png)
+
 在`git` `2.0.0`发布2个半月后，作为小版本更新迎来了`2.1.0`，带来了一大波令人兴奋的新特性。
 
 完整的发布说明文档可以在[这里](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.1.0.txt)查看，但如果你不怎么接触`git`社区，会觉得发布说明文档说明有些太简明了。这篇文章是我对这次发布在`Atlassian`使用中令我们兴奋的方面所做的评注。
