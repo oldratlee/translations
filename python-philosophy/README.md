@@ -1,7 +1,7 @@
-![Python-Programming-Language](Python-Programming-Language.png)
-
 Python Philosophy（Python哲学）
 ============================================
+
+![Python-Programming-Language](Python-Programming-Language.png)
 
 原文及译文
 ----------------------
@@ -65,7 +65,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 ***[4]*** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。
 
-体现了`Python`即含蓄地表达了对`Python`之父Guido的敬意，又体现了作为`Python`开发的傲娇，不是吗？ :grin:
+在这里作者[TimPeters](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父Guido的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 
 个人讨论
 ----------------------
