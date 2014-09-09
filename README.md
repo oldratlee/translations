@@ -14,6 +14,7 @@ Chinese translations for good english resources.
 ------------------
 
 - [Python Philosophy（Python哲学）翻译及简析](python-philosophy/)
+- [Java的通用I/O API设计](generic-io-api-in-java-and-api-design/)
 - [GUI & CLI原则](gui-and-cli-principles/)
 
 其它
