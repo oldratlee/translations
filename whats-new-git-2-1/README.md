@@ -1,13 +1,14 @@
-原文链接： [What’s new in Git 2.1](http://blogs.atlassian.com/2014/08/whats-new-git-2-1/) - [Tim Pettersen](http://blogs.atlassian.com/author/tpettersen/)
+原文链接： [What’s new in Git 2.1](http://blogs.atlassian.com/2014/08/whats-new-git-2-1/) - [Tim Pettersen](http://blogs.atlassian.com/author/tpettersen/)   
+译文发在[博乐在线](http://www.jobbole.com/)： [http://blog.jobbole.com/76550/](http://blog.jobbole.com/76550/)，2014-09-08
 
-`Git` `2.1`新特性
+`Git` `2.1`有哪些新特性？
 ======================
 
 ![git](git.png)
 
 在`git` `2.0.0`发布2个半月后，作为小版本更新迎来了`2.1.0`，带来了一大波令人兴奋的新特性。
 
-完整的发布说明文档可以在[这里](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.1.0.txt)查看，但如果你不怎么接触`git`社区，会觉得发布说明文档说明有些太简明了。这篇文章是我对这次发布在`Atlassian`使用中令我们兴奋的方面所做的评注。
+完整的发布说明文档可以在[这里](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.1.0.txt)查看，但如果你不怎么接触`git`社区，会觉得发布说明文档有些太简明了。这篇文章是我对这次发布在`Atlassian`使用中令我们兴奋的方面所做的评注。
 
 更好的分页程序缺省设置
 ------------------
