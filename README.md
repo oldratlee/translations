@@ -13,9 +13,9 @@ Chinese translations for good english resources.
 设计原则
 ------------------
 
-- [Python Philosophy（Python哲学）翻译及简析](python-philosophy/)
-- [Java的通用I/O API设计](generic-io-api-in-java-and-api-design/)
-- [GUI & CLI原则](gui-and-cli-principles/)
+- [`Python` Philosophy（`Python`哲学）翻译及简析](python-philosophy/)
+- [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/)
+- [`GUI` & `CLI`原则](gui-and-cli-principles/)
 
 其它
 ------------------

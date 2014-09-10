@@ -1,7 +1,7 @@
-Python Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)    
-译文发在：[Python Philosophy（Python哲学）翻译及简析](http://oldratlee.com/147/tech/python/python-philosophy.html)，2010-09-28
+`Python` Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)    
+译文发在：[`Python` Philosophy（`Python`哲学）翻译及简析](http://oldratlee.com/147/tech/python/python-philosophy.html)，2010-09-28
 
-Python Philosophy（Python哲学）翻译及简析
+`Python` Philosophy（`Python`哲学）翻译及简析
 ============================================
 
 ![Python-Programming-Language](Python-Programming-Language.png)
