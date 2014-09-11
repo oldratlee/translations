@@ -8,7 +8,7 @@ Chinese translations for good english resources.
 ------------------
 
 - [`Git`工作流指南](git-workflows-and-tutorials/)
-- [`Git` `2.1`新特性](whats-new-git-2-1/)
+- [`Git` `2.1`有哪些新特性？](whats-new-git-2-1/)
 
 设计原则
 ------------------
