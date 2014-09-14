@@ -1,5 +1,13 @@
-[`bash 2` `man`中文翻译](http://ahei.info/chinese-bash-man.htm) - 袁乙钧 \<bbbush@163.com\>  
-本翻译在上面的基础上更新到`bash 3`。
+袁乙钧 \<bbbush@163.com\> 提供了`bash 2` `man`的[中文翻译](http://ahei.info/chinese-bash-man.htm)，感谢袁乙钧的精致和辛勤的翻译工作。
+
+本翻译以上面为基础，所做如下：
+
+- 校审翻译，合理地中文化，减少不必要的英文原文。
+- 更新到`bash 3`，目前生产环境主流使用的`bash`版本。   
+bash的版本及发布时间可以从[`bash`下载页面](http://ftp.gnu.org/gnu/bash/?C=M;O=A)大致确认。
+- 使用`markdown`重新排版，优先格式方便查看。
+
+[自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎建议（[提交Issue](https://github.com/quickhack/translations/issues)）和指正（[Fork后提交代码](https://github.com/quickhack/translations/fork)）！
 
 Bash man
 ===============================
@@ -9,6 +17,7 @@ Bash man
 目录
 -------------
 
+1. [名字](overview.md#名字)
 1. [概要](overview.md#概要)
 1. [版权所有](overview.md#版权所有)
 1. [描述](overview.md#描述)
