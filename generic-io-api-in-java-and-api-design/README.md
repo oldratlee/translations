@@ -5,7 +5,7 @@
 
 原文[A generic input/output API in Java](http://www.jroller.com/rickard/entry/a_generic_input_output_api)(by Rickard Öberg)中给出了一个通用`Java` `IO` `API`设计，并且有`API`的`Demo`代码。
 
-更重要的一点是，这篇文章给出实现这个`API`设计本身的步骤和过程，这让`API`设计实现过程有了条理。文中示范了从 普通简单实现 整理成 正确分解、可以复用、可扩展的`API`设计 的过程。
+更重要的一点是，这篇文章给出这个`API`设计本身的步骤和过程，这让`API`设计有些条理。文中示范了从 普通简单实现 整理成 正确分解、可以复用、可扩展的`API`设计 的过程。
 这个很值得理解和学习！
 
 设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件好事。
