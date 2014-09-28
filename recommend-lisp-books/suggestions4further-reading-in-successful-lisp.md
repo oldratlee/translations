@@ -8,8 +8,8 @@ The Art of the Metaobject Protocol
 
 *Kiczales et al*, MIT Press, 1991, ISBN 0-262-61074-4
 
-这是元对象协议的权威说明，在`Lisp`圈中被称为***AMOP***。
-不是一篇轻松的读物；可以先存着直到对你自己的`Lisp`能力非常有信心的时候。
+这是元对象协议的权威说明，在`Lisp`圈中被称为**AMOP**。
+不是一本轻松的读物；可以先存着，直到对你自己的`Lisp`能力非常有信心的时候再读。
 
 ANSI Common Lisp
 -------------------------------------
