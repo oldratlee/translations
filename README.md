@@ -4,18 +4,23 @@ translations
 一些不错英文资料的中文翻译。  
 Chinese translations for good english resources.
 
-`Git`
-------------------
-
-- [`Git`工作流指南](git-workflows-and-tutorials/)
-- [`Git` `2.1`有哪些新特性？](whats-new-git-2-1/)
-
 设计原则
 ------------------
 
 - [`Python` Philosophy（`Python`哲学）翻译及简析](python-philosophy/)
 - [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/)
 - [`GUI` & `CLI`原则](gui-and-cli-principles/)
+
+`Git`
+------------------
+
+- [`Git`工作流指南](git-workflows-and-tutorials/)
+- [`Git` `2.1`有哪些新特性？](whats-new-git-2-1/)
+
+`Lisp`
+------------------
+
+- [***Successful Lisp***中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
 
 其它
 ------------------
