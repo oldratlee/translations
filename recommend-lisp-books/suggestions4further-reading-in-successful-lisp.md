@@ -16,7 +16,7 @@ ANSI Common Lisp
 
 *Graham*, 1996, Prentice-Hall, ISBN 0-13-370875-6
 
-对于经验的`lisp`程序员，这是一本给不错的进阶的读物，对于初学者，是本优秀的学习书籍。
+对于经验的`Lisp`程序员，这是一本给不错的进阶的读物，对于初学者，是本优秀的学习书籍。
 （我觉得这本书作为初学者的第一本书有些太简明的，但你可能想先过一下，看看是否你自己觉得这本书合适用初学。）
 
 On Lisp: Advanced Techniques for Common Lisp
