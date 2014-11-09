@@ -1,12 +1,12 @@
 原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)
 
-关于Java你可能不知道的10件事
+关于`Java`你可能不知道的10件事
 ===============================================
 
-嗯，也许你写`Java`代码已经有些年头了。还记得吗这些吗：
+嗯，也许你写`Java`代码已经有些年头了，你还依稀记得这些吧：
 那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲……
 
-但我赌你下面的这些事你至少有一半还不知道。来聊聊这些让你有些惊讶的`Java`内部的事儿。
+但我打赌下面的这些事中你至少有一半还不知道。来聊聊这些会让你有些惊讶的`Java`内部的事儿。
 
 1. 其实不存在受检异常（`checked exception`）
 ---------------------------------------
@@ -14,7 +14,7 @@
 是的！`JVM`并不感知这个，只有`Java`语言感知。
 
 今天，大家都赞同，受检异常是个设计失误，`Java`语言的设计失误。正如 *Bruce Eckel* 在布拉格的[`GeeCON`会议上最后一页的演示](http://www.geecon.cz/speakers/?id=2)中说的，
-`Java`之后语言都不会再有受检异常，甚至在`Java` 8中新式流`API`（`Streams API`）都不再拥抱受检异常
+`Java`之后的语言都不会再有受检异常，甚至在`Java` 8中新式流`API`（`Streams API`）都不再拥抱受检异常
 （[以`lambda`的方式来使用`IO`和`JDBC`，这个`API`用起来还是有些痛苦的](http://blog.jooq.org/2014/05/23/java-8-friday-better-exceptions/)。）
 
 想证明`JVM`不感知受检异常？试试下面的这段代码：
@@ -156,7 +156,7 @@ class Test {
 或换句话说：
 
 > 在4周休假前的最后一个提交里，我写了这样的代码，然后。。。
-![](hexhyZ8.jpg)  
+![](for-you-my-dear-coworkers.jpg)  
 【***译注***】画外音：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈~
 
 找出上面用法的合适的使用场景，还是留给你作为一个练习吧。
@@ -250,7 +250,7 @@ System.out.println(ch); // prints 'a'
 6. 随机`Integer`
 ---------------------------------------
 
-这个问题比迷题还迷题。先不要看解答，看看你能不能自己找出问题。运行下面的代码：
+这个问题比迷题还迷题。先不要看解答，看看你能不能自己找出怎么才能这样的方法。运行下面的代码：
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -306,7 +306,7 @@ for (int i = 0; i < 10; i++) {
 别在家里这么玩！或换句话说，想想会有这样的状况（我再说一遍吧:）：
 
 > 在4周休假前的最后一个提交里，我写了这样的代码，然后。。。
-![](hexhyZ8.jpg)  
+![](for-you-my-dear-coworkers.jpg)  
 【***译注***】画外音：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈~
 
 7. GOTO
@@ -323,12 +323,12 @@ int goto = 1;
 ```java
 Test.java:44: error: <identifier> expected
     int goto = 1;
-       ^
+        ^
 ```
 
 这是因为`goto`是个[还未使用的关键字](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)，保留了为以后可以用……
 
-但这不是我要说的令人吃惊的内容。令人兴奋的是，你可以用`break`、`continue`和有标签的代码块来实现`goto`：
+但这不是我要说的让你兴奋的内容。让你兴奋的是，你可以用`break`、`continue`和有标签的代码块来实现`goto`：
 
 向前跳：
 
@@ -410,7 +410,7 @@ new Test().x(1, 2L);
 
 玩够了这些恶心的小把戏。现在来些真正的干货了！
 
-9. 有些类型关系是不确定的
+9. 有些类型的关系是不确定的
 ---------------------------------------
 
 好，这条会很稀奇古怪，你先来杯咖啡，再集中精神来看。
@@ -418,7 +418,7 @@ new Test().x(1, 2L);
 看看下面的2个类型：
 
 ```java
-// A helper type. You could also just use List
+// 一个辅助类。也可以直接使用List
 interface Type<T> {}
  
 class C implements Type<Type<? super C>> {}
@@ -427,18 +427,120 @@ class D<P> implements Type<Type<? super D<D<P>>>> {}
 
 类型`C`和`D`啥意思呢？
 
+这2个类型声明中包含了递归，和[`java.lang.Enum`](http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html)的声明类似
+（但有点点不同）：
 
+```java
+public abstract class Enum<E extends Enum<E>> { ... }
+```
 
+有了上面的类型声明，一个实际的`enum`实现只是语法糖：
 
+```java
+// 这样的声明
+enum MyEnum {}
+ 
+// 实现是只是下面写法的语法糖：
+class MyEnum extends Enum<MyEnum> { ... }
+```
 
+记住上面的这点后，我们再回来看刚才我们的2个类型声明。下面的代码可以编译通过吗？
 
+```java
+class Test {
+    Type<? super C> c = new C();
+    Type<? super D<Byte>> d = new D<Byte>();
+}
+```
 
+很难的问题，[`Ross Tate `](http://www.cs.cornell.edu/~ross/)回答过这个问题。答案实际上是不确定的：
 
+**`C`是`Type<? super C>`的子类吗？**
 
+```
+Step 0) C <?: Type<? super C>
+Step 1) Type<Type<? super C>> <?: Type (inheritance)
+Step 2) C  (checking wildcard ? super C)
+Step . . . (cycle forever)
+```
+
+然后：
+
+**`D`是`Type<? super D<Byte>>`的子类吗？**
+
+```
+Step 0) D<Byte> <?: Type<? super C<Byte>>
+Step 1) Type<Type<? super D<D<Byte>>>> <?: Type<? super D<Byte>>
+Step 2) D<Byte> <?: Type<? super D<D<Byte>>>
+Step 3) List<List<? super C<C>>> <?: List<? super C<C>>
+Step 4) D<D<Byte>> <?: Type<? super D<D<Byte>>>
+Step . . . (expand forever)
+```
+
+试着在你的`Eclipse`中编译上面的代码，会Crash！（别担心，我已经提交了一个Bug。）
+
+我们继续深挖下去……
+
+> 在`Java`中有些类型的关系是不确定的！
+
+如果你有兴趣知道更多古怪`Java`行为的细节，可以读一下*Ross Tate*的论文[『驯服`Java`类型系统的通配符』](http://www.cs.cornell.edu/~ross/publications/tamewild/tamewild-tate-pldi11.pdf)
+（和*Alan Leung*和*Sorin Lerner*共同署名），或者也可以看看我们自己在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思考。
+
+10. 类型交集（`Type intersections`）
+---------------------------------------
+
+`Java`有个很古怪的特性叫类型交集。你可以声明一个（泛型）类型，这个类型是2个类型的交集。比如：
+
+```java
+class Test<T extends Serializable & Cloneable> {
+}
+```
+
+绑定到类`Test`的实例上的泛型类型参数`T`必须同时实现`Serializable`和`Cloneable`。比如，`String`不能做绑定，但`Date`可以：
+
+```java
+// Doesn't compile
+Test<String> s = null;
+ 
+// Compiles
+Test<Date> d = null;
+```
+
+`Java` 8保留了这个特性，你可以转型成临时的类型交集。这有什么用？几乎没有一点用，但如果你想强转一个`lambda`表达式成一个类型，就没有其它的方法了。
+假定你在方法上有这个抓狂的类型限制：
+
+```java
+<T extends Runnable & Serializable> void execute(T t) {}
+```
+
+你想一个`Runnable`同时也是个`Serializable`，这样你可能在另外的地方执行它并通过网络发送它。`lambda`和序列化都有点古怪。
+
+`lambda`是可以序列化的：
+
+> 如果`lambda`表达式的目标类型和它捕获的参数（`captured arguments`）是可以序列化的，则这个`lambda`表达式是可序列化的。
+
+但即使满足这个条件，`lambda`表达式并没有自动实现`Serializable`这个标记接口（`marker interface`）。
+为了强制成为这个类型，就必须使用转型。但如果只转型成`Serializable` ...
+
+```java
+execute((Serializable) (() -> {}));
+```
+
+... 则这个`lambda`表达式不再是一个`Runnable`。
+
+呃……
+
+So……
+
+同时转型成2个类型：
+
+```java
+execute((Runnable & Serializable) (() -> {}));
+```
 
 结论
 ---------------------------------------
 
-一般来说，这只有`SQL`相关，是时候用下面的话来结束这往篇文章了：
+一般我只对`SQL`会说这样的话，但是时候用下面的话来结束这篇文章了：
 
-> `Java`是个设备，只有她的能力可以延伸她的神秘。
+> `Java`中诡异仅仅被它解决问题的能力超过。
