@@ -1,3 +1,5 @@
+原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)
+
 关于Java你可能不知道的10件事
 ===============================================
 
