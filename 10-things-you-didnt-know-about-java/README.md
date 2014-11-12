@@ -3,26 +3,28 @@
 关于`Java`你可能不知道的10件事
 ===============================================
 
-嗯，也许你写`Java`代码已经有些年头了，你还依稀记得这些吧：
+![java-mystery](java-mystery.jpg)
+
+呃，写`Java`代码你是不是已经有些年头了？还依稀记得这些吧：
 那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲……
 
-但我打赌下面的这些事中你至少有一半还不知道。来聊聊这些会让你有些惊讶的`Java`内部的事儿。
+但我打赌下面的这些事中至少有一半你还不知道。这周我们来聊聊这些会让你有些惊讶的`Java`内部事儿吧。
 
-1. 其实不存在受检异常（`checked exception`）
+1. 其实没有受检异常（`checked exception`）
 ---------------------------------------
 
 是的！`JVM`并不感知这个，只有`Java`语言感知。
 
-今天，大家都赞同，受检异常是个设计失误，`Java`语言的设计失误。正如 *Bruce Eckel* 在布拉格的[`GeeCON`会议上最后一页的演示](http://www.geecon.cz/speakers/?id=2)中说的，
-`Java`之后的语言都不会再有受检异常，甚至在`Java` 8中新式流`API`（`Streams API`）都不再拥抱受检异常
-（[以`lambda`的方式来使用`IO`和`JDBC`，这个`API`用起来还是有些痛苦的](http://blog.jooq.org/2014/05/23/java-8-friday-better-exceptions/)。）
+今天，大家都赞同，受检异常是个设计失误，一个`Java`语言中的设计失误。正如 *Bruce Eckel* [在布拉格的`GeeCON`会议上演示的总结](http://www.geecon.cz/speakers/?id=2)中说的，
+`Java`之后的其它语言都不会再有受检异常，甚至`Java` 8的新式流`API`（`Streams API`）都不再拥抱受检异常
+（[以`lambda`的方式使用`IO`和`JDBC`，这个`API`用起来还是有些痛苦的](http://blog.jooq.org/2014/05/23/java-8-friday-better-exceptions/)。）
 
 想证明`JVM`不感知受检异常？试试下面的这段代码：
 
 ```java
 public class Test {
-  
-    // No throws clause here
+
+    // 方法没有声明throws
     public static void main(String[] args) {
         doThrow(new SQLException());
     }
@@ -43,7 +45,7 @@ public class Test {
 
 更多细节，可以在看看[这篇文章](http://blog.jooq.org/2012/09/14/throw-checked-exceptions-like-runtime-exceptions-in-java/)，或`Stack Overflow`上的[这个问题](http://stackoverflow.com/q/12580598/521799)。
 
-2. 只有返回类型不同的方法重载
+2. 可以有只是返回类型不同的重载方法
 ---------------------------------------
 
 下面的代码不能编译，是吧？
@@ -55,14 +57,14 @@ class Test {
 }
 ```
 
-是的！`Java`语言不允许一个类里有2个方法是『*重载一致*』的，而不会关心2个方法的`throws`子句或返回类型实际是不一样的。
+是的！`Java`语言不允许一个类里有2个方法是『***重载一致***』的，而不会关心这2个方法的`throws`子句或返回类型实际是不同的。
 
-但是等等！来看看来看看[`Class.getMethod(String, Class...)`](http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getMethod-java.lang.String-java.lang.Class...-)方法的`Javadoc`：
+但是等一下！来看看[`Class.getMethod(String, Class...)`](http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getMethod-java.lang.String-java.lang.Class...-)方法的`Javadoc`：
 
-> 注意，可能在一个类中会有多个匹配的方法，因为尽管`Java`语言禁止在一个类中多个方法签名相同只是返回类型不同的方法，但是`JVM`并不禁止。
-这让`JVM`上可以更灵活地去实现各种语言特性。比如，可以用桥方法来实现方法的协变返回类型；桥方法和被重载的方法可以有相同的方法签名，但返回类型不同。
+> 注意，可能在一个类中会有多个匹配的方法，因为尽管`Java`语言禁止在一个类中多个方法签名相同只是返回类型不同，但是`JVM`并不禁止。
+这让`JVM`可以更灵活地去实现各种语言特性。比如，可以用桥方法来实现方法的协变返回类型；桥方法和被重载的方法可以有相同的方法签名，但返回类型不同。
 
-哦，这个说的通。事实上，当你这写下面的代码时，就发生了这样的情况：
+嗯，这个说的通。实际上，当写了下面的代码时，就发生了这样的情况：
 
 ```java
 abstract class Parent<T> {
@@ -75,7 +77,7 @@ class Child extends Parent<String> {
 }
 ```
 
-查一下`Child`类生成的字节码：
+查看一下`Child`类所生成的字节码：
 
 ```java
 // Method descriptor #15 ()Ljava/lang/String;
@@ -98,17 +100,16 @@ bridge synthetic java.lang.Object x();
       [pc: 0, line: 1]
 ```
 
-在字节码中，`T`实际上是`Object`类型。这很好理解。
+在字节码中，`T`实际上就是`Object`类型。这很好理解。
 
-合成的桥方法实际上是由编辑器生成的，因为在一些调用场景下，`Parent.x()`方法签名的返回类型期望是`Object`。
-
+合成的桥方法实际上是由编译器生成的，因为在一些调用场景下，`Parent.x()`方法签名的返回类型期望是`Object`。
 添加泛型而不生成这个桥方法，不可能做到二进制兼容。
-所以，让`JVM`允许这个特性，可以愉快解决这个问题（实际是允许协变返回类型的方法中包含有副作用的逻辑）。
-聪明不？嘿嘿。
+所以，让`JVM`允许这个特性，可以愉快解决这个问题（实际上可以允许协变重载的方法包含有副作用的逻辑）。
+聪明不？呵呵～
 
-你是不是想要扎入语言规范和内核？可以在[这里](http://stackoverflow.com/q/442026/521799)找到更多有意思的细节。
+你是不是想要扎入语言规范和内核看看？可以在[这里](http://stackoverflow.com/q/442026/521799)找到更多有意思的细节。
 
-3. 这些写法都是二维数组！
+3. 所有这些写法都是二维数组！
 ---------------------------------------
 
 ```java
@@ -119,7 +120,7 @@ class Test {
 }
 ```
 
-是的，这是真的。尽管人肉解析器不能马上理解上面这些方法的返回类型，但都是一样的。下面的代码也类似：
+是的，这是真的。尽管你的人肉解析器不能马上理解上面这些方法的返回类型，但都是一样的！下面的代码也类似：
 
 ```java
 class Test {
@@ -129,7 +130,7 @@ class Test {
 }
 ```
 
-是不是觉得很2B？想象一下在上面的代码中使用[`JSR-308`或是`Java` 8的类型注解](https://jcp.org/en/jsr/detail?id=308)。
+是不是觉得这个很2B？想象一下在上面的代码中使用[`JSR-308`/`Java` 8的类型注解](https://jcp.org/en/jsr/detail?id=308)。
 语法糖的数目要爆炸了吧！
 
 ```java
@@ -151,20 +152,20 @@ class Test {
 }
 ```
 
-> 类型注解。这个设计引入的诡异大大超出了它解决的问题。
+> 类型注解。这个设计引入的诡异在程度上仅仅被它解决问题的能力超过。
 
 或换句话说：
 
-> 在4周休假前的最后一个提交里，我写了这样的代码，然后。。。
-![](for-you-my-dear-coworkers.jpg)  
-【***译注***】画外音：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈~
+> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
+![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
+【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
 找出上面用法的合适的使用场景，还是留给你作为一个练习吧。
 
-4. 其实并没有条件表达式
+4. 你没有掌握条件表达式
 ---------------------------------------
 
-所以，你认为自己知道什么时候使用条件表达式？让我告诉你，你不知道。大部分人会下面的2个代码段是等价的：
+呃，你认为自己知道什么时候该使用条件表达式？面对现实吧，你还不知道。大部分人会下面的2个代码段是等价的：
 
 ```java
 Object o1 = true ? new Integer(1) : new Double(2.0);
@@ -190,12 +191,12 @@ System.out.println(o2);
 
 打印结果是：
 
-```
+```java
 1.0
 1
 ```
 
-哦！条件运算符会实现数值类型的转型，如果『需要』，这个『需要』有非常非常非常强的引号。你觉得下面的程序会不会抛`NullPointerException`：
+哦！如果『需要』，条件运算符会做数值类型的类型提升，这个『需要』有非常非常非常强的引号。因为，你觉得下面的程序会抛出`NullPointerException`吗？
 
 ```java
 Integer i = new Integer(1);
@@ -208,10 +209,10 @@ System.out.println(o);
 
 关于这一条的更多的信息可以在[这里](http://blog.jooq.org/2013/10/08/java-auto-unboxing-gotcha-beware/)找到。
 
-5. 其实并没有复合赋值运算符
+5. 你没有掌握复合赋值运算符
 ---------------------------------------
 
-是不是够诡异？来看看下面的2行代码：
+是不是觉得不服？来看看下面的2行代码：
 
 ```java
 i += j;
@@ -221,9 +222,9 @@ i = i + j;
 直觉上认为，2行代码是等价的，对吧？但结果即不是！`JLS`（`Java`语言规范）指出：
 
 > 复合赋值运算符表达式 `E1 op= E2` 等价于 `E1 = (T)((E1) op (E2))`
-> 其中`T`是`E1`的类型，并且`E1`只会求值一次。
+> 其中`T`是`E1`的类型，但`E1`只会被求值一次。
 
-这个做法太漂亮了，我引用[*Peter Lawrey*](https://twitter.com/PeterLawrey)在`Stack Overflow`上的[回答](http://stackoverflow.com/a/8710747/521799)来说明这点：
+这个做法太漂亮了，请允许我引用[*Peter Lawrey*](https://twitter.com/PeterLawrey)在`Stack Overflow`上的[回答](http://stackoverflow.com/a/8710747/521799)：
 
 使用`*=`或`/=`作为例子可以方便说明其中的转型问题：
 
@@ -245,12 +246,12 @@ ch *= 1.5;
 System.out.println(ch); // prints 'a'
 ```
 
-为什么这个真有太有用了？如果我要在代码中，就地对字符做转型或是乘法。然后，你懂的……
+为什么这个真是太有用了？如果我要在代码中，就地对字符做转型和乘法。然后，你懂的……
 
 6. 随机`Integer`
 ---------------------------------------
 
-这个问题比迷题还迷题。先不要看解答，看看你能不能自己找出怎么才能这样的方法。运行下面的代码：
+这条其实是一个迷题，先不要看解答。看看你能不能自己找出解法。运行下面的代码：
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -258,9 +259,9 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-…… 然后你可能得到下面的输出：
+…… 然后要得到类似下面的输出（每次输出是随机结果）：
 
-```
+```java
 92
 221
 45
@@ -302,12 +303,12 @@ for (int i = 0; i < 10; i++) {
 . 
 
 好吧，解答在这里(<http://blog.jooq.org/2013/10/17/add-some-entropy-to-your-jvm/>)，
-这和用反射覆盖`JDK`的`Integer`缓存，然后使用自动打包解包（`auto-boxing`/`auto-unboxing`）相关。
-别在家里这么玩！或换句话说，想想会有这样的状况（我再说一遍吧:）：
+和用反射覆盖`JDK`的`Integer`缓存，然后使用自动打包解包（`auto-boxing`/`auto-unboxing`）有关。
+同学们请勿模仿！或换句话说，想想会有这样的状况，再说一次：
 
-> 在4周休假前的最后一个提交里，我写了这样的代码，然后。。。
-![](for-you-my-dear-coworkers.jpg)  
-【***译注***】画外音：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈~
+> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
+![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
+【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
 7. GOTO
 ---------------------------------------
@@ -328,7 +329,7 @@ Test.java:44: error: <identifier> expected
 
 这是因为`goto`是个[还未使用的关键字](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)，保留了为以后可以用……
 
-但这不是我要说的让你兴奋的内容。让你兴奋的是，你可以用`break`、`continue`和有标签的代码块来实现`goto`：
+但这不是我要说的让你兴奋的内容。让你兴奋的是，你是可以用`break`、`continue`和有标签的代码块来实现`goto`的：
 
 向前跳：
 
@@ -344,7 +345,7 @@ label: {
 
 ```java
 2  iload_1 [check]
-3  ifeq 6          // Jumping forward
+3  ifeq 6          // 向前跳
 6  ..
 ```
 
@@ -364,20 +365,21 @@ label: do {
 ```java
 2  iload_1 [check]
 3  ifeq 9
-6  goto 2          // Jumping backward
+6  goto 2          // 向后跳
 9  ..
 ```
 
 8. `Java`是有类型别名的
 ---------------------------------------
 
-在别的语言中（比如，[`Ceylon`](http://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/)），可以方便地定义类型别名：
+在别的语言中（比如，[`Ceylon`](http://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/)），
+可以方便地定义类型别名：
 
 ```java
 interface People => Set<Person>;
 ```
 
-这样定义的`People`可以和`Set<Person>`互换使用：
+这样定义的`People`可以和`Set<Person>`互换地使用：
 
 ```java
 People?      p1 = null;
@@ -385,7 +387,7 @@ Set<Person>? p2 = p1;
 People?      p3 = p2;
 ```
 
-在`Java`中，顶级（`top level`）是不能定义类型别名的。但可以在类级别、或方法级别定义。
+在`Java`中不能在顶级（`top level`）定义类型别名。但可以在类级别、或方法级别定义。
 如果对`Integer`、`Long`这样名字不满意，想更短的名字：`I`和`L`。很简单：
 
 ```java
@@ -399,23 +401,21 @@ class Test<I extends Integer> {
 }
 ```
 
-上面的代码中，在`Test`类级别中`I`是`Integer`的别名，在`x`方法级别，`L`是`Long`的别名。可以这样来调用这个方法：
+上面的代码中，在`Test`类级别中`I`是`Integer`的『别名』，在`x`方法级别，`L`是`Long`的『别名』。可以这样来调用这个方法：
 
 ```java
 new Test().x(1, 2L);
 ```
 
 当然这个用法不严谨。在例子中，`Integer`、`Long`都是`final`类型，结果`I`和`L` *效果上*是个别名
-（大部分情况下是。赋值兼容性只是单向的）。如果用的非`final`类型（比如，`Object`），还是使用原来的泛型参数类型的。
+（大部分情况下是。赋值兼容性只是单向的）。如果用非`final`类型（比如，`Object`），还是要使用原来的泛型参数类型。
 
-玩够了这些恶心的小把戏。现在来些真正的干货了！
+玩够了这些恶心的小把戏。现在要上干货了！
 
 9. 有些类型的关系是不确定的
 ---------------------------------------
 
-好，这条会很稀奇古怪，你先来杯咖啡，再集中精神来看。
-
-看看下面的2个类型：
+好，这条会很稀奇古怪，你先来杯咖啡，再集中精神来看。看看下面的2个类型：
 
 ```java
 // 一个辅助类。也可以直接使用List
@@ -425,10 +425,10 @@ class C implements Type<Type<? super C>> {}
 class D<P> implements Type<Type<? super D<D<P>>>> {}
 ```
 
-类型`C`和`D`啥意思呢？
+类型`C`和`D`是啥意思呢？
 
 这2个类型声明中包含了递归，和[`java.lang.Enum`](http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html)的声明类似
-（但有点点不同）：
+（但有微妙的不同）：
 
 ```java
 public abstract class Enum<E extends Enum<E>> { ... }
@@ -440,11 +440,11 @@ public abstract class Enum<E extends Enum<E>> { ... }
 // 这样的声明
 enum MyEnum {}
  
-// 实现是只是下面写法的语法糖：
+// 实际只是下面写法的语法糖：
 class MyEnum extends Enum<MyEnum> { ... }
 ```
 
-记住上面的这点后，我们再回来看刚才我们的2个类型声明。下面的代码可以编译通过吗？
+记住上面的这点后，回到我们的2个类型声明上。下面的代码可以编译通过吗？
 
 ```java
 class Test {
@@ -455,26 +455,26 @@ class Test {
 
 很难的问题，[`Ross Tate `](http://www.cs.cornell.edu/~ross/)回答过这个问题。答案实际上是不确定的：
 
-**`C`是`Type<? super C>`的子类吗？**
+***`C`是`Type<? super C>`的子类吗？***
 
-```
-Step 0) C <?: Type<? super C>
-Step 1) Type<Type<? super C>> <?: Type (inheritance)
-Step 2) C  (checking wildcard ? super C)
-Step . . . (cycle forever)
+```java
+步骤 0) C <?: Type<? super C>
+步骤 1) Type<Type<? super C>> <?: Type （继承）
+步骤 2) C （检查通配符 ? super C）
+步骤 . . . （进入死循环）
 ```
 
 然后：
 
-**`D`是`Type<? super D<Byte>>`的子类吗？**
+***`D`是`Type<? super D<Byte>>`的子类吗？***
 
-```
-Step 0) D<Byte> <?: Type<? super C<Byte>>
-Step 1) Type<Type<? super D<D<Byte>>>> <?: Type<? super D<Byte>>
-Step 2) D<Byte> <?: Type<? super D<D<Byte>>>
-Step 3) List<List<? super C<C>>> <?: List<? super C<C>>
-Step 4) D<D<Byte>> <?: Type<? super D<D<Byte>>>
-Step . . . (expand forever)
+```java
+步骤 0) D<Byte> <?: Type<? super C<Byte>>
+步骤 1) Type<Type<? super D<D<Byte>>>> <?: Type<? super D<Byte>>
+步骤 2) D<Byte> <?: Type<? super D<D<Byte>>>
+步骤 3) List<List<? super C<C>>> <?: List<? super C<C>>
+步骤 4) D<D<Byte>> <?: Type<? super D<D<Byte>>>
+步骤 . . . （进入永远的展开中）
 ```
 
 试着在你的`Eclipse`中编译上面的代码，会Crash！（别担心，我已经提交了一个Bug。）
@@ -484,7 +484,7 @@ Step . . . (expand forever)
 > 在`Java`中有些类型的关系是不确定的！
 
 如果你有兴趣知道更多古怪`Java`行为的细节，可以读一下*Ross Tate*的论文[『驯服`Java`类型系统的通配符』](http://www.cs.cornell.edu/~ross/publications/tamewild/tamewild-tate-pldi11.pdf)
-（和*Alan Leung*和*Sorin Lerner*共同署名），或者也可以看看我们自己在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思考。
+（论文和*Alan Leung*和*Sorin Lerner*合著），或者也可以看看我们在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思索。
 
 10. 类型交集（`Type intersections`）
 ---------------------------------------
@@ -499,15 +499,16 @@ class Test<T extends Serializable & Cloneable> {
 绑定到类`Test`的实例上的泛型类型参数`T`必须同时实现`Serializable`和`Cloneable`。比如，`String`不能做绑定，但`Date`可以：
 
 ```java
-// Doesn't compile
+// 编译不通过！
 Test<String> s = null;
  
-// Compiles
+// 编译通过
 Test<Date> d = null;
 ```
 
-`Java` 8保留了这个特性，你可以转型成临时的类型交集。这有什么用？几乎没有一点用，但如果你想强转一个`lambda`表达式成一个类型，就没有其它的方法了。
-假定你在方法上有这个抓狂的类型限制：
+`Java` 8保留了这个特性，你可以转型成临时的类型交集。这有什么用？
+几乎没有一点用，但如果你想强转一个`lambda`表达式成这样的一个类型，就没有其它的方法了。
+假定你在方法上有了这个蛋疼的类型限制：
 
 ```java
 <T extends Runnable & Serializable> void execute(T t) {}
@@ -543,4 +544,4 @@ execute((Runnable & Serializable) (() -> {}));
 
 一般我只对`SQL`会说这样的话，但是时候用下面的话来结束这篇文章了：
 
-> `Java`中诡异仅仅被它解决问题的能力超过。
+> `Java`中包含的诡异在程度上仅仅被它解决问题的能力超过。
