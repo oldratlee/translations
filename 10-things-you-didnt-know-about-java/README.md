@@ -1,11 +1,12 @@
-原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)
+原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)  
+译文发在[ImportNew](http://www.importnew.com/)： [http://blog.jobbole.com/76550/](http://www.importnew.com/13859.html)，2014-12-21
 
 关于`Java`你可能不知道的10件事
 ===============================================
 
 ![java-mystery](java-mystery.jpg)
 
-呃，写`Java`代码你是不是已经有些年头了？还依稀记得这些吧：
+呃，你是不是写`Java`已经有些年头了？还依稀记得这些吧：
 那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲……
 
 但我打赌下面的这些事中至少有一半你还不知道。这周我们来聊聊这些会让你有些惊讶的`Java`内部事儿吧。
@@ -13,7 +14,7 @@
 1. 其实没有受检异常（`checked exception`）
 ---------------------------------------
 
-是的！`JVM`并不感知这个，只有`Java`语言感知。
+是的！`JVM`才不知道这类事情，只有`Java`语言才会知道。
 
 今天，大家都赞同，受检异常是个设计失误，一个`Java`语言中的设计失误。正如 *Bruce Eckel* [在布拉格的`GeeCON`会议上演示的总结](http://www.geecon.cz/speakers/?id=2)中说的，
 `Java`之后的其它语言都不会再有受检异常，甚至`Java` 8的新式流`API`（`Streams API`）都不再拥抱受检异常
