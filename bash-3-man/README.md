@@ -8,7 +8,7 @@
 1. 使用`markdown`排版。优先格式方便查看。
 1. 审校翻译。合理地中文化，不在影响理解的情况下尽量减少英文原文。
 
-[自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎建议（[提交Issue](https://github.com/quickhack/translations/issues)）和指正（[Fork后提交代码](https://github.com/quickhack/translations/fork)）！
+[自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
 
 Bash man
 ===============================
