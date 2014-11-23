@@ -9,18 +9,18 @@
 呃，你是不是写`Java`已经有些年头了？还依稀记得这些吧：
 那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲……
 
-但我打赌下面的这些事中至少有一半你还不知道。这周我们来聊聊这些会让你有些惊讶的`Java`内部事儿吧。
+但我打赌下面的这些事中至少有一半你还不知道。这周我们来聊聊这些会让你有些惊讶的`Java`内部的那些事儿吧。
 
 1. 其实没有受检异常（`checked exception`）
 ---------------------------------------
 
 是的！`JVM`才不知道这类事情，只有`Java`语言才会知道。
 
-今天，大家都赞同，受检异常是个设计失误，一个`Java`语言中的设计失误。正如 *Bruce Eckel* [在布拉格的`GeeCON`会议上演示的总结](http://www.geecon.cz/speakers/?id=2)中说的，
-`Java`之后的其它语言都不会再有受检异常，甚至`Java` 8的新式流`API`（`Streams API`）都不再拥抱受检异常
+今天，大家都赞同受检异常是个设计失误，一个`Java`语言中的设计失误。正如 *Bruce Eckel* [在布拉格的`GeeCON`会议上演示的总结](http://www.geecon.cz/speakers/?id=2)中说的，
+`Java`之后的其它语言都没有再涉及受检异常了，甚至`Java` 8的新式流`API`（`Streams API`）都不再拥抱受检异常
 （[以`lambda`的方式使用`IO`和`JDBC`，这个`API`用起来还是有些痛苦的](http://blog.jooq.org/2014/05/23/java-8-friday-better-exceptions/)。）
 
-想证明`JVM`不感知受检异常？试试下面的这段代码：
+想证明`JVM`不理会受检异常？试试下面的这段代码：
 
 ```java
 public class Test {
@@ -44,7 +44,7 @@ public class Test {
 
 不仅可以编译通过，并且也抛出了`SQLException`，你甚至都不需要用上`Lombok`的[`@SneakyThrows`](http://projectlombok.org/features/SneakyThrows.html)。
 
-更多细节，可以在看看[这篇文章](http://blog.jooq.org/2012/09/14/throw-checked-exceptions-like-runtime-exceptions-in-java/)，或`Stack Overflow`上的[这个问题](http://stackoverflow.com/q/12580598/521799)。
+更多细节，可以再看看[这篇文章](http://blog.jooq.org/2012/09/14/throw-checked-exceptions-like-runtime-exceptions-in-java/)，或`Stack Overflow`上的[这个问题](http://stackoverflow.com/q/12580598/521799)。
 
 2. 可以有只是返回类型不同的重载方法
 ---------------------------------------
@@ -63,7 +63,7 @@ class Test {
 但是等一下！来看看[`Class.getMethod(String, Class...)`](http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getMethod-java.lang.String-java.lang.Class...-)方法的`Javadoc`：
 
 > 注意，可能在一个类中会有多个匹配的方法，因为尽管`Java`语言禁止在一个类中多个方法签名相同只是返回类型不同，但是`JVM`并不禁止。
-这让`JVM`可以更灵活地去实现各种语言特性。比如，可以用桥方法来实现方法的协变返回类型；桥方法和被重载的方法可以有相同的方法签名，但返回类型不同。
+这让`JVM`可以更灵活地去实现各种语言特性。比如，可以用桥方法（`bridge method`）来实现方法的协变返回类型；桥方法和被重载的方法可以有相同的方法签名，但返回类型不同。
 
 嗯，这个说的通。实际上，当写了下面的代码时，就发生了这样的情况：
 
@@ -161,7 +161,7 @@ class Test {
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
 【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
-找出上面用法的合适的使用场景，还是留给你作为一个练习吧。
+请找出上面用法的合适的使用场景，这个还是留给你作为一个练习吧。
 
 4. 你没有掌握条件表达式
 ---------------------------------------
@@ -485,7 +485,7 @@ class Test {
 > 在`Java`中有些类型的关系是不确定的！
 
 如果你有兴趣知道更多古怪`Java`行为的细节，可以读一下*Ross Tate*的论文[『驯服`Java`类型系统的通配符』](http://www.cs.cornell.edu/~ross/publications/tamewild/tamewild-tate-pldi11.pdf)
-（论文和*Alan Leung*和*Sorin Lerner*合著），或者也可以看看我们在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思索。
+（由*Ross Tate*、*Alan Leung*和*Sorin Lerner*合著），或者也可以看看我们在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思索。
 
 10. 类型交集（`Type intersections`）
 ---------------------------------------
@@ -522,13 +522,13 @@ Test<Date> d = null;
 > 如果`lambda`表达式的目标类型和它捕获的参数（`captured arguments`）是可以序列化的，则这个`lambda`表达式是可序列化的。
 
 但即使满足这个条件，`lambda`表达式并没有自动实现`Serializable`这个标记接口（`marker interface`）。
-为了强制成为这个类型，就必须使用转型。但如果只转型成`Serializable` ...
+为了强制成为这个类型，就必须使用转型。但如果只转型成`Serializable` …
 
 ```java
 execute((Serializable) (() -> {}));
 ```
 
-... 则这个`lambda`表达式不再是一个`Runnable`。
+… 则这个`lambda`表达式不再是一个`Runnable`。
 
 呃……
 
