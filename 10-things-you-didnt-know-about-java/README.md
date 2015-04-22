@@ -314,10 +314,10 @@ for (int i = 0; i < 10; i++) {
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
 【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
-7. GOTO
+7. `GOTO`
 ---------------------------------------
 
-这条是我的最爱。`Java`是有GOTO的！打上这行代码：
+这条是我的最爱。`Java`是有`GOTO`的！打上这行代码：
 
 ```java
 int goto = 1;
