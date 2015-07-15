@@ -208,3 +208,7 @@
 这些优化的积累效应是你常常进行的写出和读入数据的操作可以在磁盘和网络上得到支持，甚至于维护内存以外的大量数据集。
 
 这些详细记述并不意味着这是关于Kafka的主要内容，那么我就不需要了解细节了。你可阅读到更多的关于LinkedIn的方法在这个[链接](http://sites.computer.org/debull/A12june/pipeline.pdf)，和Kafka的设计总述在这个[链接](http://kafka.apache.org/documentation.html#design)。
+
+-----------------
+
+[« 第一部分：日志是什么？](part1.md)　　　　[第三部分：日志和实时流处理 »](part3.md)
