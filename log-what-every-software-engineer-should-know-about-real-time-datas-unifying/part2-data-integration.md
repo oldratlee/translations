@@ -319,7 +319,7 @@
 在`LinkedIn`，目前每天通过`Kafka`写入超过600亿条不同的消息。
 （如果算上[数据中心之间镜像](http://kafka.apache.org/documentation.html#datacenters)的消息，那么这个数字会是数千亿。）
 
-为了支持这样的规模，我们在`Kafk`中使用了一些小技巧：
+为了支持这样的规模，我们在`Kafka`中使用了一些小技巧：
 
 1. 日志分片
 1. 通过批处理读出和写入来优化吞吐量
@@ -348,7 +348,7 @@
 
 这些优化的积累效应是往往以磁盘和网络的速度在读写数据，即使维护的数据集大大超出内存大小。
 
-这些自卖自夸的介绍不意味着是关于`Kafka`的主要内容，我就不再深入细节。
+这些自卖自夸的介绍不意味着这些是关于`Kafka`的主要内容，我就不再深入细节了。
 `LinkedIn`方案的更细节说明在[这儿](http://sites.computer.org/debull/A12june/pipeline.pdf)，`Kafka`设计的详细说明在[这儿](http://kafka.apache.org/documentation.html#design)，你可以读一下。
 
 -----------------
