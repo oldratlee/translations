@@ -87,4 +87,4 @@ Storm和Sama这两者都是按非同步方式设计的，可以使用Kafka或者
 
 -----------------
 
-[« 第二部分：数据集成](part2.md)　　　　[第四部分：系统建设 »](part4.md)
+[« 第二部分：数据集成](part2-data-integration.md)　　　　[第四部分：系统建设 »](part4-system-building.md)

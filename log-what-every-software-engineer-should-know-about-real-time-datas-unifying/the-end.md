@@ -76,4 +76,4 @@
 
 -----------------
 
-[« 第四部分：系统建设](part4.md)　　　　[概述 »](README.md)
+[« 第四部分：系统建设](part4-system-building.md)　　　　[概述 »](README.md)

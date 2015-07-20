@@ -150,4 +150,4 @@
 
 -----------------
 
-[« 概述](README.md)　　　　[第二部分：数据集成 »](part2.md)
+[« 概述](README.md)　　　　[第二部分：数据集成 »](part2-data-integration.md)

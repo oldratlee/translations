@@ -77,4 +77,4 @@ LinkedIn就是使用了这种方式实现它的多个实时查询系统的。这
 
 -----------------
 
-[« 第三部分：日志和实时流处理](part3.md)　　　　[结束语 »](the-end.md)
+[« 第三部分：日志和实时流处理](part3-logs-and-real-time-stream-processing.md)　　　　[结束语 »](the-end.md)
