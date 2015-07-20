@@ -28,8 +28,22 @@
 不懂得日志，你就不可能真正理解数据库、`NoSQL`存储、键值存储、数据复制（`replication`）、`paxos`、`Hadoop`、版本控制（`version control`），甚至几乎任何一个软件系统；然而大多数软件工程师对日志并不熟悉。我有意于改变这个现状。
 本文我将带你浏览有关日志需要了解的一切，包括日志是什么，如何在数据集成（`data integration`）、实时处理（`real time processing`）和系统构建中使用日志。
 
+-----------------
+
 - [第一部分：日志是什么？](part1-what-s-a-log.md)
+    - [数据库中的日志](part1-what-s-a-log.md#数据库中的日志)
+    - [分布式系统中的日志](part1-what-s-a-log.md#分布式系统中的日志)
+    - [变更日志101：表与事件的二相性](part1-what-s-a-log.md#变更日志101表与事件的二相性)
+    - [接下来的内容](part1-what-s-a-log.md#接下来的内容)
 - [第二部分：数据集成](part2-data-integration.md)
+    - [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)
+        - [事件数据管道](part2-data-integration.md#事件数据管道)
+        - [专用的数据系统（`specialized data systems`）的爆发](part2-data-integration.md#专用的数据系统specialized-data-systems的爆发)
+    - [日志结构化的（`log-structured`）数据流](part2-data-integration.md#日志结构化的log-structured数据流)
+    - [在`LinkedIn`](part2-data-integration.md#在linkedin)
+    - [`ETL`与数据仓库的关系](part2-data-integration.md#etl与数据仓库的关系)
+    - [日志文件与事件](part2-data-integration.md#日志文件与事件)
+    - [构建可伸缩的日志](part2-data-integration.md#构建可伸缩的日志)
 - [第三部分：日志和实时流处理](part3-logs-and-real-time-stream-processing.md)
 - [第四部分：系统建设](part4-system-building.md)
 - [结束语](the-end.md)
