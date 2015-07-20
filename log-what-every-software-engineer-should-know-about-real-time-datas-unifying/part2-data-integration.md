@@ -104,10 +104,10 @@
 我发现『发布订阅』只是表达出了消息的间接寻址（`indirect addressing of messages`） ——
 如果你去比较两个发布-订阅的消息系统的话，会发现他们承诺的是完全不同的东西，而且大多数模型在这一领域没什么用。
 你可以认为日志是一种有持久性保证和强有序（`strong ordering`）语义的消息系统。
-在分布式系统中，这个通信模型有时有个（有些可怕的）名字叫做[原子广播](http://en.wikipedia.org/wiki/Atomic_broadcast)。
+在分布式系统中，这个通信模型有时有个（有些可怕的）名字叫做[原子广播（`atomic broadcast`）](http://en.wikipedia.org/wiki/Atomic_broadcast)。
 
 值得强调的是，日志仍然只是基础设施。并不是掌握数据流这个故事的结束：
-故事的其余部分围绕着元数据（`metadata`)、`schemas`、兼容性（`compatibility`）以及处理数据结构及其演化的所有细节。
+故事的其余部分围绕着元数据（`metadata`)、`schemas`、兼容性以及处理数据结构及其演化的所有细节。
 除非有一种可靠的通用的方法来处理数据流的机制，否则语义的细节总是次要的。
 
 在`LinkedIn`
@@ -357,7 +357,7 @@
 
 这些优化的积累效应是往往以磁盘和网络的速度在读写数据，即使维护的数据集大大超出内存大小。
 
-这些自卖自夸的介绍不意味着这些是关于`Kafka`的主要内容，我就不再深入细节了。
+这些自卖自夸的介绍不意味着是关于`Kafka`的主要内容，我就不再深入细节了。
 `LinkedIn`方案的更细节说明在[这儿](http://sites.computer.org/debull/A12june/pipeline.pdf)，`Kafka`设计的详细说明在[这儿](http://kafka.apache.org/documentation.html#design)，你可以读一下。
 
 -----------------

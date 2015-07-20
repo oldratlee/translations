@@ -44,6 +44,6 @@
     - [`ETL`与数据仓库的关系](part2-data-integration.md#etl与数据仓库的关系)
     - [日志文件与事件](part2-data-integration.md#日志文件与事件)
     - [构建可伸缩的日志](part2-data-integration.md#构建可伸缩的日志)
-- [第三部分：日志和实时流处理](part3-logs-and-real-time-stream-processing.md)
+- [第三部分：日志与实时流处理](part3-logs-and-real-time-stream-processing.md)
 - [第四部分：系统建设](part4-system-building.md)
 - [结束语](the-end.md)
