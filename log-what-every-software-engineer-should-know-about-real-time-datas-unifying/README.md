@@ -1,18 +1,28 @@
 原文链接： [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) - [Jay Kreps](http://www.linkedin.com/in/jaykreps)   
-译文原稿： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) @ [开源中国社区](http://www.oschina.net/) 2015-02
+基于开源中国社区的译文： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 
 译序
 -----------------
 
-译文基于[日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) @ [开源中国社区](http://www.oschina.net/)，感谢 [LitStone](http://my.oschina.net/kaiyuancao), [super0555](http://my.oschina.net/super0555), [几点人](http://my.oschina.net/jidianren), [cmy00cmy](http://my.oschina.net/u/1385461), [tnjin](http://my.oschina.net/tnjin), [928171481](http://my.oschina.net/u/240148), [黄劼](http://my.oschina.net/saintknight) 同学的辛苦付出！
+这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，虽然很长，但被称为[程序员史诗般必读文章](http://bryanpendleton.blogspot.hk/2014/01/the-log-epic-software-engineering.html)。
 
-开源中国的译文自己在读的过程，觉得可以有加强：
+[学习笔记：The Log（我所读过的最好的一篇分布式技术文章）](http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html)对本文做了很不错摘要和解读。
 
-- 开源中国译文页面包含了影响阅读的杂乱内容（如译者信息、翻译评论……）
-- 分页随意，应该按小节分页
-- 没有目录
-- 图片的排版没有按原文，影响原作者用图心意。
-- 多人翻译的审校不足，不少翻译需要改进和改正。
+但作为一篇***经典***文章，是值得去完整地研读和理解：
+
+1. 原文可以作为大数据/分布式系统领域一份导论式的资料。   
+    作者对整个领域理解和实战都精深广博，抓出并梳理这个领域核心：日志。
+1. 原文作为一手资料，有完整信息和过程，方便深入。
+1. 摘要和解读不能替代自己理解。  
+    信息被传递的越多，丢失和偏差也就越多。
+
+当然，你也可以把这篇译文本身作为英文原文的一种理解，在读原文时有不理解的地方可以参考对比。
+如果你能这么做，相信对于学习效果真真是极好的～
+
+[自己](http://weibo.com/oldratlee)理解粗浅且这篇文章又长难度又大，翻译中肯定有不少不足和不对之处，
+欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
+
+另外，为什么要整理和审校翻译 参见 [译跋](translation-postscript.md)。
 
 日志：每个软件工程师都应该知道的有关实时数据的统一抽象
 =====================================================================
@@ -30,6 +40,8 @@
 
 -----------------
 
+- [译序](#译序)
+- [概述](#日志每个软件工程师都应该知道的有关实时数据的统一抽象)
 - [第一部分：日志是什么？](part1-what-s-a-log.md)
     - [数据库中的日志](part1-what-s-a-log.md#数据库中的日志)
     - [分布式系统中的日志](part1-what-s-a-log.md#分布式系统中的日志)
@@ -50,3 +62,4 @@
     - [日志合并（`log compaction`）](part3-logs-and-real-time-stream-processing.md#日志合并log-compaction)
 - [第四部分：系统建设](part4-system-building.md)
 - [结束语](the-end.md)
+- [译跋](translation-postscript.md)
