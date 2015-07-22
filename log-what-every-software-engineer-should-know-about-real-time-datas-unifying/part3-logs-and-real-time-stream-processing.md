@@ -1,6 +1,10 @@
 第三部分：日志与实时流处理
 =================================
 
+- [数据流图（`data flow graphs`）](#数据流图data-flow-graphs)
+- [有状态的实时流处理](#有状态的实时流处理)
+- [日志压缩（`log compaction`）](#日志压缩log-compaction)
+
 到目前为止，我只讲述了系统之间拷贝数据的理想机制。但是在存储系统之间搬运字节不是所要讲述内容的全部。
 最终会发现，『日志』是流的另一种说法，
 并且日志是[流处理](http://highlyscalable.wordpress.com/2013/08/20/in-stream-big-data-processing/)的核心。
@@ -71,7 +75,7 @@
 它正是基于这些理念建设的一个流处理系统。
 很多这方面的应用的更多技术细节我们在[此文档](http://samza.apache.org/learn/documentation/latest/)中有详细的描述。
 
-数据流图
+数据流图（`data flow graphs`）
 ------------------
 
 <img src="images/dag.png" width="250" hspace="10px" align="right" >
@@ -131,7 +135,7 @@
 
 我们可以列举在Samza中有状态流处理管理的更多细节和大量实用的[例子](http://samza.incubator.apache.org/learn/documentation/0.7.0/container/state-management.html)。
 
-日志压缩
+日志压缩（`log compaction`）
 ------------------------
 
 <img src="images/log_compaction_0.png" width="350" hspace="10px" align="right" >

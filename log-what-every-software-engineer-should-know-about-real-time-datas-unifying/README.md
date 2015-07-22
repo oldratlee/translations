@@ -45,5 +45,8 @@
     - [日志文件与事件](part2-data-integration.md#日志文件与事件)
     - [构建可伸缩的日志](part2-data-integration.md#构建可伸缩的日志)
 - [第三部分：日志与实时流处理](part3-logs-and-real-time-stream-processing.md)
+    - [数据流图（`data flow graphs`）](part3-logs-and-real-time-stream-processing.md#数据流图data-flow-graphs)
+    - [有状态的实时流处理](part3-logs-and-real-time-stream-processing.md#有状态的实时流处理)
+    - [日志压缩（`log compaction`）](part3-logs-and-real-time-stream-processing.md#日志压缩log-compaction)
 - [第四部分：系统建设](part4-system-building.md)
 - [结束语](the-end.md)
