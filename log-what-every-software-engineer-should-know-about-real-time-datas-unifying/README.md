@@ -38,15 +38,16 @@
 不懂得日志，你就不可能真正理解数据库、`NoSQL`存储、键值存储、数据复制（`replication`）、`paxos`、`Hadoop`、版本控制（`version control`），甚至几乎任何一个软件系统；然而大多数软件工程师对日志并不熟悉。我有意于改变这个现状。
 本文我将带你浏览有关日志需要了解的一切，包括日志是什么，如何在数据集成（`data integration`）、实时处理（`real time processing`）和系统构建中使用日志。
 
+目录
 -----------------
 
 - [译序](#译序)
 - [概述](#日志每个软件工程师都应该知道的有关实时数据的统一抽象)
-- [第一部分：日志是什么？](part1-what-s-a-log.md)
-    - [数据库中的日志](part1-what-s-a-log.md#数据库中的日志)
-    - [分布式系统中的日志](part1-what-s-a-log.md#分布式系统中的日志)
-    - [变更日志101：表与事件的二相性](part1-what-s-a-log.md#变更日志101表与事件的二相性)
-    - [接下来的内容](part1-what-s-a-log.md#接下来的内容)
+- [第一部分：日志是什么？](part1-what-is-a-log.md)
+    - [数据库中的日志](part1-what-is-a-log.md#数据库中的日志)
+    - [分布式系统中的日志](part1-what-is-a-log.md#分布式系统中的日志)
+    - [变更日志101：表与事件的二相性](part1-what-is-a-log.md#变更日志101表与事件的二相性)
+    - [接下来的内容](part1-what-is-a-log.md#接下来的内容)
 - [第二部分：数据集成](part2-data-integration.md)
     - [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)
         - [事件数据管道](part2-data-integration.md#事件数据管道)

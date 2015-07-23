@@ -362,4 +362,4 @@
 
 -----------------
 
-[« 第一部分：日志是什么？](part1-what-s-a-log.md)　　　　[第三部分：日志和实时流处理 »](part3-logs-and-real-time-stream-processing.md)
+[« 第一部分：日志是什么？](part1-what-is-a-log.md)　　　　[第三部分：日志和实时流处理 »](part3-logs-and-real-time-stream-processing.md)
