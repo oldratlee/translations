@@ -1,5 +1,5 @@
 原文链接： [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) - [Jay Kreps](http://www.linkedin.com/in/jaykreps)   
-基于开源中国社区的译文： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+基于开源中国社区的译文稿： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 
 译序
 -----------------
@@ -11,10 +11,10 @@
 但作为一篇***经典***文章，是值得去完整地研读和理解：
 
 1. 原文可以作为大数据/分布式系统领域一份导论式的资料。   
-    作者对整个领域理解和实战都精深广博，抓出并梳理了这个领域的核心：日志。
-1. 原文作为一手资料，有完整信息和过程，方便深入。
+    作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
+1. 原文作为一手资料，有完整的分析过程，能够深入和核对自己的理解。
 1. 摘要和解读不能替代自己理解。  
-    信息被传递的越多，丢失和偏差也就越多。
+    信息被传递和过滤得越多，丢失和偏差也就越多。
 
 当然，你也可以把这篇译文本身作为英文原文的一种理解，在读原文时有不理解的地方可以参考对比。
 如果你能这么做，相信对于学习效果真真是极好的～
@@ -41,7 +41,7 @@ PS：
 日志有时会叫成 预先写入日志（`write-ahead logs`）、提交日志（`commit logs`）或者事务日志（`transaction logs`），几乎和计算机本身形影不离，
 是许多分布式数据系统（`distributed data system`）和实时应用架构（`real-time application architecture`）的核心。
 
-不懂得日志，你就不可能真正理解数据库、`NoSQL`存储、键值存储、数据复制（`replication`）、`paxos`、`Hadoop`、版本控制（`version control`），甚至几乎任何一个软件系统；然而大多数软件工程师对日志并不熟悉。我有意于改变这个现状。
+不懂得日志，你就不可能真正理解数据库、`NoSQL`存储、键值存储（`key value store`）、数据复制（`replication`）、`paxos`、`Hadoop`、版本控制（`version control`），甚至几乎任何一个软件系统；然而大多数软件工程师对日志并不熟悉。我有意于改变这个现状。
 本文我将带你浏览有关日志需要了解的一切，包括日志是什么，如何在数据集成（`data integration`）、实时处理（`real time processing`）和系统构建中使用日志。
 
 目录
@@ -52,7 +52,7 @@ PS：
 - [第一部分：日志是什么？](part1-what-is-a-log.md)
     - [数据库中的日志](part1-what-is-a-log.md#数据库中的日志)
     - [分布式系统中的日志](part1-what-is-a-log.md#分布式系统中的日志)
-    - [变更日志101：表与事件的二相性](part1-what-is-a-log.md#变更日志101表与事件的二相性)
+    - [变更日志101：表与事件的二相性（`duality`）](part1-what-is-a-log.md#变更日志101表与事件的二相性duality)
     - [接下来的内容](part1-what-is-a-log.md#接下来的内容)
 - [第二部分：数据集成](part2-data-integration.md)
     - [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)
