@@ -4,11 +4,11 @@
 :apple: 译序
 -----------------
 
-工作流其实不是一个初级主题，背后的本质问题其实是有效的项目流程管理和高效的开发协同约定，不仅是`Git`或`SVN`等[`VCS`](http://zh.wikipedia.org/wiki/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)或[`SCM`](http://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86)工具的使用。
-
 这篇指南以大家在`SVN`中已经广为熟悉使用的集中式工作流作为起点，循序渐进地演进到其它高效的分布式工作流，还介绍了如何配合使用便利的`Pull Request`功能，体系地讲解了各种工作流的应用。
 
 行文中实践原则和操作示例并重，对于`Git`的资深玩家可以梳理思考提升，而新接触的同学，也可以跟着step-by-step操作来操练学习并在实际工作中上手使用。
+
+工作流其实不是一个初级主题，背后的本质问题其实是有效的项目流程管理和高效的开发协同约定，不仅是`Git`或`SVN`等[`VCS`](http://zh.wikipedia.org/wiki/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)或[`SCM`](http://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86)工具的使用。
 
 关于`Git`工作流主题，网上体系的中文资料不多，主要是零散的操作说明，希望这篇文章能让你更深入理解并在工作中灵活有效地使用起来。
 
@@ -78,6 +78,76 @@
 
 ![Workflows: Pull Requests](images/pull-request.png)
 
+目录
 -----------------
 
-　　　　　　　　[集中式工作流 »](workflow-centralized.md)
+- [译序](#apple-译序)
+- [概述](#git工作流指南)
+- [集中式工作流](workflow-centralized.md)
+    - [工作方式](workflow-centralized.md#beer-工作方式)
+        - [冲突解决](workflow-centralized.md#冲突解决)
+    - [示例](workflow-centralized.md#beer-示例)
+        - [有人先初始化好中央仓库](workflow-centralized.md#有人先初始化好中央仓库)
+        - [所有人克隆中央仓库](workflow-centralized.md#所有人克隆中央仓库)
+        - [小明开发功能](workflow-centralized.md#小明开发功能)
+        - [小红开发功能](workflow-centralized.md#小红开发功能)
+        - [小明发布功能](workflow-centralized.md#小明发布功能)
+        - [小红试着发布功能](workflow-centralized.md#小红试着发布功能)
+        - [小红在小明的提交之上`rebase`](workflow-centralized.md#小红在小明的提交之上rebase)
+        - [小红解决合并冲突](workflow-centralized.md#小红解决合并冲突)
+        - [小红成功发布功能](workflow-centralized.md#小红成功发布功能)
+    - [下一站](workflow-centralized.md#beer-下一站)
+- [功能分支工作流](workflow-feature-branch.md)
+    - [工作方式](workflow-feature-branch.md#beer-工作方式)
+        - [`Pull Requests`](workflow-feature-branch.md#pull-requests)
+    - [示例](workflow-feature-branch.md#beer-示例)
+        - [小红开始开发一个新功能](workflow-feature-branch.md#小红开始开发一个新功能)
+        - [小红要去吃个午饭](workflow-feature-branch.md#小红要去吃个午饭)
+        - [小红完成功能开发](workflow-feature-branch.md#小红完成功能开发)
+        - [小黑收到`Pull Request`](workflow-feature-branch.md#小黑收到pull-request)
+        - [小红再做修改](workflow-feature-branch.md#小红再做修改)
+        - [小红发布她的功能](workflow-feature-branch.md#小红发布她的功能)
+        - [与此同时，小明在做和小红一样的事](workflow-feature-branch.md#与此同时小明在做和小红一样的事)
+    - [下一站](workflow-feature-branch.md#beer-下一站)
+- [`Gitflow`工作流](workflow-gitflow.md)
+    - [工作方式](workflow-gitflow.md#beer-工作方式)
+        - [历史分支](workflow-gitflow.md#历史分支)
+        - [功能分支](workflow-gitflow.md#功能分支)
+        - [发布分支](workflow-gitflow.md#发布分支)
+        - [维护分支](workflow-gitflow.md#维护分支)
+    - [示例](workflow-gitflow.md#beer-示例)
+        - [创建开发分支](workflow-gitflow.md#创建开发分支)
+        - [小红和小明开始开发新功能](workflow-gitflow.md#小红和小明开始开发新功能)
+        - [小红完成功能开发](workflow-gitflow.md#小红完成功能开发)
+        - [小红开始准备发布](workflow-gitflow.md#小红开始准备发布)
+        - [小红完成发布](workflow-gitflow.md#小红完成发布)
+        - [最终用户发现`Bug`](workflow-gitflow.md#最终用户发现bug)
+    - [下一站](workflow-gitflow.md#beer-下一站)
+- [`Forking`工作流](workflow-forking.md)
+    - [工作方式](workflow-forking.md#beer-工作方式)
+        - [正式仓库](workflow-forking.md#正式仓库)
+        - [`Forking`工作流的分支使用方式](workflow-forking.md#forking工作流的分支使用方式)
+    - [示例](workflow-forking.md#beer-示例)
+        - [项目维护者初始化正式仓库](workflow-forking.md#项目维护者初始化正式仓库)
+        - [开发者`fork`正式仓库](workflow-forking.md#开发者fork正式仓库)
+        - [开发者克隆自己`fork`出来的仓库](workflow-forking.md#开发者克隆自己fork出来的仓库)
+        - [开发者开发自己的功能](workflow-forking.md#开发者开发自己的功能)
+        - [开发者发布自己的功能](workflow-forking.md#开发者发布自己的功能)
+        - [项目维护者集成开发者的功能](workflow-forking.md#项目维护者集成开发者的功能)
+        - [开发者和正式仓库做同步](workflow-forking.md#开发者和正式仓库做同步)
+    - [下一站](workflow-forking.md#beer-下一站)
+- [`Pull Requests`](pull-request.md)
+    - [解析`Pull Request`](pull-request.md#解析pull-request)
+    - [工作方式](pull-request.md#beer-工作方式)
+        - [在功能分支工作流中使用`Pull Request`](pull-request.md#在功能分支工作流中使用pull-request)
+        - [在`Gitflow`工作流中使用`Pull Request`](pull-request.md#在gitflow工作流中使用pull-request)
+        - [在`Forking`工作流中使用`Pull Request`](pull-request.md#在forking工作流中使用pull-request)
+    - [示例](pull-request.md#beer-示例)
+        - [小红`fork`正式项目](pull-request.md#小红fork正式项目)
+        - [小红克隆她的`Bitbucket`仓库](pull-request.md#小红克隆她的bitbucket仓库)
+        - [小红开发新功能](pull-request.md#小红开发新功能)
+        - [小红`push`功能到她的`Bitbucket`仓库中](pull-request.md#小红push功能到她的bitbucket仓库中)
+        - [小红发起`Pull Request`](pull-request.md#小红发起pull-request)
+        - [小明review `Pull Request`](pull-request.md#小明review-pull-request)
+        - [小红补加提交](pull-request.md#小红补加提交)
+    - [下一站](pull-request.md#beer-下一站)

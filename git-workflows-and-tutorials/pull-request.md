@@ -1,6 +1,21 @@
 `Pull Request`工作流
 =======================
 
+- [解析`Pull Request`](#解析pull-request)
+- [工作方式](#beer-工作方式)
+    - [在功能分支工作流中使用`Pull Request`](#在功能分支工作流中使用pull-request)
+    - [在`Gitflow`工作流中使用`Pull Request`](#在gitflow工作流中使用pull-request)
+    - [在`Forking`工作流中使用`Pull Request`](#在forking工作流中使用pull-request)
+- [示例](#beer-示例)
+    - [小红`fork`正式项目](#小红fork正式项目)
+    - [小红克隆她的`Bitbucket`仓库](#小红克隆她的bitbucket仓库)
+    - [小红开发新功能](#小红开发新功能)
+    - [小红`push`功能到她的`Bitbucket`仓库中](#小红push功能到她的bitbucket仓库中)
+    - [小红发起`Pull Request`](#小红发起pull-request)
+    - [小明review `Pull Request`](#小明review-pull-request)
+    - [小红补加提交](#小红补加提交)
+- [下一站](#beer-下一站)
+
 `Pull Requests`是`Bitbucket`上方便开发者之间协作的功能。
 提供了一个用户友好的`Web`界面，在集成提交的变更到正式项目前可以对变更进行讨论。
 

@@ -1,6 +1,20 @@
 `Gitflow`工作流
 ============================
 
+- [工作方式](#beer-工作方式)
+    - [历史分支](#历史分支)
+    - [功能分支](#功能分支)
+    - [发布分支](#发布分支)
+    - [维护分支](#维护分支)
+- [示例](#beer-示例)
+    - [创建开发分支](#创建开发分支)
+    - [小红和小明开始开发新功能](#小红和小明开始开发新功能)
+    - [小红完成功能开发](#小红完成功能开发)
+    - [小红开始准备发布](#小红开始准备发布)
+    - [小红完成发布](#小红完成发布)
+    - [最终用户发现`Bug`](#最终用户发现bug)
+- [下一站](#beer-下一站)
+
 ![Git Workflows: Gitflow Cycle](images/git-workflows-gitflow.png)
 
 这节介绍的[`Gitflow`工作流](http://nvie.com/posts/a-successful-git-branching-model/)借鉴自在[nvie](http://nvie.com/)的*Vincent Driessen*。
