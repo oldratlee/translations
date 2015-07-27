@@ -21,6 +21,13 @@
 
 文中`Pull Request`的介绍用的是`Bitbucket`代码托管服务，由于和`GitHub`基本一样，如果你用的是`GitHub`（我自己也主要使用`GitHub`托管代码），不影响理解和操作。
 
+***PPS***：
+
+更多`Git`学习资料参见
+
+- [`git`的资料整理](https://github.com/xirong/my-git) by [@xirong](https://github.com/xirong)
+- 自己整理的分享PPT [git-gitlab-usage.pptx](https://github.com/oldratlee/software-practice-miscellany/blob/master/git/git-gitlab-usage.pptx) @ [个人整理一些`Git`资料](https://github.com/oldratlee/software-practice-miscellany/tree/master/git)
+
 ----------------
 
 - :see_no_evil: [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 :clap:
