@@ -5,7 +5,12 @@
 
 文章[Subversion UI Shootout](http://onlamp.com/pub/a/onlamp/2005/03/10/svn_uis.html "Subversion UI Shootout")比较了多个`GUI` `SVN`工具以及命令行的优劣。
 
-虽然说的是`SVN`工具，但文中列出的`GUI`和`CLI`的原则，值得单独拿出来看看。这里翻译一下。
+虽然说的是`SVN`工具，但文中列出的`GUI`和`CLI`的原则：
+
+- 说明了两种`Interface`适合的场景和优劣
+- 进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的
+
+值得单独拿出来看看。这里翻译一下。
 
 PS：     
 交互思考有相通的之处，下面的几篇说了不错的话题，也可以看看：
