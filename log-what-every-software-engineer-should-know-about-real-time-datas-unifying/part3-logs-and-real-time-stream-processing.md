@@ -174,4 +174,4 @@
 
 -----------------
 
-[« 第二部分：数据集成](part2-data-integration.md)　　　　[第四部分：系统建设 »](part4-system-building.md)
+[« 第二部分：数据集成](part2-data-integration.md)　　　　[第四部分：构建系统 »](part4-system-building.md)
