@@ -68,7 +68,7 @@ PS：
     - [有状态的实时流处理](part3-logs-and-real-time-stream-processing.md#有状态的实时流处理)
     - [日志合并（`log compaction`）](part3-logs-and-real-time-stream-processing.md#日志合并log-compaction)
 - [第四部分：构建系统](part4-system-building.md)
-    - [分解单品方式而不是打包套餐方式？](part4-system-building.md#分解单品方式而不是打包套餐方式)
+    - [分解单品方式而不是打包套餐方式（`Unbundling`）？](part4-system-building.md#分解单品方式而不是打包套餐方式unbundling)
     - [日志在系统架构中的地位](part4-system-building.md#日志在系统架构中的地位)
 - [结束语](the-end.md)
 - [译跋](translation-postscript.md)
