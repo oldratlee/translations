@@ -8,7 +8,7 @@ Chinese translations for good english resources.
 ------------------
 
 1. [`Python` Philosophy（`Python`哲学）翻译及简析](python-philosophy/README.md)  
-既有指明大是大非的理念，又有指导细节操作的准则。
+既有指明大是大非的理念，又有指导细节操作的准则；
 既有谆谆教导的推荐，也有声色俱厉的禁止。
 1. [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/README.md)  
 给出了一个通用`Java` `IO` `API`设计，更重要的是，给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。
@@ -29,7 +29,7 @@ Chinese translations for good english resources.
 
 1. [Paxos Made Simple](paxos-made-simple/README.rst)  
     该论文给出描述一致性问题的概念、术语、算法，从复杂中抓取出了核心，给出了如此简单的描述。
-    另言简意赅地说明了多实例`Paxos`（`Multi-Paxos`），这是真正实践中使用的`Paxos`。可以说不读这篇论文你就不知道如何有效描述和交流一致性算法。
+    另言简意赅地说明了多实例`Paxos`（`Multi-Paxos`），这是真正实践中使用的`Paxos`。可以说不读这篇论文你就不知道如何有效地描述和交流一致性算法。
 1. [`PaxosLease`：实现租约的无盘`Paxos`算法](paxoslease/README.rst)  
     可以说是最简单且可以实际使用的`Paxos`算法变种。
 
