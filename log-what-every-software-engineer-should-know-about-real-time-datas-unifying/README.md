@@ -33,8 +33,8 @@ PS：
 日志：每个软件工程师都应该知道的有关实时数据的统一抽象
 =====================================================================
 
-我在六年前加入到`LinkedIn`公司，那是一个令人兴奋的时刻：我们刚开始面临单一庞大的集中式数据库的限制问题，需要过渡到一套专业的分布式系统。
-这是一个令人兴奋的经历：我们构建、部署和运行分布式图形数据库（`distributed graph database`）、分布式搜索后端（`distributed search backend`）、
+我在六年前加入到`LinkedIn`公司，那是一个令人兴奋的时刻：我们刚开始面临单一庞大的集中式数据库的限制问题，需要过渡到一套专门的分布式系统。
+这是一个令人兴奋的经历：我们构建、部署和运行分布式图数据库（`distributed graph database`）、分布式搜索后端（`distributed search backend`）、
 `Hadoop`以及第一代和第二代键值数据存储（`key-value store`），而且这套系统一直运行至今。
 
 这个过程中，我学到的最有益的事情是我们所构建这套系统的许多组件其核心都包含了一个很简单的概念：日志。
@@ -67,7 +67,7 @@ PS：
     - [数据流图（`data flow graphs`）](part3-logs-and-real-time-stream-processing.md#数据流图data-flow-graphs)
     - [有状态的实时流处理](part3-logs-and-real-time-stream-processing.md#有状态的实时流处理)
     - [日志合并（`log compaction`）](part3-logs-and-real-time-stream-processing.md#日志合并log-compaction)
-- [第四部分：构建系统](part4-system-building.md)
+- [第四部分：系统构建（`system building`）](part4-system-building.md)
     - [分解单品方式而不是打包套餐方式（`Unbundling`）？](part4-system-building.md#分解单品方式而不是打包套餐方式unbundling)
     - [日志在系统架构中的地位](part4-system-building.md#日志在系统架构中的地位)
 - [结束语](the-end.md)
