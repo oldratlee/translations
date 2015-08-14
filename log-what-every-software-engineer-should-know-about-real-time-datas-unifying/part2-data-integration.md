@@ -1,14 +1,14 @@
 第二部分：数据集成
 ================================
 
-- [数据集成：两个难题](#数据集成两个难题)
+1. [数据集成：两个难题](#数据集成两个难题)
     - [事件数据管道](#事件数据管道)
     - [专用的数据系统（`specialized data systems`）的爆发](#专用的数据系统specialized-data-systems的爆发)
-- [日志结构化的（`log-structured`）数据流](#日志结构化的log-structured数据流)
-- [在`LinkedIn`](#在linkedin)
-- [`ETL`与数据仓库的关系](#etl与数据仓库的关系)
-- [日志文件与事件](#日志文件与事件)
-- [构建可伸缩的日志](#构建可伸缩的日志)
+1. [日志结构化的（`log-structured`）数据流](#日志结构化的log-structured数据流)
+1. [在`LinkedIn`](#在linkedin)
+1. [`ETL`与数据仓库的关系](#etl与数据仓库的关系)
+1. [日志文件与事件](#日志文件与事件)
+1. [构建可伸缩的日志](#构建可伸缩的日志)
 
 我先解释一下我说的是『数据集成』（`data integration`）是什么，还有为什么我觉得它很重要，然后我们再来看看它是如何和日志建立关系的。
 
@@ -225,7 +225,7 @@
 依我之见，`ETL`包括两件事。
 首先，它是数据抽取和数据规整的处理 —— 本质上就是释放被锁在组织的各类系统中的数据，去除特定于系统的约束。
 第二，依照数据仓库的查询重构数据，例如使其符合关系数据库类型系统，
-强制使用星号、雪花型模式（`star schema`、`snowflake schema`），可能会打散数据成高性能的[列](http://parquet.io/) [格式](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/orcfile.html)（`column format`），等等。合并这两者是有困难的。
+强制使用星型`schema`（`star schema`）、雪花型`schema`（`snowflake schema`），可能会打散数据成高性能的[列](http://parquet.io/) [格式](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/orcfile.html)（`column format`），等等。合并这两者是有困难的。
 这些集成仓库的规整的数据除了要索引到实时存储系统中，也应当可用于实时或是低时延处理中。
 
 在我看来，正是因为这个原因有了额外好处：使得数据仓库`ETL`大大提升了组织级的可伸缩性（`scalable`）。
