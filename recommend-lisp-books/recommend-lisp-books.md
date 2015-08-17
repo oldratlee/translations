@@ -31,7 +31,7 @@
 该书在很大程度上展示了`Lisp`的威力和很多在使用过程中的注意事项。
 
 网络上有人翻译了该书，大概有两三个版本，其中有一版翻译的非常之好，以至于超越了英文版，因为它纠正了英文版中的一些错误
-（这些错误是由于***On Lisp***写于，`ANSI Common Lisp`标准出台之前，不是保罗的错）
+（这些错误是由于**_On Lisp_**写于，`ANSI Common Lisp`标准出台之前，不是保罗的错）
 
 3. [Successful Lisp](http://book.douban.com/subject/1456905/)
 -----------------------------
@@ -45,7 +45,7 @@
 
 这本同样是老保罗写的，是在`ANSI`标准颁发之后写的`Common Lisp`入门教程。
 主要是讲`Common Lisp`的语法的。适合初学者阅读，书后的附录很有参考价值。
-可快速阅读，该书只有英文版，没有***Successful Lisp***生动，但是书很薄，作为快速入门的途径不错。
+可快速阅读，该书只有英文版，没有**_Successful Lisp_**生动，但是书很薄，作为快速入门的途径不错。
 
 @oldratlee 注：   
 已有[ANSI Common Lisp 中文版](http://acl.readthedocs.org/en/latest/zhCN/index.html)。

@@ -6,7 +6,7 @@
 
 - [Successful Lisp](http://book.douban.com/subject/1456905/)中的[`Lisp`书籍推荐](suggestions4further-reading-in-successful-lisp.md)
 - [图谱实验室](http://blog.sina.com.cn/tupulab)的[学习`Lisp`的书籍推荐](recommend-lisp-books.md)     
-让我知道***Successful Lisp: How to Understand and Use Common Lisp***这本入门的好书。  
+让我知道**_Successful Lisp: How to Understand and Use Common Lisp_**这本入门的好书。  
 [在线版](http://psg.com/~dlamkins/sl/contents.html) / [`PDF`版](http://ebixio.com/online_docs/SuccessfulLisp.pdf)
 
 ![lisp](lisp.png)

@@ -20,7 +20,7 @@
 
 <img src="images/cabling.jpg" width="270" hspace="10px" align="right" >
 
-你一定不会听到数据集成就兴趣盎然地屏住呼吸，并且天花乱坠的想到***大数据***的概念，
+你一定不会听到数据集成就兴趣盎然地屏住呼吸，并且天花乱坠的想到**_大数据_**的概念，
 但尽管如此，我相信这个陈词滥调的『让数据可用』的问题是组织可以关注的更有价值的事情之一。
 
 对数据的高效使用遵循一种[马斯洛的需要层次理论](http://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs)。
@@ -97,7 +97,7 @@
 > 
 <img src="images/19202238_eoij.jpg" width="250" >  
 > [『每个工作的数据管道要设计得像是一个日志；每个损坏的数据管道都以其自己的方式损坏。』  
-> —— ***Count Leo Tolstoy*** （由作者翻译）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
+> —— **_Count Leo Tolstoy_** （由作者翻译）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
 
 这里我使用术语『日志』取代了『消息系统』或者『发布-订阅』，因为在语义上明确得多，并且准确得多地描述了在实际实现中支持数据复制时你所要做的事。
 我发现『发布订阅』只是表达出了消息的间接寻址（`indirect addressing of messages`） ——
@@ -240,7 +240,7 @@
 这意味着作为系统设计和实现一部分的生产者，在交付到中心通道时，
 必须考虑其输出和输入的数据要有良好结构形式的问题。
 新的存储系统的加入对于数据仓库团队是无关紧要的，因为他们现在有的是一个中心结点去集成。
-（***译注***：原来要集成的是其它各个相关的系统，工作是被简化了的）
+（**_译注_**：原来要集成的是其它各个相关的系统，工作是被简化了的）
 数据仓库团队需只处理更简单的问题，从中心日志中加载结构化的输入数据、完成特定于他们系统的数据转换。
 
 <img src="images/pipeline_ownership.png" hspace="10px" align="right" >

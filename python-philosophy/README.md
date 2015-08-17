@@ -13,13 +13,13 @@
 美优于丑。
 2. Explicit is better than implicit.   
 直白优于隐晦。
-3. Simple is better than complex ***[1]***.   
+3. Simple is better than complex **_[1]_**.   
 简单优于复杂。
-4. Complex is better than complicated ***[2]*** .  
+4. Complex is better than complicated **_[2]_** .  
 复杂优于纠结。
 5. Flat is better than nested.     
 扁平优于嵌套。
-6. Sparse is better than dense ***[3]*** .  
+6. Sparse is better than dense **_[3]_** .  
 稀疏优于稠密。
 7. Readability counts.  
 可读性是有重要价值的。
@@ -35,7 +35,7 @@
 面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
 应该有一个，并且宁愿只有一个做法，一个显而易见的做法。
-    * Although that way may not be obvious at first unless you're Dutch ***[4]***.  
+    * Although that way may not be obvious at first unless you're Dutch **_[4]_**.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
 12.  Now is better than never.  
 “现在” 优于 “决不”。
@@ -50,7 +50,7 @@
 
 ### 译注
 
-***[1] [2]*** 单词complex的意思是 复杂，而complicated 是 结构复杂。
+**_[1] [2]_** 单词complex的意思是 复杂，而complicated 是 结构复杂。
 
 在计算机领域中，complex 可以对应 单个模块复杂，而complicated 则可以对应 多个模块互相关联的复杂。
 用计算机的术语来说，complicated 是不同模块之间紧“耦合”，体现了理解不深，设计不好。
@@ -62,11 +62,11 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
-***[3]*** 稀疏、稠密指的是代码行中操作的疏密。
+**_[3]_** 稀疏、稠密指的是代码行中操作的疏密。
 `C`的Geek，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
 在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的负作用），也降低了代码的可读性。
 
-***[4]*** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。
+**_[4]_** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。
 
 在这里作者[TimPeters](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父Guido的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 

@@ -58,7 +58,7 @@ class Test {
 }
 ```
 
-是的！`Java`语言不允许一个类里有2个方法是『***重载一致***』的，而不会关心这2个方法的`throws`子句或返回类型实际上是不同的。
+是的！`Java`语言不允许一个类里有2个方法是『**_重载一致_**』的，而不会关心这2个方法的`throws`子句或返回类型实际上是不同的。
 
 但是等一下！来看看[`Class.getMethod(String, Class...)`](http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getMethod-java.lang.String-java.lang.Class...-)方法的`Javadoc`：
 
@@ -137,7 +137,7 @@ class Test {
 ```java
 @Target(ElementType.TYPE_USE)
 @interface Crazy {}
- 
+
 class Test {
     @Crazy int[][]  a1 = {{}};
     int @Crazy [][] a2 = {{}};
@@ -159,7 +159,7 @@ class Test {
 
 > 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
-【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
+【**_译注_**：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
 请找出上面用法的合适的使用场景，这个还是留给你作为一个练习吧。
 
@@ -312,7 +312,7 @@ for (int i = 0; i < 10; i++) {
 
 > 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
-【***译注***：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
+【**_译注_**：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
 7. `GOTO`
 ---------------------------------------
@@ -459,7 +459,7 @@ class Test {
 
 一个很难的问题，[`Ross Tate `](http://www.cs.cornell.edu/~ross/)回答过。答案实际上是不确定的：
 
-***`C`是`Type<? super C>`的子类吗？***
+**_`C`是`Type<? super C>`的子类吗？_**
 
 ```java
 步骤 0) C <?: Type<? super C>
@@ -470,7 +470,7 @@ class Test {
 
 然后：
 
-***`D`是`Type<? super D<Byte>>`的子类吗？***
+**_`D`是`Type<? super D<Byte>>`的子类吗？_**
 
 ```java
 步骤 0) D<Byte> <?: Type<? super C<Byte>>

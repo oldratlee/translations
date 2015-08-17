@@ -35,9 +35,9 @@ PS：
 
 在展示和说明一件事时，`GUI`更优。
 
-一个好例子是，标准的`GUI` `Diff`工具。尽管可以算出差异后用统一格式输出 ***[1]***，但分屏对比显示（比如像`VimDiff`、`Tortoise`自带的`Diff`）会方便很多，新老文件左右两边对比显示，使用不同的颜色来标识出修改部分。
+一个好例子是，标准的`GUI` `Diff`工具。尽管可以算出差异后用统一格式输出 **_[1]_**，但分屏对比显示（比如像`VimDiff`、`Tortoise`自带的`Diff`）会方便很多，新老文件左右两边对比显示，使用不同的颜色来标识出修改部分。
 
-***[1]*** 译注：`diff`命令的输出格式参见：[读懂diff](http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html "读懂diff")
+**_[1]_** 译注：`diff`命令的输出格式参见：[读懂diff](http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html "读懂diff")
 
 ### `GUI`原则#2
 
