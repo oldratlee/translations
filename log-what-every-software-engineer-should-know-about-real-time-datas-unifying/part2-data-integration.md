@@ -206,8 +206,6 @@
 `ETL`与数据仓库的关系
 -------------------------
 
-Having this central location that contains a clean copy of all your data is a hugely valuable asset for data-intensive analysis and processing
-
 我们再来聊聊数据仓库。数据仓库旨在包含支撑数据分析的规整的集成的结构化数据。
 这是一个非常好的理念。对不了解数据仓库概念的人来说，数据仓库的用法是：
 周期性的从源数据库抽取数据，把它们转化为可理解的形式，然后把它导入中心数据仓库。
