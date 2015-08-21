@@ -59,7 +59,7 @@
 ### 专用的数据系统（`specialized data systems`）的爆发
 
 第二个趋势来自于专用的数据系统的[爆发](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.68.9136)，这些数据系统在最近五年开始流行并且可以免费获得。
-专门用于[`OLAP`](https://github.com/metamx/druid/wiki)、[搜索](http://www.elasticsearch.org/)、[简单](http://www.rethinkdb.com/) [在线](http://www.slideshare.net/amywtang/espresso-20952131) [存储](http://hadoop.apache.org/)、 [批处理](http://hadoop.apache.org/)、[图分析`graph analysis`](http://graphlab.org/) [等](http://redis.io/) [等](http://spark.incubator.apache.org/) 的数据系统已经出现。
+专门用于[`OLAP`](https://github.com/metamx/druid/wiki)、[搜索](http://www.elasticsearch.org/)、[简单](http://www.rethinkdb.com/) [在线](http://www.slideshare.net/amywtang/espresso-20952131) [存储](http://hadoop.apache.org/)、 [批处理](http://hadoop.apache.org/)、[图分析（`graph analysis`）](http://graphlab.org/) [等](http://redis.io/) [等](http://spark.incubator.apache.org/) 的数据系统已经出现。
 
 更加多样化的数据同时变成更加大量，而且这些数据期望放到更多的系统中，这些需求同时要解决，导致了一个巨大的数据集成问题。
 
@@ -97,7 +97,7 @@
 > 
 <img src="images/19202238_eoij.jpg" width="250" >  
 > [『每个工作的数据管道要设计得像是一个日志；每个损坏的数据管道都以其自己的方式损坏。』  
-> —— **_Count Leo Tolstoy_** （由作者翻译）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
+> —— _Count Leo Tolstoy_ （由作者翻译）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
 
 这里我使用术语『日志』取代了『消息系统』或者『发布-订阅』，因为在语义上明确得多，并且准确得多地描述了在实际实现中支持数据复制时你所要做的事。
 我发现『发布订阅』只是表达出了消息的间接寻址（`indirect addressing of messages`） ——
