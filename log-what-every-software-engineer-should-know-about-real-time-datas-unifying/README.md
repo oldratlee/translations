@@ -7,9 +7,9 @@
 
 这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，虽然很长，但被称为[程序员史诗般必读文章](http://bryanpendleton.blogspot.hk/2014/01/the-log-epic-software-engineering.html)。
 
-[学习笔记：The Log（我所读过的最好的一篇分布式技术文章）](http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html)对本文做了很不错摘要和解读。
+[学习笔记：The Log（我所读过的最好的一篇分布式技术文章）](http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html)对本文做了很赞的摘要和解读。
 
-但作为一篇**_经典_**文章，是值得去完整地研读和理解：
+但作为一篇**_经典_**文章，还是值得去完整地研读和理解：
 
 1. 原文可以作为大数据/分布式系统领域一份导论式的资料。   
     作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
