@@ -53,7 +53,7 @@ PS：
 - [第一部分：日志是什么？](part1-what-is-a-log.md)
     1. [数据库中的日志](part1-what-is-a-log.md#数据库中的日志)
     1. [分布式系统中的日志](part1-what-is-a-log.md#分布式系统中的日志)
-    1. [变更日志101：表与事件的二相性（`duality`）](part1-what-is-a-log.md#变更日志101表与事件的二相性duality)
+    1. [变更日志101：表与事件的二象性（`duality`）](part1-what-is-a-log.md#变更日志101表与事件的二象性duality)
     1. [接下来的内容](part1-what-is-a-log.md#接下来的内容)
 - [第二部分：数据集成](part2-data-integration.md)
     1. [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)

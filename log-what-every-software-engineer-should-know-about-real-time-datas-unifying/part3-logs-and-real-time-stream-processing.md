@@ -131,7 +131,7 @@
 
 如何才能即支持像处理流程一样分片又支持像『表』一样的存储呢？
 
-回顾一下关于表和日志二相性的讨论。它正好提供了把流转换成与这里我们处理中所需的表的工具，同时也是一个解决表的容错的处理机制。
+回顾一下关于表和日志二象性的讨论。它正好提供了把流转换成与这里我们处理中所需的表的工具，同时也是一个解决表的容错的处理机制。
 
 流处理器可以把它的状态保存在本地的『表』或『索引』中 —— [`bdb`](http://www.oracle.com/technetwork/products/berkeleydb)、[`leveldb`](https://code.google.com/p/leveldb)
 甚至是些更不常见的组件，如[`Lucene`](http://lucene.apache.org/) 或[`fastbit`](https://sdm.lbl.gov/fastbit)索引。
