@@ -58,7 +58,7 @@ PS：
 - [第二部分：数据集成](part2-data-integration.md)
     1. [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)
         - [事件数据管道](part2-data-integration.md#事件数据管道)
-        - [专用的数据系统（`specialized data systems`）的爆发](part2-data-integration.md#专用的数据系统specialized-data-systems的爆发)
+        - [专用数据系统（`specialized data systems`）的爆发](part2-data-integration.md#专用数据系统specialized-data-systems的爆发)
     1. [日志结构化的（`log-structured`）数据流](part2-data-integration.md#日志结构化的log-structured数据流)
     1. [在`LinkedIn`](part2-data-integration.md#在linkedin)
     1. [`ETL`与数据仓库的关系](part2-data-integration.md#etl与数据仓库的关系)

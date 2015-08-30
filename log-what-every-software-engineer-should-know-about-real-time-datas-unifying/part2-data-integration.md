@@ -3,7 +3,7 @@
 
 1. [数据集成：两个难题](#数据集成两个难题)
     - [事件数据管道](#事件数据管道)
-    - [专用的数据系统（`specialized data systems`）的爆发](#专用的数据系统specialized-data-systems的爆发)
+    - [专用数据系统（`specialized data systems`）的爆发](#专用数据系统specialized-data-systems的爆发)
 1. [日志结构化的（`log-structured`）数据流](#日志结构化的log-structured数据流)
 1. [在`LinkedIn`](#在linkedin)
 1. [`ETL`与数据仓库的关系](#etl与数据仓库的关系)
@@ -56,9 +56,9 @@
 
 这种类型的事件数据记录了发生的事情，往往比传统数据库应用要大好几个数量级。这对于处理提出了重大的挑战。
 
-### 专用的数据系统（`specialized data systems`）的爆发
+### 专用数据系统（`specialized data systems`）的爆发
 
-第二个趋势来自于专用的数据系统的[爆发](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.68.9136)，这些数据系统在最近五年开始流行并且可以免费获得。
+第二个趋势来自于专用数据系统的[爆发](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.68.9136)，这些数据系统在最近五年开始流行并且可以免费获得。
 专门用于[`OLAP`](https://github.com/metamx/druid/wiki)、[搜索](http://www.elasticsearch.org/)、[简单](http://www.rethinkdb.com/) [在线](http://www.slideshare.net/amywtang/espresso-20952131) [存储](http://hadoop.apache.org/)、 [批处理](http://hadoop.apache.org/)、[图分析（`graph analysis`）](http://graphlab.org/) [等](http://redis.io/) [等](http://spark.incubator.apache.org/) 的数据系统已经出现。
 
 更加多样化的数据同时变成更加大量，而且这些数据期望放到更多的系统中，这些需求同时要解决，导致了一个巨大的数据集成问题。
