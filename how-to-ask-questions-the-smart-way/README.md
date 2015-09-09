@@ -5,6 +5,8 @@
 提问的智慧
 ====================
 
+![](questions.jpg)
+
 **艾瑞克.史蒂文.雷蒙德（Eric Steven Raymond）**   
 [Thyrsus Enterprises](http://www.catb.org/~esr/)  
 [esr@thyrsus.com](mailto:esr@thyrsus.com)
