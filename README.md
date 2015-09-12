@@ -22,7 +22,7 @@ Chinese translations for good english resources.
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
 文中列出的`GUI`和`CLI`的原则：说明了两种`Interface`适合的场景和优劣；进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的。
 
-思考/​思维
+思考/思维
 ------------------
 
 1. [提问的智慧](how-to-ask-questions-the-smart-way/README.md)  
