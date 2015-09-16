@@ -4,6 +4,11 @@ translations
 一些不错英文资料的中文翻译。  
 Chinese translations for good english resources.
 
+[自己](http://weibo.com/oldratlee)想到去做些翻译，一是促进自己的深入学习，二是兴趣。
+
+遵循原则：『信』为本、力求『达』、不妄追『雅』。  
+\# 信：忠实表达作者思想；达：让读者看起来轻松；雅：让读者看起来愉悦。详见[信达雅 - 百度百科](http://baike.baidu.com/view/645992.htm)。
+
 - :see_no_evil: [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 :clap:
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Requst`贡献修改](https://github.com/oldratlee/translations/fork)
