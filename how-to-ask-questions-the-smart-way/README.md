@@ -1,5 +1,5 @@
-原文链接：[How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html)  
-译文链接：[提问的智慧](http://doc.zengrong.net/smart-questions/cn.html) by 王刚 `<yafrank at 126 dot com>` 2013-10-26  
+原文链接：[How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) - [_Eric S. Raymond_](https://en.wikipedia.org/wiki/Eric_S._Raymond)  
+基于译文：[提问的智慧](http://doc.zengrong.net/smart-questions/cn.html) - **_王刚_** `<yafrank at 126 dot com>` 2013-10-26  
 本文对应的维基百科词条：[提问的智慧](https://zh.wikipedia.org/wiki/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7)
 
 提问的智慧
@@ -7,14 +7,14 @@
 
 ![](questions.jpg)
 
-**艾瑞克 · 史蒂文 · 雷蒙德（Eric Steven Raymond）**  
+**艾瑞克 · 史蒂文 · 雷蒙德（_Eric Steven Raymond_）**  
 [Thyrsus Enterprises](http://www.catb.org/~esr/)  
 [esr@thyrsus.com](mailto:esr@thyrsus.com)
 
-**瑞克 · 莫恩（Rick Moen）**  
+**瑞克 · 莫恩（_Rick Moen_）**  
 [respond-auto@linuxmafia.com](mailto:respond-auto@linuxmafia.com)
 
-版权©2001，2006 Eric S. Raymond，Rick Moen
+版权©2001，2006 _Eric S. Raymond_，_Rick Moen_
 
 目录
 ----------------
