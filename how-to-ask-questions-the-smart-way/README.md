@@ -1,6 +1,7 @@
 原文链接：[How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) - [_Eric S. Raymond_](https://en.wikipedia.org/wiki/Eric_S._Raymond)  
 基于译文：[提问的智慧](http://doc.zengrong.net/smart-questions/cn.html) - **_王刚_** `<yafrank at 126 dot com>` 2013-10-26  
-本文对应的维基百科词条：[提问的智慧](https://zh.wikipedia.org/wiki/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7)
+本文对应的维基百科词条：[提问的智慧](https://zh.wikipedia.org/wiki/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7)  
+本译文时间截： 2015-10-4
 
 提问的智慧
 ====================
