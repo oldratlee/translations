@@ -201,7 +201,7 @@
 
 ### `Stack Overflow`
 
-搜索**_之后_**再在`Stack Exchange`提问。
+搜索 **_之后_** 再在`Stack Exchange`提问。
 
 近年来，`Stack Exchange`社区站点已经成为回答技术问题和其他问题的一个主流方式，甚至是很多开源项目的首选论坛。
 
@@ -209,16 +209,16 @@
 如果有人问过类似的问题，这样很容易就找到了，`Stack Exchange`站点的内容往往在搜索结果的顶部出现。
 如果没有找到要的内容，可以在与你问题最相关的网站上重新搜索（见下文说明）。通过标签搜索可以缩小结果范围。
 
-如果你还是没有发现任何内容，把你的问题发表到**_一个_**最相关的网站上。使用格式化工具，特别是对于代码，并添加与问题内容相关的标签（尤其比如 编程语言，操作系统，或者你遇到麻烦的库名）。
+如果你还是没有发现任何内容，把你的问题发表到 **_一个_** 最相关的网站上。使用格式化工具，特别是对于代码，并添加与问题内容相关的标签（尤其比如 编程语言，操作系统，或者你遇到麻烦的库名）。
 如果评论者要求你提供更多信息，请编辑你的主贴新加上来。如果答案对你有帮助，请单击向上箭头给这个答案投票；如果有答案给出了解决办法，请点击投票箭头下面的勾，以接受它成为正确答案。
 
-`Stack Exchange`已经成长到超过100站点，下面说明了什么问题最合适放在哪个站点：
+`Stack Exchange`已经发展到[超过100个站点](http://stackexchange.com/sites)，下面说明了什么问题最合适放在哪个站点：
 
-- `Super User`是关于通用计算的问题。如果你的问题和代码无关，或者你说的只是程序在网络连接上的问题，九成在这里问。
-- `Stack Overflow`是有关编程问题。
-- `Server Fault`是有关服务器和网络管理的问题。
+- [`Super User`](http://superuser.com/)是关于通用计算的问题。如果你的问题和代码无关，或者你说的只是程序在网络连接上的问题，九成在这里问。
+- [`Stack Overflow`](http://stackoverflow.com/)是关于编程问题。
+- [`Server Fault`](http://serverfault.com/)是关于服务器和网络管理的问题。
 
-有几个项目有自己特定的站点，包括`Android`、`Ubuntu`、`TeX/LaTeX`和`SharePoint`。请检查一下`Stack Exchange`以确定现在具体有哪些站点。
+有几个项目有自己的特定站点，包括[`Android`](http://android.stackexchange.com/)、[`Ubuntu`](http://askubuntu.com/)、[`TeX/LaTeX`](http://tex.stackexchange.com/)和[`SharePoint`](http://sharepoint.stackexchange.com/)。请检查一下`Stack Exchange`以确定现在具体有哪些站点。
 
 ### 面向新手的论坛和互联网中继聊天（`IRC`）通常响应最快
 
