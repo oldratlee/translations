@@ -17,7 +17,9 @@
 把次序直接看成是时间概念，刚开始你会觉得有点怪异，但是这样的做法有个便利的性质：解耦了 时间 和 任一特定的物理时钟（`physical clock`）。
 引入分布式系统后，这会成为一个必不可少的性质。
 
-**_【译注】_** 分布式系统的 时间、次序、时钟是个最基础根本的问题，详见被引用最多的_Leslie Lamport_的论文**_Time Clocks and the Ordering of Events in a Distributed System_**（[中文翻译](http://duanple.blog.163.com/blog/static/709717672012920101343237/)），现在先 **_不要_** 去看，除非读完本文后你还是有很兴趣要探个明白！
+> **_【译注】_** 分布式系统的 时间、次序、时钟的概念是个最基础根本的问题，详见被引用最多的_Leslie Lamport_的论文**_Time Clocks and the Ordering of Events in a Distributed System_**（[中文翻译](http://duanple.blog.163.com/blog/static/709717672012920101343237/)）。
+>
+> 现在先 **_不要_** 去看，除非读完本文后你还是有很兴趣要探个明白！
 
 日志记录的内容和格式是什么对于本文讨论并不重要。另外，不可能一直给日志添加记录，因为总会耗尽存储空间。稍后我们会再回来讨论这个问题。
 

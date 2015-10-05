@@ -15,7 +15,7 @@
 **数据集成 是指 使一个组织的所有数据 对 这个组织的所有的服务和系统 可用。**
 
 『数据集成』还不是一个常见的用语，但是我找不到一个更好的。大家更熟知的术语[`ETL`](http://en.wikipedia.org/wiki/Extract,_transform,_load)
-（译注：`ETL`是`Extraction-Transformation-Loading`的缩写，即数据提取、转换和加载）
+（**_【译注】_**：`ETL`是`Extraction-Transformation-Loading`的缩写，即数据提取、转换和加载）
 通常只是覆盖了数据集成的一个有限子集 —— 主要在关系型数据仓库的场景。但我描述的东西很大程度上可以理解为，将`ETL`推广至覆盖实时系统和处理流程。
 
 <img src="images/cabling.jpg" width="270" hspace="10px" align="right" >
