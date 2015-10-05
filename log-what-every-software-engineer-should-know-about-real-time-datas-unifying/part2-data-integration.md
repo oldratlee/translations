@@ -15,7 +15,7 @@
 **数据集成 是指 使一个组织的所有数据 对 这个组织的所有的服务和系统 可用。**
 
 『数据集成』还不是一个常见的用语，但是我找不到一个更好的。大家更熟知的术语[`ETL`](http://en.wikipedia.org/wiki/Extract,_transform,_load)
-（**_【译注】_**：`ETL`是`Extraction-Transformation-Loading`的缩写，即数据提取、转换和加载）
+（**_【译注】_** `ETL`是`Extraction-Transformation-Loading`的缩写，即数据提取、转换和加载）
 通常只是覆盖了数据集成的一个有限子集 —— 主要在关系型数据仓库的场景。但我描述的东西很大程度上可以理解为，将`ETL`推广至覆盖实时系统和处理流程。
 
 <img src="images/cabling.jpg" width="270" hspace="10px" align="right" >
@@ -95,9 +95,15 @@
 这似乎是一个小问题，但实际上却是至关重要的。
 
 > 
-<img src="images/19202238_eoij.jpg" width="250" >  
-> [『每个工作的数据管道要设计得像是一个日志；每个损坏的数据管道都以其自己的方式损坏。』  
-> —— _Count Leo Tolstoy_ （由作者翻译）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
+<img src="images/19202238_eoij.jpg" width="250" >
+>
+> [『Each working data pipeline is designed like a log; each broken data pipeline is broken in its own way.』  
+『工作的数据管道都是设计得像日志；而损坏的数据管道各有各的损坏。』  
+> —— 列夫 · 尼古拉耶维奇 · 托尔斯泰 （由笔者改写）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
+>
+> **_【译注】_** [_托尔斯泰_](https://zh.wikipedia.org/zh-cn/%E5%88%97%E5%A4%AB%C2%B7%E6%89%98%E7%88%BE%E6%96%AF%E6%B3%B0) 的『[_安娜·卡列尼娜_](https://zh.wikipedia.org/zh-cn/%E5%AE%89%E5%A8%9C%C2%B7%E5%8D%A1%E5%88%97%E5%B0%BC%E5%A8%9C) 原理』的原文：  
+> Happy families are all alike; every unhappy family is unhappy in its own way.  
+> 幸福的家庭都是相似的，不幸的家庭各有各的不幸。
 
 这里我使用术语『日志』取代了『消息系统』或者『发布-订阅』，因为在语义上明确得多，并且准确得多地描述了在实际实现中支持数据复制时你所要做的事。
 我发现『发布订阅』只是表达出了消息的间接寻址（`indirect addressing of messages`） ——
@@ -240,7 +246,7 @@
 这意味着作为系统设计和实现一部分的生产者，在交付到中心通道时，
 必须考虑其输出和输入的数据要有良好结构形式的问题。
 新的存储系统的加入对于数据仓库团队是无关紧要的，因为他们现在只有一个中心结点去集成。
-（**_译注_**：原来要集成的是其它各个相关的系统，工作是被简化了的）
+（**_【译注】_** 原来要集成的是其它各个相关的系统，工作是被简化了的）
 数据仓库团队需只处理更简单的问题，从中心日志中加载结构化的输入数据、完成特定于他们系统的数据转换。
 
 <img src="images/pipeline_ownership.png" hspace="10px" align="right" >
