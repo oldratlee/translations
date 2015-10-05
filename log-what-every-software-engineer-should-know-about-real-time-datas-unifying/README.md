@@ -45,6 +45,9 @@ PS：
 不懂得日志，你就不可能真正理解数据库、`NoSQL`存储、键值存储（`key value store`）、数据复制（`replication`）、`paxos`、`Hadoop`、版本控制（`version control`），甚至几乎任何一个软件系统；然而大多数软件工程师对日志并不熟悉。我有意于改变这个现状。
 本文我将带你浏览有关日志需要了解的一切，包括日志是什么，如何在数据集成（`data integration`）、实时处理（`real time processing`）和系统构建中使用日志。
 
+-----------------
+　　　　　　　　[第一部分：日志是什么？ »](part1-what-is-a-log.md)
+
 目录
 -----------------
 
