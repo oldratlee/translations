@@ -26,7 +26,7 @@
 更多`Git`学习资料参见
 
 - [`Git`的资料整理](https://github.com/xirong/my-git) by [@xirong](https://github.com/xirong)
-- 自己整理的分享PPT [git-gitlab-usage.pptx](https://github.com/oldratlee/software-practice-miscellany/blob/master/git/git-gitlab-usage.pptx) @ [个人整理一些`Git`资料](https://github.com/oldratlee/software-practice-miscellany/tree/master/git)
+- 自己整理的分享PPT [`Git`使用与实践](https://github.com/oldratlee/software-practice-miscellany/blob/master/git/git-gitlab-usage.pptx) @ [个人整理一些`Git`](https://github.com/oldratlee/software-practice-miscellany/tree/master/git)
 
 ----------------
 
