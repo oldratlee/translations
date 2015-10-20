@@ -86,7 +86,7 @@ git clone ssh://user@host/path/to/repo.git
 ![](images/git-workflow-svn-1.png)
 
 在小明的本地仓库中，他使用标准的`Git`过程开发功能：编辑、暂存（`Stage`）和提交。
-如果你不熟悉暂存区（`Staging Area`），这里说明一下：**暂存区**用来准备一个提交，但可以不用把工作目录中所有的修改内容都包含进来。
+如果你不熟悉暂存区（`Staging Area`），这里说明一下：**暂存区** 用来准备一个提交，但可以不用把工作目录中所有的修改内容都包含进来。
 这样你可以创建一个高度聚焦的提交，尽管你本地修改很多内容。
 
 ```bash
@@ -113,7 +113,14 @@ git commit # 提交文件
 一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其它团队成员可以看到他的修改。他可以用下面的[`git push`命令](https://www.atlassian.com/git/tutorial/remote-repositories#!push)：
 
 ```bash
-git push origin master
+git push
+
+# 【译注】：
+# 原文用的命令是 git push origin master
+#
+# 主流的git版本，可以省略后面2个参数：远程仓库别名、推送分支，
+# 因为这个参数缺省分别就是 origin 、 当前分支（本文目前的示例就是master）。
+# 这样的用法更简单自然，我平时就是这么用的。
 ```
 
 注意，`origin`是在小明克隆仓库时`Git`创建的远程中央仓库别名。`master`参数告诉`Git`推送的分支。
@@ -126,12 +133,16 @@ git push origin master
 一起来看看在小明发布修改后，小红`push`修改会怎么样？她使用完全一样的`push`命令：
 
 ```bash
-git push origin master
+git push
+
+# 【译注】：
+# 原文用的命令是 git push origin master
+# 原因同上
 ```
 
 但她的本地历史已经和中央仓库有分岐了，`Git`拒绝操作并给出下面很长的出错消息：
 
-```
+```py
 error: failed to push some refs to '/path/to/repo.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
@@ -149,7 +160,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 这条命令类似`svn update`——拉取所有上游提交命令到小红的本地仓库，并尝试和她的本地修改合并：
 
 ```bash
-git pull --rebase origin master
+git pull --rebase
+
+# 【译注】：
+# 原文用的命令是 git push --rebase origin master
+# 原因同上
 ```
 
 `--rebase`选项告诉`Git`把小红的提交移到同步了中央仓库修改后的`master`分支的顶部，如下图所示：
@@ -208,7 +223,11 @@ git rebase --abort
 小红完成和中央仓库的同步后，就能成功发布她的修改了：
 
 ```bash
-git push origin master
+git push
+
+# 【译注】：
+# 原文用的命令是 git push origin master
+# 原因同上
 ```
 
 :beer: 下一站

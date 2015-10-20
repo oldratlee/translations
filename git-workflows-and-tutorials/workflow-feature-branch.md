@@ -65,7 +65,14 @@
 在开始开发功能前，小红需要一个独立的分支。使用下面的命令[新建一个分支](https://www.atlassian.com/git/tutorial/git-branches#!checkout)：
 
 ```bash
-git checkout -b marys-feature master
+git checkout -b marys-feature
+
+# 【译注】：
+# 原文用的命令是 git checkout -b marys-feature master
+#
+# 主流的git版本，可以省略后一个参数：基于哪个分支新建分支，
+# 因为这个参数缺省分别就是 当前分支（本文目前的示例就是master）。
+# 这样的用法更简单自然，我平时就是这么用的。
 ```
 
 这个命令检出一个基于`master`名为`marys-feature`的分支，`Git`的`-b`选项表示如果分支还不存在则新建分支。
@@ -132,12 +139,24 @@ git pull origin marys-feature
 git push
 ```
 
-无论谁来做合并，首先要检出`master`分支并确认是它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到和已经和远程一致的本地`master`分支。
+无论谁来做合并，首先要检出`master`分支并确认它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到和已经和远程一致的本地`master`分支。
 你可以使用简单`git merge marys-feature`命令，但前面的命令可以保证总是最新的新功能分支。
 最后更新的`master`分支要重新`push`回到`origin`。
 
 这个过程常常会生成一个合并提交。有些开发者喜欢有合并提交，因为它像一个新功能和原来代码基线的连通符。
 但如果你偏爱线性的提交历史，可以在执行合并时`rebase`新功能到`master`分支的顶部，这样生成一个快进（`fast-forward`）的合并。
+
+【译注】生成一个快进的合并的命令行：（感觉步骤有些多:sweat:，欢迎给出更简捷的做法:two_hearts:）
+
+```bash
+git checkout marys-feature
+git pull # 确认是最新的
+git pull --rebase origin master # rebase新功能到master分支的顶部
+
+git checkout master
+git merge marys-feature # 合并marys-feature分支的修改，因为这个分支之前对齐（rebase）了master，一定是快进合并
+git push
+```
 
 一些`GUI`客户端可以只要点一下『接受』按钮执行好上面的命令来自动化`Pull Request`接受过程。
 如果你的不能这样，至少在功能合并到`master`分支后能自动关闭`Pull Request`。

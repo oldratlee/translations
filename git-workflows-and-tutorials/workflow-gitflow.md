@@ -101,6 +101,10 @@ git push -u origin develop
 ```bash
 git clone ssh://user@host/path/to/repo.git
 git checkout -b develop origin/develop
+
+#【译注】当没有本地分支 develop 时，
+# 最后一条命令，我使用更简单的 git checkout develop
+# 会自动 把 远程分支origin/develop 检出成 本地分支 develop
 ```
 
 现在每个开发都有了这些历史分支的本地拷贝。
