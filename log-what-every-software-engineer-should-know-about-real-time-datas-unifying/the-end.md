@@ -1,6 +1,9 @@
 结束语
 =============================
 
+1. [学术论文、系统、讨论和博客](#学术论文系统讨论和博客)
+1. [一些相关的开源软件](#一些相关的开源软件)
+
 如果你从头一直做读到了这，那么我对日志的理解你大部分都知道了。
 
 这里再给一些有意思参考资料，你可以再去看看。
@@ -8,7 +11,7 @@
 人们会用不同的术语描述同一事物，当你从数据库系统到分布式系统、从各类企业级应用软件到广阔的开源世界查看资料时，
 这会让人有一些困惑。无论如何，在大方向上还是有一些共同之处。
 
-学术论文、系统、讨论和博客：
+### 学术论文、系统、讨论和博客
 
 - 关于[状态机](http://www.cs.cornell.edu/fbs/publications/smsurvey.pdf%E2%80%8E)和[主备份](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.5896)复制的概述。
 - [`PacificA`](http://research.microsoft.com/apps/pubs/default.aspx?id=66814)是实施微软基于日志的分布式存储系统的通用架构。
@@ -39,15 +42,15 @@
 - 如果你正在做一致性算法选型，[这篇论文](http://arxiv.org/abs/1309.5671)会对你所有帮助。
 - [复现：理论与实践](http://www.amazon.com/Replication-Practice-Lecture-Computer-Theoretical/dp/3642112935)，这是收录了分布式系统一致性的大量论文的一本巨著。网上有该书的诸多章节（[1](http://disi.unitn.it/~montreso/ds/papers/replication.pdf)，[4](http://research.microsoft.com/en-us/people/aguilera/stumbling-chapter.pdf)，[5](http://www.distributed-systems.net/papers/2010.verita.pdf)，[6](http://www.cs.cornell.edu/ken/history.pdf)，[7](http://www.pmg.csail.mit.edu/papers/vr-to-bft.pdf)，[8](http://engineering.linkedin.com/distributed-systems/www.cs.cornell.edu/fbs/publications/TrustSurveyTR.pdf)）。
 - 流处理：这个话题要总结的内容过于宽泛，但还是有几件我所关注的要提一下：
-    1. [`TelegraphCQ`](http://db.cs.berkeley.edu/papers/cidr03-tcq.pdf)
-    2. [`Aurora`](http://cs.brown.edu/research/aurora/vldb03_journal.pdf)
-    3. [`NiagaraCQ`](http://research.cs.wisc.edu/niagara/papers/NiagaraCQ.pdf)
-    4. [离散流](http://www.cs.berkeley.edu/~matei/papers/2012/hotcloud_spark_streaming.pdf)：这篇论文讨论了`Spark`的流式系统。
-    5. [`MillWheel`](http://research.google.com/pubs/pub41378.html) 它是`Google`的流处理系统之一。
-    6. [`Naiad`：一个实时数据流系统](http://research.microsoft.com/apps/pubs/?id=201100)
-    7. [在数据流系统中建模和相关事件](http://infolab.usc.edu/csci599/Fall2002/paper/DML2_streams-issues.pdf)：它可能是研究这一领域的最佳概述之一。
-    8. [分布处式流处理的高可用性算法](http://cs.brown.edu/research/aurora/hwang.icde05.ha.pdf)。
-    9. 随机系统的一些论文：
+    1. [在数据流系统中建模和相关事件](http://infolab.usc.edu/csci599/Fall2002/paper/DML2_streams-issues.pdf)：它可能是研究这一领域的最佳概述之一。
+    1. [分布处式流处理的高可用性算法](http://cs.brown.edu/research/aurora/hwang.icde05.ha.pdf)。
+    1. 随机系统的一些论文：
+        - [`TelegraphCQ`](http://db.cs.berkeley.edu/papers/cidr03-tcq.pdf)
+        - [`Aurora`](http://cs.brown.edu/research/aurora/vldb03_journal.pdf)
+        - [`NiagaraCQ`](http://research.cs.wisc.edu/niagara/papers/NiagaraCQ.pdf)
+        - [离散流](http://www.cs.berkeley.edu/~matei/papers/2012/hotcloud_spark_streaming.pdf)：这篇论文讨论了`Spark`的流式系统。
+        - [`MillWheel`](http://research.google.com/pubs/pub41378.html) 它是`Google`的流处理系统之一。
+        - [`Naiad`：一个实时数据流系统](http://research.microsoft.com/apps/pubs/?id=201100)
 
 企业级软件存在着同样的问题，只是名称不同，或者规模较小，或者是`XML`格式的。哈哈，开个玩笑。
 
@@ -60,21 +63,20 @@
 - [复杂事件处理（`CEP`）](http://en.wikipedia.org/wiki/Complex_event_processing)没有人知道它的确切涵义或者它与流处理有什么不同。这些差异看起来集中在无序流和事件过滤、发现或者聚合上，但是依我之见，差别并不明显。我认为每个系统都有自己的优势。
 - [企业服务总线（`ESB`）](http://en.wikipedia.org/wiki/Enterprise_service_bus) —— 我认为企业服务总线的概念类似于我所描述的数据集成。在企业级软件社区中这个理念取得了一定程度的成功，对于从事网络和分布式基础架构的工程师们这个概念还是很陌生的。
 
-一些相关的开源软件：
+### 一些相关的开源软件
 
-- [`Kafka`](http://kafka.apache.org/)是把日志作为服务的一个项目，它是后边所列各项的基础。
+- [`Kafka`](http://kafka.apache.org/)是把日志作为服务的一个项目，是后边所列各项的基础。
 - [`Bookeeper`](http://zookeeper.apache.org/bookkeeper/) 和[`Hedwig`](http://zookeeper.apache.org/bookkeeper/) 另外的两个开源的『把日志作为服务』的项目。它们更关注的是数据库系统内部构件而不是事件数据。
 - [`Databus`](https://github.com/linkedin/databus)是提供类似日志的数据库表的覆盖层的系统。
-- [`Akka`](http://akka.io/) 是用于`Scala`的`Actor`框架。它有一个[事件驱动](https://github.com/eligosource/eventsourced)的插件，它提供持久化和记录。
+- [`Akka`](http://akka.io/) 是用于`Scala`的`Actor`框架。它有一个[事件驱动](https://github.com/eligosource/eventsourced)的插件，提供持久化和记录。
 - [`Samza`](http://storm-project.net/)是我们在`LinkedIn`中用到的流处理框架，它用到了本文论述的诸多理念，同时与`Kafka`集成来作为底层的日志。
 - [`Storm`](http://storm-project.net/)是广泛使用的可以很好的与`Kafka`集成的流处理框架之一。
-- [`Spark Streaming`](http://spark.incubator.apache.org/docs/0.7.3/streaming-programming-guide.html)一个流处理框架，它是[`Spark`](http://spark.incubator.apache.org/)的一部分。
-- [`Summingbird`](https://blog.twitter.com/2013/streaming-mapreduce-with-summingbird)是在`Storm`或`Hadoop`之上的一层，它提供了便洁的计算摘要。
+- [`Spark Streaming`](http://spark.incubator.apache.org/docs/0.7.3/streaming-programming-guide.html)一个流处理框架，是[`Spark`](http://spark.incubator.apache.org/)的一部分。
+- [`Summingbird`](https://blog.twitter.com/2013/streaming-mapreduce-with-summingbird)是在`Storm`或`Hadoop`之上的一层，提供了便利的计算抽象。
 
-对于这一领域，我将持续的关注，如何您知道一些我遗漏的内容，请您告知。
+对于这一领域，我将持续关注，如何您知道一些我遗漏的内容，请您告知。
 
-最后一起来听听这首歌放松一下吧：
-
+最后我留给你的信息是这个： :smile_cat:  
 [The Log Song - Ren & Stimpy (Deadwood HoN) ](https://youtu.be/2C7mNr5WMjA)
 
 -----------------
