@@ -74,7 +74,7 @@ PS：
 - [第四部分：系统构建（`system building`）](part4-system-building.md)
     1. [分解单品方式而不是打包套餐方式（`Unbundling`）？](part4-system-building.md#分解单品方式而不是打包套餐方式unbundling)
     1. [日志在系统架构中的地位](part4-system-building.md#日志在系统架构中的地位)
-- [结束语](the-end.md)
+- [结束语及参考资料](the-end.md)
     1. [学术论文、系统、讨论和博客](the-end.md#学术论文系统讨论和博客)
     1. [一些相关的开源软件](the-end.md#一些相关的开源软件)
 - [译跋](translation-postscript.md)
