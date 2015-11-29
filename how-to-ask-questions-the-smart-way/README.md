@@ -135,3 +135,7 @@
 
 （欢迎对本文指正，可以将建议发至 [esr@thyrsus.com](mailto:esr@thyrsus.com) 或 [respond-auto@linuxmafia.com](mailto:esr@thyrsus.com)。
 请注意，本文不想成为一般性的 [网络礼仪](http://www.ietf.org/rfc/rfc1855.txt) 指南，我一般会拒绝那些与引出技术论坛中有用的回答不特别相关的建议。）
+
+-----------------
+
+　　　　　　　　[提问前的准备 »](core.md#提问前的准备)
