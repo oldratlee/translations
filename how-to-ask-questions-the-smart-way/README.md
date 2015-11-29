@@ -1,7 +1,7 @@
 原文链接：[How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) - [_Eric S. Raymond_](https://en.wikipedia.org/wiki/Eric_S._Raymond)  
 基于译文：[提问的智慧](http://doc.zengrong.net/smart-questions/cn.html) - **_王刚_** `<yafrank at 126 dot com>` 2013-10-26  
 本文对应的维基百科词条：[提问的智慧](https://zh.wikipedia.org/wiki/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7)  
-本译文时间截： 2015-10-4
+本译文时间截： 2015-10-04
 
 提问的智慧
 ====================
@@ -23,8 +23,8 @@
 - [译文](#译文) 
 - [弃权申明](#弃权申明)
 - [引言](#引言)
-- [提问前](#提问前)
-- [提问时](#提问时)
+- [提问前的准备](#提问前的准备)
+- [提问时的注意](#提问时的注意)
     - [仔细挑选论坛](#仔细挑选论坛)
     - [`Stack Overflow`](#stack-overflow)
     - [面向新手的论坛和互联网中继聊天（`IRC`）通常响应最快](#面向新手的论坛和互联网中继聊天irc通常响应最快)
@@ -136,7 +136,7 @@
 （欢迎对本文指正，可以将建议发至 [esr@thyrsus.com](mailto:esr@thyrsus.com) 或 [respond-auto@linuxmafia.com](mailto:esr@thyrsus.com)。
 请注意，本文不想成为一般性的 [网络礼仪](http://www.ietf.org/rfc/rfc1855.txt) 指南，我一般会拒绝那些与引出技术论坛中有用的回答不特别相关的建议。）
 
-提问前
+提问前的准备
 ------------------
 
 在通过电邮、新闻组或论坛提技术问题以前，做以下事情：
@@ -168,7 +168,7 @@
 另一方面，表明你有能力也乐意参与问题的解决是个很好的开端。『有没有人能指个方向？』，我这还差点什么？』，『我应该查哪个网站？』，
 通常要比 『请给出我可以用的完整步骤』更容易得到回复，因为你表明了只要有人能指个方向，你就很乐意完成剩下的过程。
 
-提问时
+提问时的注意
 -------------------
 
 ### 仔细挑选论坛
