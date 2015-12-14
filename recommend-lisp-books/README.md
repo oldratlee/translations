@@ -9,4 +9,7 @@
 让我知道**_Successful Lisp: How to Understand and Use Common Lisp_**这本入门的好书。  
 [在线版](http://psg.com/~dlamkins/sl/contents.html) / [`PDF`版](http://ebixio.com/online_docs/SuccessfulLisp.pdf)
 
+PS：  
+个人的整理的[`Lisp`书籍豆列](http://www.douban.com/doulist/40854103/)。
+
 ![lisp](lisp.png)

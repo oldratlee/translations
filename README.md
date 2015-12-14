@@ -63,7 +63,7 @@ Chinese translations for good english resources.
 ------------------
 
 1. [**_Successful Lisp_**中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
-    - 考虑到`Lisp`入门的难度，整理了[`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)
+    - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
     - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
 
 其它
