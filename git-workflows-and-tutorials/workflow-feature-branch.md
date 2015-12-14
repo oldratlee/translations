@@ -71,7 +71,7 @@ git checkout -b marys-feature
 # 原文用的命令是 git checkout -b marys-feature master
 #
 # 主流的git版本，可以省略后一个参数：基于哪个分支新建分支，
-# 因为这个参数缺省分别就是 当前分支（本文目前的示例就是master）。
+# 因为这个参数缺省就是 当前分支（本文目前的示例就是master）。
 # 这样的用法更简单自然，我平时就是这么用的。
 ```
 
