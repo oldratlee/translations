@@ -1,6 +1,19 @@
 原文链接： [Chris Hoffman](http://www.howtogeek.com/183004/why-android-phones-slow-down-over-time-and-how-to-speed-them-up/)     
 译文发在[极客范](http://www.geekfan.net/)： [http://www.geekfan.net/7350/](http://www.geekfan.net/7350/)，2014-03-09
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [为什么`Android`手机会越用越慢，如何提速？](#%E4%B8%BA%E4%BB%80%E4%B9%88android%E6%89%8B%E6%9C%BA%E4%BC%9A%E8%B6%8A%E7%94%A8%E8%B6%8A%E6%85%A2%EF%BC%8C%E5%A6%82%E4%BD%95%E6%8F%90%E9%80%9F%EF%BC%9F)
+  - [`OS`更新和大型应用](#os%E6%9B%B4%E6%96%B0%E5%92%8C%E5%A4%A7%E5%9E%8B%E5%BA%94%E7%94%A8)
+  - [后台进程](#%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B)
+  - [存储空间快满了](#%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E5%BF%AB%E6%BB%A1%E4%BA%86)
+  - [没有启用固态硬盘的`TRIM`](#%E6%B2%A1%E6%9C%89%E5%90%AF%E7%94%A8%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E7%9A%84trim)
+  - [总结](#%E6%80%BB%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 为什么`Android`手机会越用越慢，如何提速？
 ====================================
 
