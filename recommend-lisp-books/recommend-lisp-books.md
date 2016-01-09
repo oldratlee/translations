@@ -1,13 +1,13 @@
 原文链接：[推荐学习LISP的书籍](http://blog.sina.com.cn/s/blog_72d43af30100pg5t.html) - [图谱实验室](http://blog.sina.com.cn/tupulab)，2011-02-01 21:10:14
 
+<img src="lisp.png" width="192" hspace="10px" align="right" >
+
 学习`Lisp`的书籍推荐
 =====================
 
 为大家推荐几本学习`Lisp`的书籍。
 
-![lisp](lisp.png)
-
-1. [SICP](http://book.douban.com/subject/1148282/)
+1. [SICP](http://book.douban.com/subject/1148282/) （计算机程序的构造和解释）
 -----------------------------
 
 作为编程界两大圣经之一，麻省理工的本科教材。非常经典，该书以`Lisp`的方言`Scheme`做为代码示例。
@@ -40,7 +40,7 @@
 把`Lisp`的基本特性表述的很完整。该书于近些年成书，所以带有现代的气息。
 非常不错，值得一看。该书只有英文版，可以免费在线阅读。
 
-4. [ANSI COMMON LISP](http://book.douban.com/subject/1456906/)
+4. [Ansi Common Lisp](http://book.douban.com/subject/1456906/)
 -----------------------------
 
 这本同样是老保罗写的，是在`ANSI`标准颁发之后写的`Common Lisp`入门教程。
