@@ -34,13 +34,13 @@
 10. In the face of ambiguity, refuse the temptation to guess.  
 面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
-应该有一个，并且宁愿只有一个做法，一个显而易见的做法。
+一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
     * Although that way may not be obvious at first unless you're Dutch **_[4]_**.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
 12.  Now is better than never.  
-“现在” 优于 “决不”。
+『现在』 优于 『决不』。
     * Although never is often better than **right** now.    
-      尽管 “决不” 常常优于 “**马上**”。
+      尽管 『决不』 常常优于 『**马上**』。
 13. If the implementation is hard to explain, it's a bad idea.  
 如果一个实现难于解释清楚，那它是个差的想法。
 14. If the implementation is easy to explain, it may be a good idea.  
@@ -53,7 +53,7 @@
 **_[1] [2]_** 单词complex的意思是 复杂，而complicated 是 结构复杂。
 
 在计算机领域中，complex 可以对应 单个模块复杂，而complicated 则可以对应 多个模块互相关联的复杂。
-用计算机的术语来说，complicated 是不同模块之间紧“耦合”，体现了理解不深，设计不好。
+用计算机的术语来说，complicated 是不同模块之间紧『耦合』，体现了理解不深，设计不好。
 
 软件的核心复杂度不可避免，但要这些集中一起，给使用一个干净高级的接口，
 也就是说：如果**complex**（核心复杂度）不可避免可以接受，
