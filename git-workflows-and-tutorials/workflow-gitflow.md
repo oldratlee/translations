@@ -134,11 +134,18 @@ git commit
 否则她可以直接合并到她本地的`develop`分支后`push`到中央仓库：
 
 ```bash
+# 拉取远程的develop分支，并且当前分支（本地分支some-feature）合并上远程分支develop
 git pull origin develop
 git checkout develop
+# 本地分支some-feature合并上some-feature
+#【注意】已经这个分支已经有远程的develop修改了，所以本地develop无需再做远程拉取的操作
 git merge some-feature
 git push
+# 删除本地分支
 git branch -d some-feature
+
+#【译注】上面的命令注释为译者添加，以方便理解
+# 更多说明参见 Issue #18
 ```
 
 第一条命令在合并功能前确保`develop`分支是最新的。注意，功能决不应该直接合并到`master`分支。
