@@ -163,7 +163,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 git pull --rebase
 
 # 【译注】：
-# 原文用的命令是 git push --rebase origin master
+# 原文用的命令是 git pull --rebase origin master
 # 原因同上
 ```
 
