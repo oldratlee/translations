@@ -2,7 +2,7 @@ translations [![知识共享协议（CC协议）](https://img.shields.io/badge/L
 =======================
 
 一些不错英文资料的中文翻译。  
-Chinese translations for good english resources.
+Chinese translations for classic IT resources.
 
 [自己](http://weibo.com/oldratlee)想到去做些翻译，一是促进自己的深入学习，二是能为大家带来便利，三是兴趣。
 
