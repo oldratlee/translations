@@ -63,12 +63,12 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
 **_[3]_** 稀疏、稠密指的是代码行中操作的疏密。
-`C`的Geek，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
+`C`的`Geek`，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
 在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的负作用），也降低了代码的可读性。
 
-**_[4]_** 这里的荷兰人指`Python`之父Guido，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。
+**_[4]_** 这里的荷兰人指`Python`之父_Guido_，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
-在这里作者[TimPeters](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父Guido的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
+在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父_Guido_的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 
 个人讨论
 ----------------------
@@ -88,7 +88,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 1. [Python(programming language) - Wikipedia](http://en.wikipedia.org/wiki/Python_%28programming_language%29#Programming_philosophy)
 1. [No programming language offers what Python does philosophically.](http://www.indicthreads.com/1062/no-programming-language-offers-what-python-does-philosophically/)  
-在编程哲学上，Python超越了其它编程语言。
-1. [武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.javaeye.com/blog/266365)。  
-这里还有其它有关Python有意思的东西。
+在编程哲学上，`Python`超越了其它编程语言。
+1. [武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。  
+这里还有其它有关`Python`有意思的东西。
 1. 核心复杂度的说明参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
