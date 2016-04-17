@@ -68,7 +68,7 @@
 [印尼语](http://bulsara.host.sk/index.php?p=2005)
 [白俄罗斯语](http://www.fatcow.com/edu/smart-questions-by)
 [巴西葡萄牙语](http://www.istf.com.br/perguntas/)
-[简体中文](http://www.beiww.com/doc/oss/smart-questions.html)
+[简体中文](https://github.com/oldratlee/translations/blob/master/how-to-ask-questions-the-smart-way/README.md)
 [荷兰语](http://docs.jaspervries.nl/smart-questions/)
 [法语](http://www.gnurou.org/documents/smart-questions-fr.html)
 [乔治亚语](http://maxo127.narod.ru/Geo/Articles/smart-questions_ge.html)
