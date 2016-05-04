@@ -4,15 +4,32 @@
 关于`Java`你可能不知道的10件事
 ===============================================
 
-![java-mystery](java-mystery.jpg)
+<img src="java-mystery.jpg" width="400" hspace="10px" align="right" >
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [1. 其实没有受检异常（`checked exception`）](#1-%E5%85%B6%E5%AE%9E%E6%B2%A1%E6%9C%89%E5%8F%97%E6%A3%80%E5%BC%82%E5%B8%B8%EF%BC%88checked-exception%EF%BC%89)
+- [2. 可以有只是返回类型不同的重载方法](#2-%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%8F%AA%E6%98%AF%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%8D%E5%90%8C%E7%9A%84%E9%87%8D%E8%BD%BD%E6%96%B9%E6%B3%95)
+- [3. 所有这些写法都是二维数组！](#3-%E6%89%80%E6%9C%89%E8%BF%99%E4%BA%9B%E5%86%99%E6%B3%95%E9%83%BD%E6%98%AF%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%EF%BC%81)
+- [4. 你没有掌握条件表达式](#4-%E4%BD%A0%E6%B2%A1%E6%9C%89%E6%8E%8C%E6%8F%A1%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+- [5. 你没有掌握复合赋值运算符](#5-%E4%BD%A0%E6%B2%A1%E6%9C%89%E6%8E%8C%E6%8F%A1%E5%A4%8D%E5%90%88%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6)
+- [6. 随机`Integer`](#6-%E9%9A%8F%E6%9C%BAinteger)
+- [7. `GOTO`](#7-goto)
+- [8. `Java`是有类型别名的](#8-java%E6%98%AF%E6%9C%89%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E7%9A%84)
+- [9. 有些类型的关系是不确定的](#9-%E6%9C%89%E4%BA%9B%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%B3%E7%B3%BB%E6%98%AF%E4%B8%8D%E7%A1%AE%E5%AE%9A%E7%9A%84)
+- [10. 类型交集（`Type intersections`）](#10-%E7%B1%BB%E5%9E%8B%E4%BA%A4%E9%9B%86%EF%BC%88type-intersections%EF%BC%89)
+- [结论](#%E7%BB%93%E8%AE%BA)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 呃，你是不是写`Java`已经有些年头了？还依稀记得这些吧：
 那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲……
 
 但我打赌下面的这些事中至少有一半你还不知道。这周我们来聊聊这些会让你有些惊讶的`Java`内部的那些事儿吧。
 
-1. 其实没有受检异常（`checked exception`）
----------------------------------------
+## 1. 其实没有受检异常（`checked exception`）
 
 是的！`JVM`才不知道这事儿，只有`Java`语言才会知道。
 
@@ -46,8 +63,7 @@ public class Test {
 
 更多细节，可以再看看[这篇文章](http://blog.jooq.org/2012/09/14/throw-checked-exceptions-like-runtime-exceptions-in-java/)，或`Stack Overflow`上的[这个问题](http://stackoverflow.com/q/12580598/521799)。
 
-2. 可以有只是返回类型不同的重载方法
----------------------------------------
+## 2. 可以有只是返回类型不同的重载方法
 
 下面的代码不能编译，是吧？
 
@@ -110,8 +126,7 @@ bridge synthetic java.lang.Object x();
 
 你是不是想要扎入语言规范和内核看看？可以在[这里](http://stackoverflow.com/q/442026/521799)找到更多有意思的细节。
 
-3. 所有这些写法都是二维数组！
----------------------------------------
+## 3. 所有这些写法都是二维数组！
 
 ```java
 class Test {
@@ -163,8 +178,7 @@ class Test {
 
 请找出上面用法的合适的使用场景，这个还是留给你作为一个练习吧。
 
-4. 你没有掌握条件表达式
----------------------------------------
+## 4. 你没有掌握条件表达式
 
 呃，你认为自己知道什么时候该使用条件表达式？面对现实吧，你还不知道。大部分人会认为下面的2段代码是等价的：
 
@@ -211,8 +225,7 @@ System.out.println(o);
 
 关于这一条的更多的信息可以在[这里](http://blog.jooq.org/2013/10/08/java-auto-unboxing-gotcha-beware/)找到。
 
-5. 你没有掌握复合赋值运算符
----------------------------------------
+## 5. 你没有掌握复合赋值运算符
 
 是不是觉得不服？来看看下面的2行代码：
 
@@ -250,8 +263,7 @@ System.out.println(ch); // prints 'a'
 
 为什么这个真是太有用了？如果我要在代码中，就地对字符做转型和乘法。然后，你懂的……
 
-6. 随机`Integer`
----------------------------------------
+## 6. 随机`Integer`
 
 这条其实是一个迷题，先不要看解答。看看你能不能自己找出解法。
 
@@ -314,8 +326,7 @@ for (int i = 0; i < 10; i++) {
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
 【**_译注_**：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
-7. `GOTO`
----------------------------------------
+## 7. `GOTO`
 
 这条是我的最爱。`Java`是有`GOTO`的！打上这行代码：
 
@@ -373,8 +384,7 @@ label: do {
 9  ..
 ```
 
-8. `Java`是有类型别名的
----------------------------------------
+## 8. `Java`是有类型别名的
 
 在别的语言中（比如，[`Ceylon`](http://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/)），
 可以方便地定义类型别名：
@@ -416,8 +426,7 @@ new Test().x(1, 2L);
 
 玩够了这些恶心的小把戏。现在要上干货了！
 
-9. 有些类型的关系是不确定的
----------------------------------------
+## 9. 有些类型的关系是不确定的
 
 好，这条会很稀奇古怪，你先来杯咖啡，再集中精神来看。看看下面的2个类型：
 
@@ -490,8 +499,7 @@ class Test {
 如果你有兴趣知道更多古怪`Java`行为的细节，可以读一下*Ross Tate*的论文[『驯服`Java`类型系统的通配符』](http://www.cs.cornell.edu/~ross/publications/tamewild/tamewild-tate-pldi11.pdf)
 （由*Ross Tate*、*Alan Leung*和*Sorin Lerner*合著），或者也可以看看我们在[子类型多态和泛型多态的关联](http://blog.jooq.org/2013/06/28/the-dangers-of-correlating-subtype-polymorphism-with-generic-polymorphism/)方面的思索。
 
-10. 类型交集（`Type intersections`）
----------------------------------------
+## 10. 类型交集（`Type intersections`）
 
 `Java`有个很古怪的特性叫类型交集。你可以声明一个（泛型）类型，这个类型是2个类型的交集。比如：
 
@@ -543,8 +551,7 @@ So……
 execute((Runnable & Serializable) (() -> {}));
 ```
 
-结论
----------------------------------------
+## 结论
 
 一般我只对`SQL`会说这样的话，但是时候用下面的话来结束这篇文章了：
 
