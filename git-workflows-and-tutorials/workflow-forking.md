@@ -41,7 +41,7 @@
 然后，给正式仓库发起一个`pull request`，让项目维护者知道有更新已经准备好可以集成了。
 对于贡献的代码，`pull request`也可以很方便地作为一个讨论的地方。
 
-为了集成功能到正式代码库，维护者`pull`贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，
+为了把功能集成到正式代码库，维护者`pull`贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，
 [合并变更到自己本地的`master`分支](https://www.atlassian.com/git/tutorial/git-branches#!merge)，
 然后[`push`](https://www.atlassian.com/git/tutorial/remote-repositories#!push)`master`分支到服务器的正式仓库中。
 到此，贡献的提交成为了项目的一部分，其它的开发者应该执行`pull`操作与正式仓库同步自己本地仓库。
