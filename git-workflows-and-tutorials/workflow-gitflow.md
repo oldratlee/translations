@@ -137,8 +137,8 @@ git commit
 # 拉取远程的develop分支，并且当前分支（本地分支some-feature）合并上远程分支develop
 git pull origin develop
 git checkout develop
-# 本地分支some-feature合并上some-feature
-#【注意】已经这个分支已经有远程的develop修改了，所以本地develop无需再做远程拉取的操作
+# 本地分支some-feature合并上develop
+#【注意】这个分支已经有远程的develop修改了，所以本地develop无需再做远程拉取的操作
 git merge some-feature
 git push
 # 删除本地分支
