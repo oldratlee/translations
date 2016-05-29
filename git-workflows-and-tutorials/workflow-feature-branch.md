@@ -21,7 +21,7 @@
 这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。
 另外，也保证了`master`分支的代码一定不会是有问题的，极大有利于集成环境。
 
-功能开发隔离也让[`pull requests`工作流](pull-request.md)成功可能，
+功能开发隔离也让[`pull requests`工作流](pull-request.md)成为可能，
 `pull requests`工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。
 另外，如果你在功能开发中有问题卡住了，可以开一个`pull requests`来向同学们征求建议。
 这些做法的重点就是，`pull requests`让团队成员之间互相评论工作变成非常方便！
@@ -44,7 +44,7 @@
 一旦某个开发完成一个功能，不是立即合并到`master`，而是`push`到中央仓库的功能分支上并发起一个`Pull Request`请求去合并修改到`master`。
 在修改成为主干代码前，这让其它的开发者有机会先去`Review`变更。
 
-`Code Review`是`Pull Requests`的一个重要的收益，但`Pull Requests`目的是讨论代码一个通用方式。
+`Code Review`是`Pull Requests`的一个重要的收益，但`Pull Requests`目的是讨论代码的一个通用方式。
 你可以把`Pull Requests`作为专门给某个分支的讨论。这意味着可以在更早的开发过程中就可以进行`Code Review`。
 比如，一个开发者开发功能需要帮助时，要做的就是发起一个`Pull Request`，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。
 
@@ -130,7 +130,7 @@ git push
 
 ![](images/git-workflow-feature-branch-7.png)
 
-一旦小黑可以的接受`Pull Request`，就可以合并功能到稳定项目代码中（可以由小黑或是小红来做这个操作）：
+一旦小黑可以接受`Pull Request`，就可以合并功能到稳定项目代码中（可以由小黑或是小红来做这个操作）：
 
 ```bash
 git checkout master
@@ -139,7 +139,7 @@ git pull origin marys-feature
 git push
 ```
 
-无论谁来做合并，首先要检出`master`分支并确认它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到和已经和远程一致的本地`master`分支。
+无论谁来做合并，首先要检出`master`分支并确认它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到已经和远程一致的本地`master`分支。
 你可以使用简单`git merge marys-feature`命令，但前面的命令可以保证总是最新的新功能分支。
 最后更新的`master`分支要重新`push`回到`origin`。
 
