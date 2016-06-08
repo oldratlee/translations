@@ -26,11 +26,11 @@
 8. Special cases aren't special enough to break the rules.  
 特例可以有，但不能特例到打破规则。
     * Although practicality beats purity.   
-      尽管在纯粹性和实用性之间倾向于实用性。
+      尽管在纯粹性和实用性之间倾向的是实用性。
 9. Errors should never pass silently.  
-出错决不允许静静地Pass。
+出错决不应该无声无息地忽略。
     * Unless explicitly silenced.   
-      除非明确地说明了是静静地Pass。
+      除非明确地说明了是无声无息的。
 10. In the face of ambiguity, refuse the temptation to guess.  
 面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
