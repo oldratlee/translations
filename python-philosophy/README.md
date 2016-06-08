@@ -37,9 +37,9 @@
 一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
     * Although that way may not be obvious at first unless you're Dutch **_[4]_**.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
-12.  Now is better than never.  
+12.  Now is better than never **_[5]_**.  
 『现在』 优于 『决不』。
-    * Although never is often better than **right** now.    
+    * Although never is often better than **right** now **_[5]_**.    
       尽管 『决不』 常常优于 『**马上**』。
 13. If the implementation is hard to explain, it's a bad idea.  
 如果一个实现难于解释清楚，那它是个差的想法。
@@ -70,6 +70,17 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父_Guido_的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 
+**_[5]_** 关于『Now/现在』、『never/决不』、『right now/马上』
+
+个人理解，这个条目要说的是：  
+决定是否做实现一个功能，要想清楚，要么做要么不做，都能给出**_明确_**的理由；但不要模模糊糊的说『后面马上』做，回避对系统的分析思考。
+
+结果会是：
+
+- 『马上』做 是 『世界上最不能相信』的话 :smile: ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。  
+    更多『世界上最不能相信』的话参见[世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)。
+- 『马上』做 === 不经过思考的不做，结果系统没有做一个本该这个系统做的功能！然后这个功能在不合适的地方被实现，即系统设计有问题。
+
 个人讨论
 ----------------------
 
@@ -92,3 +103,4 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 1. [武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。  
 这里还有其它有关`Python`有意思的东西。
 1. 核心复杂度的说明参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
+1. [世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)
