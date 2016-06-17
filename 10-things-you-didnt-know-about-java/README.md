@@ -1,5 +1,5 @@
 原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)  
-译文发在[ImportNew](http://www.importnew.com/)： [http://blog.jobbole.com/76550/](http://www.importnew.com/13859.html)，2014-12-21
+译文发在[ImportNew](http://www.importnew.com/)： <http://www.importnew.com/13859.html>，2014-12-21
 
 关于`Java`你可能不知道的10件事
 ===============================================
@@ -172,7 +172,7 @@ class Test {
 
 或换句话说：
 
-> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
+> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。  
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
 【**_译注_**：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
@@ -322,7 +322,7 @@ for (int i = 0; i < 10; i++) {
 和用反射覆盖`JDK`的`Integer`缓存，然后使用自动打包解包（`auto-boxing`/`auto-unboxing`）有关。
 同学们请勿模仿！或换句话说，想想会有这样的状况，再说一次：
 
-> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。
+> 在我4周休假前的最后一个提交里，我写了这样的代码，然后。。。  
 ![for-you-my-dear-coworkers](for-you-my-dear-coworkers.jpg)  
 【**_译注_**：然后，亲爱的同事你，就有得火救啦，哼，哼哼，哦哈哈哈哈～】
 
