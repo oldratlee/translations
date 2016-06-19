@@ -56,8 +56,13 @@ Chinese translations for classic IT resources.
 ------------------
 
 1. [关于`Java`你可能不知道的10件事](10-things-you-didnt-know-about-java/README.md)  
-你是不是写`Java`已经有些年头了？还依稀记得这些吧：
-那些年，它还叫做`Oak`；那些年，`OO`还是个热门话题；那些年，`C++`同学们觉得`Java`是没有出路的；那些年，`Applet`还风头正劲…… 但我打赌下面的这些事中至少有一半你还不知道。
+作者是个`Java`老鸟，行文风趣幽默，娓娓道出`Java`的诡异和难点时不忘着给出用心良苦的提点。
+
+软件测试
+------------------
+
+- [`Stubs`和`Mocks`的区别](stubs-vs-mocks/README.md)  
+翻译自《Programming Groovy》，讲得言简意赅。
 
 `Lisp`
 ------------------
