@@ -15,13 +15,14 @@
 
 - 关于[状态机](http://www.cs.cornell.edu/fbs/publications/smsurvey.pdf%E2%80%8E)和[主备份](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.5896)复制的概述。
 - [`PacificA`](http://research.microsoft.com/apps/pubs/default.aspx?id=66814)是实施微软基于日志的分布式存储系统的通用架构。
-- [`Spanner`](http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en/us/archive/spanner-osdi2012.pdf) —— 并不是每个人都支持把逻辑时间用于他们的日志，`Google`最新的数据库就尝试使用物理时间，并通过把时间戳直接做为区间来直接建时钟迁移的不确定性。
+- [`Spanner`](http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en/us/archive/spanner-osdi2012.pdf) ——
+    并不是每个人都支持把逻辑时间用于他们的日志，`Google`最新的数据库就尝试使用物理时间，并通过把时间戳直接做为区间来直接建时钟迁移的不确定性。
 - [`Datanomic`](http://www.datomic.com/)：[解构数据库](https://www.youtube.com/watch?v=Cym4TZwTCNU)是_Rich Hickey_（`Clojure`的创建者）在它的首个数据库产品中的重要陈述之一。
 - [在消息传递系统中回滚恢复协议的调查](http://www.cs.utexas.edu/~lorenzo/papers/SurveyFinal.pdf)。
     我发现这是有关容错处理和通过日志在数据库之外完成恢复的实际应用的很不错的介绍。
 - [反应式宣言（`Reactive Manifesto`）](http://www.reactivemanifesto.org/) ——
     我其实并不清楚反应式编程（`reactive programming`）的确切涵义，但是我想它和『事件驱动』指的是同一件事。
-    这个链接并没有太多的讯息，但_Martin Odersky_（`Scala`名家）讲授的[这个课程](https://www.coursera.org/course/reactive)是很有吸引力的。
+    这个链接并没有太多的信息，但_Martin Odersky_（`Scala`大拿）讲授的[这个课程](https://www.coursera.org/course/reactive)很精彩。
 - `Paxos`!
     1. 原论文在[这里](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf)。
         _Leslie Lamport_ 有一个有趣的历史：在80年代算法是如何发现的，但是直到1998年才发表了，因为评审组不喜欢论文中的希腊寓言，而作者又不愿修改。

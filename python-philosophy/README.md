@@ -46,7 +46,7 @@
 14. If the implementation is easy to explain, it may be a good idea.  
 如果一个实现很容易解释清楚，那它可能是个好的想法。
 15. NameSpaces are one honking great idea -- let's do more of those!  
-命名空间是个值得称道的极好想法 — 放手多多使用吧！
+命名空间是个值得大力宣扬的概念 — 放手多多用起来吧！
 
 ### 译注
 
