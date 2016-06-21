@@ -46,7 +46,7 @@ PS：
 本文我将带你浏览有关日志需要了解的一切，包括日志是什么，如何在数据集成（`data integration`）、实时处理（`real time processing`）和系统构建中使用日志。
 
 -----------------
-　　　　　　　　[第一部分：日志是什么？ »](part1-what-is-a-log.md)
+[« 译跋](translation-postscript.md)　　　　　　　　[第一部分：日志是什么？ »](part1-what-is-a-log.md)
 
 目录
 -----------------
