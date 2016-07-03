@@ -1,6 +1,9 @@
 translations [![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-DC3D24.svg) ![Attribution-NonCommercial-ShareAlike CC BY-NC-SA](LICENSE.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
 =======================
 
+[![GitHub stars](https://img.shields.io/github/stars/oldratlee/translations.svg?style=social&label=Star)](https://github.com/oldratlee/translations/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/oldratlee/translations.svg?style=social&label=Fork)](https://github.com/oldratlee/translations/fork)
+
 一些不错英文资料的中文翻译。  
 Chinese translations for classic IT resources.
 
