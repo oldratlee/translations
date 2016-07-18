@@ -17,9 +17,9 @@
 简单优于复杂。
 4. Complex is better than complicated **_[2]_** .  
 复杂优于纠结。
-5. Flat is better than nested.     
+5. Flat is better than nested. **_[3]_**  
 扁平优于嵌套。
-6. Sparse is better than dense **_[3]_** .  
+6. Sparse is better than dense **_[4]_** .  
 稀疏优于稠密。
 7. Readability counts.  
 可读性是有重要价值的。
@@ -35,18 +35,18 @@
 面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
 一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
-    * Although that way may not be obvious at first unless you're Dutch **_[4]_**.  
+    * Although that way may not be obvious at first unless you're Dutch **_[5]_**.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
-12.  Now is better than never **_[5]_**.  
+12.  Now is better than never **_[6]_**.  
 『现在』 优于 『决不』。
-    * Although never is often better than **right** now **_[5]_**.    
+    * Although never is often better than **right** now **_[7]_**.    
       尽管 『决不』 常常优于 『**马上**』。
 13. If the implementation is hard to explain, it's a bad idea.  
 如果一个实现难于解释清楚，那它是个差的想法。
 14. If the implementation is easy to explain, it may be a good idea.  
 如果一个实现很容易解释清楚，那它可能是个好的想法。
 15. NameSpaces are one honking great idea -- let's do more of those!  
-命名空间是个值得大力宣扬的概念 — 放手多多用起来吧！
+命名空间是个值得大力宣扬的想法 — 放手多多用起来吧！
 
 ### 译注
 
@@ -62,20 +62,29 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
-**_[3]_** 稀疏、稠密指的是代码行中操作的疏密。
+**_[3]_** 这里的『扁平』和『嵌套』说的是代码，嵌套的代码增加了逻辑及其对应理解的复杂性，应该想办法用更好的代码设计实现方式来避免深的嵌套。
+
+另外，一个对应的话题是『数据』的 『扁平』 vs.『嵌套』，个人看来，期望用『嵌套』的数据，因为这可以简化数据理解规则和处理逻辑。可以把『嵌套』的数据看成是有『Namespace』的，也呼应了最后一条推荐使用Namespace。
+
+更多讨论参见：
+
+- [Zen Masters: "Namespaces are a honking good thing" vs "Flat is better than nested". What gives? - reddit.com](https://www.reddit.com/r/Python/comments/xzvxi/zen_masters_namespaces_are_a_honking_good_thing/)
+- [“Flat is better than nested” - for data as well as code? - stackoverflow.com](http://stackoverflow.com/questions/4372229/flat-is-better-than-nested-for-data-as-well-as-code)
+- [The author makes the assertion that flat is better than nested, and indeed it's one of the rules in "import this", but I just don't see it. | Hacker News](https://news.ycombinator.com/item?id=627858)
+
+**_[4]_** 稀疏、稠密指的是代码行中操作的疏密。
 `C`的`Geek`，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
 在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的负作用），也降低了代码的可读性。
 
-**_[4]_** 这里的荷兰人指`Python`之父_Guido_，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
+**_[5]_** 这里的荷兰人指`Python`之父_Guido_，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
 在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父_Guido_的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 
-**_[5]_** 关于『Now/现在』、『never/决不』、『right now/马上』
+**_[6] [7]_** 关于『Now/现在』、『never/决不』、『right now/马上』，个人理解，这个条目要说的是：
 
-个人理解，这个条目要说的是：  
 决定是否做实现一个功能，要想清楚，要么做要么不做，都能给出**_明确_**的理由；但不要模模糊糊的说『后面马上』做，回避对系统的分析思考。
 
-结果会是：
+否则结果会是：
 
 - 『马上』做 是 『世界上最不能相信』的话 :smile: ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。  
     更多『世界上最不能相信』的话参见[世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)。
