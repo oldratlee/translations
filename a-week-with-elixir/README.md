@@ -1,5 +1,14 @@
-原文链接：[A Week with `Elixir`](http://joearms.github.io/2013/05/31/a-week-with-elixir.html)，[_Joe Armstrong_](http://joearms.github.io/)，2013-05-31
+原文链接：[A Week with `Elixir`](http://joearms.github.io/2013/05/31/a-week-with-elixir.html)，[_Joe Armstrong_](http://joearms.github.io/)，2013-05-31  
 基于开源中国社区的译文稿： [用`Elixir`的一周](https://www.oschina.net/translate/a-week-with-elixir)
+
+译序
+-----------------
+
+作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`给出很精彩评论和思考。在『特定领域的专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程度语言如何定义/解释字符串』等等这些讨论上，能强烈感受到_Joe Armstrong_老黑客风范。
+
+[自己](http://weibo.com/oldratlee)理解粗浅，而本文讨论是语言设计，且作为老一代黑客的作者计算机领域中那被我们现在不再要去理解使用的主题和思想（如`Prolog`/`DCG`、`Lisp`/宏、`sigil`、不可变闭包、语言设计的兼容性）真是信手拈来，翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
+
+PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md)
 
 ------------------------
 
@@ -66,7 +75,7 @@ _Dave_对`Elixir`很感兴趣，在他的书里这样写道：
 
 你直接看到的`Elixir`是完全不同的上层语法，源自`Ruby`。看起来不那么『可怕』语法和很多附加的甜点。
 
-`Erlang`的语法源自`Prolog`，并受到`Smalltalk`、`CSP`和函数式编程的影响很大。`Elixir`则受到`Erlang`和`Ruby`的影响很大。从`Erlang`借鉴了模式匹配（`pattern matching`）、高阶函数（`higher order function`）以及整个进程（`process`）和任其崩溃的（`let it crash`）错误处理（`error handling`）机制。从`Ruby`借鉴了`sigil`和快捷语法（`shortcut syntaxe`）。当然也有自创的甜点，像`|>`管道操作符（`|> pipe operator`），让人想到`Prolog`的`DCG`和`Haskell`的`Monad`（尽管相比要简单不少，更类似于`Unix`的管道操作符），还有宏的引用和反引用操作符（`macro quote and unquote operator`，对应的是`Lisp`的反引号和逗号操作符）。
+`Erlang`的语法源自`Prolog`，并受到`Smalltalk`、`CSP`和函数式编程的影响很大。`Elixir`则受到`Erlang`和`Ruby`的影响很大。从`Erlang`借鉴了模式匹配（`pattern matching`）、高阶函数（`higher order function`）以及整个进程（`process`）和任其崩溃的（`let it crash`）错误处理（`error handling`）机制。从`Ruby`借鉴了`sigil`和快捷语法（`shortcut syntax`）。当然也有自创的甜点，像`|>`管道操作符（`|> pipe operator`），让人想到`Prolog`的`DCG`和`Haskell`的`Monad`（尽管相比要简单不少，更类似于`Unix`的管道操作符），还有宏的引用和反引用操作符（`macro quote and unquote operator`，对应的是`Lisp`的反引号和逗号操作符）。
 
 > 【译注】：
 >
@@ -538,6 +547,6 @@ end
 
 _Dave_很喜欢`Elixir`，我也觉得很酷，我想我们会在使用过程中找到更多乐趣的。
 
-像是`WhatsApp`这个应用和全世界一半手机网络的关键部分都是搭建在`Erlang`之上。当技术变得更加亲和，当新一批热衷者进入阵营，让我现在怀着非常欣喜的心情关注着后续要发生的变化。
+像`WhatsApp`这个应用和全世界一半手机网络的关键部分都是搭建在`Erlang`之上。当技术变得更加亲和，当新一批热衷者进入阵营，让我现在怀着非常欣喜的心情关注着后续要发生的变化。
 
 这是篇即兴的文章。也许会有些不妥之处，欢迎大家指正。
