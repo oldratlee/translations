@@ -55,6 +55,20 @@ Chinese translations for classic IT resources.
 关于`Git`工作流主题，也许这是目前最全面最深入的说明。这篇指南以大家在`SVN`中已经广为熟悉使用的集中式工作流作为起点，循序渐进地演进到其它高效的分布式工作流，还介绍了如何配合使用便利的`Pull Request`功能，体系地讲解了各种工作流的应用。行文中实践原则和操作示例并重，对于`Git`的资深玩家可以梳理思考提升，而新接触的同学，也可以跟着step-by-step操练学习并在实际工作中上手使用。
 1. [`Git` `2.1`有哪些新特性？](whats-new-git-2-1/README.md)
 
+`Erlang`/`Elixir`
+------------------
+
+1. [与`Elixir`相处的一周](a-week-with-elixir/README.md)  
+作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`给出很精彩评论和思考。
+在『特定领域的专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程度语言如何定义/解释字符串』等等这些讨论上，能强烈感受到_Joe Armstrong_老黑客风范。
+
+`Lisp`
+------------------
+
+1. [**_Successful Lisp_**中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
+    - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
+    - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
+
 `Java`
 ------------------
 
@@ -66,13 +80,6 @@ Chinese translations for classic IT resources.
 
 - [`Stubs`和`Mocks`的区别](stubs-vs-mocks/README.md)  
 翻译自《Programming Groovy》，讲得言简意赅。
-
-`Lisp`
-------------------
-
-1. [**_Successful Lisp_**中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
-    - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
-    - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
 
 其它
 ------------------
