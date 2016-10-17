@@ -1,10 +1,12 @@
 原文链接：[A Week with `Elixir`](http://joearms.github.io/2013/05/31/a-week-with-elixir.html)，[_Joe Armstrong_](http://joearms.github.io/)，2013-05-31  
-基于开源中国社区的译文稿： [用`Elixir`的一周](https://www.oschina.net/translate/a-week-with-elixir)
+基于开源中国社区的译文稿： [用`Elixir`的一周](https://www.oschina.net/translate/a-week-with-elixir)  
+译文发在[伯乐在线](http://blog.jobbole.com/)：[`Erlang`之父学习`Elixir`语言的一周](http://blog.jobbole.com/106663/)， 2016-10-17
 
-译序
------------------
+# `Erlang`之父学习`Elixir`语言的一周
 
-作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩评论和思考。在『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等这些问题的深入广博的讨论及其个性鲜明又幽默诙谐的行文风格，都能让我强烈感受到_Joe Armstrong_的老黑客风范。
+## 译序
+
+作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等这些问题的深入广博的讨论及其个性鲜明又幽默诙谐的行文风格，都能强烈感受到_Joe Armstrong_的老黑客风范。
 
 [自己](http://weibo.com/oldratlee)理解粗浅，而本文讨论是语言设计，且作为老一代黑客的作者对计算机领域中那些我们现在不再要去使用理解的主题和思想（如`Prolog`/`DCG`、`Lisp`/宏、`sigil`、不可变闭包、语言设计的兼容性）又真是信手拈来，翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！  
 PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md)。
@@ -62,13 +64,13 @@ _Dave_对`Elixir`很感兴趣，在他的书里这样写道：
 
 但得知_Dave_与`Elixir`『看对眼』时，我很想知道为什么他会这样。
 
-无独有偶，_Simon St. Laurent_也出了本`Elixir`的书。_Simon_的[_Introducing Erlang_](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还通过邮件沟通过几次，所以有些事已经在酝酿了。而_Pragmatic Press_和_O'Reilly_出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
+无独有偶，_Simon St. Laurent_也出了本`Elixir`的书。_Simon_的[_Introducing Erlang_](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而_Pragmatic Press_和_O'Reilly_出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
 
 我发封邮件给_Dave_和_Simon_，他们爽快地借给我了样书，现在可以开始阅读了……谢了二位……
 
 # 上周我下载了`Elixir`然后开始学习
 
-没多久我觉得就上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在在底层一样的，对我来说『感觉』是一样的。事实上也确实这样，两者都会被编译成`EVM`(`Erlang Virtual Machine`)指令 —— 实际上`EVM`这个叫法之前没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
+没多久我觉得就上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在在底层一样的，对我来说『感觉』是一样的。事实上也确实这样，两者都会被编译成`EVM`（`Erlang Virtual Machine`）指令 —— 实际上`EVM`这个叫法之前没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
 
 `Erlang`和`Elixir`为什么有相同的『语义』（`semantics`）？这得从虚拟机底层谈起。垃圾回收行为，不共享并发机制，底层的错误处理和代码加载机制都是一致的。当然这些肯定都是一致的：他们都运行在相同的`VM`里。这也是`Scala`和`Akka`区别于`Erlang`的原因。`Scala`和`Akka`都运行在`JVM`之上，垃圾回收和代码加载机制从根本上就不一样。
 
@@ -230,7 +232,7 @@ ex> def triple(x) do 3*x; end
 
 如果你不解决这个问题就要花后面20年的时间去解决为什么 —— 就像`Erlang`曾经所做的。
 
-顺便说一下，修复这个问题真的真的很简单。我在`erl2`作为了尝试就解决了。`Erlang`中没法修复这个问题 (版本兼容问题)，所以我就在[`erl2`](https://github.com/joearms/erl2)解决。只需要**_`erl_eval`_**的小改和解析器的几个微调。
+顺便说一下，修复这个问题真的真的很简单。我在`erl2`作为了尝试就解决了。`Erlang`中没法修复这个问题（版本兼容问题），所以我就在[`erl2`](https://github.com/joearms/erl2)解决。只需要**_`erl_eval`_**的小改和解析器的几个微调。
 
 主要原因是`FORM`不是`EXPRESSION`，所以加了个关键字**`def`**。
 
@@ -508,7 +510,7 @@ iex> f.(10)
 15
 ```
 
-正确的闭包只应该包含不可变数据的指针 (`Erlang`中数据正是不可变的) —— 而不是可变数据的指针。如果闭包里有指向可变数据的指针，后面修改了数据就会破坏闭包的一致性。这样的结果就是不能把程序并行化，甚至对于顺序执行的代码也会引入诡异的错误。
+正确的闭包只应该包含不可变数据的指针（`Erlang`中数据正是不可变的） —— 而不是可变数据的指针。如果闭包里有指向可变数据的指针，后面修改了数据就会破坏闭包的一致性。这样的结果就是不能把程序并行化，甚至对于顺序执行的代码也会引入诡异的错误。
 
 在传统语言里要创建合适的闭包的代价会很高，因为捕获环境里的所有变量都需要做深拷贝，但`Erlang` 和`Elixir`不用这样，数据都是不可变的。你所要做的就是引用需要的数据。内部实现是通过指针引用数据（指针对程序员是不可见的），并且不再有指针引用的数据会被垃圾回收掉。
 
