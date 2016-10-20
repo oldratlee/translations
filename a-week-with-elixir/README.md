@@ -45,7 +45,7 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 
 差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间去看细节。
 
-但在得知_Dave Thomas_出版了[_Programming Elixir_](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法就彻底改变了。_Dave Thomas_帮我修订过我的那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以要是_Dave_对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
+但在得知_Dave Thomas_出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法就彻底改变了。_Dave Thomas_帮我修订过我的那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以要是_Dave_对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
 
 _Dave_对`Elixir`很感兴趣，在他的书里这样写道：
 
@@ -60,11 +60,11 @@ _Dave_对`Elixir`很感兴趣，在他的书里这样写道：
 > 但在几个月前，和_Corey Haines_聊了一次，在如何不用那些学院派的书给大家介绍哪些有吸引力的函数式编程概念这个问题上诉了些苦。
 > 他告诉我再去看看`Elixir`。我照做了，有了第一次看到`Ruby`时那样的感觉。
 
-我能理解这种感觉，一种先行于逻辑的内心感性的感觉。就像我知道一件事是对的，却并不知道是如何和为什么我知道这是对的。而对原因的解释常常在几周甚至几年后才冒出来。_Malcolm Gladwell_在他的[_Blink: The Power of Thinking Without Thinking_](https://www.amazon.com/Blink-Power-Thinking-Without/dp/0316010669/ref=sr_1_1?s=books&ie=UTF8&qid=1369995752&sr=1-1&keywords=blink)一书中曾探讨过这个问题。一个特定领域的专家常常能瞬间感知出一些事情是否正确，但却不能解释为什么。
+我能理解这种感觉，一种先行于逻辑的内心感性的感觉。就像我知道一件事是对的，却并不知道是如何和为什么我知道这是对的。而对原因的解释常常在几周甚至几年后才冒出来。_Malcolm Gladwell_在他的[《_Blink: The Power of Thinking Without Thinking_》](https://www.amazon.com/Blink-Power-Thinking-Without/dp/0316010669/ref=sr_1_1?s=books&ie=UTF8&qid=1369995752&sr=1-1&keywords=blink)一书中曾探讨过这个问题。一个特定领域的专家常常能瞬间感知出一些事情是否正确，但却不能解释为什么。
 
 但得知_Dave_与`Elixir`『看对眼』时，我很想知道为什么他会这样。
 
-无独有偶，_Simon St. Laurent_也出了本`Elixir`的书。_Simon_的[_Introducing Erlang_](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而_Pragmatic Press_和_O'Reilly_出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
+无独有偶，_Simon St. Laurent_也出了本`Elixir`的书。_Simon_的[《_Introducing Erlang_》](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而_Pragmatic Press_和_O'Reilly_出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
 
 我发封邮件给_Dave_和_Simon_，他们爽快地借给我了样书，现在可以开始阅读了……谢了二位……
 
@@ -132,7 +132,7 @@ pp(X) ->
 1. 你做错的，有人跟你急。
 1. 难于理解的，你必须一而再再而三地去给人解释。
 
-一些语言有的设计做得太好，结果大家都懒得去提，这些好的设计是正确的、是优雅的，是易于理解的。
+一些语言有的设计做得太好，结果大家都懒得去提，这些好的设计是正确的，是优雅的，是易于理解的。
 
 对于错误的设计，你完了。你成了2B，如果好设计比坏设计多，你可能被原谅。你想在以后干掉这些坏设计，却因为向后兼容性或者是有些SB已经用上所有那些坏设计写上了1T行代码，结果你是改不了了。
 
@@ -186,7 +186,7 @@ pp(X) ->
 
 # 2. `fun`和`def`不同
 
-在写_Programming Erlang_一书时_Dave Thomas_问函数为什么不能输入到`shell`里。
+在写[《_Programming Erlang_》](https://pragprog.com/book/jaerlang2/programming-erlang)一书时_Dave Thomas_问函数为什么不能输入到`shell`里。
 
 如果模块里有这样的代码：
 
@@ -285,7 +285,7 @@ Process ! Message
 
 这是一个语法问题，而我们都喜欢对语法说长道短的。如果10分制的评级标准，10代表『非常非常烂』，1代表『好吧，我可以适应』的话，这个问题我给3分。
 
-这点会使`occam-pi`程序员很难转到`Elixir`。什么？只需要简单地用**`!`**而不是`<-`，就可以让一波`occam-pi`的程序员喜大普奔地哭喊着『药 ！药！切克闹！！美好生活现在到！！！』然后立马就转到`Elixir`。以后老司机告诉你是这样的，这个改变会让人开心得像过节一样。
+这点会使`occam-pi`程序员很难转到`Elixir`。什么？只需要简单地用**`!`**而不是`<-`，就可以让一波`occam-pi`的程序员喜大普奔地哭喊着『药 ！药！切克闹！！美好生活现在到！！！』然后立马就转到`Elixir`。以后老司机告诉你真是这样的，这个改变会让人开心得像过节一样。
 
 # 5. 管道运算符
 
