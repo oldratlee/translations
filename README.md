@@ -17,6 +17,25 @@ Chinese translations for classic IT resources.
     - 指正，[`Fork`后提通过`Pull Requst`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意:raised_hands:[提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
 
+文章分类
+----------------
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [设计原则](#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
+- [思考/思维](#%E6%80%9D%E8%80%83%E6%80%9D%E7%BB%B4)
+- [分布式系统/大数据](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A4%A7%E6%95%B0%E6%8D%AE)
+- [`Git`](#git)
+- [`Erlang`/`Elixir`](#erlangelixir)
+- [`Lisp`](#lisp)
+- [`Java`](#java)
+- [软件测试](#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95)
+- [其它](#%E5%85%B6%E5%AE%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 设计原则
 ------------------
 
