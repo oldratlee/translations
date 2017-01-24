@@ -7,15 +7,15 @@
 
 这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，虽然很长，但被称为[程序员史诗般必读文章](http://bryanpendleton.blogspot.hk/2014/01/the-log-epic-software-engineering.html)。
 
-[学习笔记：The Log（我所读过的最好的一篇分布式技术文章）](http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html)对本文做了很赞的摘要和解读。
+[学习笔记：The Log（我所读过的最好的一篇分布式技术文章）](http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html)对本文做了很赞的解读和摘要。
 
 但作为一篇**_经典_**文章，还是值得去完整地研读和理解：
 
 1. 原文可以作为大数据/分布式系统领域一份导论式的资料。   
     作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
 1. 原文作为一手资料，有完整的分析过程，能够深入和核对自己的理解。
-1. 摘要和解读不能替代自己理解。  
-    信息被传递和过滤得越多，丢失和偏差也就越多。
+1. 解读和摘要不能替代自己理解。  
+    信息被过滤和传递得越多，丢失和偏差也就越多。
 
 当然，你也可以把这篇译文本身作为英文原文的一种理解，在读原文时有不理解的地方可以参考对比。
 如果你能这么做，相信对于学习效果真真是极好的～
