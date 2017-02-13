@@ -1,5 +1,6 @@
-原文链接：[Git Workflows and Tutorials](https://www.atlassian.com/git/workflows)     
-译文发在[博乐在线](http://www.jobbole.com/)： [http://blog.jobbole.com/76550/](http://blog.jobbole.com/76843/)，2014-09-14
+原文链接：[Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)  
+译文发在[博乐在线](http://www.jobbole.com/)： [http://blog.jobbole.com/76550/](http://blog.jobbole.com/76843/)，2014-09-14  
+PS：原文的老链接和标题是[Git Workflows and Tutorials](https://www.atlassian.com/git/workflows)，`atlassian`改地址后换了文章标题，译文保留使用原标题。
 
 :apple: 译序
 -----------------
