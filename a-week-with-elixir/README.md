@@ -6,9 +6,9 @@
 
 ## 译序
 
-作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到_Joe Armstrong_深入广博的老黑客风范。
+作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『数据的版本化设计』、『管道运算符避免恶心代码』、『静态单赋值』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』、『函数定义和函数字面量在`Shell`的不一致性』等等主题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到_Joe Armstrong_深入广博的老黑客风范。
 
-[自己](http://weibo.com/oldratlee)理解粗浅，而本文讨论是语言设计，且作为老一代黑客的作者对计算机领域中那些我们现在不再要去使用理解的主题或是思想又真是信手拈来（如`Prolog`/`DCG`、`Lisp`/宏、`sigil`、不可变闭包、语言设计的兼容性），翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！  
+[自己](http://weibo.com/oldratlee)理解粗浅，而本文讨论是语言设计，且作为老一代黑客的作者对计算机领域中那些现在我们在日常编程中不再要去使用理解的主题或是思想又真是信手拈来（如`Prolog`/`DCG`、`Lisp`/宏、`sigil`、不可变闭包、语言设计的兼容性），翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！  
 PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md)。
 
 ------------------------
