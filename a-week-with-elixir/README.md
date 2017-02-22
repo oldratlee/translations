@@ -76,7 +76,7 @@ _Dave_对`Elixir`很感兴趣，在他的书里这样写道：
 
 你直接看到的`Elixir`是完全不同的上层语法，源自`Ruby`。看起来不那么『可怕』语法和很多附加的语法糖。
 
-`Erlang`的语法源自`Prolog`，并受到`Smalltalk`、`CSP`和函数式编程的很大影响。`Elixir`则受到`Erlang`和`Ruby`的很大影响。从`Erlang`借鉴了模式匹配（`pattern matching`）、高阶函数（`higher order function`）以及整个进程（`process`）和任其崩溃的（`let it crash`）错误处理（`error handling`）理念。从`Ruby`借鉴了`sigil`和快捷语法（`shortcut syntax`）。当然也有自创的语法糖，像`|>`管道操作符（`|> pipe operator`），让人想到`Prolog`的`DCG`和`Haskell`的`monad`（尽管相比要简单不少，更类似于`Unix`的管道操作符），还有宏的引用和反引用操作符（`macro quote and unquote operator`，对应的是`Lisp`的反引号和逗号操作符）。
+`Erlang`的语法源自`Prolog`，并受到`Smalltalk`、`CSP`和函数式编程的很大影响。`Elixir`则受到`Erlang`和`Ruby`的很大影响。从`Erlang`借鉴了模式匹配（`pattern matching`）、高阶函数（`higher order function`）以及整个进程（`process`）和任其崩溃的（`let it crash`）错误处理（`error handling`）理念。从`Ruby`借鉴了`sigil`和快捷语法（`shortcut syntax`）。当然也有自创的语法糖，像`|>`管道操作符（`|> pipe operator`），让人想到`Prolog`的`DCG`和`Haskell`的`monad`（尽管相比要简单不少，更类似于`Unix`的管道操作符），还有宏的引用和反引用操作符（`macro quote and unquote operator`），对应的是`Lisp`的反引号和逗号操作符（`quasiquote and comma operator`）。
 
 > 【译注】：
 >
@@ -122,7 +122,7 @@ pp(X) ->
   list_to_binary(lists_flatten(li_lib:format("~p"), [X])))
 ```
 
-很『显然』这和`Elixir`的版本等价的。当然`Elixir`的写法可读性更好。上面用到的`|>`操作符意思是把`io_lib:format`的结果输入到`lists:flatten`，然后再到`list_to_binary`。就像好用的老家伙`Unix`的管道符`|`。
+很『显然』这和`Elixir`的版本等价的。当然`Elixir`的写法可读性更好。上面用到的`|>`操作符意思是把`io_lib:format`的结果输入到`lists:flatten`，然后再到`list_to_binary`。就像好用的老朋友`Unix`的管道符`|`。
 
 `Elixir`打破了一些`Erlang`神圣信条 —— 在顺序结构中变量可重绑定（`re-bound`）。实际上这也是可以做到的，因为最终结果还是可以规范化成静态单赋值（`static-single-assignment`，`SSA`）的形式。尽管在顺序结构中这是可以的，但在循环结构中，一定肯定以及确定不要这么做。但这不是个问题，因为`Elixir`木有循环，只有递归。实际上`Elixir`不可能在循环中包含可变的变量（`mutable variables`），因为这样编译的输出在下层的`EVM`是支持不了的。顺序结构的`SSA`变量挺好的，`EVM`知道如何对其做优化。但在循环结构不行，所以`Elixir`没有这么做。关于这方面的优化甚至可以更往下挖到`LLVM`汇编器（`LLVM assembler`） —— 但又是另一个很长的故事先就此打住吧。
 
@@ -442,7 +442,9 @@ end
 
 这就是那种是对的事 —— 非常棒却真真儿难于解释。就像`Haskell`的`monad` —— 啊哈，`monad`真很容易解释，难怪有上千篇文章来解释它有多简单。
 
-`Elixir`的宏真是简单 —— 引用（`quote`）对应`Lisp`的反引号（`quasiquote`），反引用（`unquote`）对应`Lisp`的列表逗号操作符（`list comma operator`） —— 这就我说的简单 :-)
+`Elixir`的宏真的很简单 —— 引用（`quote`）对应`Lisp`的反引号（`quasiquote`），而反引用（`unquote`）对应`Lisp`的列表逗号操作符（`list comma operator`） —— 这就我说的简单 :-)
+
+【译注】：
 
 # 9. 额外的符号
 
