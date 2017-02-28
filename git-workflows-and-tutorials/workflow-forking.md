@@ -55,7 +55,7 @@
 ### `Forking`工作流的分支使用方式
 
 所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。
-各个开发者应该用分支隔离各个功能，就像在[功能分支工作流](workflow-feature-branch.md)和[`Gitflow`工作流](workflow-forking.md)一样。
+各个开发者应该用分支隔离各个功能，就像在[功能分支工作流](workflow-feature-branch.md)和[`Gitflow`工作流](workflow-gitflow.md)一样。
 唯一的区别是这些分支被共享了。在`Forking`工作流中这些分支会被`pull`到另一个开发者的本地仓库中，而在功能分支工作流和`Gitflow`工作流中是直接被`push`到正式仓库中。
 
 :beer: 示例
