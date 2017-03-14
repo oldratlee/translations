@@ -46,7 +46,7 @@
 在开发者提交自己功能修改到中央库前，需要先`fetch`在中央库的新增提交，`rebase`自己提交到中央库提交历史之上。
 这样做的意思是在说，『我要把自己的修改加到别人已经完成的修改上。』最终的结果是一个完美的线性历史，就像以前的`SVN`的工作流中一样。
 
-如果本地修改和上游提交有冲突，`Git`会暂停`rebase`过程，给你手动解决冲突的机会。`Git`解决合并冲突，用和生成提交一样的[`git status`](https://www.atlassian.com/git/tutorial/git-basics#!status)和[`git add`](https://www.atlassian.com/git/tutorial/git-basics#!add)命令，很一致方便。还有一点，如果解决冲突时遇到麻烦，`Git`可以很简单中止整个`rebase`操作，重来一次（或者让别人来帮助解决）。
+如果本地修改和上游提交有冲突，`Git`会暂停`rebase`过程，给你手动解决冲突的机会。`Git`解决合并冲突，用和生成提交一样的[`git status`](https://www.atlassian.com/git/tutorials/inspecting-a-repository#git-status)和[`git add`](https://www.atlassian.com/git/tutorials/saving-changes#git-add)命令，很一致方便。还有一点，如果解决冲突时遇到麻烦，`Git`可以很简单中止整个`rebase`操作，重来一次（或者让别人来帮助解决）。
 
 :beer: 示例
 ---------------------
@@ -73,7 +73,7 @@ git init --bare /path/to/repo.git
 
 ![](images/git-workflow-svn-clone.png)
 
-下一步，各个开发者创建整个项目的本地拷贝。通过[`git clone`](https://www.atlassian.com/git/tutorial/git-basics#!clone)命令完成：
+下一步，各个开发者创建整个项目的本地拷贝。通过[`git clone`](https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-clone)命令完成：
 
 ```bash
 git clone ssh://user@host/path/to/repo.git
@@ -110,7 +110,7 @@ git commit # 提交文件
 
 ![](images/git-workflow-svn-3.png)
 
-一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其它团队成员可以看到他的修改。他可以用下面的[`git push`命令](https://www.atlassian.com/git/tutorial/remote-repositories#!push)：
+一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其它团队成员可以看到他的修改。他可以用下面的[`git push`命令](https://www.atlassian.com/git/tutorials/syncing#git-push)：
 
 ```bash
 git push
@@ -156,7 +156,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 ![](images/git-workflow-svn-5.png)
 
-小红用[`git pull`](https://www.atlassian.com/git/tutorial/remote-repositories#!pull)合并上游的修改到自己的仓库中。
+小红用[`git pull`](https://www.atlassian.com/git/tutorials/syncing#git-pull)合并上游的修改到自己的仓库中。
 这条命令类似`svn update`——拉取所有上游提交命令到小红的本地仓库，并尝试和她的本地修改合并：
 
 ```bash
@@ -190,7 +190,7 @@ CONFLICT (content): Merge conflict in <some-file>
 
 ![](images/git-workflow-svn-8.png)
 
-`Git`很赞的一点是，任何人可以解决他自己的冲突。在这个例子中，小红可以简单的运行[`git status`](https://www.atlassian.com/git/tutorial/git-basics#!status)命令来查看哪里有问题。
+`Git`很赞的一点是，任何人可以解决他自己的冲突。在这个例子中，小红可以简单的运行[`git status`](https://www.atlassian.com/git/tutorials/inspecting-a-repository#git-status)命令来查看哪里有问题。
 冲突文件列在`Unmerged paths`（未合并路径）一节中：
 
 ```
@@ -201,7 +201,7 @@ CONFLICT (content): Merge conflict in <some-file>
 # both modified: <some-file>
 ```
 
-接着小红编辑这些文件。修改完成后，用老套路暂存这些文件，并让[`git rebase`](https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase)完成剩下的事：
+接着小红编辑这些文件。修改完成后，用老套路暂存这些文件，并让[`git rebase`](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase)完成剩下的事：
 
 ```bash
 git add <some-file> 
@@ -210,7 +210,7 @@ git rebase --continue
 
 要做的就这些了。`Git`会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。
 
-如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行[`git pull --rebase`](https://www.atlassian.com/git/tutorial/remote-repositories#!pull)命令前的样子：
+如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行[`git pull --rebase`](https://www.atlassian.com/git/tutorials/syncing#git-pull)命令前的样子：
 
 ```bash
 git rebase --abort

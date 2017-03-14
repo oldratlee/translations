@@ -162,7 +162,7 @@ git checkout -b some-feature
 git commit -a -m "Add first draft of some feature"
 ```
 
-在新功能分支上，小红按需要添加提交。甚至如果小红觉得功能分支上的提交历史太乱了，她可以用[交互式`rebase`](https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase-i)来删除或压制提交。
+在新功能分支上，小红按需要添加提交。甚至如果小红觉得功能分支上的提交历史太乱了，她可以用[交互式`rebase`](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase-i)来删除或压制提交。
 对于大型项目，整理功能分支的历史可以让项目维护者更容易看出在`Pull Request`中做了什么内容。
 
 ### 小红`push`功能到她的`Bitbucket`仓库中

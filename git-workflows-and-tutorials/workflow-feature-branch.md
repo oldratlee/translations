@@ -62,7 +62,7 @@
 
 ![](images/git-workflow-feature-branch-2.png)
 
-在开始开发功能前，小红需要一个独立的分支。使用下面的命令[新建一个分支](https://www.atlassian.com/git/tutorial/git-branches#!checkout)：
+在开始开发功能前，小红需要一个独立的分支。使用下面的命令[新建一个分支](https://www.atlassian.com/git/tutorials/using-branches#git-checkout)：
 
 ```bash
 git checkout -b marys-feature
@@ -102,7 +102,7 @@ git push -u origin marys-feature
 
 ![](images/git-workflow-feature-branch-4.png)
 
-小红吃完午饭回来，完成整个功能的开发。[在合并到`master`之前](https://www.atlassian.com/git/tutorial/git-branches#!merge)，
+小红吃完午饭回来，完成整个功能的开发。[在合并到`master`之前](https://www.atlassian.com/git/tutorials/git-merge)，
 她发起一个`Pull Request`让团队的其它人知道功能已经完成。但首先，她要确认中央仓库中已经有她最近的提交：
 
 ```bash
