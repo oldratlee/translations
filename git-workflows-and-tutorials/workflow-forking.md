@@ -35,15 +35,15 @@
 
 这个仓库拷贝作为他个人公开仓库 ——
 其它开发者不允许`push`到这个仓库，但可以`pull`到修改（后面我们很快就会看这点很重要）。
-在创建了自己服务端拷贝之后，和之前的工作流一样，开发者执行[`git clone`命令](https://www.atlassian.com/git/tutorial/git-basics#!clone)克隆仓库到本地机器上，作为私有的开发环境。
+在创建了自己服务端拷贝之后，和之前的工作流一样，开发者执行[`git clone`命令](https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-clone)克隆仓库到本地机器上，作为私有的开发环境。
 
 要提交本地修改时，`push`提交到自己公开仓库中 —— 而不是正式仓库中。
 然后，给正式仓库发起一个`pull request`，让项目维护者知道有更新已经准备好可以集成了。
 对于贡献的代码，`pull request`也可以很方便地作为一个讨论的地方。
 
 为了把功能集成到正式代码库，维护者`pull`贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，
-[合并变更到自己本地的`master`分支](https://www.atlassian.com/git/tutorial/git-branches#!merge)，
-然后[`push`](https://www.atlassian.com/git/tutorial/remote-repositories#!push)`master`分支到服务器的正式仓库中。
+[合并变更到自己本地的`master`分支](https://www.atlassian.com/git/tutorials/git-merge)，
+然后[`push`](https://www.atlassian.com/git/tutorials/syncing#git-push)`master`分支到服务器的正式仓库中。
 到此，贡献的提交成为了项目的一部分，其它的开发者应该执行`pull`操作与正式仓库同步自己本地仓库。
 
 ### 正式仓库
@@ -68,7 +68,7 @@
 和任何使用`Git`项目一样，第一步是创建在服务器上一个正式仓库，让所有团队成员都可以访问到。
 通常这个仓库也会作为项目维护者的公开仓库。
 
-[公开仓库应该是裸仓库](https://www.atlassian.com/git/tutorial/git-basics#!init)，不管是不是正式代码库。
+[公开仓库应该是裸仓库](https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-init)，不管是不是正式代码库。
 所以项目维护者会运行像下面的命令来搭建正式仓库：
 
 ```bash
@@ -125,7 +125,7 @@ git remote add upstream https://user@bitbucket.org/maintainer/repo.git
 
 ![](images/git-workflows-forking-4.png)
 
-在刚克隆的本地仓库中，开发者可以像其它工作流一样的编辑代码、[提交修改](https://www.atlassian.com/git/tutorial/git-basics#!commit)和[新建分支](https://www.atlassian.com/git/tutorial/git-branches#!branch)：
+在刚克隆的本地仓库中，开发者可以像其它工作流一样的编辑代码、[提交修改](https://www.atlassian.com/git/tutorials/saving-changes#git-commit)和[新建分支](https://www.atlassian.com/git/tutorials/using-branches#git-branch)：
 
 ```bash
 git checkout -b some-feature
@@ -133,13 +133,13 @@ git checkout -b some-feature
 git commit -a -m "Add first draft of some feature"
 ```
 
-所有的修改都是私有的直到`push`到自己公开仓库中。如果正式项目已经往前走了，可以用[`git pull`命令](https://www.atlassian.com/git/tutorial/remote-repositories#!pull)获得新的提交：
+所有的修改都是私有的直到`push`到自己公开仓库中。如果正式项目已经往前走了，可以用[`git pull`命令](https://www.atlassian.com/git/tutorials/syncing#git-pull)获得新的提交：
 
 ```bash
 git pull upstream master
 ```
 
-由于开发者应该都在专门的功能分支上工作，`pull`操作结果会都是[快进合并](https://www.atlassian.com/git/tutorial/git-branches#!merge)。
+由于开发者应该都在专门的功能分支上工作，`pull`操作结果会都是[快进合并](https://www.atlassian.com/git/tutorials/git-merge)。
 
 ### 开发者发布自己的功能
 
@@ -169,7 +169,7 @@ git push origin feature-branch
 1. `pull`代码到他自己的本地仓库，再手动合并
 
 第一种做法更简单，维护者可以在`GUI`中查看变更的差异，做评注和执行合并。
-但如果出现了合并冲突，需要第二种做法来解决。这种情况下，维护者需要从开发者的服务端仓库中[`fetch`](https://www.atlassian.com/git/tutorial/remote-repositories#!fetch)功能分支，
+但如果出现了合并冲突，需要第二种做法来解决。这种情况下，维护者需要从开发者的服务端仓库中[`fetch`](https://www.atlassian.com/git/tutorials/syncing#git-fetch)功能分支，
 合并到他本地的`master`分支，解决冲突：
 
 ```bash
