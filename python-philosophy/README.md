@@ -1,13 +1,11 @@
 `Python` Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)    
 译文发在：[`Python` Philosophy（`Python`哲学）翻译及简析](http://oldratlee.com/147/tech/python/python-philosophy.html)，2010-09-28
 
-`Python` Philosophy（`Python`哲学）翻译及简析
-============================================
+# `Python` Philosophy（`Python`哲学）翻译及简析
 
-![Python-Programming-Language](Python-Programming-Language.png)
+<img src="py-icon.png" align="right" >
 
-原文及译文
-----------------------
+## 原文及译文
 
 1. Beautiful is better than ugly.  
 美优于丑。
@@ -90,8 +88,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
     更多『世界上最不能相信』的话参见[世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)。
 - 『马上』做 === 不经过思考的不做，结果系统没有做一个本该这个系统做的功能！然后这个功能在不合适的地方被实现，即系统设计有问题。
 
-个人讨论
-----------------------
+## 个人讨论
 
 既有指明大是大非的理念，又有指导细节操作的准则。
 
@@ -103,8 +100,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 `Python`说得内容对生活个人觉得一样有指导性，果然是哲学。
 
-参考/阅读资料
-----------------------
+## 参考/阅读资料
 
 1. [Python(programming language) - Wikipedia](http://en.wikipedia.org/wiki/Python_%28programming_language%29#Programming_philosophy)
 1. [No programming language offers what Python does philosophically.](http://www.indicthreads.com/1062/no-programming-language-offers-what-python-does-philosophically/)  
