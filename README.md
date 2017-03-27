@@ -60,7 +60,7 @@ Chinese translations for classic IT resources.
 ------------------
 
 1. [日志：每个软件工程师都应该知道的有关实时数据的统一抽象](log-what-every-software-engineer-should-know-about-real-time-datas-unifying/README.md)  
-    这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，被称为**_程序员史诗般必读_**文章。可以作为大数据/分布式系统领域一份导论式的资料。作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
+    这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，被称为 **_程序员史诗般必读_** 文章。可以作为大数据/分布式系统领域一份导论式的资料。作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
 1. [Paxos Made Simple](paxos-made-simple/README.rst)  
     该论文给出描述一致性问题的概念、术语、算法，从复杂中抓取出了核心，给出了如此简单的描述。
     另言简意赅地说明了多实例`Paxos`（`Multi-Paxos`），这是真正实践中使用的`Paxos`。可以说不读这篇论文你就不知道**你还不知道**如何有效地描述和交流一致性算法。
@@ -78,12 +78,12 @@ Chinese translations for classic IT resources.
 ------------------
 
 1. [`Erlang`之父学习`Elixir`语言的一周](a-week-with-elixir/README.md)  
-作为`Erlang`之父_Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到_Joe Armstrong_深入广博的老黑客风范。
+作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
 
 `Lisp`
 ------------------
 
-1. [**_Successful Lisp_**中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
+1. [**_Successful Lisp_** 中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
     - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
     - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
 

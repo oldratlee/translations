@@ -17,12 +17,12 @@
 - [`PacificA`](http://research.microsoft.com/apps/pubs/default.aspx?id=66814)是实施微软基于日志的分布式存储系统的通用架构。
 - [`Spanner`](http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en/us/archive/spanner-osdi2012.pdf) ——
     并不是每个人都支持把逻辑时间用于他们的日志，`Google`最新的数据库就尝试使用物理时间，并通过把时间戳直接做为区间来直接建时钟迁移的不确定性。
-- [`Datanomic`](http://www.datomic.com/)：[解构数据库](https://www.youtube.com/watch?v=Cym4TZwTCNU)是_Rich Hickey_（`Clojure`的创建者）在它的首个数据库产品中的重要陈述之一。
+- [`Datanomic`](http://www.datomic.com/)：[解构数据库](https://www.youtube.com/watch?v=Cym4TZwTCNU)是 _Rich Hickey_ （`Clojure`的创建者）在它的首个数据库产品中的重要陈述之一。
 - [在消息传递系统中回滚恢复协议的调查](http://www.cs.utexas.edu/~lorenzo/papers/SurveyFinal.pdf)。
     我发现这是有关容错处理和通过日志在数据库之外完成恢复的实际应用的很不错的介绍。
 - [反应式宣言（`Reactive Manifesto`）](http://www.reactivemanifesto.org/) ——
     我其实并不清楚反应式编程（`reactive programming`）的确切涵义，但是我想它和『事件驱动』指的是同一件事。
-    这个链接并没有太多的信息，但_Martin Odersky_（`Scala`大拿）讲授的[这个课程](https://www.coursera.org/course/reactive)很精彩。
+    这个链接并没有太多的信息，但 _Martin Odersky_ （`Scala`大拿）讲授的[这个课程](https://www.coursera.org/course/reactive)很精彩。
 - `Paxos`!
     1. 原论文在[这里](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf)。
         _Leslie Lamport_ 有一个有趣的历史：在80年代算法是如何发现的，但是直到1998年才发表了，因为评审组不喜欢论文中的希腊寓言，而作者又不愿修改。
@@ -33,9 +33,9 @@
     5. 我发现所有关于`Paxos`的论文理解起来很痛苦，但是值得我们费大力气弄懂。你不必忍受这样的痛苦了，因为日志结构的文件系统的大师[_John Ousterhout_](http://www.stanford.edu/~ouster/cgi-bin/papers/lfs.pdf)的[这个视频](https://www.youtube.com/watch?v=JEpsBg0AO6o) 让这一切变得相当的容易。这些一致性算法用展开的通信图表述的更好，而不是在论文中通过静态的描述来说明。颇为讽刺的是，这个视频录制的初衷是告诉人们`Paxos`很难理解。
     6. [使用`Paxos`来构造规模一致的数据存储](http://arxiv.org/pdf/1103.2408.pdf)。这是一篇很棒的介绍使用日志来构造数据存储的文章，_Jun_ 是文章的共同作者之一，他也是`Kafka`最早期的工程师之一。
 - `Paxos`有很多的竞争者。如下诸项可以更进一步的映射到日志的实施，更适合于实用性的实施。
-    1. 由_Barbara Liskov_提出的[视图戳复现](http://pmg.csail.mit.edu/papers/vr-revisited.pdf)是直接进行日志复现建模的较早的算法。
+    1. 由 _Barbara Liskov_ 提出的[视图戳复现](http://pmg.csail.mit.edu/papers/vr-revisited.pdf)是直接进行日志复现建模的较早的算法。
     2. [`Zab`](http://www.stanford.edu/class/cs347/reading/zab.pdf)是`Zookeeper`所使用的算法。
-    3. [`RAFT`](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf)是易于理解的一致性算法之一。由_John Ousterhout_讲授的这个[视频](https://www.youtube.com/watch?v=YbZ3zDzDnrw)非常的棒。
+    3. [`RAFT`](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf)是易于理解的一致性算法之一。由 _John Ousterhout_ 讲授的这个[视频](https://www.youtube.com/watch?v=YbZ3zDzDnrw)非常的棒。
 - 你可以的看到在不同的实时分布式数据库中动作日志角色：
     1. [`PNUTS`](https://www.youtube.com/watch?v=YbZ3zDzDnrw)是探索在大规模的传统的分布式数据库系统中实施以日志为中心设计理念的系统。
     2. [`Hbase`](http://hbase.apache.org/)和`Bigtable`都是在目前的数据库系统中使用日志的样例。
