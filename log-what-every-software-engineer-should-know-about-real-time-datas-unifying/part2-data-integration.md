@@ -20,7 +20,7 @@
 
 <img src="images/cabling.jpg" width="270" hspace="10px" align="right" >
 
-你一定不会听到数据集成就兴趣盎然地屏住呼吸，并且天花乱坠的想到**_大数据_**的概念，
+你一定不会听到数据集成就兴趣盎然地屏住呼吸，并且天花乱坠的想到 **_大数据_** 的概念，
 但尽管如此，我相信这个陈词滥调的『让数据可用』的问题是组织可以关注的更有价值的事情之一。
 
 对数据的高效使用遵循一种[马斯洛的需要层次理论](http://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs)。
@@ -94,14 +94,13 @@
 无论是数据来自于一个`RDBMS`、一种新型的键值存储，还是由一个不包含任何类型实时查询的系统所生成的，消费方系统都无需关心。
 这似乎是一个小问题，但实际上却是至关重要的。
 
-> 
-<img src="images/19202238_eoij.jpg" width="250" >
+> <img src="images/19202238_eoij.jpg" width="250" >
 >
 > [『Each working data pipeline is designed like a log; each broken data pipeline is broken in its own way.』  
 『工作的数据管道都是设计得像日志；而损坏的数据管道各有各的损坏。』  
 > —— 列夫 · 尼古拉耶维奇 · 托尔斯泰 （由笔者改写）](http://en.wikipedia.org/wiki/Anna_Karenina_principle)
 >
-> **_【译注】_** [_托尔斯泰_](https://zh.wikipedia.org/zh-cn/%E5%88%97%E5%A4%AB%C2%B7%E6%89%98%E7%88%BE%E6%96%AF%E6%B3%B0) 的『[_安娜·卡列尼娜_](https://zh.wikipedia.org/zh-cn/%E5%AE%89%E5%A8%9C%C2%B7%E5%8D%A1%E5%88%97%E5%B0%BC%E5%A8%9C) 原理』的原文：  
+> **_【译注】_**  [_托尔斯泰_](https://zh.wikipedia.org/zh-cn/%E5%88%97%E5%A4%AB%C2%B7%E6%89%98%E7%88%BE%E6%96%AF%E6%B3%B0) 的『[_安娜·卡列尼娜_](https://zh.wikipedia.org/zh-cn/%E5%AE%89%E5%A8%9C%C2%B7%E5%8D%A1%E5%88%97%E5%B0%BC%E5%A8%9C) 原理』的原文：  
 > Happy families are all alike; every unhappy family is unhappy in its own way.  
 > 幸福的家庭都是相似的，不幸的家庭各有各的不幸。
 
@@ -234,7 +233,7 @@
 强制使用星型`schema`（`star schema`）、雪花型`schema`（`snowflake schema`），可能会打散数据成高性能的[列](http://parquet.io/) [格式](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/orcfile.html)（`column format`），等等。同时做好这两件事是有困难的。
 这些集成仓库的规整的数据除了要索引到实时存储系统中，也应当可用于实时或是低时延处理中。
 
-在我看来，正是因为这个原因有了额外好处：使得数据仓库`ETL`大大提升了**_组织级_**的可伸缩性（`scalable`）。
+在我看来，正是因为这个原因有了额外好处：使得数据仓库`ETL`大大提升了 **_组织级_** 的可伸缩性（`scalable`）。
 典型的问题是数据仓库团队要负责收集和整理组织中各个团队所生成的全部数据。
 两边的收益是不对称的：数据的生产者常常并不知晓在数据仓库中数据的使用情况，
 结果产生的数据，为了转成为可用的形式，抽取过程很难或是很繁重，转换过程很难统一规模化。

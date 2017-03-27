@@ -76,13 +76,13 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 `C`的`Geek`，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
 在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的负作用），也降低了代码的可读性。
 
-**_[5]_** 这里的荷兰人指`Python`之父_Guido_，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
+**_[5]_** 这里的荷兰人指`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
-在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父_Guido_的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
+在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
 
 **_[6] [7]_** 关于『Now/现在』、『never/决不』、『right now/马上』，个人理解，这个条目要说的是：
 
-决定是否做实现一个功能，要想清楚，要么做要么不做，都能给出**_明确_**的理由；但不要模模糊糊的说『后面马上』做，回避对系统的分析思考。
+决定是否做实现一个功能，要想清楚，要么做要么不做，都能给出 **_明确的_** 理由；但不要模模糊糊的说『后面马上』做，回避对系统的分析思考。
 
 否则结果会是：
 
