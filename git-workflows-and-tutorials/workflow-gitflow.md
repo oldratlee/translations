@@ -47,7 +47,7 @@
 
 ![](images/git-workflow-release-cycle-2feature.png)
 
-注意，从各种含义和目的上来看，功能分支加上`develop`分支就是功能分支工作流的用法。但`Gitflow`工作流没有在这里止步。
+注意，从各种含义和目的上来看，功能分支加上`develop`分支就是功能分支工作流的用法。但`Gitflow`工作流没有止步于此。
 
 ### 发布分支
 
