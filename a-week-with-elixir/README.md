@@ -45,28 +45,28 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 
 差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间去看细节。
 
-但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以_Dave_要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
+但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以 _Dave_ 要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
 
-_Dave_对`Elixir`很感兴趣，在他的书里这样写道：
+_Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 
-> 在1998年的时候，由于我是`comp.lang.misc`邮件组的忠实读者，机缘巧合得知了`Ruby`，然后下载、编译、与`Ruby`坠入爱河。
+> 在1998年的时候，由于我是`comp.lang.misc`邮件组的忠实读者，机缘巧合得知了`Ruby`，然后下载、编译，与`Ruby`坠入爱河。
 > （没听过`comp.lang.misc`？那去问问你老爹吧。）
-> 就像任何一次相爱经历一样，你很难解释原因是什么。
-> `Ruby`的工作方式和我心里想的灵犀默契，而且总是有足够的深度持续点燃着我的热情。
+> 就像任何一次相爱经历一样，你很难解释是什么原因。
+> `Ruby`的工作方式和我心里想的灵犀默契，而且总是有足够的深度能持续点燃着我的热情。
 >
-> 回首已经逝去15年的时光，而我无时无刻不在寻找下一个也能给出这样感觉的新『对象』。
+> 蓦然回首已经逝去15年的时光，我无时无刻不在寻找下一个也能有这种感觉的新『对象』。
 >
 > 很快我遇上了`Elixir`，由于一些原因，我没能一见钟情。
-> 但在几个月前，和_Corey Haines_聊了一次，在如何不用学院派的书给大家介绍哪些有吸引力的函数式编程概念这个问题上诉了些苦。
-> 他告诉我再去看看`Elixir`。我照做了，有了第一次看到`Ruby`时那样的感觉。
+> 但在几个月前，和 _Corey Haines_ 聊了一次，在如何不用学院派的书给大家介绍哪些有吸引力的函数式编程概念这个问题上诉了些苦。
+> 他告诉我，再去看看`Elixir`吧。我照做了，有了第一次遇到`Ruby`时那样的感觉。
 
 我能理解这种感觉，一种先行于逻辑的内心感性的感觉。就像我知道一件事是对的，却并不知道是如何和为什么我知道这是对的。而对原因的解释常常在几周甚至几年后才冒出来。_Malcolm Gladwell_ 在他的[《_Blink: The Power of Thinking Without Thinking_》](https://www.amazon.com/Blink-Power-Thinking-Without/dp/0316010669/ref=sr_1_1?s=books&ie=UTF8&qid=1369995752&sr=1-1&keywords=blink)一书中曾探讨过这个问题。一个特定领域的专家常常能瞬间感知出一些事情是否正确，但却不能解释为什么。
 
 但得知 _Dave_ 与`Elixir`『看对眼』时，我很想知道他为什么会这样。
 
-无独有偶，_Simon St. Laurent_也出了本`Elixir`的书。_Simon_的[《_Introducing Erlang_》](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而_Pragmatic Press_和_O'Reilly_出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
+无独有偶，_Simon St. Laurent_ 也出了本`Elixir`的书。_Simon_ 的[《_Introducing Erlang_》](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而 _Pragmatic Press_ 和 _O'Reilly_ 出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
 
-我发封邮件给_Dave_和_Simon_，他们爽快地借给我了样书，现在可以开始阅读了……谢了二位……
+我发封邮件给 _Dave_ 和 _Simon_，他们爽快地借给我了样书，现在可以开始阅读了……谢了二位……
 
 # 上周我下载了`Elixir`然后开始学习
 
@@ -543,9 +543,9 @@ end
 
 `Elixir`没有令人生畏的语法，融合了`Ruby`和`Erlang`优秀的特性。它不是`Erlang`也不是`Ruby`，有自己创新的想法。
 
-这是门新兴的语言，但在语言的开发的同时介绍的书也同步在写了。第一本介绍`Erlang` 的书在`Erlang`发明后的7年才出现，而畅销书更是在14年后才出现。用21年的时间去等一本真正的介绍书籍实在是太长了。
+这是门新兴的语言，但在语言的开发的同时介绍的书也同步在写了。第一本介绍`Erlang` 的书在`Erlang`发明后的7年才出现，而被大众接受的书更是在14年后才出现。用21年的时间去等待一本好书实在是太长了。
 
-_Dave_ 很喜欢`Elixir`，我也觉得很酷，我想我们会在使用过程中找到更多乐趣的。
+_Dave_ 很喜欢`Elixir`，我也觉得很酷，我想我们俩会在使用过程中找到更多乐趣的。
 
 像`WhatsApp`这个应用和全世界一半手机网络的关键部分都是搭建在`Erlang`之上。当技术变得更加亲和，当新一批热衷者进入阵营，让我现在怀着非常欣喜的心情关注着后续要发生的变化。
 
