@@ -47,7 +47,7 @@
 
 随着时间的推移，日志的用途从`ACID`的实现细节成长为数据库间复制数据的一种方法。
 结果证明，发生在数据库上的更改序列 即是 与远程副本数据库（`replica database`）保持同步 所需的操作。
-`Oracle`、`MySQL` 和`PostgreSQL`都包括一个日志传送协议（`log shipping protocol`），传输日志给作为备库（`Slave`）的复本（`replica`）数据库。
+`Oracle`、`MySQL` 和`PostgreSQL`都包括一个日志传送协议（`log shipping protocol`），传输日志给作为备库（`slave`）的复本（`replica`）数据库。
 `Oracle`还把日志产品化为一个通用的数据订阅机制，为非`Oracle`数据订阅用户提供了[`XStreams`](http://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm)和[`GoldenGate`](http://www.oracle.com/technetwork/middleware/goldengate/overview/index.html)，在`MySQL`和`PostgreSQL`中类似设施是许多数据架构的关键组件。
 
 正是由于这样的起源，机器可识别的日志的概念主要都被局限在数据库的内部。日志作为做数据订阅机制的用法似乎是偶然出现的。
@@ -65,7 +65,7 @@
 
 听起来有点难以晦涩，让我们更加深入的探讨，弄懂它的真正含义。
 
-[确定性](http://en.wikipedia.org/wiki/Deterministic_algorithm)（`deterministic `）意味着处理过程是与时间无关的，而且不让任何其他『带外数据（`out of band`）』的输入影响处理结果。
+[确定性](http://en.wikipedia.org/wiki/Deterministic_algorithm)（`deterministic `）意味着处理过程是与时间无关的，而且不会让任何其他『带外』输入（`"out of band" input`）影响其处理结果。
 例如，如果一个程序的输出会受到线程执行的具体顺序影响，或者受到`getTimeOfDay`调用、或者其他一些非重复性事件的影响，那么这样的程序一般被认为是非确定性的。
 
 进程 **_状态_** 是进程保存在机器上的任何数据，在进程处理结束的时候，这些数据要么保存在内存里，要么保存在磁盘上。
