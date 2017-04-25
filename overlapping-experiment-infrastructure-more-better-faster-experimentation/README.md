@@ -3,6 +3,8 @@
 
 # 重叠实验设施：更多，更好，更快地实验
 
+<img src="expt0.png" align="right" >
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
