@@ -24,8 +24,8 @@ Chinese translations for classic IT resources.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [设计原则](#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
 - [思考/思维](#%E6%80%9D%E8%80%83%E6%80%9D%E7%BB%B4)
+- [设计原则](#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
 - [分布式系统/大数据](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A4%A7%E6%95%B0%E6%8D%AE)
 - [`Git`](#git)
 - [`Erlang`/`Elixir`](#erlangelixir)
@@ -35,6 +35,13 @@ Chinese translations for classic IT resources.
 - [其它](#%E5%85%B6%E5%AE%83)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+思考/思维
+------------------
+
+1. [提问的智慧](how-to-ask-questions-the-smart-way/README.md)  
+    说明了作者所认为一位发问者事前应该要做好什么，而什么又是不该做的。作者认为这样能让问题容易令人理解，而且发问者自己也能学到较多东西。此文在网络上受到欢迎，被广泛转载而广为人知甚至奉为经典。
+    著名的两个缩写`STFW`（`Search the fxxking web`）以及`RTFM`（`Read the fxxking manual`）就是出自本文。
 
 设计原则
 ------------------
@@ -48,13 +55,6 @@ Chinese translations for classic IT resources.
 给出 _**减少艺术的艺术工作量**_ 的方法的人是 **大师**。
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
 文中列出的`GUI`和`CLI`的原则：说明了两种`Interface`适合的场景和优劣；进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的。
-
-思考/思维
-------------------
-
-1. [提问的智慧](how-to-ask-questions-the-smart-way/README.md)  
-    说明了作者所认为一位发问者事前应该要做好什么，而什么又是不该做的。作者认为这样能让问题容易令人理解，而且发问者自己也能学到较多东西。此文在网络上受到欢迎，被广泛转载而广为人知甚至奉为经典。
-    著名的两个缩写`STFW`（`Search the fxxking web`）以及`RTFM`（`Read the fxxking manual`）就是出自本文。
 
 分布式系统/大数据
 ------------------
