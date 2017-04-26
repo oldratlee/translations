@@ -26,6 +26,7 @@ Chinese translations for classic IT resources.
 
 - [思考/思维](#%E6%80%9D%E8%80%83%E6%80%9D%E7%BB%B4)
 - [设计原则](#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
+- [系统设计实例](#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%BE%8B)
 - [分布式系统/大数据](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A4%A7%E6%95%B0%E6%8D%AE)
 - [`Git`](#git)
 - [`Erlang`/`Elixir`](#erlangelixir)
@@ -55,6 +56,12 @@ Chinese translations for classic IT resources.
 给出 _**减少艺术的艺术工作量**_ 的方法的人是 **大师**。
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
 文中列出的`GUI`和`CLI`的原则：说明了两种`Interface`适合的场景和优劣；进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的。
+
+系统设计实例
+------------------
+
+- [重叠实验设施：更多、更好、更快地实验](overlapping-experiment-infrastructure-more-better-faster-experimentation/README.md)  
+`Google`这篇8年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资源。不单说明了，实验设施的系统设计，还包含实验的进阶的主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。对于了解`Growth Hacking`/`ABTest`的同学，可以有效的学习实验设施的系统设计，尤其是重叠实验设施要考虑多方面的需求、维度，如何建模是很复杂的；对于不了解`Growth Hacking`/`ABTest`这个领域知识的同学，可以通过这篇文章，学习一个复杂系统整体的思考和设计的模式，包含需求、场景、模型设计、产品流程、落地关键。
 
 分布式系统/大数据
 ------------------
