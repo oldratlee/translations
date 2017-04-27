@@ -43,9 +43,9 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 
 # 与`Elixir`相处的一周
 
-差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间去看细节。
+差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间细看。
 
-但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以 _Dave_ 要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
+但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法就彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以 _Dave_ 要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
 
 _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 
@@ -70,7 +70,7 @@ _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 
 # 上周我下载了`Elixir`然后开始学习
 
-没多久我觉得就上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在底层一样的，对我来说『感觉』是一样的。事实上也确实如此，两者都会被编译成`EVM`（`Erlang Virtual Machine`）指令 —— 实际上目前`EVM`这个叫法没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
+没多久我就觉得上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在底层一样的，对我来说『感觉』是一样的。事实上也确实如此，两者都会被编译成`EVM`（`Erlang Virtual Machine`）指令 —— 实际上目前`EVM`这个叫法没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
 
 `Erlang`和`Elixir`为什么有相同的『语义』（`semantics`）？这得从虚拟机底层谈起。垃圾回收行为，不共享并发模型，底层的错误处理和代码加载机制都是一致的。当然这是肯定的：他们都运行在相同的`VM`里。这也是`Scala`和`Akka`区别于`Erlang`的原因。`Scala`和`Akka`都运行在`JVM`之上，垃圾回收和代码加载机制从根本上就不一样。
 
@@ -95,7 +95,7 @@ _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 >
 > ---------------
 >
-> 译文使用英文术语本身，不翻译成中文，有更好的辨识度。
+> 这些术语译文使用英文本身，不翻译成中文，因为这样有更好的辨识度。
 
 `Elixir`还提供一个新的下层`AST`，取代了每个`form`都是独有表示的`Erlang AST`，`Elixir AST`有一个统一得多的表示，这使得元编程（`meta-programming`）要简单得多。
 
@@ -444,7 +444,12 @@ end
 
 `Elixir`的宏真的很简单 —— 引用（`quote`）对应`Lisp`的反引号（`quasiquote`），而反引用（`unquote`）对应`Lisp`的列表逗号操作符（`list comma operator`） —— 这就我说的简单 :-)
 
-【译注】：
+>【译注】  
+> 作者上面说到的：
+> 1.『难怪有上千篇文章来解释它有多简单』；
+> 2. 用`Lisp`来快速解释引用和反引用，而不能直接去解释。
+> 
+> 这是在用调侃的方式表达『真真儿难于解释』。
 
 # 9. 额外的符号
 
