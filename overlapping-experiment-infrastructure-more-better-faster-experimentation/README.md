@@ -3,7 +3,7 @@
 
 # 重叠实验设施：更多、更好、更快地实验
 
-<img src="expt0.png" align="right" >
+<img src="expt0.png" align="right" />
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -94,7 +94,7 @@
 * 简单地将参数分为三层（图2a），这种情况下，每个请求最多只会同时在三个实验中，每层一个，每个实验只能修改相应层的参数。
 * 我们可以先将流量分为两个域，一个域只有一个单一层（非重叠域），和一个有三个层的重叠域（见图2b），在这种情况下，每个请求会分到非重叠域或是重叠域。请求只能在非重叠域或重叠域其中之一。如果请求在重叠域，那么请求最多在一个实验中（这个实验可以改变参数集合中的任意参数的值），如果请求在重叠域，那么请求最多在三个实验中，每层一个实验。并且对于每个实验，只能使用对应层的参数。
 
-<img src="figure-02.png" width="512" >
+<img src="figure-02.png" width="512" />
 
 **图2**：重叠分层示意图
 
@@ -170,7 +170,7 @@ _Kohavi_ 假设实验与对照实验有相同的大小，比如 <img src="http:/
 
 图4是在不同实验中，包括`cookie`取模和随机流量实验，对于覆盖率指标与标准误差呈 <img src="http://chart.googleapis.com/chart?cht=tx&chl=1%2F%5Csqrt%7BN%7D" style="border:none;" alt="1/\sqrt{N}" /> 的关系，图中的斜线即是 <img src="http://chart.googleapis.com/chart?cht=tx&chl=s" style="border:none;" alt="s" /> ，坐标轴上的值出于保密的原因隐去了，但可以看出`cookie`取模的斜线比查询的斜线陡峭，比如在相同的准确度下衡量相同的覆盖率的变化，一个`cookie`取模的实验需要比随机流量实验大的规模。
 
-<img src="figure-04.jpg" width="40%">
+<img src="figure-04.jpg" width="40%" />
 
 **图4**：在分配类型下计算覆盖度 <img src="http://chart.googleapis.com/chart?cht=tx&chl=s" style="border:none;" alt="s" /> 的斜线
 
@@ -238,7 +238,7 @@ _Kohavi_ 假设实验与对照实验有相同的大小，比如 <img src="http:/
 
 我们可以用几个标准来判断我们是否成功地运行更多的实验，在一个时期上一共运行了多少实验，这些实验中有多少发布了，有多少不同的实验在运行实验（见图5）。要说明的是实验的数目包含了对照实验的数目。对于运行实验人数，一些实验是有多个拥有者的（比如，如果某人离开城市或发生了事），或是将团队邮件列表中的成员也认为拥有者。不幸的是，我们无法轻松地知道有多少拥有者是非工程师，但有意思的是，非工程师的数据是在增加的，对分布层的数量，我们只计算了使用重叠实验的发布层的数量。在重叠实验之前，我们用其他的一些机制发布实验，但它们的频率在下降。在所有的图中，y轴上的数据出于保密的原因隐去了（它们是线性比例），但从趋势上可以明显地看出，我们系统支持了指数级增加的实验，发布，实验者。
 
-<img src="figure-05-1.jpg" width="30%"><img src="figure-05-2.jpg" width="30%"><img src="figure-05-3.jpg" width="30%">  
+<img src="figure-05-1.jpg" width="30%" /><img src="figure-05-2.jpg" width="30%"/><img src="figure-05-3.jpg" width="30%" />  
 **图5**：实验，拥有者，发布数量在时间上的趋势图
 
 ## 6.2 更好
