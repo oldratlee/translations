@@ -154,7 +154,7 @@
 
 一个实验的有效规模定义为：
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=N%3D(%5Cfrac%7B1%7D%7B%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bcontrol%7D%7D%7D%2B%5Cfrac%7B1%7D%7B%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bexperiment%7D%7D%7D)" style="border:none;" alt="N=(\frac{1}{\text{queries}_{\text{control}}}+\frac{1}{\text{queries}_{\text{experiment}}})"/>
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=N%3D%5Cfrac%7B1%7D%7B1+%2F+%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bcontrol%7D%7D+%2B+1+%2F+%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bexperiment%7D%7D%7D" style="border:none;" alt="N=\frac{1}{1 / \text{queries}_{\text{control}} + 1 / \text{queries}_{\text{experiment}}}" />
 
 在工程实践中，我们主要关注 <img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bcontrol%7D%7D" style="border:none;" alt="\text{queries}_{\text{control}}" /> 和 <img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Ctext%7Bqueries%7D_%7B%5Ctext%7Bexperiment%7D%7D" style="border:none;" /> ，但要通过 <img src="http://chart.googleapis.com/chart?cht=tx&chl=N" style="border:none;" alt="N" /> 个和才能影响相关的实验指标，为了正确确定 <img src="http://chart.googleapis.com/chart?cht=tx&chl=N" style="border:none;" alt="N" /> 值，我们需要知道：
 
