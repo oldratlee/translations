@@ -78,7 +78,7 @@
 对于这一领域，我将持续关注，如何您知道一些我遗漏的内容，请您告知。
 
 最后我留给你的信息是这个： :smile_cat:  
-[The Log Song - Ren & Stimpy (Deadwood HoN) ](https://youtu.be/2C7mNr5WMjA)
+[![The Log Song - Ren & Stimpy (Deadwood HoN)](images/log_song.png)](https://www.youtube.com/watch?v=2C7mNr5WMjA)
 
 -----------------
 
