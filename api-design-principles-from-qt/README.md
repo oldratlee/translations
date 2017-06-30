@@ -1,5 +1,5 @@
 原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles)  
-基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的API设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)
+基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的`API`设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)
 
 ## :apple: 译序
 
@@ -9,7 +9,7 @@
 
 一致、易于掌握和强大的`API`是`Qt`最著名优点中的一个。此文总结了我们在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`）。其中许多准则是通用的；而其他的则更偏向于约定，遵循这些约定主要是为了与已有的`API`保持一致。　　　　
 
-虽然这些准则主要用于公共`API`，但在设计私有`API`时也推荐遵循相同的技术，作为与其他开发者之间的礼仪（`courtesy`）。
+虽然这些准则主要用于公有`API`（`public API`），但在设计私有`API`（`private API`）时也推荐遵循相同的技术，作为开发者之间协作的礼仪（`courtesy`）。
 
 如有兴趣也可以读一下 _Jasmin Blanchette_ 的[Little Manual of API Design (PDF)](http://www4.in.tum.de/~blanchet/api-design.pdf) 或是本文的前身 _Matthias Ettrich_ 的[Designing Qt-Style C++ APIs](https://doc.qt.io/archives/qq/qq13-apis.html)。
 
@@ -21,7 +21,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [1. 好`API`的6个特点](#1-%E5%A5%BDapi%E7%9A%846%E4%B8%AA%E7%89%B9%E7%82%B9)
+- [1. 好`API`的6个特质](#1-%E5%A5%BDapi%E7%9A%846%E4%B8%AA%E7%89%B9%E8%B4%A8)
     - [1.1 极简](#11-%E6%9E%81%E7%AE%80)
     - [1.2 完备](#12-%E5%AE%8C%E5%A4%87)
     - [1.3 语义清晰简单](#13-%E8%AF%AD%E4%B9%89%E6%B8%85%E6%99%B0%E7%AE%80%E5%8D%95)
@@ -50,12 +50,12 @@
 - [6. 命名的艺术](#6-%E5%91%BD%E5%90%8D%E7%9A%84%E8%89%BA%E6%9C%AF)
     - [6.1 通用的命名规则](#61-%E9%80%9A%E7%94%A8%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99)
     - [6.2 类的命名](#62-%E7%B1%BB%E7%9A%84%E5%91%BD%E5%90%8D)
-    - [6.3 枚举类型和值的命名（naming enum types and values）](#63-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%80%BC%E7%9A%84%E5%91%BD%E5%90%8Dnaming-enum-types-and-values)
-    - [6.4 函数和参数的命名（Naming Functions and Parameters）](#64-%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%82%E6%95%B0%E7%9A%84%E5%91%BD%E5%90%8Dnaming-functions-and-parameters)
-    - [6.5 `bool`类型的`getter`与`setter`的命名（Naming Boolean Getters, Setters, and Properties）](#65-bool%E7%B1%BB%E5%9E%8B%E7%9A%84getter%E4%B8%8Esetter%E7%9A%84%E5%91%BD%E5%90%8Dnaming-boolean-getters-setters-and-properties)
-- [7. 避免常见陷阱（`avoiding common traps`）](#7-%E9%81%BF%E5%85%8D%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1avoiding-common-traps)
-    - [7.1 简化的陷阱（`convenience trap`）](#71-%E7%AE%80%E5%8C%96%E7%9A%84%E9%99%B7%E9%98%B1convenience-trap)
-    - [7.2 `boolean`参数的陷阱（`boolean parameter trap`）](#72-boolean%E5%8F%82%E6%95%B0%E7%9A%84%E9%99%B7%E9%98%B1boolean-parameter-trap)
+    - [6.3 枚举类型及其值的命名](#63-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E5%80%BC%E7%9A%84%E5%91%BD%E5%90%8D)
+    - [6.4 函数和参数的命名](#64-%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%82%E6%95%B0%E7%9A%84%E5%91%BD%E5%90%8D)
+    - [6.5 `Boolean`类型的`getter`与`setter`方法的命名](#65-boolean%E7%B1%BB%E5%9E%8B%E7%9A%84getter%E4%B8%8Esetter%E6%96%B9%E6%B3%95%E7%9A%84%E5%91%BD%E5%90%8D)
+- [7. 避免常见陷阱](#7-%E9%81%BF%E5%85%8D%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1)
+    - [7.1 简化的陷阱](#71-%E7%AE%80%E5%8C%96%E7%9A%84%E9%99%B7%E9%98%B1)
+    - [7.2 `Boolean`参数的陷阱](#72-boolean%E5%8F%82%E6%95%B0%E7%9A%84%E9%99%B7%E9%98%B1)
 - [8. 案例研究](#8-%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6)
     - [8.1 `QProgressBar`](#81-qprogressbar)
     - [8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`](#82-qabstractprintdialog--qabstractpagesizedialog)
@@ -67,7 +67,7 @@
 
 -------------------------------------------------------------------------------
 
-# 1. 好`API`的6个特点
+# 1. 好`API`的6个特质
 
 `API`之于程序员就如同`GUI`之于用户。`API`中的『`P`』实际上指的是『程序员』，而不是『程序』，这强调了所有`API`都是给序员使用的事实。
 
@@ -87,7 +87,7 @@
 
 ## 1.4 符合直觉
 
-就像计算机里的其他事物一样，`API`应该符合直观。对于什么是符合直觉的什么不符合，不同的经验和背景的人会有不同的看法。`API`符合直观的测试方法：经验不很丰富的用户不用阅读`API`文档就能搞懂`API`，而且程序员不用了解`API`就能明白使用`API`的代码。
+就像计算机里的其他事物一样，`API`应该符合直观。对于什么是符合直觉的什么不符合，不同的经验和背景的人会有不同的看法。`API`符合直观的测试方法：经验不很丰富的用户不用阅读`API`文档就能搞懂`API`，而且程序员不用了解`API`就能看明白使用`API`的代码。
 
 ## 1.5 易于记忆
 
@@ -268,7 +268,7 @@ public:
 };
 ```
 
-如果继承`CopyClass`这个类，预料之外的事就已经在代码时酝酿了。一般情况下，如果没有虚成员函数和虚析构函数，就不能有依赖多态的子类。然而，如果存在虚成员函数和虚析构函数，这突然变成了要有子类去继承的理由，而且开始变得复杂了。_起初认为只要简单声明上虚操作符重载函数（`virtual operators`）。_ 但其实是走上了一条混乱和毁灭之路（看不明白？读作写出的是『不可读代码』）。看看下面的这个例子：
+如果继承`CopyClass`这个类，预料之外的事就已经在代码时酝酿了。一般情况下，如果没有虚成员函数和虚析构函数，就不能有依赖多态的子类。然而，如果存在虚成员函数和虚析构函数，这突然变成了要有子类去继承的理由，而且开始变得复杂了。**_起初认为只要简单声明上虚操作符重载函数（`virtual operators`）。_** 但其实是走上了一条混乱和毁灭之路（看不明白？读作写出的是『不可读代码』）。看看下面的这个例子：
 
 ```cpp
 class OtherClass {
@@ -281,7 +281,7 @@ public:
 
 ## 4.3 关于`const`
 
-_`C++`的关键词`const`表明了内容不会改变或是没有副作用。可以应用于简单的值、指针及指针所指的内容，也可以作为一个特别的属性应用于类的成员函数上，表示成员函数不能修改对象的状态。_
+**_`C++`的关键词`const`表明了内容不会改变或是没有副作用。可以应用于简单的值、指针及指针所指的内容，也可以作为一个特别的属性应用于类的成员函数上，表示成员函数不能修改对象的状态。_**
 
 然而，`const`本身并没有提供太大的价值 —— 很多编程语言甚至没有类似`const`的关键词，但是却并没有因此产生问题。实际上，如果你不用函数重载，并在`C++`源代码用搜索和替换来删除所有的`const`，几乎总能编译通过并且正常运行。尽量让使用的`const`保持实用有效，这点很重要。
 
@@ -475,9 +475,9 @@ void QGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem opti
 
 用把类的名称分组的方式替换为每个类单独命名的方法。例如，所有`Qt 4`的了解模型（`model-aware`）的视图（`view`）类后缀都是`View`（`QListView`、`QTableView`、`QTreeView`），相应的基于`item`的类后缀是`Widget`（`QListWidget`、`QTableWidget`、`QTreeWidget`）。
 
-## 6.3 枚举类型和值的命名（naming enum types and values）
+## 6.3 枚举类型及其值的命名
 
-`C++`中枚举值没有类型（与`Java`、`C#`不同），声明枚举类型时需要记住这一点。下面的例子说明了给枚举值起过于通用的名字的危害：
+`C++`中枚举值没有类型（与`Java`、`C#`不同），声明枚举类型时需要记住这一点。下面的例子说明了枚举值过于通用的命名的危害：
 
 ```cpp
 namespace Qt
@@ -491,7 +491,7 @@ tabWidget->setCornerWidget(widget, Qt::TopLeft);
 str.indexOf("$(QTDIR)", Qt::Insensitive);
 ```
 
-在最后一行，`Insensitive`是什么意思？（容易引起混淆）。命名枚举类型的一个准则是在枚举值至少重复此枚举类型名称中的一个元素：
+在最后一行，`Insensitive`是什么意思？（容易引起混淆）。命名枚举类型的一个准则是在枚举值至少重复此枚举类型名中的一个元素：
 
 ```cpp
 namespace Qt
@@ -522,15 +522,15 @@ enum AlignmentFlag { AlignLeft, AlignTop, ... };
 typedef QFlags<AlignmentFlag> Alignment;
 ```
 
-## 6.4 函数和参数的命名（Naming Functions and Parameters）
+## 6.4 函数和参数的命名
 
-函数命名的第一准则是可以从名称看出来此函数是否有副作用。在`Qt 3`中，`QString::simplifyWhiteSpace()`违反了此准则，因为它返回了一个`QString` 而不是按名称暗示的那样，改变调用它的`QString`对象。在`Qt 4`中，此函数重命名为`QString::simplified()`。
+函数命名的第一准则是可以从名称看出来此函数是否有副作用。在`Qt 3`中，`QString::simplifyWhiteSpace()`违反了此准则，因为它返回了一个`QString`而不是按名称暗示的那样，改变调用它的`QString`对象。在`Qt 4`中，此函数重命名为`QString::simplified()`。
 
-虽然参数名称不会在使用`API`的代码中出现，但是它们给程序员提供了重要信息。因为现在的`IDE`都会在写代码时显示参数名称，在头文件中给参数起一个恰当的名称并在文档中使用相同的名称很值得。
+虽然参数名称不会在使用`API`的代码中出现，但是它们给程序员提供了重要信息。因为现在的`IDE`都会在写代码时显示参数名称，所以应该在头文件中给参数起一个恰当的名称并在文档中使用相同的名称。
 
-## 6.5 `bool`类型的`getter`与`setter`的命名（Naming Boolean Getters, Setters, and Properties）
+## 6.5 `Boolean`类型的`getter`与`setter`方法的命名
 
-为`bool`成员的获取函数(`getter`)和设置函数(`setter`)命名真痛苦。`getter`应该叫做`checked()`还是`isChecked()`？`scrollBarsEnabled()`或者`areScrollBarEnabled()`？
+为`bool`属性的`getter`和`setter`方法命名总是很痛苦。`getter`应该叫做`checked()`还是`isChecked()`？`scrollBarsEnabled()`还是`areScrollBarEnabled()`？
 
 `Qt 4`中，我们套用以下准则为`getter`命名：
 
@@ -540,31 +540,31 @@ typedef QFlags<AlignmentFlag> Alignment;
     - `isEmpty()`
     - `isMovingEnabled()`
 - 然而，修饰名词的形容词没有前缀：
-    - `scrollBarsEnabled()`，而不是 `areScrollBarsEnabled()`
-- 动词没有前缀，也不使用第三人称(-s)：
-    - `acceptDrops(),` not `acceptsDrops()`
+    - `scrollBarsEnabled()`，而不是`areScrollBarsEnabled()`
+- 动词没有前缀，也不使用第三人称(`-s`)：
+    - `acceptDrops()`，而不是`acceptsDrops()`
     - `allColumnsShowFocus()`
 - 名词一般没有前缀：
     - `autoCompletion()`，而不是`isAutoCompletion()`
     - `boundaryChecking()`
-- 有时，没有前缀容易混淆，我们会加上`is`前缀：
+- 有的时候，没有前缀容易产生误导，这种情况下会加上`is`前缀：
     - `isOpenGLAvailable()`，而不是`openGL()`
     - `isDialog()`，而不是`dialog()`  
-　　 （一个叫做`dialog()`的函数，一般会被认为是返回`QDialog`。）
+      （一个叫做`dialog()`的函数，一般会被认为是返回`QDialog`。）
 
-`setter`的名称来源于`getter`，只是去掉了`is`前缀，在前面加上了`set`；例如，`setDown()`与`setScrollBarsEnabled()`。
+`setter`的名称由`getter`衍生，去掉了前缀后在前面加上了`set`；例如，`setDown()`与`setScrollBarsEnabled()`。
 
-# 7. 避免常见陷阱（`avoiding common traps`）
+# 7. 避免常见陷阱
 
-## 7.1 简化的陷阱（`convenience trap`）
+## 7.1 简化的陷阱
 
-实现某样东西需要写的代码越少，`API`设计的越好这种观点是一种误解。应该记住代码只写一次，却被多次阅读和理解。例如：
+一个常见的误解是：实现需要写的代码越少，`API`设计的越好。应该记住：代码只会写上几次，却要被反复阅读和理解。例如：
 
 ```cpp
 QSlider *slider = new QSlider(12, 18, 3, 13, Qt::Vertical, 0, "volume");
 ```
 
-这段代码比下面这个难理解多了：
+这段代码比下面的读起来要难得多（甚至写起来也更难）：
 
 ```cpp
 QSlider *slider = new QSlider(Qt::Vertical);
@@ -574,15 +574,15 @@ slider->setValue(13);
 slider->setObjectName("volume");
 ```
 
-## 7.2 `boolean`参数的陷阱（`boolean parameter trap`）
+## 7.2 `Boolean`参数的陷阱
 
-`bool`类型的参数总是带来无法阅读的代码。给现有的函数增加一个`bool`型的参数几乎永远是一种错误的行为。仍以`Qt`为例，`repaint()`有一个`bool`类型的可选参数用于指定背景是否被擦出。可以写出这样的代码：
+`Boolean`类型的参数总是带来无法阅读的代码。给现有的函数增加一个`bool`型的参数几乎永远是一种错误的行为。仍以`Qt`为例，`repaint()`有一个`bool`类型的可选参数用于指定背景是否被擦出。可以写出这样的代码：
 
 ```cpp
 widget->repaint(false);
 ```
 
-初学者很可能是这样理解的，『不要重新绘制!』（Don’t repaint!），能有多少`Qt`用户真心知道下面3行是什么意思：
+初学者很可能是这样理解的，『不要重新绘制！』，能有多少`Qt`用户真心知道下面3行是什么意思：
 
 ```cpp
 widget->repaint();
@@ -654,11 +654,11 @@ protected:
 };
 ```
 
-以上`API`有点复杂且不一致；例如，`reset()`，`setTotalSteps()`，`setProgress()`紧密联系，而`API`中对此不明晰。
+该`API`相当的复杂和不一致；例如，`reset()`、`setTotalSteps()`、`setProgress()`是紧密联系的但方法的命名并没明确地表达出来。
 
-改善此`API`的关键是注意到`QProgressBar`与`Qt 4`的`QAbstractSpinBox`及其子类`QSpinBox`,`QSlider`,`QDail`有相似之处。怎么做？把`progress`,`totalSteps`替换为`minimum`,`maximum`和`value`。增加一个valueChanged() 消息，再增加一个 setRange() 函数。
+改善此`API`的关键是抓住`QProgressBar`与`Qt 4`的`QAbstractSpinBox`及其子类`QSpinBox`、`QSlider`、`QDail`之间的相似性。怎么做？把`progress`,`totalSteps`替换为`minimum`,`maximum`和`value`。增加一个`valueChanged()`消息，再增加一个`setRange()`函数。
 
-下一个发现是`progressString`, `percentage` 与 `indicator`其实是一回事：显示在进度条上的文字。通常这个文字是某个百分数，但是可通过`setIndicator()`设置为任何内容。以下是新的API：
+进一步可以观察到`progressString`、`percentage`与`indicator`其实是一回事，即是显示在进度条上的文本。通常这个文本是个百分比，但是可通过`setIndicator()`设置为任何内容。以下是新的`API`：
 
 ```cpp
 virtual QString text() const;
@@ -666,17 +666,17 @@ void setTextVisible(bool visible);
 bool isTextVisible() const;
 ```
 
-默认情况下，文字的内容是百分数，重写`text()`可以对此作改变。
+默认情况下，显示文本是百分比指示器（`percentage indicator`），重写`text()`方法来定制行为。
 
-`Qt 3`的`setCenterIndicator()`与`setIndicatorFollowsStyle()`是两个影响对齐的函数。他们可被一个`setAlignment()`函数代替：
+`Qt 3`的`setCenterIndicator()`与`setIndicatorFollowsStyle()`是两个影响对齐方式的函数。他们可被一个`setAlignment()`函数代替：
 
 ```cpp
 void setAlignment(Qt::Alignment alignment);
 ```
 
-如果API用户未调用`setAlignment()`，那么对齐方式由风格决定。对于基于`Motif`的风格，文字内容在中间显示；对于其他风格，在右侧显示。
+如果开发者未调用`setAlignment()`，那么对齐方式由风格决定。对于基于`Motif`的风格，文字内容在中间显示；对于其他风格，在右侧显示。
 
-下面是已经改善的`QProgressBar` `API`:
+下面是改善后的`QProgressBar API`:
 
 ```cpp
 class QProgressBar : public QWidget
@@ -708,6 +708,7 @@ signals:
 
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
+【TODO：补这节翻译】
 
 ## 8.3 `QAbstractItemModel`
 
@@ -715,7 +716,10 @@ signals:
 
 ## 8.4 `QLayoutIterator` & `QGLayoutIterator`
 
+【TODO：补这节翻译】
+
 ## 8.5 `QImageSink`
 
-`Qt 3`有多个类用来逐渐加载图像并做成动画 —— `QImageSource`/`Sink`/`QASyncIO`/`QASyncImageIO`。由于他们完全可由变换的`QLabel`代替，所以这些类全都被移除了。我们获得的教训是不要通过增加抽象来应对某些模糊的未来情况。保持简洁，当这些情况出现时，把它们纳入一个简单的系统要比纳入一个复杂的系统容易得多。
+`Qt 3`有一整套的类用来完成图片的增量加载后传递给一个动画 —— `QImageSource`/`Sink`/`QASyncIO`/`QASyncImageIO`。由于这些类之前只是用于启用动画的`QLabel`，完全过度设计了（`overkill`）。
 
+从中得到的教训是：对于那些还不明朗的未来可能的需求，不要过早地增加抽象设计。当需求出现时，在一个简单的系统中而不是一个复杂系统中，加入这个需求要容易得多。
