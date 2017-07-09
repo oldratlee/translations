@@ -8,54 +8,54 @@
 ## 原文及译文
 
 1. Beautiful is better than ugly.  
-美优于丑。
+    美优于丑。
 2. Explicit is better than implicit.   
-直白优于隐晦。
+    直白优于隐晦。
 3. Simple is better than complex **_[1]_**.   
-简单优于复杂。
+    简单优于复杂。
 4. Complex is better than complicated **_[2]_** .  
-复杂优于纠结。
+    复杂优于纠结。
 5. Flat is better than nested. **_[3]_**  
-扁平优于嵌套。
+    扁平优于嵌套。
 6. Sparse is better than dense **_[4]_** .  
-稀疏优于稠密。
+    稀疏优于稠密。
 7. Readability counts.  
-可读性是有重要价值的。
+    可读性是有重要价值的。
 8. Special cases aren't special enough to break the rules.  
-特例可以有，但不能特例到打破规则。
-    * Although practicality beats purity.   
+    特例可以有，但不能特例到打破规则。
+    - Although practicality beats purity.   
       尽管在纯粹性和实用性之间倾向的是实用性。
 9. Errors should never pass silently.  
-出错决不应该无声无息地忽略。
-    * Unless explicitly silenced.   
+    出错决不应该无声无息地忽略。
+    - Unless explicitly silenced.   
       除非明确地说明了是无声无息的。
 10. In the face of ambiguity, refuse the temptation to guess.  
-面对二义性情况时，要拒绝任何猜的诱惑。
+    面对二义性情况时，要拒绝任何猜的诱惑。
 11. There should be one -- and preferably only one -- obvious way to do it.  
-一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
-    * Although that way may not be obvious at first unless you're Dutch **_[5]_**.  
+    一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
+    - Although that way may not be obvious at first unless you're Dutch **_[5]_**.  
       尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。
-12.  Now is better than never **_[6]_**.  
-『现在』 优于 『决不』。
-    * Although never is often better than **right** now **_[7]_**.    
+12. Now is better than never **_[6]_**.  
+    『现在』 优于 『决不』。
+    - Although never is often better than **right** now **_[7]_**.    
       尽管 『决不』 常常优于 『**马上**』。
 13. If the implementation is hard to explain, it's a bad idea.  
-如果一个实现难于解释清楚，那它是个差的想法。
+    如果一个实现难于解释清楚，那它是个差的想法。
 14. If the implementation is easy to explain, it may be a good idea.  
-如果一个实现很容易解释清楚，那它可能是个好的想法。
+    如果一个实现很容易解释清楚，那它可能是个好的想法。
 15. NameSpaces are one honking great idea -- let's do more of those!  
-命名空间是个值得大力宣扬的想法 — 放手多多用起来吧！
+    命名空间是个值得大力宣扬的想法 — 放手多多用起来吧！
 
 ### 译注
 
-**_[1] [2]_** 单词complex的意思是 复杂，而complicated 是 结构复杂。
+**_[1] [2]_** 单词 complex 的意思是 复杂，而 complicated 是 结构复杂。
 
-在计算机领域中，complex 可以对应 单个模块复杂，而complicated 则可以对应 多个模块互相关联的复杂。
+在计算机领域中，complex 可以对应 单个模块复杂，而 complicated 则可以对应 多个模块互相关联的复杂。
 用计算机的术语来说，complicated 是不同模块之间紧『耦合』，体现了理解不深，设计不好。
 
-软件的核心复杂度不可避免，但要这些集中一起，给使用一个干净高级的接口，
-也就是说：如果**complex**（核心复杂度）不可避免可以接受，
-但**complicated**一定要想办法去除，随着系统深入理解，模块职责的划分会更简明干净。  
+软件的核心复杂度不可避免，但要这些集中一起，给用户一个干净高级的接口，
+也就是说：如果 **complex**（核心复杂度）不可避免可以接受，
+但 **complicated** 一定要想办法去除，随着系统深入理解，模块职责的划分会更简明干净。  
 PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
