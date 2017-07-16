@@ -52,12 +52,14 @@ Chinese translations for classic IT resources.
 给出了一个通用`Java` `IO` `API`设计，更重要的是，给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。
 文中示范了从 普通简单实现 整理成 正交分解、可复用、可扩展、高性能、无错误的`API`设计 的过程。这个很值得理解和学习！设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件美事。
 给出 _**减少艺术的艺术工作量**_ 的方法的人是 **大师**。
+1. [`API`设计原则](api-design-principles-from-qt/README.md)  
+一致、易于掌握和强大的`API`是`Qt`最著名优点中的一个。此文总结了在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`），是`Qt`官网上的`API`设计指导准则。
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
 文中列出的`GUI`和`CLI`的原则：说明了两种`Interface`适合的场景和优劣；进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的。
 
 # 系统设计实例
 
-- [重叠实验设施：更多、更好、更快地实验](overlapping-experiment-infrastructure-more-better-faster-experimentation/README.md)  
+1. [重叠实验设施：更多、更好、更快地实验](overlapping-experiment-infrastructure-more-better-faster-experimentation/README.md)  
 `Google`这篇8年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资源。不单说明了，实验设施的系统设计，还包含实验的进阶的主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。对于了解`Growth Hacking`/`ABTest`的同学，可以有效的学习实验设施的系统设计，尤其是重叠实验设施要考虑多方面的需求、维度，如何建模是很复杂的；对于不了解`Growth Hacking`/`ABTest`这个领域知识的同学，可以通过这篇文章，学习一个复杂系统整体的思考和设计的模式，包含需求、场景、模型设计、产品流程、落地关键。
 
 # 分布式系统/大数据
@@ -94,7 +96,7 @@ Chinese translations for classic IT resources.
 
 # 软件测试
 
-- [`Stubs`和`Mocks`的区别](stubs-vs-mocks/README.md)  
+1. [`Stubs`和`Mocks`的区别](stubs-vs-mocks/README.md)  
 翻译自《Programming Groovy》，讲得言简意赅。
 
 # 其它
