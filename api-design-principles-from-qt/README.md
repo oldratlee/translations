@@ -71,7 +71,7 @@
 
 `API`之于程序员就如同`GUI`之于用户。`API`中的『`P`』实际上指的是『程序员』，而不是『程序』，这强调了所有`API`都是给序员使用的事实。
 
-在 _Matthias_ 的第13期[`Qt`季刊](http://doc.qt.io/archives/qq/)关于`API`设计的文章中提出了观点：`API`应该极简（`minimal`）且完备（`complete`）、语义清晰简单（`have clear and simple semantics`）、符合直觉（`be intuitive`）、易于记忆（`be easy to memorize`）和引导`API`用户写出可读代码（`lead to readable code`）。
+在第13期[`Qt`季刊](http://doc.qt.io/archives/qq/)，_Matthias_ 的[关于`API`设计的文章](https://doc.qt.io/archives/qq/qq13-apis.html)中提出了观点：`API`应该极简（`minimal`）且完备（`complete`）、语义清晰简单（`have clear and simple semantics`）、符合直觉（`be intuitive`）、易于记忆（`be easy to memorize`）和引导`API`用户写出可读代码（`lead to readable code`）。
 
 ## 1.1 极简
 
@@ -200,7 +200,25 @@ color.getHsv(h, s, v);
 
 ### 4.1.2 按常量引用传递 vs. 按值传递
 
-【TODO：补这节翻译】
+如果类型大于16字节，按常量引用传递。
+
+如果类型有重型的（`non-trivial`）拷贝构造函数（`copy-constructor`）或是重型的析构函数（`destructor`），按常量引用传递以避免执行这些函数。
+
+对于其它的类型通常应该按值传递。
+
+示例：
+
+```cpp
+void setAge(int age);
+void setCategory(QChar cat);
+void setName(QLatin1String name);
+
+// const-ref is much faster than running copy-constructor and destructor
+void setAlarm(const QSharedPointer<Alarm> &alarm);
+
+// QDate, QTime, QPoint, QPointF, QSize, QSizeF, QRect
+// are good examples of other classes you should pass by value.
+```
 
 ## 4.2 虚函数
 
@@ -708,7 +726,10 @@ signals:
 
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
-【TODO：补这节翻译】
+`Qt 4.0`有2个幽灵类`QAbstractPrintDialog`和`QAbstractPageSizeDialog`，作为
+`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
+
+这不是说，**_好_** 的抽象是错的，`QPrintDialog`可能应该有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
 
 ## 8.3 `QAbstractItemModel`
 
@@ -716,7 +737,21 @@ signals:
 
 ## 8.4 `QLayoutIterator` & `QGLayoutIterator`
 
-【TODO：补这节翻译】
+在`QT 3`，创建自定义的布局类需要同时继承`QLayout`和`QGLayoutIterator`（命名中的`G`是指`Generic`（通用））。`QGLayoutIterator`子类的实例指针会包装成`QLayoutIterator`，用户可以像其它的迭代器（`iterator`）类一样的使用。通过`QLayoutIterator`可以写出下面这样的代码：
+
+```cpp
+QLayoutIterator it = layout()->iterator();
+QLayoutItem **child;
+while ((child = it.current()) != 0) {
+    if (child->widget() == myWidget) {
+        it.takeCurrent();
+        return;
+    }
+    ++it;
+}
+```
+
+在`QT 4`，我们干掉了`QGLayoutIterator`类（以及用于盒子布局格子布局的它内部子类），而是让`QLayout`的子类重写`itemAt()`、`takeAt()`和`count()`。
 
 ## 8.5 `QImageSink`
 
