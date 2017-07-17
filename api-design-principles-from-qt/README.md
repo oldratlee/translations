@@ -1,15 +1,15 @@
-原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles)  
+原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles) - [QT Wiki](http://wiki.qt.io/)  
 基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的`API`设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)
 
 ## :apple: 译序
 
-此文为`Qt`官网上的`API`设计指导准则，其中有不少原则具有普遍适用性，整个篇幅中有很多示例，是`Qt`在`API`设计上的实践。　
+`Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的（如果你对`C++`还不精通，可以忽略与`C++`强相关或是过于细节的部分，仍然可以学习或梳理关于`API`设计最有价值的内容）。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
 
 # `API`设计原则
 
-一致、易于掌握和强大的`API`是`Qt`最著名优点中的一个。此文总结了我们在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`）。其中许多准则是通用的；而其他的则更偏向于约定，遵循这些约定主要是为了与已有的`API`保持一致。　　　　
+一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文总结了我们在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`）。其中许多是通用准则；而其他的则更偏向于约定，遵循这些约定主要是为了与已有的`API`保持一致。　　　　
 
-虽然这些准则主要用于公有`API`（`public API`），但在设计私有`API`（`private API`）时也推荐遵循相同的技术，作为开发者之间协作的礼仪（`courtesy`）。
+虽然这些准则主要用于公有`API`（`public API`），但在设计私有`API`（`private API`）时也推荐遵循相同的技巧（`techniques`），作为开发者之间协作的礼仪（`courtesy`）。
 
 如有兴趣也可以读一下 _Jasmin Blanchette_ 的[Little Manual of API Design (PDF)](http://www4.in.tum.de/~blanchet/api-design.pdf) 或是本文的前身 _Matthias Ettrich_ 的[Designing Qt-Style C++ APIs](https://doc.qt.io/archives/qq/qq13-apis.html)。
 
@@ -27,7 +27,7 @@
     - [1.3 语义清晰简单](#13-%E8%AF%AD%E4%B9%89%E6%B8%85%E6%99%B0%E7%AE%80%E5%8D%95)
     - [1.4 符合直觉](#14-%E7%AC%A6%E5%90%88%E7%9B%B4%E8%A7%89)
     - [1.5 易于记忆](#15-%E6%98%93%E4%BA%8E%E8%AE%B0%E5%BF%86)
-    - [1.6 引导`API`用户写出可读代码](#16-%E5%BC%95%E5%AF%BCapi%E7%94%A8%E6%88%B7%E5%86%99%E5%87%BA%E5%8F%AF%E8%AF%BB%E4%BB%A3%E7%A0%81)
+    - [1.6 引导`API`使用者写出可读代码](#16-%E5%BC%95%E5%AF%BCapi%E4%BD%BF%E7%94%A8%E8%80%85%E5%86%99%E5%87%BA%E5%8F%AF%E8%AF%BB%E4%BB%A3%E7%A0%81)
 - [2. 静态多态](#2-%E9%9D%99%E6%80%81%E5%A4%9A%E6%80%81)
     - [2.1 好的案例](#21-%E5%A5%BD%E7%9A%84%E6%A1%88%E4%BE%8B)
     - [2.2 差的案例](#22-%E5%B7%AE%E7%9A%84%E6%A1%88%E4%BE%8B)
@@ -69,13 +69,13 @@
 
 # 1. 好`API`的6个特质
 
-`API`之于程序员就如同`GUI`之于用户。`API`中的『`P`』实际上指的是『程序员』，而不是『程序』，这强调了所有`API`都是给序员使用的事实。
+`API`之于程序员就如同`GUI`之于普通用户（`end-user`）。`API`中的『`P`』实际上指的是『程序员』（`Programmer`），而不是『程序』（`Program`），强调的是`API`是给程序员使用的这一事实。
 
-在第13期[`Qt`季刊](http://doc.qt.io/archives/qq/)，_Matthias_ 的[关于`API`设计的文章](https://doc.qt.io/archives/qq/qq13-apis.html)中提出了观点：`API`应该极简（`minimal`）且完备（`complete`）、语义清晰简单（`have clear and simple semantics`）、符合直觉（`be intuitive`）、易于记忆（`be easy to memorize`）和引导`API`用户写出可读代码（`lead to readable code`）。
+在第13期[`Qt`季刊](http://doc.qt.io/archives/qq/)，_Matthias_ 的[关于`API`设计的文章](https://doc.qt.io/archives/qq/qq13-apis.html)中提出了观点：`API`应该极简（`minimal`）且完备（`complete`）、语义清晰简单（`have clear and simple semantics`）、符合直觉（`be intuitive`）、易于记忆（`be easy to memorize`）和引导`API`使用者写出可读代码（`lead to readable code`）。
 
 ## 1.1 极简
 
-极简的`API`是指每个公有类的公有成员尽可能少，公有类也尽可能少。这样的API更易理解、记忆、调试和变更。
+极简的`API`是指每个公有类的公有成员尽可能少，公有类也尽可能少。这样的`API`更易理解、记忆、调试和变更。
 
 ## 1.2 完备
 
@@ -83,7 +83,7 @@
 
 ## 1.3 语义清晰简单
 
-就像其他的设计一样，我们应该遵守最少意外原则(`principle of least surprise`)。常见的任务应该很简单地完成，而对不常见的任务应该能做到且不会很费心神；当没有需求时不要过度通用化解决方案。（举个例子，在`Qt 3`中，`QMimeSourceFactory`不应命名成`QImageLoader`并有不一样的`API`。）
+就像其他的设计一样，我们应该遵守最少意外原则（`the principle of least surprise`）。常见的任务应该很简单地完成，而对不常见的任务应该能完成且不至于很费心神。解决的是具体问题；当没有需求时不要过度通用化解决方案。（举个例子，在`Qt 3`中，`QMimeSourceFactory`不应命名成`QImageLoader`并有不一样的`API`。）
 
 ## 1.4 符合直觉
 
@@ -93,33 +93,35 @@
 
 为使`API`易于记忆，`API`的命名约定应该具有一致性和精确性。使用易于识别的模式和概念，并且避免用缩写。
 
-## 1.6 引导`API`用户写出可读代码
+## 1.6 引导`API`使用者写出可读代码
 
-代码只写一次，却要多次阅读（还有调试和修改）。写出可读性好的代码花费更多的时间，对于产品的整个生命周期来说反而是节省了时间成本。
+代码只写一次，却要多次的阅读（还有调试和修改）。写出可读性好的代码有时候要花费更多的时间，但对于产品的整个生命周期来说是节省了时间的。
+
+最后，要记住的是，不同的用户会使用`API`的不同部分。尽管简单使用单个`Qt`类的实例应该符合直觉，但如果是要继承一个类，让用户事先看好文档是个合理的要求。
 
 # 2. 静态多态
 
-相似的类应该有相似的`API`。在继承（`inheritance`）合适时可以用继承达到这个效果，即运行时多态。然而多态也发生在设计阶段。例如，如果你用`QProgressBar`替换`QSlider`，或者是`QString`替换`QByteArray`，你会发现`API`的相似性使的替换很容易。此即是所谓的『静态多态』（`static polymorphism`）。
+相似的类应该有相似的`API`。在继承（`inheritance`）合适时可以用继承达到这个效果，即运行时多态。然而多态也发生在设计阶段。例如，如果你用`QProgressBar`替换`QSlider`，或是用`QString`替换`QByteArray`，你会发现`API`的相似性使的替换很容易。这即是所谓的『静态多态』（`static polymorphism`）。
 
-静态多态也使记忆`API`和编程模式更加容易。因此，一组相关类有相似的`API`有的时候比每个类都有各自的一套`API`更好。
+静态多态也使记忆`API`和编程模式更加容易。因此，一组相关的类有相似的`API`有时候比每个类都有各自的一套`API`更好。
 
-一般来说在`Qt`中，如果没有足够的理由要使用继承关系，我们更倾向于依赖静态多态。这样可以减少`Qt`公有类的个数，也使刚学习`Qt`的用户在翻看文档时更有方向感。
+一般来说，在`Qt`中，如果没有足够的理由要使用继承，我们更倾向于用静态多态。这样可以减少`Qt`公有类的个数，也使刚学习`Qt`的用户在翻看文档时更有方向感。
 
 ## 2.1 好的案例
 
-`QDialogButtonBox`与`QMessageBox`，在按钮操作（`addButton()`、`setStandardButtons()`等等）上，有相似的`API`，而没有继承某个`QAbstractButtonBox`类。
+`QDialogButtonBox`与`QMessageBox`，在处理按钮（`addButton()`、`setStandardButtons()`等等）上有相似的`API`，不需要继承某个`QAbstractButtonBox`类。
 
 ## 2.2 差的案例
 
-`QTcpSocket`与`QUdpSocket`都继承了`QAbstractSocket`，这两个类的交互行为的模式（`mode of interaction`）非常不同。似乎没有什么人以通用和有意义的方式（`in a generic and useful way`）用过`QAbstractSocket`指针（或者 **_能_** 以通用和有意义的方式使用`QAbstractSocket`指针）。
+`QTcpSocket`与`QUdpSocket`都继承了`QAbstractSocket`，这两个类的交互行为的模式（`mode of interaction`）非常不同。似乎没有什么人以通用和有意义的方式用过`QAbstractSocket`指针（或者 **_能_** 以通用和有意义的方式使用`QAbstractSocket`指针）。
 
 ## 2.3 值得斟酌的案例
 
-`QBoxLayout`是`QHBoxLayout`与`QVBoxLayout`的基类，好处：可以在工具栏上使用`QBoxLayout`调用`setOrientation()`使其变为水平/垂直。坏处：需要一个额外的类，并且有可能导致用户写出这样没什么意义的代码，`((QBoxLayout *)hbox)->setOrientation(Qt::Vertical)`。
+`QBoxLayout`是`QHBoxLayout`与`QVBoxLayout`的基类。好处：可以在工具栏上使用`QBoxLayout`，调用`setOrientation()`使其变为水平/垂直。坏处：要多一个类，并且有可能导致用户写出这样没什么意义的代码，`((QBoxLayout *)hbox)->setOrientation(Qt::Vertical)`。
 
 # 3. 基于属性的`API`
 
-新的`Qt`类倾向于基于属性（`property`）的`API`，例如：
+新的`Qt`类倾向于用『基于属性（`property`）的`API`』，例如：
 
 ```cpp
 QTimer timer;
@@ -128,7 +130,7 @@ timer.setSingleShot(true);
 timer.start();
 ```
 
-这里的 **_属性_** 是指任何的概念特征（`conceptual attribute`）即一部分对象状态 —— 无论它是不是`Q_PROPERTY`。在实践中，用户应该可以以任何顺序设置属性，也就是说，属性之间应该是正交的（`orthogonal`）。例如，上面的代码可以写成：
+这里的 **_属性_** 是指任何的概念特征（`conceptual attribute`），是对象状态的一部分 —— 无论它是不是`Q_PROPERTY`。在说得通的情况下，用户应该可以以任何顺序设置属性，也就是说，属性之间应该是正交的（`orthogonal`）。例如，上面的代码可以写成：
 
 ```cpp
 QTimer timer;
@@ -145,7 +147,7 @@ timer.start();
 timer.start(1000)；
 ```
 
-类似地，对于`QRegExp`，
+类似地，对于`QRegExp`会是这样的代码：
 
 ```cpp
 QRegExp regExp;
@@ -154,9 +156,9 @@ regExp.setPattern(".");
 regExp.setPatternSyntax(Qt::WildcardSyntax);
 ```
 
-为实现这种类型的`API`，不得不懒创建底层的对象。例如，对于`QRegExp`的例子，在不知道模式语法（`pattern syntax`）的情况下，在`setPattern()`中编译`"."`就为时过早了。
+为实现这种类型的`API`，需要借助底层的对象的懒创建。例如，对于`QRegExp`的例子，在不知道模式语法（`pattern syntax`）的情况下，在`setPattern()`中编译`"."`就为时过早了。
 
-属性之间常常有关联的；在这种情况下，我们必须小心处理。思考下面的问题：当前风格（`current style`）提供了『默认的图标尺寸』，而`QToolButton`有『`iconSize`』属性：
+属性之间常常有关联的；在这种情况下，我们必须小心处理。思考下面的问题：当前的风格（`style`）提供了『默认的图标尺寸』属性 vs. `QToolButton`的『`iconSize`』属性：
 
 ```cpp
 toolButton->setStyle(otherStyle);
@@ -167,14 +169,14 @@ toolButton->setStyle(yetAnotherStyle);
 toolButton->iconSize();    // returns (52, 52)
 ```
 
-提醒一下，一旦设置了`iconSize`，它就一直保持设置状态，即使改变当前的风格。这 **_很好_**。有的情况需要能重置某个属性，有两种方法：
+提醒一下，一旦设置了`iconSize`，设置就会一直保持，即使改变当前的风格。这 **_很好_**。但有的时候需要能重置属性。有两种方法：
 
-1. 传入一个特殊值（如`QSize()`、`-1`或者`Qt::Alignment(0))`，意味着『重置』
-1. 提供一个明确的重置接口，如`resetFoo()`和`unsetFoo()`
+1. 传入一个特殊值（如`QSize()`、`-1`或者`Qt::Alignment(0)`）来表示『重置』
+1. 提供一个明确的重置方法，如`resetFoo()`和`unsetFoo()`
 
-对于`iconSize`，使用`QSize()`（比如 `QSize(–1, -1)`）表示『重置』就足够了。
+对于`iconSize`，使用`QSize()`（比如 `QSize(–1, -1)`）来表示『重置』就够用了。
 
-在某些情况下，`getter`方法返回的结果与所设置的值不同。例如，如果调用`widget->setEnabled(true)`，如果它的parent处于`disabled`状态，`widget->isEnabled()`仍然返回 `false`。这样是OK的，因为正是我们想要的（`widget`的父`widget`处于`disabled`状态，此`widget`也应该变为灰色，就好象自身处于`disabled`状态一样；同时它会记得自身处于`enabled`状态，正等待它的父`widget`变为`enabled`），但诸如这些必须恰当地记入文档。
+在某些情况下，`getter`方法返回的结果与所设置的值不同。例如，虽然调用了`widget->setEnabled(true)`，但如果它的父`widget`处于`disabled`状态，那么`widget->isEnabled()`仍然返回的是`false`。这样是OK的，因为一般来说就是我们想要的检查结果（父`widget`处于`disabled`状态，里面的子`widget`也应该变为灰的不响应用户操作，就好像子`widget`自身处于`disabled`状态一样；与此同时，因为子`widget`记得在自己的内心深处是`enabled`状态的，只是一直等待着它的父`widget`变为`enabled`）。当然诸如这些都必须在文档中妥善地说明清楚。
 
 # 4. `C++`细节
 
@@ -239,7 +241,7 @@ virtual void setCurrentFont( const QFont &f );
 virtual void setOverwriteMode( bool b ) { overWrite = b; }
 ```
 
-`QTextEdit`从`Qt 3`移植到`Qt 4`的时候，几乎所有的虚函数都被移除了。有趣的是（不过并不是没有预料到的），并没有人对此有大的抱怨，为什么？因为`Qt 3`没用到`QTextEdit`的多态行为 —— 你可以；简单得说，没有理由去继承`QTextEdit`并重新实现这些函数，除非你自己调用了这些方法。如果在`Qt`在外部你的应用程序你需要多态，你可以自己添加多态。
+`QTextEdit`从`Qt 3`移植到`Qt 4`的时候，几乎所有的虚函数都被移除了。有趣的是（但在预料之中），并没有人对此有大的抱怨，为什么？因为`Qt 3`没用到`QTextEdit`的多态行为 —— 只有你会；简单得说，没有理由去继承`QTextEdit`并重新实现这些函数，除非你自己调用了这些方法。如果在`Qt`在外部你的应用程序你需要多态，你可以自己添加多态。
 
 ### 4.2.1 避免虚函数
 
@@ -594,7 +596,7 @@ slider->setObjectName("volume");
 
 ## 7.2 `Boolean`参数的陷阱
 
-`Boolean`类型的参数总是带来无法阅读的代码。给现有的函数增加一个`bool`型的参数几乎永远是一种错误的行为。仍以`Qt`为例，`repaint()`有一个`bool`类型的可选参数用于指定背景是否被擦出。可以写出这样的代码：
+`Boolean`类型的参数总是带来无法阅读的代码。给现有的函数增加一个`bool`型的参数几乎永远是一种错误的行为。仍以`Qt`为例，`repaint()`有一个`bool`类型的可选参数用于指定背景是否被擦除。可以写出这样的代码：
 
 ```cpp
 widget->repaint(false);
@@ -615,7 +617,7 @@ widget->repaint();
 widget->repaintWithoutErasing();
 ```
 
-在`Qt 4`中，我们通过移除了重新绘制(`repaint`)而不擦出`widget`的能力来解决了此问题。`Qt 4`的双缓冲使这种特性被废弃。
+在`Qt 4`中，我们通过移除了重新绘制（`repaint`）而不擦除`widget`的能力来解决了此问题。`Qt 4`的双缓冲使这种特性被废弃。
 
 还有更多的例子：
 
@@ -727,13 +729,15 @@ signals:
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
 `Qt 4.0`有2个幽灵类`QAbstractPrintDialog`和`QAbstractPageSizeDialog`，作为
-`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
+`QPrintDialog`和`QPageSizeDialog`类的基类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
 
-这不是说，**_好_** 的抽象是错的，`QPrintDialog`可能应该有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
+这不是说，**_好_** 的抽象是错的，`QPrintDialog`应该是需要有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
 
 ## 8.3 `QAbstractItemModel`
 
-有关模型/视图(`model`/`view`)的问题的细节在其他地方已经作了描述，但是有一个重要的总结是某个抽象的类不应该仅仅是联合(`union`)所有可能的子类的。这样的抽象基类几乎不是一个好的方案。`QAbstractItemModel`就犯了这个错误——它其实是`QTreeOfTablesModel`，包含了一些复杂的`API`，但却被很多类继承。仅仅是增加抽象不会把`API`设计得更好。
+关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅仅是所有可能的子类的并集（`union`）。这样『合并所有』的抽象基类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
+
+仅仅增加抽象是不会自动就把`API`变得更好的。
 
 ## 8.4 `QLayoutIterator` & `QGLayoutIterator`
 
@@ -751,10 +755,10 @@ while ((child = it.current()) != 0) {
 }
 ```
 
-在`QT 4`，我们干掉了`QGLayoutIterator`类（以及用于盒子布局格子布局的它内部子类），而是让`QLayout`的子类重写`itemAt()`、`takeAt()`和`count()`。
+在`QT 4`，我们干掉了`QGLayoutIterator`类（以及用于盒子布局和格子布局的内部子类），转而是让`QLayout`的子类重写`itemAt()`、`takeAt()`和`count()`。
 
 ## 8.5 `QImageSink`
 
 `Qt 3`有一整套的类用来完成图片的增量加载后传递给一个动画 —— `QImageSource`/`Sink`/`QASyncIO`/`QASyncImageIO`。由于这些类之前只是用于启用动画的`QLabel`，完全过度设计了（`overkill`）。
 
-从中得到的教训是：对于那些还不明朗的未来可能的需求，不要过早地增加抽象设计。当需求出现时，在一个简单的系统中而不是一个复杂系统中，加入这个需求要容易得多。
+从中得到的教训就是：对于那些未来可能的还不明朗的需求，不要过早地增加抽象设计。当需求真的出现时，比起一个复杂的系统，在简单的系统新增需求要容易得多。
