@@ -119,7 +119,7 @@
 
 ## 2.3 值得斟酌的案例
 
-`QBoxLayout`是`QHBoxLayout`与`QVBoxLayout`的基类。好处：可以在工具栏上使用`QBoxLayout`，调用`setOrientation()`使其变为水平/垂直。坏处：要多一个类，并且有可能导致用户写出这样没什么意义的代码，`((QBoxLayout *)hbox)->setOrientation(Qt::Vertical)`。
+`QBoxLayout`是`QHBoxLayout`与`QVBoxLayout`的父类。好处：可以在工具栏上使用`QBoxLayout`，调用`setOrientation()`使其变为水平/垂直。坏处：要多一个类，并且有可能导致用户写出这样没什么意义的代码，`((QBoxLayout *)hbox)->setOrientation(Qt::Vertical)`。
 
 # 3. 基于属性的`API`
 
@@ -292,7 +292,7 @@ virtual void setOverwriteMode( bool b ) { overWrite = b; }
 
 多态对象（`polymorphic objects`）和值类型的类（`value-type classes`）两者很难协作好。
 
-包含虚函数的类必须把析构函数声明为虚函数，以防止基类析构时没有清理子类的数据，导致内存泄漏。
+包含虚函数的类必须把析构函数声明为虚函数，以防止父类析构时没有清理子类的数据，导致内存泄漏。
 
 如果要使一个类可以复制和赋值或者能按值比较，需要拷贝构造函数、赋值操作符（`operator =`）和相等操作符（`operator ==`）。
 
@@ -758,13 +758,13 @@ signals:
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
 `Qt 4.0`有2个幽灵类`QAbstractPrintDialog`和`QAbstractPageSizeDialog`，作为
-`QPrintDialog`和`QPageSizeDialog`类的基类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
+`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
 
 这不是说，**_好_** 的抽象是错的，`QPrintDialog`应该是需要有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
 
 ## 8.3 `QAbstractItemModel`
 
-关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅仅是所有可能的子类的并集（`union`）。这样『合并所有』的抽象基类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
+关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅仅是所有可能的子类的并集（`union`）。这样『合并所有』的抽象父类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
 
 仅仅增加抽象是不会自动就把`API`变得更好的。
 
