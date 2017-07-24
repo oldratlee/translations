@@ -41,7 +41,7 @@
         - [4.1.2 按常量引用传参 vs. 按值传参](#412-%E6%8C%89%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8%E4%BC%A0%E5%8F%82-vs-%E6%8C%89%E5%80%BC%E4%BC%A0%E5%8F%82)
     - [4.2 虚函数](#42-%E8%99%9A%E5%87%BD%E6%95%B0)
         - [4.2.1 避免虚函数](#421-%E9%81%BF%E5%85%8D%E8%99%9A%E5%87%BD%E6%95%B0)
-        - [4.2.2 虚函数 vs. 复制](#422-%E8%99%9A%E5%87%BD%E6%95%B0-vs-%E5%A4%8D%E5%88%B6)
+        - [4.2.2 虚函数 vs. 拷贝](#422-%E8%99%9A%E5%87%BD%E6%95%B0-vs-%E6%8B%B7%E8%B4%9D)
     - [4.3 关于`const`](#43-%E5%85%B3%E4%BA%8Econst)
         - [4.3.1 输入参数：`const`指针](#431-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0const%E6%8C%87%E9%92%88)
         - [4.3.2 返回值：`const`值](#432-%E8%BF%94%E5%9B%9E%E5%80%BCconst%E5%80%BC)
@@ -81,7 +81,7 @@
 
 ## 1.2 完备
 
-完备的`API`是指期望有的功能都包含了。这点会和保持`API`极简有些冲突。如果一个成员函数放到了错误的类里，那么这个函数的潜在用户就会找不到，这也是违反完备性的。
+完备的`API`是指期望有的功能都包含了。这点会和保持`API`极简有些冲突。如果一个成员函数放在错误的类中，那么这个函数的潜在用户就会找不到，这也是违反完备性的。
 
 ## 1.3 语义清晰简单
 
@@ -239,7 +239,7 @@ void setAlarm(const QSharedPointer<Alarm> &alarm);
 
 ## 4.2 虚函数
 
-在`C++`中，当类的成员函数声明为`virtual`，主要是为了通过在子类重载此函数能够定制函数的行为。将函数声明为`virtual`的目的是为了让对这个函数已有的调用变成执行实际实例的代码路径。对于没有在类外部调用的函数，是否将其声明为`virtual`你应该多加小心。
+在`C++`中，当类的成员函数声明为`virtual`，主要是为了通过在子类重载此函数能够定制函数的行为。将函数声明为`virtual`的目的是为了让对这个函数已有的调用变成执行实际实例的代码路径。对于没有在类外部调用的函数声明成`virtual`，你应该事先非常慎重地思考过。
 
 ```cpp
 // QTextEdit in Qt 3: member functions that have no reason for being virtual
@@ -256,13 +256,13 @@ virtual void setCurrentFont( const QFont &f );
 virtual void setOverwriteMode( bool b ) { overWrite = b; }
 ```
 
-`QTextEdit`从`Qt 3`移植到`Qt 4`的时候，几乎所有的虚函数都被移除了。有趣的是（但在预料之中），并没有人对此有大的抱怨，为什么？因为`Qt 3`没用到`QTextEdit`的多态行为 —— 只有你会；简单地说，没有理由去继承`QTextEdit`并重新实现这些函数，除非你自己调用了这些方法。如果在`Qt`在外部你的应用程序你需要多态，你可以自己添加多态。
+`QTextEdit`从`Qt 3`移植到`Qt 4`的时候，几乎所有的虚函数都被移除了。有趣的是（但在预料之中），并没有人对此有大的抱怨，为什么？因为`Qt 3`没用到`QTextEdit`的多态行为 —— 只有你会；简单地说，没有理由去继承`QTextEdit`并重写这些函数，除非你自己调用了这些方法。如果在`Qt`在外部你的应用程序你需要多态，你可以自己添加多态。
 
 > 【译注】：『多态』的目的只不过是为了实践 —— 『依赖于接口而不是实现』，也就是说，接口是代码抽像的一个非常重要的方式（在`Java/Go`中都有专门的接口声明的语法）。所以，如果没有接口抽像，使用『多态』的意义也就不大了，因为也就没有必要使用『虚函数』了。
 
 ### 4.2.1 避免虚函数
 
-在`Qt`中，我们有很多理由尽量减少虚函数的数量。每一次对虚函数的调用会在函数调用链路中插入一个未掌控的节点（某种程度上使结果更无法预测），使得`bug`修复变得更复杂。用户在重新实现的虚函数中可以做很多疯狂的事：
+在`Qt`中，我们有很多理由尽量减少虚函数的数量。每一次对虚函数的调用会在函数调用链路中插入一个未掌控的节点（某种程度上使结果更无法预测），使得`bug`修复变得更复杂。用户在重写的虚函数中可以做很多疯狂的事：
 
 - 发送事件
 - 发送信号
@@ -275,7 +275,7 @@ virtual void setOverwriteMode( bool b ) { overWrite = b; }
 - 重载虚函数并不容易
 - 编译器几乎不能优化或内联（`inline`）对虚函数的调用
 - 虚函数调用需要查找虚函数表（`v-table`），这比普通函数调用慢了2到3倍
-- 虚函数使得类很难按值复制（尽管也可以按值复制，但是非常混乱并且不建议这样做）
+- 虚函数使得类很难按值拷贝（尽管也可以按值拷贝，但是非常混乱并且不建议这样做）
 
 经验告诉我们，没有虚函数的类一般`bug`更少、维护成本也更低。
 
@@ -284,17 +284,17 @@ virtual void setOverwriteMode( bool b ) { overWrite = b; }
 >【译注】：
 >
 > 1. 使用虚函数时，你需要对编译器的内部行为非常清楚，否则，你会在使用虚函数时，觉得有好些『古怪』的问题发生。
-> 2. 在`C++`中，会有一个基础类，这个基础类中已经实现好了很多功能，然后把其中的一些函数放给子类去修改和实现。这种方法在父类和子类都是一组开发人员维护时没有什么问题，但是如果这是两组开发人员，这就会带来很多问题了，就像`Qt`这样，子类完全无法控制，全世界的开发人员想干什么就干什么。所以，子类的代码和父类的代码在兼容上就会出现很多很多问题。
+> 2. 在`C++`中，会有一个基础类，这个基础类中已经实现好了很多功能，然后把其中的 —— 些函数放给子类去修改和实现。这种方法在父类和子类都是一组开发人员维护时没有什么问题，但是如果这是两组开发人员，这就会带来很多问题了，就像`Qt`这样，子类完全无法控制，全世界的开发人员想干什么就干什么。所以，子类的代码和父类的代码在兼容上就会出现很多很多问题。
 >
 > 所以，还是上面所说，其实，虚函数应该声明在接口的语义里（这就是设计模式的两个宗旨 —— 依赖于接口，而不是实现；钟爱于组合，而不是继承）。
 
-### 4.2.2 虚函数 vs. 复制
+### 4.2.2 虚函数 vs. 拷贝
 
 多态对象（`polymorphic objects`）和值类型的类（`value-type classes`）两者很难协作好。
 
 包含虚函数的类必须把析构函数声明为虚函数，以防止父类析构时没有清理子类的数据，导致内存泄漏。
 
-如果要使一个类可以复制和赋值或者能按值比较，需要拷贝构造函数、赋值操作符（`operator =`）和相等操作符（`operator ==`）。
+如果要使一个类能够拷贝、赋值或按值比较，往往需要拷贝构造函数、赋值操作符（`operator =`）和相等操作符（`operator ==`）。
 
 ```cpp
 class CopyClass {
@@ -321,7 +321,7 @@ public:
 
 （这部份还未完成）
 
->【译注】：因为原文上说，这部份并没有完成，所以，我也没有搞懂原文具体也是想表达什么。不过，就标题而言，原文是想说，在多态的情况下复制对象所带来的问题？？
+>【译注】：因为原文上说，这部份并没有完成，所以，我也没有搞懂原文具体也是想表达什么。不过，就标题而言，原文是想说，在多态的情况下拷贝对象所带来的问题？？
 
 ## 4.3 关于`const`
 
@@ -455,7 +455,7 @@ foreach (const QGraphicsItem *item, scene.items()) {
 
 ### 4.4.5 `const` vs. 对象的状态
 
-`const`正确性的问题就像`C`圈子中`vi`与`emacs`的讨论，因为这个话题在很多地方都存在分歧（比如基于指针的函数）。
+`const`正确性（`Const correctness`）的问题就像`C`圈子中`vi`与`emacs`的讨论，因为这个话题在很多地方都存在分歧（比如基于指针的函数）。
 
 但通用准则是`const`函数不能改变类的可见状态。『状态』的意思是『自身以及涉及的职责』。这并不是指非`const`函数能够改变自身的私有成员，也不是指`const`函数改变不了。而是指函数是活跃的并存在可见的副作用（`visible side effects`）。`const`函数一般没有任何可见的副作用，比如：
 
@@ -498,7 +498,7 @@ void QGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem opti
 
 # 6. 命名的艺术
 
-命名很可能是设计`API`时最简单最重要的方面。类应该用什么名字？成员函数应该用什么名字？
+命名很可能是`API`设计中最重要的一个问题。类应该叫什么名字？成员函数应该叫什么名字？
 
 ## 6.1 通用的命名规则
 
@@ -513,19 +513,19 @@ void QGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem opti
 - `text`函数继承自`QButton`，一般用于按钮。当`useTextLabel`不为`true`，才用这个属性。　
 - `textLabel`属性在`QToolButton`内声明，当`useTextLabel`为`true`时显示在按钮上。
 
-为了可读性，`name`在`Qt 4`中改成了`objectName`，`caption`改为了`windowTitle`，`QToolButton`中再也没有`textLabel`了。
+为了可读性，在`Qt 4`中`QToolButton`的`name`属性改成了`objectName`，`caption`改成了`windowTitle`，删除了`textLabel`属性因为和`text`属性相同。
 
-当你找不到好的名称时，开始写文档是一种好好的寻找方式：尝试为类、方法、枚举类型、值等写文档，把写下的第一句作为启发。如果找不确切的名称，这说明这个东西不该存在。如果所有尝试都失败了，并且你认为不如发明一个新名称，你就知道`widget`，`event focus`和`buddy`是如何产生的了。
+当你找不到好的命名时，写文档也是个很好方法：要做的就是尝试为各个条目（`item`）（如类、方法、枚举值等等）写文档，并用写下的第一句话作为启发。如果找不到一个确切的命名，往往说明这个条目是不该有的。如果所有尝试都失败了，并且你坚信这个概念是合理的，那么就发明一个新名字。像`widget`、`event`、`focus`和`buddy`这些命名就是在这一步诞生的。
 
 > 【译注】：写文档是一个非常好的习惯。写文档的过程其实就是在帮你梳理你的编程思路。很多时候，写着写文档你就会发现，你要去改代码去了。除了上述的好处多，写文档还有更多的好处。比如，在写文档的过程中，你发现文字描述过于复杂了，这表明着你的代码或逻辑是复杂的，这就倒逼你去重构你的代码。所以 —— **写文档其实就是写代码**。
 
 ## 6.2 类的命名
 
-用把类的名称分组的方式替换为每个类单独命名的方法。例如，所有`Qt 4`的了解模型（`model-aware`）的视图（`view`）类后缀都是`View`（`QListView`、`QTableView`、`QTreeView`），相应的基于`item`的类后缀是`Widget`（`QListWidget`、`QTableWidget`、`QTreeWidget`）。
+识别出类所在的分组，而不是为每个类都去找个完美的命名。例如，所有`Qt 4`的能感知模型（`model-aware`）的`item view`，类后缀都是`View`（`QListView`、`QTableView`、`QTreeView`），而相应的基于`item`（`item-based`）的类后缀是`Widget`（`QListWidget`、`QTableWidget`、`QTreeWidget`）。
 
 ## 6.3 枚举类型及其值的命名
 
-`C++`中枚举值没有类型（与`Java`、`C#`不同），声明枚举类型时需要记住这一点。下面的例子说明了枚举值过于通用的命名的危害：
+声明枚举类型时，需要记住在`C++`中枚举值在使用时不会带上类型（与`Java`、`C#`不同）。下面的例子演示了枚举值命名得过于通用的危害：
 
 ```cpp
 namespace Qt
@@ -539,7 +539,7 @@ tabWidget->setCornerWidget(widget, Qt::TopLeft);
 str.indexOf("$(QTDIR)", Qt::Insensitive);
 ```
 
-在最后一行，`Insensitive`是什么意思？（容易引起混淆）。命名枚举类型的一个准则是在枚举值至少重复此枚举类型名中的一个元素：
+在最后一行，`Insensitive`是什么意思？命名枚举类型的一个准则是在枚举值中至少重复此枚举类型名中的一个元素：
 
 ```cpp
 namespace Qt
@@ -553,16 +553,16 @@ tabWidget->setCornerWidget(widget, Qt::TopLeftCorner);
 str.indexOf("$(QTDIR)", Qt::CaseInsensitive);
 ```
 
-当对枚举值进行或运算并作为某种标志（`flag`）时，传统的做法是把或运算的结果保存在`int`型的值中，这不是类型安全的。`Qt 4`提供了一个模板类，`QFlags<T>`，其中的T是枚举类型。为方便使用，`Qt`用`typedef`重新定义了`QFlag`类型，所以可以用`Qt::Alignment`代替`QFlags<Qt::AlignmentFlag>`。
+当对枚举值进行或运算并作为某种标志（`flag`）时，传统的做法是把或运算的结果保存在`int`型的值中，这不是类型安全的。`Qt 4`提供了一个模板类`QFlags<T>`，其中的`T`是枚举类型。为了方便使用，`Qt`用`typedef`重新定义了`QFlag`类型，所以可以用`Qt::Alignment`代替`QFlags<Qt::AlignmentFlag>`。
 
-习惯上，枚举类型命名为单数名词（因为它一次只能『持有』一个`flag`），把可容纳多个『`flag`』的类型用复数命名，例如：
+习惯上，枚举类型命名用单数形式（因为它一次只能『持有』一个`flag`），而持有多个『`flag`』的类型用复数形式，例如：
 
 ```cpp
 enum RectangleEdge { LeftEdge, RightEdge, ... };
 typedef QFlags<RectangleEdge> RectangleEdges;
 ```
 
-在某性情形下，这种可容纳多个`flag`的类型名称为单数形式。而枚举类型的后缀变为`Flag`：
+在某些情形下，持有多个『`flag`』的类型命名用单数形式。对于这种情况，持有的枚举类型名称要求是以`Flag`为后缀：
 
 ```cpp
 enum AlignmentFlag { AlignLeft, AlignTop, ... };
@@ -571,9 +571,9 @@ typedef QFlags<AlignmentFlag> Alignment;
 
 ## 6.4 函数和参数的命名
 
-函数命名的第一准则是可以从名称看出来此函数是否有副作用。在`Qt 3`中，`QString::simplifyWhiteSpace()`违反了此准则，因为它返回了一个`QString`而不是按名称暗示的那样，改变调用它的`QString`对象。在`Qt 4`中，此函数重命名为`QString::simplified()`。
+函数命名的第一准则是可以从函数名看出来此函数是否有副作用。在`Qt 3`中，`const`函数`QString::simplifyWhiteSpace()`违反了此准则，因为它返回了一个`QString`而不是按名称暗示的那样，改变调用它的`QString`对象。在`Qt 4`中，此函数重命名为`QString::simplified()`。
 
-虽然参数名称不会在使用`API`的代码中出现，但是它们给程序员提供了重要信息。因为现在的`IDE`都会在写代码时显示参数名称，所以应该在头文件中给参数起一个恰当的名称并在文档中使用相同的名称。
+虽然参数名不会出现在使用`API`的代码中，但是它们给程序员提供了重要信息。因为现代的`IDE`都会在写代码时显示参数名称，所以值得在头文件中给参数起一个恰当的名字并在文档中使用相同的名字。
 
 ## 6.5 布尔类型的`getter`与`setter`方法的命名
 
@@ -599,7 +599,7 @@ typedef QFlags<AlignmentFlag> Alignment;
     - `isDialog()`，而不是`dialog()`  
       （一个叫做`dialog()`的函数，一般会被认为是返回`QDialog`。）
 
-`setter`的名称由`getter`衍生，去掉了前缀后在前面加上了`set`；例如，`setDown()`与`setScrollBarsEnabled()`。
+`setter`的名字由`getter`衍生，去掉了前缀后在前面加上了`set`；例如，`setDown()`与`setScrollBarsEnabled()`。
 
 # 7. 避免常见陷阱
 
@@ -656,7 +656,7 @@ textEdit->insert("Where's Waldo?", true, true, false);
 QRegExp rx("moc_***.c??", false, true);
 ```
 
-一种较为明显的解决方案是使用枚举值替代`bool`类型的值。我们在`Qt 4`中的`QString`使用了此方法，对下面两种方式作一个比较：
+一个明显的解决方案是`bool`类型改成枚举类型。我们在`Qt 4`的`QString`中就是这么做的。对比效果如下：
 
 ```cpp
 str.replace("%USER%", user, false);               // Qt 3
@@ -758,19 +758,19 @@ signals:
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
 `Qt 4.0`有2个幽灵类`QAbstractPrintDialog`和`QAbstractPageSizeDialog`，作为
-`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们把这2个类隐藏起来了，但却成了无用抽象类的典型案例。
+`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们虽然把这2个类隐藏起来了，却成了无用抽象类的典型案例。
 
 这不是说，**_好_** 的抽象是错的，`QPrintDialog`应该是需要有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
 
 ## 8.3 `QAbstractItemModel`
 
-关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅仅是所有可能的子类的并集（`union`）。这样『合并所有』的抽象父类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
+关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅是所有可能子类的并集（`union`）。这样『合并所有』的父类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
 
 仅仅增加抽象是不会自动就把`API`变得更好的。
 
 ## 8.4 `QLayoutIterator` & `QGLayoutIterator`
 
-在`QT 3`，创建自定义的布局类需要同时继承`QLayout`和`QGLayoutIterator`（命名中的`G`是指`Generic`（通用））。`QGLayoutIterator`子类的实例指针会包装成`QLayoutIterator`，用户可以像其它的迭代器（`iterator`）类一样的使用。通过`QLayoutIterator`可以写出下面这样的代码：
+在`QT 3`，创建自定义的布局类需要同时继承`QLayout`和`QGLayoutIterator`（命名中的`G`是指`Generic`（通用））。`QGLayoutIterator`子类的实例指针会包装成`QLayoutIterator`，这样用户可以像和其它的迭代器（`iterator`）类一样的方式来使用。通过`QLayoutIterator`可以写出下面这样的代码：
 
 ```cpp
 QLayoutIterator it = layout()->iterator();
@@ -788,6 +788,6 @@ while ((child = it.current()) != 0) {
 
 ## 8.5 `QImageSink`
 
-`Qt 3`有一整套的类用来完成图片的增量加载后传递给一个动画 —— `QImageSource`/`Sink`/`QASyncIO`/`QASyncImageIO`。由于这些类之前只是用于启用动画的`QLabel`，完全过度设计了（`overkill`）。
+`Qt 3`有一整套类用来把完成增量加载的图片传递给一个动画 —— `QImageSource`/`Sink`/`QASyncIO`/`QASyncImageIO`。由于这些类之前只是用于启用动画的`QLabel`，完全过度设计了（`overkill`）。
 
 从中得到的教训就是：对于那些未来可能的还不明朗的需求，不要过早地增加抽象设计。当需求真的出现时，比起一个复杂的系统，在简单的系统新增需求要容易得多。
