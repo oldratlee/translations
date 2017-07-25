@@ -7,7 +7,7 @@
 
 需要注意的是，这篇`Wiki`有一些内容并不完整，所以，可能会有一些阅读上的问题，我们对此做了一些相关的注释。
 
-感谢[酷壳](http://coolshell.cn/)博主、`C++`大拿的[左耳朵耗子](https://github.com/haoel)的全文审校，并对难点和注意的地方给出贴心的说明和译注。
+感谢[酷壳](http://coolshell.cn/)博主、`C++`大拿 [左耳朵耗子](http://weibo.com/haoel)的全文审校，并对难点和注意的地方给出贴心的说明和译注。
 
 # `API`设计原则
 
@@ -606,7 +606,7 @@ typedef QFlags<AlignmentFlag> Alignment;
 
 ## 7.1 简化的陷阱
 
-一个常见的误解是：实现需要写的代码越少，`API`设计的越好。应该记住：代码只会写上几次，却要被反复阅读和理解。例如：
+一个常见的误解是：实现需要写的代码越少，`API`设计的越好。应该记住：代码只会写上几次，却要被反复阅读并理解。例如：
 
 ```cpp
 QSlider *slider = new QSlider(12, 18, 3, 13, Qt::Vertical, 0, "volume");
@@ -706,7 +706,7 @@ protected:
 
 该`API`相当的复杂和不一致；例如，`reset()`、`setTotalSteps()`、`setProgress()`是紧密联系的但方法的命名并没明确地表达出来。
 
-改善此`API`的关键是抓住`QProgressBar`与`Qt 4`的`QAbstractSpinBox`及其子类`QSpinBox`、`QSlider`、`QDail`之间的相似性。怎么做？把`progress`,`totalSteps`替换为`minimum`,`maximum`和`value`。增加一个`valueChanged()`消息，再增加一个`setRange()`函数。
+改善此`API`的关键是抓住`QProgressBar`与`Qt 4`的`QAbstractSpinBox`及其子类`QSpinBox`、`QSlider`、`QDail`之间的相似性。怎么做？把`progress`、`totalSteps`替换为`minimum`、`maximum`和`value`。增加一个`valueChanged()`消息，再增加一个`setRange()`函数。
 
 进一步可以观察到`progressString`、`percentage`与`indicator`其实是一回事，即是显示在进度条上的文本。通常这个文本是个百分比，但是可通过`setIndicator()`设置为任何内容。以下是新的`API`：
 
