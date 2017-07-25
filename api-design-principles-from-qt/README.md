@@ -1,5 +1,6 @@
 原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles) - [QT Wiki](http://wiki.qt.io/)  
-基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的`API`设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)
+基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的`API`设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)  
+译文发在[酷壳 - CoolShell](http://coolshell.cn/)：[`API`设计原则](http://coolshell.cn/articles/18024.html)， 2017-07-25
 
 ## :apple: 译序
 
