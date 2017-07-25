@@ -12,7 +12,7 @@
 
 # `API`设计原则
 
-一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文总结了我们在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`）。其中许多是通用准则；而其他的则更偏向于约定，遵循这些约定主要是为了与已有的`API`保持一致。　　　　
+一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文总结了我们在设计`Qt`风格`API`的过程中所积累的诀窍（`know-how`）。其中许多是通用准则；而其他的则更偏向于约定，遵循这些约定主要是为了与已有的`API`保持一致。
 
 虽然这些准则主要用于对外的`API`（`public API`），但在设计对内的`API`（`private API`）时也推荐遵循相同的技巧（`techniques`），作为开发者之间协作的礼仪（`courtesy`）。
 
@@ -92,7 +92,7 @@
 
 ## 1.4 符合直觉
 
-就像计算机里的其他事物一样，`API`应该符合直观。对于什么是符合直觉的什么不符合，不同经验和背景的人对是否符合直觉会有不同的看法。`API`符合直观的测试方法：经验不很丰富的用户不用阅读`API`文档就能搞懂`API`，而且程序员不用了解`API`就能看明白使用`API`的代码。
+就像计算机里的其他事物一样，`API`应该符合直觉。对于什么是符合直觉的什么不符合，不同经验和背景的人会有不同的看法。`API`符合直觉的测试方法：经验不很丰富的用户不用阅读`API`文档就能搞懂`API`，而且程序员不用了解`API`就能看明白使用`API`的代码。
 
 ## 1.5 易于记忆
 
@@ -510,9 +510,9 @@ void QGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem opti
 
 另一个时重要但更微妙的准则是在设计类时应该保持子类名称空间的干净。在`Qt 3`中，此项准则并没有一直遵循。以`QToolButton`为例对此进行说明。如果调用`QToolButton`的 `name()`、`caption()`、`text()`或者`textLabel()`，你觉得会返回什么？用`Qt`设计器在`QToolButton`上自己先试试吧：
 
-- `name`属性是继承自`QObject`，返回内部的对象名称，用于调试和测试。　
+- `name`属性是继承自`QObject`，返回内部的对象名称，用于调试和测试。
 - `caption`属性继承自`QWidget`，返回窗口标题，对`QToolButton`来说毫无意义，因为它在创建的时候parent就存在了。
-- `text`函数继承自`QButton`，一般用于按钮。当`useTextLabel`不为`true`，才用这个属性。　
+- `text`函数继承自`QButton`，一般用于按钮。当`useTextLabel`不为`true`，才用这个属性。
 - `textLabel`属性在`QToolButton`内声明，当`useTextLabel`为`true`时显示在按钮上。
 
 为了可读性，在`Qt 4`中`QToolButton`的`name`属性改成了`objectName`，`caption`改成了`windowTitle`，删除了`textLabel`属性因为和`text`属性相同。
@@ -669,9 +669,7 @@ str.replace("%USER%", user, Qt::CaseInsensitive); // Qt 4
 
 ## 8.1 `QProgressBar`
 
-为了展示上文各种准则的实际应用。我们来学习一下`Qt 3`中`QProgressBar`的`API`，并与`Qt 4`中对应的`API`作比较。
-
-在`Qt 3`中：
+为了展示上文各种准则的实际应用。我们来研究一下`Qt 3`中`QProgressBar`的`API`，并与`Qt 4`中对应的`API`作比较。在`Qt 3`中：
 
 ```cpp
 class QProgressBar : public QWidget
@@ -705,7 +703,7 @@ protected:
 };
 ```
 
-该`API`相当的复杂和不一致；例如，`reset()`、`setTotalSteps()`、`setProgress()`是紧密联系的但方法的命名并没明确地表达出来。
+该`API`相当的复杂和不一致；例如，`reset()`、`setTotalSteps()`、`setProgress()`是紧密联系的，但方法的命名并没明确地表达出来。
 
 改善此`API`的关键是抓住`QProgressBar`与`Qt 4`的`QAbstractSpinBox`及其子类`QSpinBox`、`QSlider`、`QDail`之间的相似性。怎么做？把`progress`、`totalSteps`替换为`minimum`、`maximum`和`value`。增加一个`valueChanged()`消息，再增加一个`setRange()`函数。
 
@@ -717,7 +715,7 @@ void setTextVisible(bool visible);
 bool isTextVisible() const;
 ```
 
-默认情况下，显示文本是百分比指示器（`percentage indicator`），重写`text()`方法来定制行为。
+默认情况下，显示文本是百分比指示器（`percentage indicator`），通过重写`text()`方法来定制行为。
 
 `Qt 3`的`setCenterIndicator()`与`setIndicatorFollowsStyle()`是两个影响对齐方式的函数。他们可被一个`setAlignment()`函数代替：
 
@@ -766,7 +764,7 @@ signals:
 
 ## 8.3 `QAbstractItemModel`
 
-关于模型/视图（`model`/`view`）问题的细节在对应的文档中已经说明得很好了，但需要强调的一个重要的总结是：抽象类不应该仅是所有可能子类的并集（`union`）。这样『合并所有』的父类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果就导致了一个错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
+关于模型/视图（`model`/`view`）问题的细节在相应的文档中已经说明得很好了，但作为一个重要的总结这里还需要强调一下：抽象类不应该仅是所有可能子类的并集（`union`）。这样『合并所有』的父类几乎不可能是一个好的方案。`QAbstractItemModel`就犯了这个错误 —— 它实际上就是个`QTreeOfTablesModel`，结果导致了错综复杂（`complicated`）的`API`，而这样的`API`要让 **_所有本来设计还不错的子类_** 去继承。
 
 仅仅增加抽象是不会自动就把`API`变得更好的。
 
