@@ -81,7 +81,7 @@ Chinese translations for classic IT resources.
 # `Erlang`/`Elixir`
 
 1. [`Erlang`之父学习`Elixir`语言的一周](a-week-with-elixir/README.md)  
-作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道运算符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
+作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道操作符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
 
 # `Lisp`
 
