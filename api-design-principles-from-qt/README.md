@@ -163,7 +163,7 @@ regExp.setPattern(".");
 regExp.setPatternSyntax(Qt::WildcardSyntax);
 ```
 
-为实现这种类型的`API`，需要借助底层对象的懒创建。例如，对于`QRegExp`的例子，在不知道模式语法（`pattern syntax`）的情况下，在`setPattern()`中去解释`"."`就为时过早了。
+为实现这种类型的`API`，需要借助底层对象的惰性创建。例如，对于`QRegExp`的例子，在不知道模式语法（`pattern syntax`）的情况下，在`setPattern()`中去解释`"."`就为时过早了。
 
 属性之间常常有关联的；在这种情况下，我们必须小心处理。思考下面的问题：当前风格（`style`）提供的『默认的图标尺寸』属性 vs. `QToolButton`的『`iconSize`』属性：
 
