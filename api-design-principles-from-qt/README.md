@@ -1,6 +1,8 @@
-原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles) - [QT Wiki](http://wiki.qt.io/)  
+原文链接：[API Design Principles](http://qt-project.org/wiki/API-Design-Principles) - [`Qt` Wiki](http://wiki.qt.io/)  
 基于[Gary的影响力](http://blog.csdn.net/gaoyingju)上 _Gary Gao_ 的译文稿：[`C++`的`API`设计指导](http://blog.csdn.net/gaoyingju/article/details/8245108)  
 译文发在[酷壳 - CoolShell](http://coolshell.cn/)：[`API`设计原则](http://coolshell.cn/articles/18024.html)， 2017-07-25
+
+# `API`设计原则 - `Qt`官网的设计实践总结
 
 ## :apple: 译序
 
@@ -758,7 +760,7 @@ signals:
 ## 8.2 `QAbstractPrintDialog` & `QAbstractPageSizeDialog`
 
 `Qt 4.0`有2个幽灵类`QAbstractPrintDialog`和`QAbstractPageSizeDialog`，作为
-`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`QT`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`QT文档`），我们虽然把这2个类隐藏起来了，却成了无用抽象类的典型案例。
+`QPrintDialog`和`QPageSizeDialog`类的父类。这2个类完全没有用，因为`Qt`的`API`没有是`QAbstractPrint-`或是`-PageSizeDialog`指针作为参数并执行操作。通过篡改`qdoc`（`Qt文档`），我们虽然把这2个类隐藏起来了，却成了无用抽象类的典型案例。
 
 这不是说，**_好_** 的抽象是错的，`QPrintDialog`应该是需要有个工厂或是其它改变的机制 —— 证据就是它声明中的`#ifdef QTOPIA_PRINTDIALOG`。
 
@@ -770,7 +772,7 @@ signals:
 
 ## 8.4 `QLayoutIterator` & `QGLayoutIterator`
 
-在`QT 3`，创建自定义的布局类需要同时继承`QLayout`和`QGLayoutIterator`（命名中的`G`是指`Generic`（通用））。`QGLayoutIterator`子类的实例指针会包装成`QLayoutIterator`，这样用户可以像和其它的迭代器（`iterator`）类一样的方式来使用。通过`QLayoutIterator`可以写出下面这样的代码：
+在`Qt 3`，创建自定义的布局类需要同时继承`QLayout`和`QGLayoutIterator`（命名中的`G`是指`Generic`（通用））。`QGLayoutIterator`子类的实例指针会包装成`QLayoutIterator`，这样用户可以像和其它的迭代器（`iterator`）类一样的方式来使用。通过`QLayoutIterator`可以写出下面这样的代码：
 
 ```cpp
 QLayoutIterator it = layout()->iterator();
@@ -784,7 +786,7 @@ while ((child = it.current()) != 0) {
 }
 ```
 
-在`QT 4`，我们干掉了`QGLayoutIterator`类（以及用于盒子布局和格子布局的内部子类），转而是让`QLayout`的子类重写`itemAt()`、`takeAt()`和`count()`。
+在`Qt 4`，我们干掉了`QGLayoutIterator`类（以及用于盒子布局和格子布局的内部子类），转而是让`QLayout`的子类重写`itemAt()`、`takeAt()`和`count()`。
 
 ## 8.5 `QImageSink`
 
