@@ -1,5 +1,5 @@
 原文链接：[A Java Fork/Join Framework(PDF)](http://gee.cs.oswego.edu/dl/papers/fj.pdf) - _Doug Lea_  
-基于[并发编程网 – ifeve.com](http://ifeve.com/)上 _Alex_/_萧欢_ 翻译、_方腾飞_ 校对的文稿：[Java Fork Join 框架](http://ifeve.com/a-java-fork-join-framework/)
+基于[并发编程网 – ifeve.com](http://ifeve.com/)上 _Alex_/_萧欢_ 翻译、_方腾飞_ 校对的译文稿：[Java Fork Join 框架](http://ifeve.com/a-java-fork-join-framework/)
 
 # Java Fork Join框架
 
@@ -36,14 +36,14 @@ Fork/Join并行方式是获取良好的并行计算性能的一种最简单同�
 
 ```java
 Result solve(Problem problem) {
-    if (problem is small)
+    if (problem is small) {
         directly solve problem
-        else {
-            split problem into independent parts
-            fork new subtasks to solve each part
-            join all subtasks
-            compose result from subresults
-        }
+    } else {
+        split problem into independent parts
+        fork new subtasks to solve each part
+        join all subtasks
+        compose result from subresults
+    }
 }
 ```
 
@@ -93,8 +93,8 @@ class Fib extends FJTask {
         if (n <= threshold) // granularity ctl
             number = seqFib(n);
         else {
-            Fib f1 = new Fib(n ? 1);
-            Fib f2 = new Fib(n ? 2);
+            Fib f1 = new Fib(n - 1);
+            Fib f2 = new Fib(n - 2);
             coInvoke(f1, f2);
             number = f1.number + f2.number;
         }
@@ -114,7 +114,7 @@ class Fib extends FJTask {
 
     int seqFib(int n) {
         if (n <= 1) return n;
-        else return seqFib(n?1) + seqFib(n?2);
+        else return seqFib(n − 1) + seqFib(n − 2);
     }
 }
 ```
