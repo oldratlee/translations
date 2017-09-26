@@ -1,7 +1,28 @@
 原文链接：[A Java Fork/Join Framework(PDF)](http://gee.cs.oswego.edu/dl/papers/fj.pdf) - _Doug Lea_  
-基于[并发编程网 – ifeve.com](http://ifeve.com/)上 _Alex_/_萧欢_ 翻译、_方腾飞_校对的文稿：[Java Fork Join 框架](http://ifeve.com/a-java-fork-join-framework/)
+基于[并发编程网 – ifeve.com](http://ifeve.com/)上 _Alex_/_萧欢_ 翻译、_方腾飞_ 校对的文稿：[Java Fork Join 框架](http://ifeve.com/a-java-fork-join-framework/)
 
 # Java Fork Join框架
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [0. 摘要](#0-%E6%91%98%E8%A6%81)
+- [1. 简介](#1-%E7%AE%80%E4%BB%8B)
+- [2. 设计](#2-%E8%AE%BE%E8%AE%A1)
+    - [2.1 Work−Stealing](#21-work%E2%88%92stealing)
+- [3. 实现](#3-%E5%AE%9E%E7%8E%B0)
+    - [3.1 双端队列](#31-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97)
+    - [3.2 抢断和闲置](#32-%E6%8A%A2%E6%96%AD%E5%92%8C%E9%97%B2%E7%BD%AE)
+- [4. 性能](#4-%E6%80%A7%E8%83%BD)
+    - [4.1 加速比（Speedups）](#41-%E5%8A%A0%E9%80%9F%E6%AF%94speedups)
+    - [4.2 垃圾回收](#42-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6)
+    - [4.3 内存分配和字宽](#43-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%AD%97%E5%AE%BD)
+    - [4.4 任务同步](#44-%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5)
+    - [4.5 任务局部性](#45-%E4%BB%BB%E5%8A%A1%E5%B1%80%E9%83%A8%E6%80%A7)
+    - [4.6 与其他框架比较](#46-%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A1%86%E6%9E%B6%E6%AF%94%E8%BE%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 0. 摘要
 
