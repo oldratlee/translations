@@ -21,6 +21,9 @@
     - [4.4 任务同步](#44-%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5)
     - [4.5 任务局部性](#45-%E4%BB%BB%E5%8A%A1%E5%B1%80%E9%83%A8%E6%80%A7)
     - [4.6 与其他框架比较](#46-%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A1%86%E6%9E%B6%E6%AF%94%E8%BE%83)
+- [5. 结论](#5-%E7%BB%93%E8%AE%BA)
+- [6. 致谢](#6-%E8%87%B4%E8%B0%A2)
+- [7. 参考文献](#7-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -279,3 +282,32 @@ if (++base < top) ...
 `FJTask`在处理浮点数组和矩阵的计算上性能表现的比较差。即使`Java`虚拟机性能不断的提升，但是相比于那些`C`和`C++`语言所使用的强大的后端优化器，其竞争力还是不够的。虽然在上面的图表中没有显示，但`FJTask`版本的所有程序都要比那些没有进行编译优化的框架还是运行的快的。以及一些非正式的测试也表明，测试所得的大多数差异都是由于数组边界检查，运行时义务造成的。这也是`Java`虚拟机以及编译器开发者一直以来关注并持续解决的问题。
 
 相比较，计算敏感型程序因为编码质量所引起的性能差异却是很少的。
+
+# 5. 结论
+
+本论文阐述了使用纯`Java`实现支持可移植的（`portable`）、高效率的（`efficient`）和可伸缩的（`scalable`）并行处理的可能性，并提供了便利的`API`让程序员可以遵循很少几个设计规则和模式（参考资料<sup>[7]</sup>中有提出和讨论）就可以利用好框架。从本文的示例程序中观察分析到的性能特性也同时为用户提供了进一步的指导，并提出了框架本身可以潜在改进的地方。
+
+尽管所展示的可伸缩性结果针对的是单个`JVM`，但根据经验这些主要的发现在更一般的情况下应该仍然成立：
+
+- 尽管分代`GC`（`generational GC`）通常与并行协作得很好，但当垃圾生成速度很快而迫使`GC`很频繁时会阻碍程序的伸缩性。在这样的`JVM`上，这个底层原因看起来会导致为了`GC`导致停止线程的花费的时间大致与运行的线程数量成正比。因为运行的线程越多那么单位时间内生成的垃圾也就越多，开销的增加大致与线程数的平方。即使如此，只有在`GC`频度相对高时，才会对性能有明显的影响。当然，这个问题需要进一步的研究和开发并行`GC`算法。本文的结果也说明了，在多处理器`JVM`上提供优化选项（`tuning options`）和适应机制（`adaptive mechanisms`）以让内存可以按活跃`CPU`数目扩展是有必要的。
+- 大多数的伸缩性问题只有当运行的程序所用的`CPU`多于多数设备上可用`CPU`时，才会显现出来。`FJTask`（以及其它`Fork/Join`框架）在常见的2路、4路和8路的`SMP`机器上表现出接近理想情况加速效果。对于为`stock multiprocessor`设计的运行在多于16个`CPU`上的`Fork/Join`框架，本文可能是第一篇给出系统化报告结果的论文。在其它框架中这个结果中的模式是否仍然成立需要进一步的测量。
+- 应用程序的特征（包括内存局部性、任务局部性和全局同步的使用）常常比框架、`JVM`或是底层`OS`的特征对于伸缩性和绝对性能的影响更大。举个例子，在非正式的测试中可以看到，精心避免`deques`上同步操作（在3.1节中讨论过）对于生成任务相对少的程序（如`LU`）完全没有改善。然而，把任务管理上开销减至最小却可以拓宽框架及其相关设计和编程技巧的适用范围和效用。
+
+除了对于框架做渐进性的改良，未来可以做的包括在框架上构建有用的应用（而不是Demo和测试）、在生产环境的应用负载下的后续评估、在不同的`JVM`上测量以及为搭载多处理器的集群的方便使用开发扩展。
+
+# 6. 致谢
+
+本文的部分工作受到来自`Sun`实验室的合作研究资助的支持。感谢`Sun`实验室`Java`课题组的 _Ole Agesen_、_Dave Detlefs_、_Christine Flood_、_Alex Garthwaite_ 和 _Steve Heller_ 的建议、帮助和评论。_David Holmes_、_Ole Agesen_、_Keith Randall_、_Kenjiro Taura_ 以及哪些我不知道名字的审校人员为本论文的草稿提供的有用的评论。_Bill Pugh_ 指出了在3.1节讨论到的`JVM`的写后读的局限（`read−after−write limitations`）。特别感谢 _Dave Dice_ 抽出时间在30路企业机型上执行了测试。
+
+# 7. 参考文献
+
+- **[1]** Agesen, Ole, David Detlefs, and J. Eliot B. Moss. Garbage Collection and Local Variable Type−Precision and Liveness in Java Virtual Machines. In _Proceedings of 1998 ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)_, 1998.
+- **[2]** Agesen, Ole, David Detlefs, Alex Garthwaite, Ross Knippel, Y.S. Ramakrishna, and Derek White. An Efficient Meta−lock for Implementing Ubiquitous Synchronization. In _Proceedings of OOPSLA ’99_, ACM, 1999.
+- **[3]** Arora, Nimar, Robert D. Blumofe, and C. Greg Plaxton. Thread Scheduling for Multiprogrammed Multiprocessors. In _Proceedings of the Tenth Annual ACM Symposium on Parallel Algorithms and Architectures (SPAA)_, Puerto Vallarta, Mexico, June 28 − July 2, 1998.
+- **[4]** Blumofe, Robert D. and Dionisios Papadopoulos. _Hood: A User−Level Threads Library for Multiprogrammed Multiprocessors_. Technical Report, University of Texas at Austin, 1999.
+- **[5]** Frigo, Matteo, Charles Leiserson, and Keith Randall. The Implementation of the Cilk−5 Multithreaded Language. In _Proceedings of 1998 ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)_, 1998.
+- **[6]** Gosling, James, Bill Joy, and Guy Steele. _The Java Language Specification_, Addison−Wesley, 1996.
+- **[7]** Lea, Doug. _Concurrent Programming in Java, second edition_, Addison−Wesley, 1999.
+- **[8]** Lowenthal, David K., Vincent W. Freeh, and Gregory R. Andrews. Efficient Fine−Grain Parallelism on Shared−Memory Machines. _Concurrency−Practice and Experience_, 10,3:157−173, 1998.
+- **[9]** Simpson, David, and F. Warren Burton. Space efficient execution of deterministic parallel programs. _IEEE Transactions on Software Engineering_, December, 1999.
+- **[10]** Taura, Kenjiro, Kunio Tabata, and Akinori Yonezawa. "Stackthreads/MP: Integrating Futures into Calling Standards." In _Proceedings of ACM SIGPLAN Symposium on Principles & Practice of Parallel Programming (PPoPP)_, 1999.
