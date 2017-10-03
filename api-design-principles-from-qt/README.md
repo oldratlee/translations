@@ -667,6 +667,8 @@ str.replace("%USER%", user, false);               // Qt 3
 str.replace("%USER%", user, Qt::CaseInsensitive); // Qt 4
 ```
 
+> 【译注】：关于这个条目可以看看`CoolShell`这篇文章一些展开的讨论： [千万不要把 BOOL 设计成函数参数]( https://coolshell.cn/articles/5444.html)。
+
 # 8. 案例研究
 
 ## 8.1 `QProgressBar`
