@@ -28,6 +28,7 @@ Chinese translations for classic IT resources.
 - [设计原则](#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
 - [系统设计实例](#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%BE%8B)
 - [分布式系统/大数据](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A4%A7%E6%95%B0%E6%8D%AE)
+- [并发](#%E5%B9%B6%E5%8F%91)
 - [`Git`](#git)
 - [`Erlang`/`Elixir`](#erlangelixir)
 - [`Lisp`](#lisp)
@@ -71,6 +72,11 @@ Chinese translations for classic IT resources.
     另言简意赅地说明了多实例`Paxos`（`Multi-Paxos`），这是真正实践中使用的`Paxos`。可以说不读这篇论文你就不知道**你还不知道**如何有效地描述和交流一致性算法。
 1. [`PaxosLease`：实现租约的无盘`Paxos`算法](paxoslease/README.rst)  
     可以说是最简单且可以实际使用的`Paxos`算法变种。
+
+# 并发
+
+1. [`Java` `Fork/Join`框架](a-java-fork-join-framework/README.md)  
+    _Doug Lea_ 大神关于`JDK 7`引入的他写的`Fork/Join`框架的论文。
 
 # `Git`
 
