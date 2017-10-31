@@ -219,7 +219,7 @@
 在更高层面上，无论你使用传统的数据仓库`Oracle`还是`Teradata`或`Hadoop`，
 这个做法不会有太多变化，可能[调整](http://searchdatamanagement.techtarget.com/definition/Extract-Load-Transform-ELT)一下抽取和加载数据的顺序。
 
-数据仓库是极其重要的资产，它包含了的和规整的数据，但是实现此目标的机制有点过时了。
+数据仓库包含了规整的数据，是极其重要的资产，但是它实现这个目标的机制有些过时了。
 
 <img src="images/oracle.jpg" width="300" hspace="10px" align="right" >
 
