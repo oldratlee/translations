@@ -6,7 +6,7 @@
 
 ## 译序
 
-作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『数据的版本化设计』、『管道操作符避免恶心代码』、『静态单赋值』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』、『函数定义和函数字面量在`Shell`的不一致性』等等主题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
+作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『数据的版本化设计』、『管道运算符避免恶心代码』、『静态单赋值』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』、『函数定义和函数字面量在`Shell`的不一致性』等等主题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
 
 [自己](http://weibo.com/oldratlee)理解粗浅，而本文讨论是语言设计，且作为老一代黑客的作者对计算机领域中那些现在我们在日常编程中不再要去使用理解的主题或是思想又真是信手拈来（如`Prolog`/`DCG`、`Lisp`/宏、`sigil`、不可变闭包、语言设计的兼容性），翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！  
 PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md)。
@@ -28,13 +28,13 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 - [2. `fun`和`def`不同](#2-fun%E5%92%8Cdef%E4%B8%8D%E5%90%8C)
 - [3. 函数名称中有个额外的点号](#3-%E5%87%BD%E6%95%B0%E5%90%8D%E7%A7%B0%E4%B8%AD%E6%9C%89%E4%B8%AA%E9%A2%9D%E5%A4%96%E7%9A%84%E7%82%B9%E5%8F%B7)
 - [4. 发送操作符](#4-%E5%8F%91%E9%80%81%E6%93%8D%E4%BD%9C%E7%AC%A6)
-- [5. 管道操作符](#5-%E7%AE%A1%E9%81%93%E6%93%8D%E4%BD%9C%E7%AC%A6)
+- [5. 管道运算符](#5-%E7%AE%A1%E9%81%93%E8%BF%90%E7%AE%97%E7%AC%A6)
 - [6. `Elixir`有`sigil`](#6-elixir%E6%9C%89sigil)
 - [7. `docstring`](#7-docstring)
 - [8. `defmacro`的引用和反引用](#8-defmacro%E7%9A%84%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%8D%E5%BC%95%E7%94%A8)
 - [9. 额外的符号](#9-%E9%A2%9D%E5%A4%96%E7%9A%84%E7%AC%A6%E5%8F%B7)
 - [10. 奇怪的空白符](#10-%E5%A5%87%E6%80%AA%E7%9A%84%E7%A9%BA%E7%99%BD%E7%AC%A6)
-- [11. 闭包行为完全正确 —— 哦耶](#11-%E9%97%AD%E5%8C%85%E8%A1%8C%E4%B8%BA%E5%AE%8C%E5%85%A8%E6%AD%A3%E7%A1%AE--%E5%93%A6%E8%80%B6)
+- [11. 闭包行为完全正确 —— 哦耶](#11-%E9%97%AD%E5%8C%85%E8%A1%8C%E4%B8%BA%E5%AE%8C%E5%85%A8%E6%AD%A3%E7%A1%AE-%E2%80%94%E2%80%94-%E5%93%A6%E8%80%B6)
 - [结束语](#%E7%BB%93%E6%9D%9F%E8%AF%AD)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -43,9 +43,9 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 
 # 与`Elixir`相处的一周
 
-差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间细看。
+差不多一周前我开始看[`Elixir`](http://elixir-lang.org)，关于`Elixir`之前只有些模糊的了解，没打算花时间去看细节。
 
-但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法就彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以 _Dave_ 要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
+但得知 _Dave Thomas_ 出版了[《_Programming Elixir_》](http://pragprog.com/book/elixir/programming-elixir)这本书的消息后，我的想法彻底变了。_Dave Thomas_ 帮我修订过那本`Erlang`的书并且作为`Ruby`的倡导者做得非常出色，所以 _Dave_ 要是对一样东西产生了兴趣，那说明这样东西的有趣性是毫无疑问的。
 
 _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 
@@ -64,13 +64,13 @@ _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 
 但得知 _Dave_ 与`Elixir`『看对眼』时，我很想知道他为什么会这样。
 
-无独有偶，_Simon St. Laurent_ 也出了本`Elixir`的书。_Simon_ 的[《_Introducing Erlang_》](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。当 _Pragmatic Press_ 和 _O'Reilly_ 出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
+无独有偶，_Simon St. Laurent_ 也出了本`Elixir`的书。_Simon_ 的[《_Introducing Erlang_》](http://www.amazon.com/Introducing-Erlang-Simon-St-Laurent/dp/1449331769)一书表现不俗，我和他还邮件沟通过几次，所以有些事已经在酝酿了。而 _Pragmatic Press_ 和 _O'Reilly_ 出版社都在争着要出版`Elixir`，我知道在`Erlang VM`上的事已经在发生了，而我自己还没注意到。毫无疑问我Out了！
 
 我发封邮件给 _Dave_ 和 _Simon_，他们爽快地借给我了样书，现在可以开始阅读了……谢了二位……
 
 # 上周我下载了`Elixir`然后开始学习
 
-没多久我就觉得上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在底层一样的，对我来说『感觉』是一样的。事实上也确实如此，两者都会被编译成`EVM`（`Erlang Virtual Machine`）指令 —— 实际上目前`EVM`这个叫法没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
+没多久我觉得就上手了。确实是个好货！有趣的是`Erlang`和`Elixir`两者在底层一样的，对我来说『感觉』是一样的。事实上也确实如此，两者都会被编译成`EVM`（`Erlang Virtual Machine`）指令 —— 实际上目前`EVM`这个叫法没人用，都叫成`Beam`，但为了和`JVM`区分开，我觉得是时候开始用`EVM`这个叫法了。
 
 `Erlang`和`Elixir`为什么有相同的『语义』（`semantics`）？这得从虚拟机底层谈起。垃圾回收行为，不共享并发模型，底层的错误处理和代码加载机制都是一致的。当然这是肯定的：他们都运行在相同的`VM`里。这也是`Scala`和`Akka`区别于`Erlang`的原因。`Scala`和`Akka`都运行在`JVM`之上，垃圾回收和代码加载机制从根本上就不一样。
 
@@ -81,7 +81,7 @@ _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 > 【译注】：
 >
 > **_`sigil`_** 是指在变量名中包含符号来表达数据类型或作用域，通常作为前缀，如`$foo`，其中`$`就是个`sigil`。
-> 像本文中说的例子，`sigil`也可以能对常量加上字母符号，`r"abc"`，其中`r`是`sigil`，约定成转换字符串成正则表达式的语法糖。
+> 像本文中说的例子，`sigil`也可以能对常量加上字母符号，`r"abc"`，其中`r`是`sigil`，作为把字符串转成正则表达式的语法糖。
 > 详见[`wikipedia`词条`sigil`](https://en.wikipedia.org/wiki/Sigil_(computer_programming))
 >
 > ---------------
@@ -95,7 +95,7 @@ _Dave_ 对`Elixir`很感兴趣，在他的书里这样写道：
 >
 > ---------------
 >
-> 这些术语译文使用英文本身，不翻译成中文，因为这样有更好的辨识度。
+> 译文使用英文术语本身，不翻译成中文，有更好的辨识度。
 
 `Elixir`还提供一个新的下层`AST`，取代了每个`form`都是独有表示的`Erlang AST`，`Elixir AST`有一个统一得多的表示，这使得元编程（`meta-programming`）要简单得多。
 
@@ -287,7 +287,7 @@ Process ! Message
 
 这点会使`occam-pi`程序员很难转到`Elixir`。什么？只需要简单地用 **`!`** 而不是`<-`，就可以让一波`occam-pi`的程序员喜大普奔地哭喊着『药 ！药！切克闹！！美好生活现在到！！！』然后立马就转到`Elixir`。以后老司机告诉你真是这样的，这个改变会让人开心得像过节一样。
 
-# 5. 管道操作符
+# 5. 管道运算符
 
 这就是之前我说的一个非常好非常好的想法，并且非常非常简单就能掌握，以至于没人会给你称赞。这就是生活。
 
@@ -540,7 +540,7 @@ def f(x) do
 end
 ```
 
-这个问题完全是可以解决的，我已经在`erlang2`语言中实验并解决了。
+这个问题完全是可以解决的，我在`erlang2`语言实验并解决了。
 
 # 结束语
 
@@ -552,6 +552,6 @@ end
 
 _Dave_ 很喜欢`Elixir`，我也觉得很酷，我想我们俩会在使用过程中找到更多乐趣的。
 
-像`WhatsApp`应用和全世界一半手机网络的关键部分都是搭建在`Erlang`之上。当技术变得更加亲和，当新一批热衷者进入阵营，让我现在怀着非常欣喜的心情关注着后续要发生的变化。
+像`WhatsApp`这个应用和全世界一半手机网络的关键部分都是搭建在`Erlang`之上。当技术变得更加亲和，当新一批热衷者进入阵营，让我现在怀着非常欣喜的心情关注着后续要发生的变化。
 
 这是篇即兴的文章。也许会有些不妥之处，欢迎大家指正。
