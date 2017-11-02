@@ -3,6 +3,8 @@
 
 # `Java` `Fork/Join`框架
 
+<img src="fork-join-wars.jpg" width="40%" align="right" />
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
