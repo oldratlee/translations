@@ -3,6 +3,7 @@
 [![Join the chat at https://gitter.im/oldratlee/translations](https://badges.gitter.im/oldratlee/translations.svg)](https://gitter.im/oldratlee/translations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![GitHub stars](https://img.shields.io/github/stars/oldratlee/translations.svg?style=social&label=Star)](https://github.com/oldratlee/translations/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/oldratlee/translations.svg?style=social&label=Fork)](https://github.com/oldratlee/translations/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/oldratlee/translations.svg?style=social&label=Watch)](https://github.com/oldratlee/translations/watchers)
 
 一些不错英文资料的中文翻译。  
 Chinese translations for classic IT resources.
