@@ -20,8 +20,7 @@
 当然，你也可以把这篇译文本身作为英文原文的一种理解，在读原文时有不理解的地方可以参考对比。
 如果你能这么做，相信对于学习效果真真是极好的～
 
-[自己](http://weibo.com/oldratlee)理解粗浅且这篇文章又长难度又大，翻译中肯定会有不少不足和不对之处，
-欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
+[自己](http://weibo.com/oldratlee)理解粗浅且这篇文章又长难度又大，翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
 
 <img src="images/oldratlee-alipay-qr.png" width="128" hspace="10px" align="right" >
 

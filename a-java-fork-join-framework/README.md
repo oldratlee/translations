@@ -6,17 +6,20 @@
 
 ## :apple: 译序
 
-_Doug Lea_ 大神关于`JDK 7`引入的他写的`Fork/Join`框架的论文。
+_Doug Lea_ 大神关于`Java 7`引入的他写的`Fork/Join`框架的论文。
 
-[响应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming`/`RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有些稳健的接纳和跟进能力，有着令人惊叹的生命活力：
+[响应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming` / `RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有些稳健的接纳和跟进能力，有着令人惊叹的生命活力：
 
 1. `Java 7`提供了`ForkJoinPool`，支持了`Java 8`提供的`Stream`（[`Reactive Stream`](http://www.reactive-streams.org/)是`RP`的一个核心组件）。
 1. 另外`Java 8`还提供了`Lamda`（有效地表达和使用`RP`需要`FP`的语言构件和理念）。
-1. 有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的`Flow API`，为`Java`圈子提供了官方[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，标志着`RP`由集市式的自由探索阶段 向 教堂式的统一使用的转变。
+1. 有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，为`Java`圈子提供了官方的`RP API`，标志着`RP`由集市式的自由探索阶段 向 教堂式的统一使用的转变。
 
 通过上面这些说明，可以看到`ForkJoinPool`的基础重要性。
 
 对了，另外提一下`Java 9`的`Flow API`的`@author`也是 _Doug Lee_ 哦～
+
+PS:  
+[自己](http://weibo.com/oldratlee)理解粗浅，翻译中肯定会有不少不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！ :two_hearts:
 
 -------------------------------------------------------------------------------
 
@@ -158,7 +161,7 @@ class Fib extends FJTask {
 - 每一个工作线程维护自己的调度队列中的可运行任务。
 - 队列以双端队列的形式被维护（注：`deques`通常读作『decks』），不仅支持后进先出 —— `LIFO`的`push`和`pop`操作，还支持先进先出 —— `FIFO`的`take`操作。
 - 对于一个给定的工作线程来说，任务所产生的子任务将会被放入到工作者自己的双端队列中。
-- 工作线程使用后进先出 —— `LIFO`（最早的优先）的顺序，通过弹出任务来处理队列中的任务。
+- 工作线程使用后进先出 —— `LIFO`（最新的元素优先）的顺序，通过弹出任务来处理队列中的任务。
 - 当一个工作线程的本地没有任务去运行的时候，它将使用先进先出 —— `FIFO`的规则尝试随机的从别的工作线程中拿（『窃取』）一个任务去运行。
 - 当一个工作线程触及了`join`操作，如果可能的话它将处理其他任务，直到目标任务被告知已经结束（通过`isDone`方法）。所有的任务都会无阻塞的完成。
 - 当一个工作线程无法再从其他线程中获取任务和失败处理的时候，它就会退出（通过`yield`、`sleep`和/或者优先级调整，参考第3节）并经过一段时间之后再度尝试直到所有的工作线程都被告知他们都处于空闲的状态。在这种情况下，他们都会阻塞直到其他的任务再度被上层调用。
