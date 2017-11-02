@@ -46,11 +46,11 @@ public class Test {
     public static void main(String[] args) {
         doThrow(new SQLException());
     }
-  
+
     static void doThrow(Exception e) {
         Test.<RuntimeException> doThrow0(e);
     }
-  
+
     @SuppressWarnings("unchecked")
     static <E extends Exception>
     void doThrow0(Exception e) throws E {
@@ -106,7 +106,7 @@ java.lang.String x();
       [pc: 0, line: 7]
     Local variable table:
       [pc: 0, pc: 3] local: this index: 0 type: Child
- 
+
 // Method descriptor #18 ()Ljava/lang/Object;
 // Stack: 1, Locals: 1
 bridge synthetic java.lang.Object x();
@@ -157,11 +157,11 @@ class Test {
     @Crazy int[][]  a1 = {{}};
     int @Crazy [][] a2 = {{}};
     int[] @Crazy [] a3 = {{}};
- 
+
     @Crazy int[] b1[]  = {{}};
     int @Crazy [] b2[] = {{}};
     int[] b3 @Crazy [] = {{}};
- 
+
     @Crazy int c1[][]  = {{}};
     int c2 @Crazy [][] = {{}};
     int c3[] @Crazy [] = {{}};
@@ -190,7 +190,7 @@ Object o1 = true ? new Integer(1) : new Double(2.0);
 
 ```java
 Object o2;
- 
+
 if (true)
     o2 = new Integer(1);
 else
@@ -271,7 +271,7 @@ System.out.println(ch); // prints 'a'
 
 ```java
 for (int i = 0; i < 10; i++) {
-  System.out.println((Integer) i);
+    System.out.println((Integer) i);
 }
 ```
 
@@ -292,31 +292,31 @@ for (int i = 0; i < 10; i++) {
 
 这怎么可能？！
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
 . 我要剧透了…… 解答走起……
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
-. 
+.
 
 好吧，解答在这里(<http://blog.jooq.org/2013/10/17/add-some-entropy-to-your-jvm/>)，
 和用反射覆盖`JDK`的`Integer`缓存，然后使用自动打包解包（`auto-boxing`/`auto-unboxing`）有关。
@@ -368,10 +368,10 @@ label: {
 
 ```java
 label: do {
-  // do stuff
-  if (check) continue label;
-  // do more stuff
-  break label;
+    // do stuff
+    if (check) continue label;
+    // do more stuff
+    break label;
 } while(true);
 ```
 
@@ -408,8 +408,7 @@ People?      p3 = p2;
 class Test<I extends Integer> {
     <L extends Long> void x(I i, L l) {
         System.out.println(
-            i.intValue() + ", " + 
-            l.longValue()
+            i.intValue() + ", " + l.longValue()
         );
     }
 }
@@ -433,7 +432,7 @@ new Test().x(1, 2L);
 ```java
 // 一个辅助类。也可以直接使用List
 interface Type<T> {}
- 
+
 class C implements Type<Type<? super C>> {}
 class D<P> implements Type<Type<? super D<D<P>>>> {}
 ```
@@ -452,7 +451,7 @@ public abstract class Enum<E extends Enum<E>> { ... }
 ```java
 // 这样的声明
 enum MyEnum {}
- 
+
 // 实际只是下面写法的语法糖：
 class MyEnum extends Enum<MyEnum> { ... }
 ```
@@ -513,7 +512,7 @@ class Test<T extends Serializable & Cloneable> {
 ```java
 // 编译不通过！
 Test<String> s = null;
- 
+
 // 编译通过
 Test<Date> d = null;
 ```
