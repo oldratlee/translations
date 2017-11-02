@@ -4,6 +4,22 @@
 
 # `Java` `Fork/Join`框架
 
+## :apple: 译序
+
+_Doug Lea_ 大神关于`JDK 7`引入的他写的`Fork/Join`框架的论文。
+
+[响应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming`/`RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有些稳健的接纳和跟进能力，有着令人惊叹的生命活力：
+
+1. `Java 7`提供了`ForkJoinPool`，支持了`Java 8`提供的`Stream`（[`Reactive Stream`](http://www.reactive-streams.org/)是`RP`的一个核心组件）。
+1. 另外`Java 8`还提供了`Lamda`（有效地表达和使用`RP`需要`FP`的语言构件和理念）。
+1. 有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的`Flow API`，为`Java`圈子提供了官方[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，标志着`RP`由集市式的自由探索阶段 向 教堂式的统一使用的转变。
+
+通过上面这些说明，可以看到`ForkJoinPool`的基础重要性。
+
+对了，另外提一下`Java 9`的`Flow API`的`@author`也是 _Doug Lee_ 哦～
+
+-------------------------------------------------------------------------------
+
 <img src="fork-join-wars.jpg" width="40%" align="right" />
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -29,6 +45,8 @@
 - [7. 参考文献](#7-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+-------------------------------------------------------------------------------
 
 # 0. 摘要
 
