@@ -1,4 +1,4 @@
-原文链接：[A Week with `Elixir`](http://joearms.github.io/2013/05/31/a-week-with-elixir.html)，[_Joe Armstrong_](http://joearms.github.io/)，2013-05-31  
+原文链接：[A Week with `Elixir`](https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html)，[_Joe Armstrong_](http://joearms.github.io/)，2013-05-31  
 基于开源中国社区的译文稿： [用`Elixir`的一周](https://www.oschina.net/translate/a-week-with-elixir)  
 译文发在[伯乐在线](http://blog.jobbole.com/)：[`Erlang`之父学习`Elixir`语言的一周](http://blog.jobbole.com/106663/)， 2016-10-17
 
