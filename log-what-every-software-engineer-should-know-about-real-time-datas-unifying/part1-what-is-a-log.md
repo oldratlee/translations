@@ -68,6 +68,11 @@
 [确定性](http://en.wikipedia.org/wiki/Deterministic_algorithm)（`deterministic `）意味着处理过程是与时间无关的，而且不会让任何其他『带外』输入（`"out of band" input`）影响其处理结果。
 例如，如果一个程序的输出会受到线程执行的具体顺序影响，或者受到`getTimeOfDay`调用、或者其他一些非重复性事件的影响，那么这样的程序一般被认为是非确定性的。
 
+> 【译注】更多关于带外（`out of band`）这个概念可以看看：
+>
+> 1. [带外数据(Out of Band, OOB) - 百度百科](https://baike.baidu.com/item/oob/19829928)
+> 2. [Out-of-band - wikipedia](https://en.wikipedia.org/wiki/Out-of-band)
+
 进程 **_状态_** 是进程保存在机器上的任何数据，在进程处理结束的时候，这些数据要么保存在内存里，要么保存在磁盘上。
 
 当碰到以相同的顺序输入相同的内容的情况时，应该触发你的条件反射：这个地方要引入日志。
