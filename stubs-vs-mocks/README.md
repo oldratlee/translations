@@ -1,7 +1,9 @@
 翻译自《Programming Groovy － Dynamic Productivity for the jdk Developer》的P243。  
 译文发在：[`Stubs`和`Mocks`的区别](http://oldratlee.com/76/tech/java/stubs-vs-mocks.html)，2010-09-23 / [`Stubs`和`Mocks`的区别](http://blog.csdn.net/oldrat/archive/2010/03/09/5359198.aspx)，2010-03-09。
 
-翻译自《Programming Groovy － Dynamic Productivity for the jdk Developer》的P243，讲得言简意赅，值得翻译出来理解。
+--------------
+
+讲得言简意赅，值得翻译出来理解。
 
 `Stubs`和`Mocks`的区别
 ======================
@@ -41,7 +43,7 @@ PS
 
 这是一本`Groovy`进阶的书，入门可以先看一下[《Groovy Recipes －Greasing the Wheels of jdk》](https://book.douban.com/subject/2584518/)或是[《Groovy Programming －An Introduction for jdk Developers》](https://book.douban.com/subject/1969390/)。`Groovy`的学习资料的介绍可以参见：<http://oldratlee.com/87/groovy-study-info.html>。
 
-《Programming Groovy 2》中有关的**_元编程_**的讲解应该是最全面的。更好的是，对动态语言的编程的最佳实践也讲了很多。
+《Programming Groovy 2》中对于`Groovy`的**_元编程_** 应该是讲解最全面的；更难得的是，对动态语言的编程最佳实践也讲了很多。
 
 相关资料
 =============
