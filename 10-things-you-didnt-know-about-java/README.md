@@ -1,4 +1,4 @@
-原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)  
+原文链接： [10 Things You Didn’t Know About Java](http://blog.jooq.org/2014/11/03/10-things-you-didnt-know-about-java/)，2014-11-03  
 译文发在[ImportNew](http://www.importnew.com/)： <http://www.importnew.com/13859.html>，2014-12-21
 
 关于`Java`你可能不知道的10件事

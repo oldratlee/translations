@@ -1,4 +1,4 @@
-原文链接： [How to Work with the Network from the Linux Terminal: 11 Commands You Need to Know](http://www.howtogeek.com/108511/how-to-work-with-the-network-from-the-linux-terminal-11-commands-you-need-to-know/)  
+原文链接： [How to Work with the Network from the Linux Terminal: 11 Commands You Need to Know](http://www.howtogeek.com/108511/how-to-work-with-the-network-from-the-linux-terminal-11-commands-you-need-to-know/)，2012-03-19  
 译文发在[极客范](http://www.geekfan.net/)： [如何用Linux命令行管理网络：11个你必须知道的命令](http://www.geekfan.net/7192/)，2014-03-06
 
 如何用`Linux`命令行管理网络：11个你必须知道的命令

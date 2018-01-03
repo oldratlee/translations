@@ -1,4 +1,4 @@
-原文链接： [Overlapping Experiment Infrastructure: More, Better, Faster Experimentation](http://research.google.com/pubs/pub36500.html "Overlapping Experiment Infrastructure: More, Better, Faster Experimentation") - _Diane Tang, Ashish Agarwal, Deirdre O’Brien, Mike Meyer_，2010-07 （[本地`PDF`](overlapping-experiment-infrastructure-more-better-faster-experimentation-36500.pdf)）  
+原文链接： [Overlapping Experiment Infrastructure: More, Better, Faster Experimentation](http://research.google.com/pubs/pub36500.html "Overlapping Experiment Infrastructure: More, Better, Faster Experimentation") - _Diane Tang, Ashish Agarwal, Deirdre O’Brien, Mike Meyer_，2010-07 （[本地`PDF`](overlapping-experiment-infrastructure-more-better-faster-experimentation-36500.pdf)），2010年  
 基于[火光摇曳Flickering](http://www.flickering.cn/)上 _lexqu（屈伟）_ 的译文稿`v1.2.0`： [Google 重叠实验框架：更多，更好，更快地实验](http://www.flickering.cn/uncategorized/2015/01/%E9%87%8D%E5%8F%A0%E5%AE%9E%E9%AA%8C%E5%B9%B3%E5%8F%B0%EF%BC%9A%E6%9B%B4%E5%A4%9A%EF%BC%8C%E6%9B%B4%E5%A5%BD%EF%BC%8C%E6%9B%B4%E5%BF%AB%E5%9C%B0%E5%AE%9E%E9%AA%8C/)
 
 # 重叠实验设施：更多、更好、更快地实验
