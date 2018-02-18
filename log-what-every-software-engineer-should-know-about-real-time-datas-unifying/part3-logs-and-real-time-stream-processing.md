@@ -14,12 +14,13 @@
 如果你是上世纪90年代晚期或者21世纪初[数据库](http://cs.brown.edu/research/aurora/vldb03_journal.pdf) [文化](http://db.cs.berkeley.edu/papers/cidr03-tcq.pdf)或者成功了一半的[数据](http://www-03.ibm.com/software/products/us/en/infosphere-streams) [基础设施](http://en.wikipedia.org/wiki/StreamBase_Systems) [产品](http://en.wikipedia.org/wiki/Truviso)的爱好者，那么你就可能会把流处理与建创`SQL`引擎或者『箱子和箭头』（`boxes and arrows`）接口用于事件驱动的处理联系起来。
 
 如果你关注大量出现的开源数据库系统，你就可能把流处理和一些这领域的系统关联起来，
-比如[`Storm`](http://storm-project.net/)、[`Akka`](http://akka.io/)、[`S4`](http://incubator.apache.org/s4)和[`Samza`](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)。
+比如[`Storm`](http://storm-project.net/)、[`Akka`](http://akka.io/)、[`S4`](http://incubator.apache.org/s4)和`Samza`。
 但是大部分人会把这些系统看为异步消息处理系统，与支持群集的远程过程调用（`RPC`）层没什么差别
 （而事实上这一领域一些系统确实是如此）。
 
 这些观点都有一些局限性。流处理既与`SQL`无关，也不局限于实时流处理。
-并没有天然原因导致不能用多种不同的语言来表达计算，（或不能）处理一天的或一个月之前的流数据。
+并没有什么不可克服的原因（`inherent reason`）导致我们不能做到：
+通过多种不同的语言来表达计算（`express the computation`），处理一天前或一个月之前的数据流。
 
 <img src="images/19202244_GPDx.jpg" width="250" hspace="10px" align="right" >
 
@@ -50,7 +51,7 @@
 
 由此看来，对于流处理我很容易得出不同观点：
 它处理的是包含时间概念的底层数据并且不需要静态的数据快照，
-所以可以以用户可控频率生产输出而不是等待数据集『都』到达后再生产输出（**_【译注】_** 数据是会持续的，所以实际上不会有『都』达到的时间点）。
+所以可以以用户可控的频率来生产输出而不是等待数据集『都』到达后再生产输出（**_【译注】_** 数据是持续的，所以实际上不会有『都』达到的时间点）。
 从这个角度上讲，流处理是广义上的批处理，随着实时数据的流行，流处理会是很重要处理方式。
 
 那么，为什么流处理的传统观点大家之前会认为更合适呢？
@@ -78,7 +79,7 @@
 数据流图（`data flow graphs`）
 ------------------
 
-<img src="images/dag.png" width="250" hspace="10px" align="right" >
+<img src="images/dag.png" hspace="10px" align="right" >
 
 流处理最有趣的特点是它与流处理系统的内部组织无关，
 但是与之密切相关的是，流处理是怎么扩展了之前在数据集成讨论中提到的认识：输入数据（`data feed`）是什么。

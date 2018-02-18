@@ -360,7 +360,7 @@
 
 最后，`Kafka`使用简单的二进制格式维护内存日志、磁盘日志和传送网络数据。这使得我们可以使用包括『[0拷贝的数据传输](https://www.ibm.com/developerworks/library/j-zerocopy)』在内的大量的优化机制。
 
-这些优化的积累效应是往往以磁盘和网络的速度（上限）在读写数据，即使维护的数据集大大超出内存大小。
+这些优化的积累起来的效应就是通常以磁盘和网络的速度上限在读写数据，即使维护的数据集大大超出了内存的大小。
 
 这些自卖自夸的介绍不意味着是关于`Kafka`的主要内容，我就不再深入细节了。
 `LinkedIn`方案的更细节说明在[这儿](http://sites.computer.org/debull/A12june/pipeline.pdf)，`Kafka`设计的详细说明在[这儿](http://kafka.apache.org/documentation.html#design)，你可以读一下。

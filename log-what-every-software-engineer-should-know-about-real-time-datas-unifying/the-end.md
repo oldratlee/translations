@@ -70,7 +70,7 @@
 - [`Bookeeper`](http://zookeeper.apache.org/bookkeeper/) 和[`Hedwig`](http://zookeeper.apache.org/bookkeeper/) 另外的两个开源的『把日志作为服务』的项目。它们更关注的是数据库系统内部构件而不是事件数据。
 - [`Databus`](https://github.com/linkedin/databus)是提供类似日志的数据库表的覆盖层的系统。
 - [`Akka`](http://akka.io/) 是用于`Scala`的`Actor`框架。它有一个[事件驱动](https://github.com/eligosource/eventsourced)的插件，提供持久化和记录。
-- [`Samza`](http://storm-project.net/)是我们在`LinkedIn`中用到的流处理框架，它用到了本文论述的诸多理念，同时与`Kafka`集成来作为底层的日志。
+- [`Samza`](http://samza.apache.org/)是我们在`LinkedIn`中用到的流处理框架，它用到了本文论述的诸多理念，同时与`Kafka`集成来作为底层的日志。
 - [`Storm`](http://storm-project.net/)是广泛使用的可以很好的与`Kafka`集成的流处理框架之一。
 - [`Spark Streaming`](http://spark.incubator.apache.org/docs/0.7.3/streaming-programming-guide.html)一个流处理框架，是[`Spark`](http://spark.incubator.apache.org/)的一部分。
 - [`Summingbird`](https://blog.twitter.com/2013/streaming-mapreduce-with-summingbird)是在`Storm`或`Hadoop`之上的一层，提供了便利的计算抽象。

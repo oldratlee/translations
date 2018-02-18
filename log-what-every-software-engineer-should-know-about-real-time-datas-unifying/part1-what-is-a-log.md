@@ -65,7 +65,7 @@
 
 听起来有点难以晦涩，让我们更加深入的探讨，弄懂它的真正含义。
 
-[确定性](http://en.wikipedia.org/wiki/Deterministic_algorithm)（`deterministic `）意味着处理过程是与时间无关的，而且不会让任何其他『带外』输入（`"out of band" input`）影响其处理结果。
+[确定性](http://en.wikipedia.org/wiki/Deterministic_algorithm)（`deterministic`）意味着处理过程是与时间无关的，而且不会让任何其他『带外』输入（`"out of band" input`）影响其处理结果。
 例如，如果一个程序的输出会受到线程执行的具体顺序影响，或者受到`getTimeOfDay`调用、或者其他一些非重复性事件的影响，那么这样的程序一般被认为是非确定性的。
 
 > 【译注】更多关于带外（`out of band`）这个概念可以看看：
