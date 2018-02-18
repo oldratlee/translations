@@ -43,7 +43,7 @@ PS
 
 这是一本`Groovy`进阶的书，入门可以先看一下[《Groovy Recipes －Greasing the Wheels of jdk》](https://book.douban.com/subject/2584518/)或是[《Groovy Programming －An Introduction for jdk Developers》](https://book.douban.com/subject/1969390/)。`Groovy`的学习资料的介绍可以参见：<http://oldratlee.com/87/groovy-study-info.html>。
 
-《Programming Groovy 2》中对于`Groovy`的**_元编程_** 应该是讲解最全面的；更难得的是，对动态语言的编程最佳实践也讲了很多。
+《Programming Groovy 2》中对于`Groovy`的 **_元编程_** 应该是讲解最全面的；更难得的是，对动态语言的编程最佳实践也讲了很多。
 
 相关资料
 =============

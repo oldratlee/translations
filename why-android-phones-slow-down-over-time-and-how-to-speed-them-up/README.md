@@ -30,7 +30,7 @@
 
 即使你没有更新系统，比起一年前设备会安装更新的应用，无论新应用还是一个应用的新版本，应用几乎总是越来越重。因为应用开发者会接触到更快的智能机硬件，游戏和其它应用会针对这些更快设备来优化，结果在老设备上性能越来越差。这个现象在各个平台都一样。年复一年，网站变得更重，桌面应用要吃更多内存，游戏要更好的硬件来运行。
 
-**解决方法：**这个问题作为用户没有太多可以做的。如果系统变慢了，你可以装个[定制的`ROM`比如`CyanogenMod`](http://www.howtogeek.com/162516/how-to-flash-your-nexus-s-or-any-other-android-device-with-a-new-rom/)，定制`ROM`没有捆绑软件和制造商的皮肤（很多设备都有）。如果应用变慢了，可以去找找更轻的应用。
+**解决方法：** 这个问题作为用户没有太多可以做的。如果系统变慢了，你可以装个[定制的`ROM`比如`CyanogenMod`](http://www.howtogeek.com/162516/how-to-flash-your-nexus-s-or-any-other-android-device-with-a-new-rom/)，定制`ROM`没有捆绑软件和制造商的皮肤（很多设备都有）。如果应用变慢了，可以去找找更轻的应用。
 
 ![android-view-installed-apps-by-size](images/android-view-installed-apps-by-size.png)
 
@@ -43,7 +43,7 @@
 
 后台运行的应用会消耗资源，检查后台进程可以查看设置（`Settings`）应用，切换到【正在运行】（`Running`）一栏。看到不使用的应用在后台运行，卸载掉这个应用。如果应用是设备自带的应用不能卸载，就[禁用](http://www.howtogeek.com/120599/6-things-you-dont-have-to-root-android-to-do-anymore/)掉。不要只是点停止服务，应用还是会自动启动的。
 
-**解决方法：**禁用动态壁纸，删除小部件；卸载或是禁用不用的应用（或许你想卸载所有你没用过的应用）。
+**解决方法：** 禁用动态壁纸，删除小部件；卸载或是禁用不用的应用（或许你想卸载所有你没用过的应用）。
 
 ![android-view-background-processes](images/android-view-background-processes.png)
 
@@ -54,7 +54,7 @@
 
 如果不定期检查，缓存文件会占用很大一部分空间，清理缓存文件可以释放出磁盘空间，让文件系统性能更好。打开设置应用，点开存储界面，往下滚动，点击缓存数据，再点确定，可以一次性清理所有应用的缓存文件。
 
-**解决方法：**卸载不用的应用，删除无用的数据，清理应用缓存[释放存储空间](http://www.howtogeek.com/112356/5-ways-to-free-up-space-on-android/)。也可以重置到出厂设置、只装要用的应用，这样变回一个『新』设备了。
+**解决方法：** 卸载不用的应用，删除无用的数据，清理应用缓存[释放存储空间](http://www.howtogeek.com/112356/5-ways-to-free-up-space-on-android/)。也可以重置到出厂设置、只装要用的应用，这样变回一个『新』设备了。
 
 ![android-manage-device-storage](images/android-manage-device-storage.png)
 
@@ -65,7 +65,7 @@
 
 如果你的老设备不支持安卓`4.3`，可以`ROOT`设备后安装[`LagFix`](https://play.google.com/store/apps/details?id=com.grilledmonkey.lagfix&amp;hl=en)应用来添加`TRIM`支持。这个应用在后台运行和安卓`4.3`一样的`fstrim`命令。由于固态硬盘运行方式，[固态硬盘会越用越慢](http://www.howtogeek.com/165542/why-solid-state-drives-slow-down-as-you-fill-them-up/)，`TRIM`是必须的。固态硬盘越用越慢是因为闪存单元在再次写入前需要先清除。`TRIM`可以预先清除删除了的文件所在闪存单元中的数据，这样保证安卓写入数据到闪存单元时可以尽快完成。
 
-**解决方法：**如果你的是老设备，`ROOT`并安装`LagFix`应用。在安卓`4.3`及以后版本这个已经自动做好了。
+**解决方法：** 如果你的是老设备，`ROOT`并安装`LagFix`应用。在安卓`4.3`及以后版本这个已经自动做好了。
 
 ![android-lagfix-fstrim](images/android-lagfix-fstrim.png)
 
