@@ -13,11 +13,13 @@
     - [译注](#%E8%AF%91%E6%B3%A8)
 - [个人讨论](#%E4%B8%AA%E4%BA%BA%E8%AE%A8%E8%AE%BA)
 - [参考/阅读资料](#%E5%8F%82%E8%80%83%E9%98%85%E8%AF%BB%E8%B5%84%E6%96%99)
-- [`Python` Philosophy](#python-philosophy)
+- [`Python` Philosophy原文](#python-philosophy原文)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # `Python`哲学
+
+**Python之禅** —— Tim Peters
 
 1. 美优于丑。
 1. 直白优于隐晦。
@@ -28,16 +30,16 @@
 1. 可读性是有重要价值的。
 1. 特例可以有，但不能特例到打破规则。
     - 尽管在纯粹性和实用性之间倾向的是实用性。
-1. 出错决不应该无声无息地忽略。
+1. 出错决不能无声无息地忽略。
     - 除非明确地说明了是无声无息的。
 1. 面对二义性情况时，要拒绝任何猜的诱惑。
 1. 一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
     - 尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。 <sup>**_[5]_**</sup>
-1.  『现在』 优于 『决不』。 <sup>**_[6]_**</sup>
-    - 尽管 『决不』 常常优于 『**马上**』。 <sup>**_[7]_**</sup>
+1.  『现在』优于『决不』。 <sup>**_[6]_**</sup>
+    - 尽管『决不』常常优于『**_马上_**』。 <sup>**_[7]_**</sup>
 1. 如果一个实现难于解释清楚，那它是个差的想法。
 1. 如果一个实现很容易解释清楚，那它可能是个好的想法。
-1. 命名空间是个值得大力宣扬的想法 — 放手多多用起来吧！
+1. 命名空间是个拍案叫绝的想法 — 放手多多用起来吧！
 
 ## 译注
 
@@ -53,9 +55,9 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
-**_[3]_** 这里的『扁平』和『嵌套』说的是代码，嵌套的代码增加了逻辑及其对应理解的复杂性，应该想办法用更好的代码设计实现方式来避免深的嵌套。
+**_[3]_** 这里的『扁平』和『嵌套』说的是代码逻辑，嵌套的逻辑增加了逻辑及其对应理解的复杂性，应该想办法用更好的设计来避免深的逻辑嵌套实现。
 
-另外，一个对应的话题是『数据』的 『扁平』 vs.『嵌套』，个人看来，期望用『嵌套』的数据，因为这可以简化数据理解规则和处理逻辑。可以把『嵌套』的数据看成是有『Namespace』的，也呼应了最后一条推荐使用Namespace。
+另外，一个对应的话题是『数据』的 『扁平』 vs.『嵌套』，个人看来，期望用『嵌套』的数据，因为这可以简化数据理解规则和处理逻辑。可以把『嵌套』的数据看成是有『Namespace』的，也呼应了最后一条大力推荐使用命名空间。
 
 更多讨论参见：
 
@@ -89,7 +91,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 每一个点都千锤百炼；每一点都有直指内心的感觉。
 
-看了N遍，每遍会深思。
+看了N遍，每遍都会深思。
 
 `Python`说得内容对生活个人觉得一样有指导性，果然是哲学。
 
@@ -103,14 +105,16 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 1. 核心复杂度的说明参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
 1. [世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)
 
-#  `Python` Philosophy
+#  `Python` Philosophy原文
+
+**The Zen of Python**, by Tim Peters
 
 1. Beautiful is better than ugly.
 1. Explicit is better than implicit.
 1. Simple is better than complex.
-1. Complex is better than complicated .
+1. Complex is better than complicated.
 1. Flat is better than nested.
-1. Sparse is better than dense .
+1. Sparse is better than dense.
 1. Readability counts.
 1. Special cases aren't special enough to break the rules.
     - Although practicality beats purity.
@@ -120,8 +124,8 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 1. There should be one -- and preferably only one -- obvious way to do it.
     - Although that way may not be obvious at first unless you're Dutch.
 1. Now is better than never.
-    - Although never is often better than **right** now.
+    - Although never is often better than **_right_** now.
 1. If the implementation is hard to explain, it's a bad idea.
 1. If the implementation is easy to explain, it may be a good idea.
-1. NameSpaces are one honking great idea -- let's do more of those!
+1. Namespaces are one honking great idea -- let's do more of those!
 
