@@ -223,6 +223,10 @@ Usage in the `Qi4j` `SPI`
 
 这遍文章仅仅勾勒了这种使用方式，`API`和辅助类可以在`Qi4j Core 1.3-SNAPSHOT`中有（详见`Qi4j`的[主页](http://www.qi4j.org/)）。理想状态是，在整个`Qi4j`使用中任何使用`I/O`的地方一开始按这种方式来。
 
+> 【译注】`Qi4j`已经更名为`polygene`，在`Apache`上
+> - 官网 https://polygene.apache.org/
+> - GitHub仓库： https://github.com/apache/polygene-java
+
 多谢你的阅读，希望你能有所收获 :-)
 
 **-EOF-**
