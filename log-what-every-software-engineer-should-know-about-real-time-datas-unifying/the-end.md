@@ -4,7 +4,7 @@
 1. [学术论文、系统、讨论和博客](#学术论文系统讨论和博客)
 1. [一些相关的开源软件](#一些相关的开源软件)
 
-如果你从头一直做读到了这，那么我对日志的理解你大部分都知道了。
+如果你从头一直读到了这，那么我对日志的理解你大部分都知道了。
 
 这里再给一些有意思参考资料，你可以再去看看。
 
@@ -25,7 +25,7 @@
     这个链接并没有太多的信息，但 _Martin Odersky_ （`Scala`大拿）讲授的[这个课程](https://www.coursera.org/course/reactive)很精彩。
 - `Paxos`!
     1. 原论文在[这里](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf)。
-        _Leslie Lamport_ 有一个有趣的历史：在80年代算法是如何发现的，但是直到1998年才发表了，因为评审组不喜欢论文中的希腊寓言，而作者又不愿修改。
+        关于作者 Leslie Lamport 发表的这篇论文有一个有趣的历史：算法在80年代就被创造了，但是直到1998年关于算法的论文才被发表，因为评审组不喜欢作者论文中的希腊寓言，而作者又不愿修改。
     2. 甚至于论文发布以后，它还是不被人们理解。_Lamport_ 再次尝试，这次它包含了一些并不有趣的小细节，这些细节是关于如何使用这些新式的自动化的计算机的。
         它仍然没有得到广泛的认可。
     3. [_Fred Schneider_](http://www.cs.cornell.edu/fbs/publications/SMSurvey.pdf)和[_Butler Lampson_](http://research.microsoft.com/en-us/um/people/blampson/58-consensus/Abstract.html)分别给出了更多细节关于在实时系统中如何应用`Paxos`。
@@ -75,7 +75,7 @@
 - [`Spark Streaming`](http://spark.incubator.apache.org/docs/0.7.3/streaming-programming-guide.html)一个流处理框架，是[`Spark`](http://spark.incubator.apache.org/)的一部分。
 - [`Summingbird`](https://blog.twitter.com/2013/streaming-mapreduce-with-summingbird)是在`Storm`或`Hadoop`之上的一层，提供了便利的计算抽象。
 
-对于这一领域，我将持续关注，如何您知道一些我遗漏的内容，请您告知。
+对于这一领域，我将持续关注，如果您知道一些我遗漏的内容，请您告知。
 
 最后我留给你的信息是这个： :smile_cat:  
 [![The Log Song - Ren & Stimpy (Deadwood HoN)](images/log_song.png)](https://www.youtube.com/watch?v=2C7mNr5WMjA)
