@@ -40,7 +40,7 @@
 
 第一种可能性是延续现状：各个分离的系统在往后很长的一段时间里基本保持不变。
 发生这种可能要么是因为建设分布式系统的困难很难克服，
-要么系统的专用化（`specialization`）能让各个系统的便得性（`convenience`）和能力（`power`）达到一个新的高度。
+要么系统的专用化（`specialization`）能让各个系统的便利性（`convenience`）和能力（`power`）达到一个新的高度。
 只要现状不变，为了能够使用数据，数据集成问题将仍会最核心事情之一。
 如果是这样，用于集成数据的外部日志将会非常的重要。
 
@@ -61,7 +61,7 @@
 - [`Lucene`](http://lucene.apache.org/)和[`LevelDB`](https://code.google.com/p/leveldb)等嵌入式类库做为索引。
 - [`Netty`](http://netty.io/)、[`Jetty`](http://www.eclipse.org/jetty) 和 更高层封装如[`Finagle`](http://twitter.github.io/finagle)、[`rest.li`](http://rest.li/)处理远程通信。
 - [`Avro`](http://avro.apache.org/)、[`Protocol Buffers`](https://code.google.com/p/protobuf)、[`Thrift`](http://thrift.apache.org/)和[`umpteen zillion`](https://github.com/eishay/jvm-serializers/wiki)等其它类库处理序列化。
-- [`Kafka`](http://kafka.apache.org/)和[`Bookeeper`](http://zookeeper.apache.org/bookkeeper)提供后端支持的日志。
+- [`Kafka`](http://kafka.apache.org/)和[`Bookeeper`](https://bookkeeper.apache.org/)提供后端支持的日志。
 
 如果你把上面这些叠成一堆，换个角度去看，它会有点像是乐高版（`lego version`）的分布式数据系统工程。
 你可以把这些零件拼装在一起，创建大量的可能的系统。
