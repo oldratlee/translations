@@ -1,4 +1,4 @@
-原文链接：[A generic input/output API in Java](http://www.jroller.com/rickard/entry/a_generic_input_output_api) - [Rickard Öberg](http://www.jroller.com/rickard/)  
+原文链接：[A generic input/output API in Java](https://dzone.com/articles/generic-inputoutput-api-java) - _Rickard Öberg_ （PS：[文章原始链路](http://www.jroller.com/rickard/entry/a_generic_input_output_api)已失效）  
 译文发在：[【译】Java的通用I/O API](http://oldratlee.com/474/tech/java/generic-io-api-in-java-and-api-design.html)，2012-05-11
 
 ### :apple: 译序
@@ -240,6 +240,5 @@ Usage in the `Qi4j` `SPI`
 - 典型的使用方式。
 
 没有给出实现细节，看起来可能比较费力。（细致的分解后的设计往往比较抽象，不容易快速理解），
-我实现了[完整工程的Demo代码](https://github.com/oldratlee/io-api)，并写了一篇[简单分析](https://github.com/oldratlee/io-api/wiki/java-api-design-exercise)。
+我实现了[完整工程的Demo代码](https://github.com/oldratlee/io-api)，并写了一篇[简单分析](https://github.com/oldratlee/io-api/blob/master/docs/java-api-design-exercise.md)。
 
-更多资料参见[这里](https://github.com/oldratlee/io-api/wiki)。
