@@ -2,8 +2,7 @@
 基于开源中国社区的译文稿： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)  
 译文发在[伯乐在线](http://blog.jobbole.com/)：[The Log：每个程序员都应该知道有关实时数据的统一抽象](http://blog.jobbole.com/89674/)， 2015-08-21
 
-译序
------------------
+## 🍎 译序 
 
 这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，虽然很长，但被称为[程序员史诗般必读文章](http://bryanpendleton.blogspot.hk/2014/01/the-log-epic-software-engineering.html)。
 
@@ -50,30 +49,30 @@ PS：
 目录
 -----------------
 
-- [译序](#译序)
+- [🍎 译序](#译序)
 - [概述](#日志每个软件工程师都应该知道的有关实时数据的统一抽象)
 - [第一部分：日志是什么？](part1-what-is-a-log.md)
-    1. [数据库中的日志](part1-what-is-a-log.md#数据库中的日志)
-    1. [分布式系统中的日志](part1-what-is-a-log.md#分布式系统中的日志)
-    1. [变更日志（`changelog`）101：表与事件的二象性（`duality`）](part1-what-is-a-log.md#变更日志changelog101表与事件的二象性duality)
-    1. [接下来的内容](part1-what-is-a-log.md#接下来的内容)
+    1. [数据库中的日志](part1-what-is-a-log.md#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%97%A5%E5%BF%97)
+    1. [分布式系统中的日志](part1-what-is-a-log.md#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%97%A5%E5%BF%97)
+    1. [变更日志（`changelog`）101：表与事件的二象性（`duality`）](part1-what-is-a-log.md#%E5%8F%98%E6%9B%B4%E6%97%A5%E5%BF%97changelog101%E8%A1%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%8C%E8%B1%A1%E6%80%A7duality)
+    1. [接下来的内容](part1-what-is-a-log.md#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%86%85%E5%AE%B9)
 - [第二部分：数据集成](part2-data-integration.md)
-    1. [数据集成：两个难题](part2-data-integration.md#数据集成两个难题)
-        - [事件数据管道](part2-data-integration.md#事件数据管道)
-        - [专用数据系统（`specialized data systems`）的爆发](part2-data-integration.md#专用数据系统specialized-data-systems的爆发)
-    1. [日志结构化的（`log-structured`）数据流](part2-data-integration.md#日志结构化的log-structured数据流)
-    1. [在`LinkedIn`](part2-data-integration.md#在linkedin)
-    1. [`ETL`与数据仓库的关系](part2-data-integration.md#etl与数据仓库的关系)
-    1. [日志文件与事件](part2-data-integration.md#日志文件与事件)
-    1. [构建可伸缩的日志](part2-data-integration.md#构建可伸缩的日志)
+    1. [数据集成：两个难题](part2-data-integration.md#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90%E4%B8%A4%E4%B8%AA%E9%9A%BE%E9%A2%98)
+        - [事件数据管道](part2-data-integration.md#%E4%BA%8B%E4%BB%B6%E6%95%B0%E6%8D%AE%E7%AE%A1%E9%81%93)
+        - [专用数据系统（`specialized data systems`）的爆发](part2-data-integration.md#%E4%B8%93%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9Fspecialized-data-systems%E7%9A%84%E7%88%86%E5%8F%91)
+    1. [日志结构化的（`log-structured`）数据流](part2-data-integration.md#%E6%97%A5%E5%BF%97%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84log-structured%E6%95%B0%E6%8D%AE%E6%B5%81)
+    1. [在`LinkedIn`](part2-data-integration.md#%E5%9C%A8linkedin)
+    1. [`ETL`与数据仓库的关系](part2-data-integration.md#etl%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E7%9A%84%E5%85%B3%E7%B3%BB)
+    1. [日志文件与事件](part2-data-integration.md#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6)
+    1. [构建可伸缩的日志](part2-data-integration.md#%E6%9E%84%E5%BB%BA%E5%8F%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%97%A5%E5%BF%97)
 - [第三部分：日志与实时流处理](part3-logs-and-real-time-stream-processing.md)
-    1. [数据流图（`data flow graphs`）](part3-logs-and-real-time-stream-processing.md#数据流图data-flow-graphs)
-    1. [有状态的实时流处理](part3-logs-and-real-time-stream-processing.md#有状态的实时流处理)
-    1. [日志合并（`log compaction`）](part3-logs-and-real-time-stream-processing.md#日志合并log-compaction)
+    1. [数据流图（`data flow graphs`）](part3-logs-and-real-time-stream-processing.md#%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BEdata-flow-graphs)
+    1. [有状态的实时流处理](part3-logs-and-real-time-stream-processing.md#%E6%9C%89%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%9E%E6%97%B6%E6%B5%81%E5%A4%84%E7%90%86)
+    1. [日志合并（`log compaction`）](part3-logs-and-real-time-stream-processing.md#%E6%97%A5%E5%BF%97%E5%90%88%E5%B9%B6log-compaction)
 - [第四部分：系统构建（`system building`）](part4-system-building.md)
-    1. [分解单品方式而不是打包套餐方式（`Unbundling`）？](part4-system-building.md#分解单品方式而不是打包套餐方式unbundling)
-    1. [日志在系统架构中的地位](part4-system-building.md#日志在系统架构中的地位)
+    1. [分解单品方式而不是打包套餐方式（`Unbundling`）？](part4-system-building.md#%E5%88%86%E8%A7%A3%E5%8D%95%E5%93%81%E6%96%B9%E5%BC%8F%E8%80%8C%E4%B8%8D%E6%98%AF%E6%89%93%E5%8C%85%E5%A5%97%E9%A4%90%E6%96%B9%E5%BC%8Funbundling)
+    1. [日志在系统架构中的地位](part4-system-building.md#%E6%97%A5%E5%BF%97%E5%9C%A8%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E5%9C%B0%E4%BD%8D)
 - [结束语及参考资料](the-end.md)
-    1. [学术论文、系统、讨论和博客](the-end.md#学术论文系统讨论和博客)
-    1. [一些相关的开源软件](the-end.md#一些相关的开源软件)
+    1. [学术论文、系统、讨论和博客](the-end.md#%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E7%B3%BB%E7%BB%9F%E8%AE%A8%E8%AE%BA%E5%92%8C%E5%8D%9A%E5%AE%A2)
+    1. [值得关注的开源软件](the-end.md#%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E7%9A%84%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6)
 - [译跋](translation-postscript.md)

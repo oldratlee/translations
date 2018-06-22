@@ -19,11 +19,11 @@
 
 
 - [`Java`的通用`I/O` `API`设计](#java%E7%9A%84%E9%80%9A%E7%94%A8io-api%E8%AE%BE%E8%AE%A1)
-  - [API](#api)
-  - [标准化`I/O`](#%E6%A0%87%E5%87%86%E5%8C%96io)
-  - [拦截传输过程](#%E6%8B%A6%E6%88%AA%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B)
-  - [Usage in the `Qi4j` `SPI`](#usage-in-the-qi4j-spi)
-  - [结论](#%E7%BB%93%E8%AE%BA)
+    - [API](#api)
+    - [标准化`I/O`](#%E6%A0%87%E5%87%86%E5%8C%96io)
+    - [拦截传输过程](#%E6%8B%A6%E6%88%AA%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B)
+    - [Usage in the `Qi4j` `SPI`](#usage-in-the-qi4j-spi)
+    - [结论](#%E7%BB%93%E8%AE%BA)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

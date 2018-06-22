@@ -1,17 +1,24 @@
 功能分支工作流
 ======================
 
-- [工作方式](#beer-工作方式)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [🍺 工作方式](#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F)
     - [`Pull Requests`](#pull-requests)
-- [示例](#beer-示例)
-    1. [小红开始开发一个新功能](#小红开始开发一个新功能)
-    1. [小红要去吃个午饭](#小红要去吃个午饭)
-    1. [小红完成功能开发](#小红完成功能开发)
-    1. [小黑收到`Pull Request`](#小黑收到pull-request)
-    1. [小红再做修改](#小红再做修改)
-    1. [小红发布她的功能](#小红发布她的功能)
-    1. [与此同时，小明在做和小红一样的事](#与此同时小明在做和小红一样的事)
-- [下一站](#beer-下一站)
+- [🍺 示例](#-%E7%A4%BA%E4%BE%8B)
+    - [小红开始开发一个新功能](#%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%A7%8B%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E6%96%B0%E5%8A%9F%E8%83%BD)
+    - [小红要去吃个午饭](#%E5%B0%8F%E7%BA%A2%E8%A6%81%E5%8E%BB%E5%90%83%E4%B8%AA%E5%8D%88%E9%A5%AD)
+    - [小红完成功能开发](#%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91)
+    - [小黑收到`Pull Request`](#%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0pull-request)
+    - [小红再做修改](#%E5%B0%8F%E7%BA%A2%E5%86%8D%E5%81%9A%E4%BF%AE%E6%94%B9)
+    - [小红发布她的功能](#%E5%B0%8F%E7%BA%A2%E5%8F%91%E5%B8%83%E5%A5%B9%E7%9A%84%E5%8A%9F%E8%83%BD)
+    - [与此同时，小明在做和小红一样的事](#%E4%B8%8E%E6%AD%A4%E5%90%8C%E6%97%B6%E5%B0%8F%E6%98%8E%E5%9C%A8%E5%81%9A%E5%92%8C%E5%B0%8F%E7%BA%A2%E4%B8%80%E6%A0%B7%E7%9A%84%E4%BA%8B)
+- [🍺 下一站](#-%E4%B8%8B%E4%B8%80%E7%AB%99)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ![](images/git-workflow-feature-branch-1.png)
 

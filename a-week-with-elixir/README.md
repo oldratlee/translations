@@ -4,7 +4,7 @@
 
 # `Erlang`之父学习`Elixir`语言的一周
 
-## 译序
+## 🍎 译序
 
 作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『数据的版本化设计』、『管道运算符避免恶心代码』、『静态单赋值』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』、『函数定义和函数字面量在`Shell`的不一致性』等等主题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
 
@@ -34,7 +34,7 @@ PS：为什么要整理和审校翻译 参见 [译跋](translation-postscript.md
 - [8. `defmacro`的引用和反引用](#8-defmacro%E7%9A%84%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%8D%E5%BC%95%E7%94%A8)
 - [9. 额外的符号](#9-%E9%A2%9D%E5%A4%96%E7%9A%84%E7%AC%A6%E5%8F%B7)
 - [10. 奇怪的空白符](#10-%E5%A5%87%E6%80%AA%E7%9A%84%E7%A9%BA%E7%99%BD%E7%AC%A6)
-- [11. 闭包行为完全正确 —— 哦耶](#11-%E9%97%AD%E5%8C%85%E8%A1%8C%E4%B8%BA%E5%AE%8C%E5%85%A8%E6%AD%A3%E7%A1%AE-%E2%80%94%E2%80%94-%E5%93%A6%E8%80%B6)
+- [11. 闭包行为完全正确 —— 哦耶](#11-%E9%97%AD%E5%8C%85%E8%A1%8C%E4%B8%BA%E5%AE%8C%E5%85%A8%E6%AD%A3%E7%A1%AE--%E5%93%A6%E8%80%B6)
 - [结束语](#%E7%BB%93%E6%9D%9F%E8%AF%AD)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

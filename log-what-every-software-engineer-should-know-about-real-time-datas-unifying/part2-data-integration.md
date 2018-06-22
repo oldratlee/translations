@@ -1,14 +1,20 @@
 第二部分：数据集成
 ================================
 
-1. [数据集成：两个难题](#数据集成两个难题)
-    - [事件数据管道](#事件数据管道)
-    - [专用数据系统（`specialized data systems`）的爆发](#专用数据系统specialized-data-systems的爆发)
-1. [日志结构化的（`log-structured`）数据流](#日志结构化的log-structured数据流)
-1. [在`LinkedIn`](#在linkedin)
-1. [`ETL`与数据仓库的关系](#etl与数据仓库的关系)
-1. [日志文件与事件](#日志文件与事件)
-1. [构建可伸缩的日志](#构建可伸缩的日志)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+1. [数据集成：两个难题](#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90%E4%B8%A4%E4%B8%AA%E9%9A%BE%E9%A2%98)
+    - [事件数据管道](#%E4%BA%8B%E4%BB%B6%E6%95%B0%E6%8D%AE%E7%AE%A1%E9%81%93)
+    - [专用数据系统（`specialized data systems`）的爆发](#%E4%B8%93%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9Fspecialized-data-systems%E7%9A%84%E7%88%86%E5%8F%91)
+1. [日志结构化的（`log-structured`）数据流](#%E6%97%A5%E5%BF%97%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84log-structured%E6%95%B0%E6%8D%AE%E6%B5%81)
+1. [在`LinkedIn`](#%E5%9C%A8linkedin)
+1. [`ETL`与数据仓库的关系](#etl%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E7%9A%84%E5%85%B3%E7%B3%BB)
+1. [日志文件与事件](#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6)
+1. [构建可伸缩的日志](#%E6%9E%84%E5%BB%BA%E5%8F%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%97%A5%E5%BF%97)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 先解释一下我说的『数据集成』（`data integration`）是什么，还有为什么我觉得它很重要，然后我们再来看看它是如何和日志建立关系的。
 

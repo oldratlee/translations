@@ -1,8 +1,14 @@
 结束语及参考资料
 =============================
 
-1. [学术论文、系统、讨论和博客](#学术论文系统讨论和博客)
-1. [值得关注的开源软件](#值得关注的开源软件)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+1. [学术论文、系统、讨论和博客](#%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E7%B3%BB%E7%BB%9F%E8%AE%A8%E8%AE%BA%E5%92%8C%E5%8D%9A%E5%AE%A2)
+1. [值得关注的开源软件](#%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E7%9A%84%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 如果你从头一直读到了这，那么我对日志的理解你大部分都知道了。
 

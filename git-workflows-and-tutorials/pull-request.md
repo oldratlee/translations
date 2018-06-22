@@ -1,20 +1,28 @@
 `Pull Request`工作流
 =======================
 
-- [解析`Pull Request`](#解析pull-request)
-- [工作方式](#beer-工作方式)
-    - [在功能分支工作流中使用`Pull Request`](#在功能分支工作流中使用pull-request)
-    - [在`Gitflow`工作流中使用`Pull Request`](#在gitflow工作流中使用pull-request)
-    - [在`Forking`工作流中使用`Pull Request`](#在forking工作流中使用pull-request)
-- [示例](#beer-示例)
-    1. [小红`fork`正式项目](#小红fork正式项目)
-    1. [小红克隆她的`Bitbucket`仓库](#小红克隆她的bitbucket仓库)
-    1. [小红开发新功能](#小红开发新功能)
-    1. [小红`push`功能到她的`Bitbucket`仓库中](#小红push功能到她的bitbucket仓库中)
-    1. [小红发起`Pull Request`](#小红发起pull-request)
-    1. [小明review `Pull Request`](#小明review-pull-request)
-    1. [小红补加提交](#小红补加提交)
-- [下一站](#beer-下一站)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [解析`Pull Request`](#%E8%A7%A3%E6%9E%90pull-request)
+- [🍺 工作方式](#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F)
+    - [在功能分支工作流中使用`Pull Request`](#%E5%9C%A8%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%B8%AD%E4%BD%BF%E7%94%A8pull-request)
+    - [在`Gitflow`工作流中使用`Pull Request`](#%E5%9C%A8gitflow%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%B8%AD%E4%BD%BF%E7%94%A8pull-request)
+    - [在`Forking`工作流中使用`Pull Request`](#%E5%9C%A8forking%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%B8%AD%E4%BD%BF%E7%94%A8pull-request)
+- [🍺 示例](#-%E7%A4%BA%E4%BE%8B)
+    - [小红`fork`正式项目](#%E5%B0%8F%E7%BA%A2fork%E6%AD%A3%E5%BC%8F%E9%A1%B9%E7%9B%AE)
+    - [小红克隆她的`Bitbucket`仓库](#%E5%B0%8F%E7%BA%A2%E5%85%8B%E9%9A%86%E5%A5%B9%E7%9A%84bitbucket%E4%BB%93%E5%BA%93)
+    - [小红开发新功能](#%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%91%E6%96%B0%E5%8A%9F%E8%83%BD)
+    - [小红`push`功能到她的`Bitbucket`仓库中](#%E5%B0%8F%E7%BA%A2push%E5%8A%9F%E8%83%BD%E5%88%B0%E5%A5%B9%E7%9A%84bitbucket%E4%BB%93%E5%BA%93%E4%B8%AD)
+    - [小红发起`Pull Request`](#%E5%B0%8F%E7%BA%A2%E5%8F%91%E8%B5%B7pull-request)
+    - [小明review `Pull Request`](#%E5%B0%8F%E6%98%8Ereview-pull-request)
+    - [小红补加提交](#%E5%B0%8F%E7%BA%A2%E8%A1%A5%E5%8A%A0%E6%8F%90%E4%BA%A4)
+    - [小明接受`Pull Request`](#%E5%B0%8F%E6%98%8E%E6%8E%A5%E5%8F%97pull-request)
+- [🍺 下一站](#-%E4%B8%8B%E4%B8%80%E7%AB%99)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 `Pull Requests`是`Bitbucket`上方便开发者之间协作的功能。
 提供了一个用户友好的`Web`界面，在集成提交的变更到正式项目前可以对变更进行讨论。
