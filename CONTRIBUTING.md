@@ -1,7 +1,7 @@
 欢迎贡献
 ====================
 
-- :see_no_evil: [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 :clap:
+- 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 👏 
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Requst`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意:raised_hands:[提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
     HEAD 1
     =====================
-    
+
     HEAD 2
     ---------------------
 
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     And then it occurred to me that a computer is a stupid machine with the ability to do incredibly smart things,
     while computer programmers are smart people with the ability to do incredibly stupid things.
     They are, in short, a perfect match.”
-    
+
     — Bill Bryson
 
 因为在`Markdown`换行是不分段的（通过空行分段），所以不影响显示效果。上面内容显示效果如下：

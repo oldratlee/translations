@@ -71,7 +71,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 **_[5]_** 这里的荷兰人指`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
-在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ :grin:
+在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ 😁 
 
 **_[6] [7]_** 关于『Now/现在』、『never/决不』、『right now/马上』，个人理解，这个条目要说的是：
 
@@ -79,7 +79,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 否则结果会是：
 
-- 『马上』做 是 『世界上最不能相信』的话 :smile: ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。  
+- 『马上』做 是 『世界上最不能相信』的话 😄 ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。 
     更多『世界上最不能相信』的话参见[世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)。
 - 『马上』做 === 不经过思考的不做，结果系统没有做一个本该这个系统做的功能！然后这个功能在不合适的地方被实现，即系统设计有问题。
 

@@ -87,7 +87,7 @@ class Test {
 abstract class Parent<T> {
     abstract T x();
 }
- 
+
 class Child extends Parent<String> {
     @Override
     String x() { return "abc"; }
@@ -465,7 +465,7 @@ class Test {
 }
 ```
 
-一个很难的问题，[`Ross Tate `](http://www.cs.cornell.edu/~ross/)回答过。答案实际上是不确定的：
+一个很难的问题，[`Ross Tate`](http://www.cs.cornell.edu/~ross/)回答过。答案实际上是不确定的：
 
 **_`C`是`Type<? super C>`的子类吗？_**
 

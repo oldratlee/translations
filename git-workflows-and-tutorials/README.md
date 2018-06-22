@@ -2,8 +2,7 @@
 译文发在[博乐在线](http://www.jobbole.com/)： [http://blog.jobbole.com/76550/](http://blog.jobbole.com/76843/)，2014-09-14  
 PS：原文的老链接和标题是[Git Workflows and Tutorials](https://www.atlassian.com/git/workflows)，`atlassian`改地址后换了文章标题，译文保留使用原标题。
 
-:apple: 译序
------------------
+## 🍎 译序 
 
 关于`Git`工作流主题，也许这是目前最全面最深入的说明。这篇指南以大家在`SVN`中已经广为熟悉使用的集中式工作流作为起点，循序渐进地演进到其它高效的分布式工作流，还介绍了如何配合使用便利的`Pull Request`功能，体系地讲解了各种工作流的应用。
 如果你`Git`用的还不多，可以从前面的讲的工作流开始操练。操作过程去感受指南的讲解：解决什么问题、如何解决问题，这样理解就深了，也方便活用。
@@ -29,7 +28,7 @@ PS：原文的老链接和标题是[Git Workflows and Tutorials](https://www.atl
 
 ----------------
 
-- :see_no_evil: [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 :clap:
+- 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 👏
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Request`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意:raised_hands:[提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起交流学习讨论！
@@ -39,13 +38,13 @@ PS：原文的老链接和标题是[Git Workflows and Tutorials](https://www.atl
 `Git`工作流指南
 ======================
 
-:point_right: 工作流有各式各样的用法，但也正因此使得在实际工作中如何上手使用变得很头大。这篇指南通过总览公司团队中最常用的几种`Git`工作流让大家可以上手使用。
+👉 工作流有各式各样的用法，但也正因此使得在实际工作中如何上手使用变得很头大。这篇指南通过总览公司团队中最常用的几种`Git`工作流让大家可以上手使用。
 
 在阅读的过程中请记住，本文中的几种工作流是作为方案指导而不是条例规定。在展示了各种工作流可能的用法后，你可以从不同的工作流中挑选或揉合出一个满足你自己需求的工作流。
 
 ![Git Workflows](images/git_workflow.png)
 
-:beer: 概述
+🍺 概述
 ---------------------
 
 ### 集中式工作流

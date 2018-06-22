@@ -13,7 +13,7 @@ Chinese translations for classic IT resources.
 遵循原则：『信』为本、力求『达』、不妄追『雅』。  
 \# 信：译文忠实表达作者思想；达：让读者轻松地阅读；雅：让读者愉悦地阅读。详见[信达雅 - 百度百科](http://baike.baidu.com/view/645992.htm)。
 
-- :see_no_evil: [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 :clap:
+- 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 👏
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Requst`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意:raised_hands:[提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！

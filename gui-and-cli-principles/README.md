@@ -1,7 +1,7 @@
 原文链接：[Subversion UI Shootout](http://onlamp.com/pub/a/onlamp/2005/03/10/svn_uis.html "Subversion UI Shootout")，2005-03-10  
 译文发在：[【译】GUI & CLI Principles](http://oldratlee.com/post/2012-11-04/gui-cli-principles)，2012-11-04
 
-### :apple: 译序
+### 🍎 译序 
 
 文章[Subversion UI Shootout](http://onlamp.com/pub/a/onlamp/2005/03/10/svn_uis.html "Subversion UI Shootout")比较了多个`GUI` `SVN`工具以及命令行的优劣。
 
