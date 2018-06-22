@@ -19,7 +19,7 @@
 `Pull Requests`是`Bitbucket`上方便开发者之间协作的功能。
 提供了一个用户友好的`Web`界面，在集成提交的变更到正式项目前可以对变更进行讨论。
 
-![](images/pull-request-bitbucket.png)
+![pull-request-bitbucket](images/pull-request-bitbucket.png)
 
 开发者向团队成员通知功能开发已经完成，`Pull Requests`是最简单的用法。
 开发者完成功能开发后，通过`Bitbucket`账号发起一个`Pull Request`。
@@ -29,7 +29,7 @@
 如果变更有任何问题，团队成员反馈在`Pull Request`中，甚至`push`新的提交微调功能。
 所有的这些活动都直接跟踪在`Pull Request`中。
 
-![](images/pull-request-overview.png)
+![pull-request-overview](images/pull-request-overview.png)
 
 相比其它的协作模型，这种分享提交的形式有助于打造一个更流畅的工作流。
 `SVN`和`Git`都能通过一个简单的脚本收到通知邮件；但是，讨论变更时，开发者通常只能去回复邮件。
@@ -42,12 +42,12 @@
 来`pull`你仓库中一个分支到他的仓库中。这意味着你要提供4个信息以发起`Pull Request`：
 源仓库、源分支、目的仓库、目的分支。
 
-![](images/pull-request-anatomy.png)
+![pull-request-anatomy](images/pull-request-anatomy.png)
 
 这几值多数`Bitbucket`都会设置上合适的缺省值。但取决你用的协作工作流，你的团队可能会要指定不同的值。
 上图显示了一个`Pull Request`请求合并一个功能分支到正式的`master`分支上，但可以有多种不同的`Pull Request`用法。
 
-:beer: 工作方式
+🍺 工作方式
 ---------------------
 
 `Pull Request`可以和[功能分支工作流](workflow-feature-branch.md)、[`Gitflow`工作流](workflow-gitflow.md)或[`Forking`工作流](workflow-forking.md)一起使用。
@@ -67,7 +67,7 @@
 功能分支工作流用一个共享的`Bitbucket`仓库来管理协作，开发者在专门的分支上开发功能。
 但不是立即合并到`master`分支上，而是在合并到主代码库之前开发者应该开一个`Pull Request`发起功能的讨论。
 
-![](images/pull-request-feature-branch.png)
+![pull-request-feature-branch](images/pull-request-feature-branch.png)
 
 功能分支工作流只有一个公开的仓库，所以`Pull Request`的目的仓库和源仓库总是同一个。
 通常开发者会指定他的功能分支作为源分支，`master`分支作为目的分支。
@@ -85,7 +85,7 @@
 在`Gitflow`工作流中使用`Pull Request`让开发者在发布分支或是维护分支上工作时，
 可以有个方便的地方对关于发布分支或是维护分支的问题进行交流。
 
-![](images/gitflow-workflow-pull-request.png)
+![gitflow-workflow-pull-request](images/gitflow-workflow-pull-request.png)
 
 `Gitflow`工作流中`Pull Request`的使用过程和上一节中完全一致：
 当一个功能、发布或是热修复分支需要`Review`时，开发者简单发起一个`Pull Request`，
@@ -102,7 +102,7 @@
 在这个工作流，`Pull Request`的通知功能非常有用，
 因为项目维护者不可能知道其它开发者在他们自己的仓库添加了提交。
 
-![](images/pull-request-forking-workflow-1.png)
+![pull-request-forking-workflow-1](images/pull-request-forking-workflow-1.png)
 
 由于各个开发有自己的公开仓库，`Pull Request`的源仓库和目标仓库不是同一个。
 源仓库是开发者的公开仓库，源分支是包含了修改的分支。
@@ -113,13 +113,13 @@
 用团队成员的`Bitbucket`仓库作为目标，而不是正式项目的仓库。
 然后使用相同的功能分支作为源和目标分支。
 
-![](images/pull-request-forking-workflow-2.png)
+![pull-request-forking-workflow-2](images/pull-request-forking-workflow-2.png)
 
 2个开发者之间可以在`Pull Request`中讨论和开发功能。
 完成开发后，他们可以发起另一个`Pull Request`，请求合并功能到正式的`master`分支。
 在`Forking`工作流中，这样的灵活性让`Pull Request`成为一个强有力的协作工具。
 
-:beer: 示例
+🍺 示例
 ---------------------
 
 下面的示例演示了`Pull Request`如何在在`Forking`工作流中使用。
@@ -129,18 +129,18 @@
 
 ### 小红`fork`正式项目
 
-![](images/pull-request-1.png)
+![pull-request-1](images/pull-request-1.png)
 
 小红先要`fork`小明的`Bitbucket`仓库，开始项目的开发。她登陆`Bitbucket`，浏览到小明的仓库页面，
 点`Fork`按钮。
 
-![](images/pull-request-2.png)
+![pull-request-2](images/pull-request-2.png)
 
 然后为`fork`出来的仓库填写名字和描述，这样小红就有了服务端的项目拷贝了。
 
 ### 小红克隆她的`Bitbucket`仓库
 
-![](images/pull-request-3.png)
+![pull-request-3](images/pull-request-3.png)
 
 下一步，小红克隆自己刚才`fork`出来的`Bitbucket`仓库，以在本机上准备出工作拷贝。命令如下：
 
@@ -152,7 +152,7 @@ git clone https://user@bitbucket.org/user/repo.git
 
 ### 小红开发新功能
 
-![](images/pull-request-4.png)
+![pull-request-4](images/pull-request-4.png)
 
 在开始改代码前，小红要为新功能先新建一个新分支。她会用这个分支作为`Pull Request`的源分支。
 
@@ -167,7 +167,7 @@ git commit -a -m "Add first draft of some feature"
 
 ### 小红`push`功能到她的`Bitbucket`仓库中
 
-![](images/pull-request-5.png)
+![pull-request-5](images/pull-request-5.png)
 
 小红完成了功能后，`push`功能到她自己的`Bitbucket`仓库中（不是正式仓库），用下面简单的命令：
 
@@ -179,7 +179,7 @@ git push origin some-branch
 
 ### 小红发起`Pull Request`
 
-![](images/example-6.png)
+![example-6](images/example-6.png)
 
 `Bitbucket`上有了她的功能分支后，小红可以用她的`Bitbucket`账号浏览到她的`fork`出来的仓库页面，
 点右上角的【`Pull Request`】按钮，发起一个`Pull Request`。
@@ -189,13 +189,13 @@ git push origin some-branch
 而目标分支是`master`分支。另外，小红需要提供`Pull Request`的标题和描述信息。
 如果需要小明以外的人审核批准代码，她可以把这些人填在【Reviewers】文本框中。
 
-![](images/pull-request-7.png)
+![pull-request-7](images/pull-request-7.png)
 
 创建好了`Pull Request`，通知会通过`Bitbucket`系统消息或邮件（可选）发给小明。
 
 ### 小明review `Pull Request`
 
-![](images/pull-request-8.png)
+![pull-request-8](images/pull-request-8.png)
 
 在小明的`Bitbucket`仓库页面的【`Pull Request`】Tab可以看到所有人发起的`Pull Request`。
 点击小红的`Pull Request`会显示出`Pull Request`的描述、功能的提交历史和每个变更的差异（`diff`）。
@@ -205,7 +205,7 @@ git push origin some-branch
 但如果像这个示例中一样小明发现了在小红的代码中的一个小`Bug`，要小红在合并前修复。
 小明可以在整个`Pull Request`上加上评注，或是选择历史中的某个提交加上评注。
 
-![](images/pull-request-9.png)
+![pull-request-9](images/pull-request-9.png)
 
 ### 小红补加提交
 
@@ -219,7 +219,7 @@ git push origin some-branch
 最终，小明接受变更，合并功能分支到`master`分支，并关闭`Pull Request`。
 至此，功能集成到项目中，其它的项目开发者可以用标准的`git pull`命令`pull`这些变更到自己的本地仓库中。
 
-:beer: 下一站
+🍺 下一站
 -----------------
 
 到了这里，你应该有了所有需要的工具来集成`Pull Request`到你自己的工作流。

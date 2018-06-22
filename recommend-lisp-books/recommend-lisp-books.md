@@ -1,4 +1,4 @@
-原文链接：[推荐学习LISP的书籍](http://blog.sina.com.cn/s/blog_72d43af30100pg5t.html) - [图谱实验室](http://blog.sina.com.cn/tupulab)，2011-02-01 21:10:14
+原文链接：[推荐学习LISP的书籍](http://blog.sina.com.cn/s/blog_72d43af30100pg5t.html) - [图谱实验室](http://blog.sina.com.cn/tupulab)，2011-02-01 21:10:14 
 
 <img src="lisp.png" width="192" hspace="10px" align="right" >
 

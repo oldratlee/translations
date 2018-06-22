@@ -448,7 +448,7 @@ end
 > 作者上面说到的：
 > 1.『难怪有上千篇文章来解释它有多简单』；
 > 2. 用`Lisp`来快速解释引用和反引用，而不能直接去解释。
-> 
+>
 > 这是在用调侃的方式表达『真真儿难于解释』。
 
 # 9. 额外的符号
@@ -491,7 +491,7 @@ iex> lc x inlist [1, 2, 3], do : 2*x
 ```js
 js> a = 5;
 5
-js> f = function(x) { return x+a }; 
+js> f = function(x) { return x+a };
 function (x){return x+a}
 js> f(10)
 15
