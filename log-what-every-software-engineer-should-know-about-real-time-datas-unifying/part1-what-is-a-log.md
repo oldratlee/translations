@@ -1,10 +1,16 @@
 第一部分：日志是什么？
 =====================================================================
 
-1. [数据库中的日志](#数据库中的日志)
-1. [分布式系统中的日志](#分布式系统中的日志)
-1. [变更日志（`changelog`）101：表与事件的二象性（`duality`）](#变更日志changelog101表与事件的二象性duality)
-1. [接下来的内容](#接下来的内容)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+1. [数据库中的日志](#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%97%A5%E5%BF%97)
+1. [分布式系统中的日志](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%97%A5%E5%BF%97)
+1. [变更日志（`changelog`）101：表与事件的二象性（`duality`）](#%E5%8F%98%E6%9B%B4%E6%97%A5%E5%BF%97changelog101%E8%A1%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%8C%E8%B1%A1%E6%80%A7duality)
+1. [接下来的内容](#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%86%85%E5%AE%B9)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 日志可能是一种最简单的不能再简单的存储抽象，只能追加、按照时间完全有序（`totally-ordered`）的记录序列。日志看起来的样子：
 

@@ -13,7 +13,7 @@
     - [译注](#%E8%AF%91%E6%B3%A8)
 - [个人讨论](#%E4%B8%AA%E4%BA%BA%E8%AE%A8%E8%AE%BA)
 - [参考/阅读资料](#%E5%8F%82%E8%80%83%E9%98%85%E8%AF%BB%E8%B5%84%E6%96%99)
-- [`Python` Philosophy原文](#python-philosophy原文)
+- [`Python` Philosophy原文](#python-philosophy%E5%8E%9F%E6%96%87)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

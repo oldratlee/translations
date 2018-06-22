@@ -1,19 +1,26 @@
 `Gitflow`工作流
 ============================
 
-- [工作方式](#beer-工作方式)
-    - [历史分支](#历史分支)
-    - [功能分支](#功能分支)
-    - [发布分支](#发布分支)
-    - [维护分支](#维护分支)
-- [示例](#beer-示例)
-    1. [创建开发分支](#创建开发分支)
-    1. [小红和小明开始开发新功能](#小红和小明开始开发新功能)
-    1. [小红完成功能开发](#小红完成功能开发)
-    1. [小红开始准备发布](#小红开始准备发布)
-    1. [小红完成发布](#小红完成发布)
-    1. [最终用户发现`Bug`](#最终用户发现bug)
-- [下一站](#beer-下一站)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [🍺 工作方式](#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F)
+    - [历史分支](#%E5%8E%86%E5%8F%B2%E5%88%86%E6%94%AF)
+    - [功能分支](#%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF)
+    - [发布分支](#%E5%8F%91%E5%B8%83%E5%88%86%E6%94%AF)
+    - [维护分支](#%E7%BB%B4%E6%8A%A4%E5%88%86%E6%94%AF)
+- [🍺 示例](#-%E7%A4%BA%E4%BE%8B)
+    - [创建开发分支](#%E5%88%9B%E5%BB%BA%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF)
+    - [小红和小明开始开发新功能](#%E5%B0%8F%E7%BA%A2%E5%92%8C%E5%B0%8F%E6%98%8E%E5%BC%80%E5%A7%8B%E5%BC%80%E5%8F%91%E6%96%B0%E5%8A%9F%E8%83%BD)
+    - [小红完成功能开发](#%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91)
+    - [小红开始准备发布](#%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%A7%8B%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83)
+    - [小红完成发布](#%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8F%91%E5%B8%83)
+    - [最终用户发现`Bug`](#%E6%9C%80%E7%BB%88%E7%94%A8%E6%88%B7%E5%8F%91%E7%8E%B0bug)
+- [🍺 下一站](#-%E4%B8%8B%E4%B8%80%E7%AB%99)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ![Git Workflows: Gitflow Cycle](images/git-workflows-gitflow.png)
 

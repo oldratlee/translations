@@ -1,9 +1,15 @@
 第三部分：日志与实时流处理
 =================================
 
-1. [数据流图（`data flow graphs`）](#数据流图data-flow-graphs)
-1. [有状态的实时流处理](#有状态的实时流处理)
-1. [日志合并（`log compaction`）](#日志合并log-compaction)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+1. [数据流图（`data flow graphs`）](#%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BEdata-flow-graphs)
+1. [有状态的实时流处理](#%E6%9C%89%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%9E%E6%97%B6%E6%B5%81%E5%A4%84%E7%90%86)
+1. [日志合并（`log compaction`）](#%E6%97%A5%E5%BF%97%E5%90%88%E5%B9%B6log-compaction)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 到目前为止，我只讲述了系统之间拷贝数据的理想机制。但是在存储系统之间搬运字节不是所要讲述内容的全部。
 最终会发现，『日志』是流的另一种说法，

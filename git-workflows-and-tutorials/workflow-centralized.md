@@ -1,19 +1,25 @@
 集中式工作流
 =================================
 
-- [工作方式](#beer-工作方式)
-    - [冲突解决](#冲突解决)
-- [示例](#beer-示例)
-    1. [有人先初始化好中央仓库](#有人先初始化好中央仓库)
-    1. [所有人克隆中央仓库](#所有人克隆中央仓库)
-    1. [小明开发功能](#小明开发功能)
-    1. [小红开发功能](#小红开发功能)
-    1. [小明发布功能](#小明发布功能)
-    1. [小红试着发布功能](#小红试着发布功能)
-    1. [小红在小明的提交之上`rebase`](#小红在小明的提交之上rebase)
-    1. [小红解决合并冲突](#小红解决合并冲突)
-    1. [小红成功发布功能](#小红成功发布功能)
-- [下一站](#beer-下一站)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [🍺 工作方式](#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F)
+    - [冲突解决](#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3)
+- [🍺 示例](#-%E7%A4%BA%E4%BE%8B)
+    - [有人先初始化好中央仓库](#%E6%9C%89%E4%BA%BA%E5%85%88%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A5%BD%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93)
+    - [所有人克隆中央仓库](#%E6%89%80%E6%9C%89%E4%BA%BA%E5%85%8B%E9%9A%86%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93)
+    - [小明开发功能](#%E5%B0%8F%E6%98%8E%E5%BC%80%E5%8F%91%E5%8A%9F%E8%83%BD)
+    - [小红开发功能](#%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%91%E5%8A%9F%E8%83%BD)
+    - [小明发布功能](#%E5%B0%8F%E6%98%8E%E5%8F%91%E5%B8%83%E5%8A%9F%E8%83%BD)
+    - [小红试着发布功能](#%E5%B0%8F%E7%BA%A2%E8%AF%95%E7%9D%80%E5%8F%91%E5%B8%83%E5%8A%9F%E8%83%BD)
+    - [小红在小明的提交之上`rebase`](#%E5%B0%8F%E7%BA%A2%E5%9C%A8%E5%B0%8F%E6%98%8E%E7%9A%84%E6%8F%90%E4%BA%A4%E4%B9%8B%E4%B8%8Arebase)
+    - [小红解决合并冲突](#%E5%B0%8F%E7%BA%A2%E8%A7%A3%E5%86%B3%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81)
+    - [小红成功发布功能](#%E5%B0%8F%E7%BA%A2%E6%88%90%E5%8A%9F%E5%8F%91%E5%B8%83%E5%8A%9F%E8%83%BD)
+- [🍺 下一站](#-%E4%B8%8B%E4%B8%80%E7%AB%99)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ![Git Workflows: SVN-style](images/git-workflow-svn.png)
 
