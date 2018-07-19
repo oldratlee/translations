@@ -1,4 +1,4 @@
-`Python` Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)    
+`Python` Philosophy原文及相关说明： [http://www.c2.com/cgi/wiki?PythonPhilosophy](http://www.c2.com/cgi/wiki?PythonPhilosophy)  
 译文发在：[`Python` Philosophy（`Python`哲学）翻译及简析](http://oldratlee.com/147/tech/python/python-philosophy.html)，2010-09-28
 
 # `Python` Philosophy（`Python`哲学）翻译及简析
@@ -35,7 +35,7 @@
 1. 面对二义性情况时，要拒绝任何猜的诱惑。
 1. 一件事应该一种做法 —— 并且宁愿只有一种做法 —— 一种显而易见的做法。
     - 尽管在刚开始的时候这个做法可能不是那么显而易见，毕竟你不是荷兰人。 <sup>**_[5]_**</sup>
-1.  『现在』优于『决不』。 <sup>**_[6]_**</sup>
+1. 『现在』优于『决不』。 <sup>**_[6]_**</sup>
     - 尽管『决不』常常优于『**_马上_**』。 <sup>**_[7]_**</sup>
 1. 如果一个实现难于解释清楚，那它是个差的想法。
 1. 如果一个实现很容易解释清楚，那它可能是个好的想法。
@@ -71,7 +71,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 **_[5]_** 这里的荷兰人指`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
-在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ 😁 
+在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ 😁
 
 **_[6] [7]_** 关于『Now/现在』、『never/决不』、『right now/马上』，个人理解，这个条目要说的是：
 
@@ -79,7 +79,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 否则结果会是：
 
-- 『马上』做 是 『世界上最不能相信』的话 😄 ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。 
+- 『马上』做 是 『世界上最不能相信』的话 😄 ，想想饭店服务员的话『您要的菜马上就好』，其实你自己知道后面往往就不会去做这个功能了。
     更多『世界上最不能相信』的话参见[世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)。
 - 『马上』做 === 不经过思考的不做，结果系统没有做一个本该这个系统做的功能！然后这个功能在不合适的地方被实现，即系统设计有问题。
 
@@ -99,13 +99,13 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 1. [Python(programming language) - Wikipedia](http://en.wikipedia.org/wiki/Python_%28programming_language%29#Programming_philosophy)
 1. [No programming language offers what Python does philosophically.](http://www.indicthreads.com/1062/no-programming-language-offers-what-python-does-philosophically/)  
-在编程哲学上，`Python`超越了其它编程语言。
+    在编程哲学上，`Python`超越了其它编程语言。
 1. [武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。  
-这里还有其它有关`Python`有意思的东西。
+    这里还有其它有关`Python`有意思的东西。
 1. 核心复杂度的说明参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
 1. [世界上最不能相信的几句话](http://blog.renren.com/share/339618932/7590788371)
 
-#  `Python` Philosophy原文
+# `Python` Philosophy原文
 
 **The Zen of Python**, by Tim Peters
 

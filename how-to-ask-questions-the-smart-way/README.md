@@ -6,7 +6,7 @@
 提问的智慧
 ====================
 
-![](questions.jpg)
+![questions](questions.jpg)
 
 **艾瑞克 · 史蒂文 · 雷蒙德（_Eric Steven Raymond_）**  
 [Thyrsus Enterprises](http://www.catb.org/~esr/)  
@@ -20,7 +20,7 @@
 目录
 ----------------
 
-- [译文](#译文) 
+- [译文](#译文)
 - [免责声明](#免责声明)
 - [引言](#引言)
 - [如何做提问前的准备](core.md#如何做提问前的准备)
