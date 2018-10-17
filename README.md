@@ -78,8 +78,7 @@ Chinese translations for classic IT resources.
 # `FP`/`Clojure`/`Lisp`
 
 1. [务实的函数式编程](pragmatic-functional-programming/README.md)  
-    `Bob`大叔对`FP`在软件开发优点上务实的思考，引导大家理解、学习和学习`FP`，文章后半篇还用`FP`语言`Clojure`简约演示了一番。
-    文末最后一句『如果你还在想你应该用哪个语言来学`FP`，我推荐`Clojure`。』不忘推荐`Clojure`引导大家上手。
+    `Bob`大叔对`FP`在软件开发优点上务实的思考，引导大家理解、学习和学习`FP`，文章后半篇还用`FP`语言`Clojure`简约演示了一番。在文末不忘呼吁学习`FP`并推荐`Clojure`语言来上手感受。
 1. [**_Successful Lisp_** 中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
     - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
     - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)

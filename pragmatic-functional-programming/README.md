@@ -1,6 +1,12 @@
 原文链接： [Pragmatic Functional Programming](http://blog.cleancoder.com/uncle-bob/2017/07/11/PragmaticFunctionalProgramming.html) - _Robert C. Martin (Uncle Bob)_，2017-07  
 基于[liuchengxu](https://www.jianshu.com/u/daf68451f175)的译文稿：[实用的函数式编程](https://www.jianshu.com/p/b14bdc4d1fd3)
 
+<img src="clojure-logo.png" width="20%" align="right" >
+
+## 🍎 译序
+
+`Bob`大叔对`FP`在软件开发优点上务实的思考，引导大家理解、学习和学习`FP`，文章后半篇还用`FP`语言`Clojure`简约演示了一番。在文末不忘呼吁学习`FP`并推荐`Clojure`语言来上手感受。
+
 # 务实的函数式编程
 
 函数式编程（`Functional Programming`/`FP`）的风潮，认真地来说大概是从10年前开始。我们开始关注像`Scala`、`Clojure`和`F#`这样的语言。这个风潮并非只是『哇酷～一个新语言！』这样平平常常的热情。确实有些实在的原因在推动 —— 或者我们是这么想的。
