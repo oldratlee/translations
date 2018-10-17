@@ -31,9 +31,9 @@ Chinese translations for classic IT resources.
 - [系统设计实例](#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%BE%8B)
 - [分布式系统/大数据](#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A4%A7%E6%95%B0%E6%8D%AE)
 - [并发](#%E5%B9%B6%E5%8F%91)
+- [`FP`/`Clojure`/`Lisp`](#fpclojurelisp)
 - [`Git`](#git)
 - [`Erlang`/`Elixir`](#erlangelixir)
-- [`Lisp`](#lisp)
 - [`Java`](#java)
 - [软件测试](#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95)
 - [其它](#%E5%85%B6%E5%AE%83)
@@ -75,6 +75,15 @@ Chinese translations for classic IT resources.
 1. [`Java` `Fork/Join`框架](a-java-fork-join-framework/README.md)  
     _Doug Lea_ 大神关于`Java 7`引入的他写的`Fork/Join`框架的论文。[反应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming`/`RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有些稳健的接纳和跟进能力，有着令人惊叹的生命活力：`Java 7`提供了`ForkJoinPool`，支持了`Java 8`提供的`Stream`，另外`Java 8`还提供了`Lambda`（有效地表达和使用`RP`需要`FP`的语言构件和理念）；有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的官方[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，实际上是直接把[`Reactive Streams`](http://www.reactive-streams.org/)的接口加在`Java`标准库中，即[`Reactive Streams`规范](https://github.com/reactive-streams/reactive-streams-jvm#specification)转正了，`Reactive Streams`是`RP`的基础核心组件。`Flow API`标志着`RP`由集市式的自由探索阶段 向 教堂式的统一使用的转变。通过上面这些说明，可以看到`ForkJoinPool`的基础重要性。
 
+# `FP`/`Clojure`/`Lisp`
+
+1. [务实的函数式编程](pragmatic-functional-programming/README.md)  
+    `Bob`大叔对`FP`在软件开发优点上务实的思考，引导大家理解、学习和学习`FP`，文章后半篇还用`FP`语言`Clojure`简约演示了一番。
+    文末最后一句『如果你还在想你应该用哪个语言来学`FP`，我推荐`Clojure`。』不忘推荐`Clojure`引导大家上手。
+1. [**_Successful Lisp_** 中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
+    - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
+    - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
+
 # `Git`
 
 1. [`Git`工作流指南](git-workflows-and-tutorials/README.md)  
@@ -85,12 +94,6 @@ Chinese translations for classic IT resources.
 
 1. [`Erlang`之父学习`Elixir`语言的一周](a-week-with-elixir/README.md)  
     作为`Erlang`之父 _Joe Armstrong_，对`Erlang VM`上的新语言`Elixir`做了很精彩的评论和思考。『特定领域专家的专业直觉』、『编程语言设计的三定律』、『管道操作符避免恶心代码』、『`Elixir`的`sigil`引出的程序语言如何定义/解释字符串』等等问题的讨论，个性鲜明又幽默诙谐的行文风格，都能强烈感受到 _Joe Armstrong_ 深入广博的老黑客风范。
-
-# `Lisp`
-
-1. [**_Successful Lisp_** 中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
-    - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
-    - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
 
 # `Java`
 
