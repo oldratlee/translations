@@ -49,6 +49,8 @@ Chinese translations for classic IT resources.
 
 1. [`Python` Philosophy（`Python`哲学）翻译及简析](python-philosophy/README.md)  
     既有指明大是大非的理念，又有指导细节操作的准则；既有谆谆教导的推荐，也有声色俱厉的禁止。
+1. [Codehaus宣言：技术管理与开源项目运营之道](codehaus-manifesto/README.md)  
+    `Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` 以及其他数以百计开源项目，都得感谢`Codehaus`社区。很多项目听起来都是如雷贯耳吧，而这份精小的`Codehaus`宣言是`Codehaus`多年在技术管理与开源项目运营上的思考、总结与领悟，相信非常值得一读！**向`Codehaus`致敬！！**
 1. [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/README.md)  
     给出了一个通用`Java` `IO` `API`设计，更重要的是给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。文中示范了从 普通简单实现 整理成 正交分解、可复用、可扩展、高性能、无错误的`API`设计 的过程，这个过程是很值得理解和学习！设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件美事。给出 _**减少艺术的艺术工作量**_ 的方法的人是 **大师**。
 1. [`API`设计原则 - `Qt`官网的设计实践总结](api-design-principles-from-qt/README.md)  

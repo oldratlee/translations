@@ -1,4 +1,4 @@
-原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md) PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
+原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md) PS: [Codehaus下线前最近的存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
 
 <img src="streetlight_manifesto.png" width="20%" align="right" >
 
@@ -26,19 +26,19 @@ PS: `Codehaus`大约于2015年4月下线，更多关于`Codehaus`的信息可以
 1. `Codehaus`观察到，基于指标、活跃时间和指派任务的分析，贡献更多的提交者在项目上有更大的话语权。
 1. `Codehaus`是鼓励人们持续做出代码的地方，而不是用官僚流程把人们的项目框在一起的地方。
 1. `Codehaus`鼓励项目追求质量和频繁的小发布。
-1. `Codehaus`鼓励提交者为成敬人有礼的朋友，尽可能地与大家碰面交流。面对面优于邮件。
+1. `Codehaus`鼓励提交者成为敬人有礼的朋友，尽可能地与大家碰面交流。面对面优于邮件。
 1. `Codehaus`支持多样性（在合适时），而不是强制一统与同质。
-1. `Codehaus`在吸纳提交者上设定高标准，引荐是常见的做法。新提交者期望能表现出代码水准以及优秀的品格。其成熟与才智应已有展现（如果年轻，在早年应该就展现出来了）。
-1. 对于已有项目，新提交者期望在开始时先慢慢贡献一些小的不紧急的提交，之后再承担更大的自主的提交。
-1. `Codehaus`在准入项目上设定高标准。项目应该是已经发布的或是接进发布的。
-1. `Codehaus`鼓励人们在邮件沟通上要简明扼要，并注重互联网的礼仪。十篇长文来证明一个问题是个拙劣的方式；更好的方式是一个（失败的）单元测试。
+1. `Codehaus`在吸纳提交者上设定高标准，引荐是常见的做法。新进的提交者期望要展示出代码水准以及优秀的品格。其成熟与才智应已有展现（如果年轻则应该在他早年就展现出来了）。
+1. 对于已有项目，新进的提交者期望在开始时先慢慢贡献一些小的不紧急的提交，之后再承担更大的自主的提交。
+1. `Codehaus`在准入项目上设定高标准。项目应该是已经发布的或是接近发布的。
+1. `Codehaus`鼓励人们在邮件沟通上要简明扼要，并注重互联网的礼仪。用十篇长文来证明一个问题是个拙劣的方式；更好的方式是一个（失败的）单元测试。
 1. 当争论不定时，专制是正解。
 
 # 原文及点评
 
 点评来自 [**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。
 
-**_Qian Sir_** 之点评一字未动，貌似随性又犀利劲到的点评让内容更多一分神采飞扬！
+**_Qian Sir_** 之点评一字未动，貌似随性又犀利劲到的点评让内容更多了一分神采飞扬！
 
 因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免你先入为主、断章取义影响对原文原义的品味。
 
