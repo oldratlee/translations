@@ -3,13 +3,11 @@ PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150
 
 ## 🍎 译序
 
-先简单介绍一下`Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。
-
-`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` （以及其他数以百计）这些开源项目，都得感谢`Codehaus`社区。
+先简单介绍一下`Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` （以及其他数以百计）这些开源项目，都得感谢`Codehaus`社区。
 
 很多项目听起来都是如雷贯耳吧！
 
-更多关于`Codehaus`的信息可以看看：
+`Codehaus`大约于2015年4月下线，更多关于`Codehaus`的信息可以看看：
 
 - [`Codehaus`: 伟大的代码之屋轰然倒塌 - zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/30525116)
 - [`Codehaus`: The once great house of code has fallen - javaworld.com](https://www.javaworld.com/article/2892227/open-source-tools/codehaus-the-once-great-house-of-code-has-fallen.html)
@@ -19,19 +17,19 @@ PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150
 ## Codehaus宣言
 
 1. `Codehaus`意识到，基于对提交者的指标、活跃时间和指派任务，有些提交者在项目上有更大的话语权。
-1. `Codehaus`是鼓励人们做出代码的地方，而不是用官僚流程把人们的项目框在一起的地方。
+1. `Codehaus`是鼓励人们持续做出代码的地方，而不是用官僚流程把人们的项目框在一起的地方。
 1. `Codehaus`鼓励项目追求质量和频繁的小发布。
-1. `Codehaus`鼓励提交者为成敬人有礼的朋友，尽可能与大家碰面交流。面对面优于邮件。
+1. `Codehaus`鼓励提交者为成敬人有礼的朋友，尽可能地与大家碰面交流。面对面优于邮件。
 1. `Codehaus`支持多样性（在合适时），而不是强制一统与同质。
-1. `Codehaus`在吸纳提交者上设定高标准，引荐是常见的做法。新提交者期望能表现出优秀的品格及其代码水准。其成熟与智慧应已有展现（如果年轻，在早年可能就展现出来了）
+1. `Codehaus`在吸纳提交者上设定高标准，引荐是常见的做法。新提交者期望能表现出代码水准以及优秀的品格。其成熟与才智应已有展现（如果年轻，在早年应该就展现出来了）。
 1. 对于已有项目，新提交者期望在开始时先慢慢贡献一些小的不紧急的提交，之后再承担更大的自主的提交。
 1. `Codehaus`在准入项目上设定高标准。项目应该是已经发布的或是接进发布的。
 1. `Codehaus`鼓励人们在邮件沟通上要简明扼要，并注重互联网的礼仪。十篇长文来证明一个问题是个拙劣的方式；更好的方式是一个（失败的）单元测试。
-1. 当意见不合争论不定时，专制是正解。
+1. 当争论不定时，专制是正解。
 
 ## 原文及点评
 
-点评来自[**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。**_Qian Sir_**之点评一字未动，貌似随性又泼辣劲到的点评让内容更多一分神采飞扬！
+点评来自[**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。**_Qian Sir_**之点评一字未动，貌似随性又犀利劲到的点评让内容更多一分神采飞扬！
 
 因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免先入为主影响你对原文原义的品味。
 
