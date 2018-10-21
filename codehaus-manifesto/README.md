@@ -6,13 +6,15 @@
 
 ## 🍎 译序
 
-先简单介绍一下`Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` （以及其他数以百计）这些开源项目，都得感谢`Codehaus`社区。
+先简单介绍一下`Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` 以及其他数以百计开源项目，都得感谢`Codehaus`社区。
 
-很多项目听起来都是如雷贯耳吧！
+很多项目听起来都是如雷贯耳吧，而这份精小的`Codehaus`宣言是`Codehaus`多年在技术管理与开源项目运营上的思考、总结与领悟，相信非常值得一读！
 
-而这份精小的`Codehaus`宣言是，`Codehaus`多年在技术管理与开源项目运营上的思考、总结与领悟，相信非常值得一读！
+**向`Codehaus`致敬！！**
 
-`Codehaus`大约于2015年4月下线，更多关于`Codehaus`的信息可以看看：
+----------
+
+PS: `Codehaus`大约于2015年4月下线，更多关于`Codehaus`的信息可以看看：
 
 - [`Codehaus`: 伟大的代码之屋轰然倒塌 - zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/30525116)
 - [`Codehaus`: The once great house of code has fallen - javaworld.com](https://www.javaworld.com/article/2892227/open-source-tools/codehaus-the-once-great-house-of-code-has-fallen.html)
@@ -38,7 +40,7 @@
 
 **_Qian Sir_** 之点评一字未动，貌似随性又犀利劲到的点评让内容更多一分神采飞扬！
 
-因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免先入为主影响你对原文原义的品味。
+因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免你先入为主、断章取义影响对原文原义的品味。
 
 ## Codehaus Manifesto
 
