@@ -31,7 +31,9 @@ PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150
 
 ## 原文及点评
 
-> [Qian Sir](http://weibo.com/shawnqianx)之点评一字未动。
+点评来自[**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。**_Qian Sir_**之点评一字未动，貌似随性又泼辣劲到的点评让内容更多一分神采飞扬！
+
+因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免先入为主影响你对原文原义的品味。
 
 ## Codehaus Manifesto
 
