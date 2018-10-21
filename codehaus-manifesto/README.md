@@ -1,6 +1,14 @@
 原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md)  
 PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
 
+## 🍎 译序
+
+`Codehaus`是协作构建开源项目的社区，重点强烈现代语言，并开发聚焦于满足实际需求的高质量组件。
+
+`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Grails`、`XDoclet`、`jMock`、`EasyMock`、`QDox`、`Drools`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` （以及其他数以百计）这些开源项目，都得感谢`Codehaus`社区，很多项目听起来是如雷贯耳吧！
+
+更多信息可以看看：[Codehaus: 伟大的代码之屋轰然倒塌](https://zhuanlan.zhihu.com/p/30525116)、
+
 # Codehaus Manifesto
 
 1. The Codehaus recognizes that some committers, based upon metrics, longevity and appointed management, have greater say on a project than others.  
