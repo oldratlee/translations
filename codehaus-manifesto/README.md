@@ -1,5 +1,8 @@
-原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md)  
-PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
+原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md) PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
+
+<img src="streetlight_manifesto.png" width="20%" align="right" >
+
+# Codehaus宣言：技术管理与开源项目运营之道
 
 ## 🍎 译序
 
@@ -7,16 +10,18 @@ PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150
 
 很多项目听起来都是如雷贯耳吧！
 
+而这份精小的`Codehaus`宣言是，`Codehaus`多年在技术管理与开源项目运营上的思考、总结与领悟，相信非常值得一读！
+
 `Codehaus`大约于2015年4月下线，更多关于`Codehaus`的信息可以看看：
 
 - [`Codehaus`: 伟大的代码之屋轰然倒塌 - zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/30525116)
 - [`Codehaus`: The once great house of code has fallen - javaworld.com](https://www.javaworld.com/article/2892227/open-source-tools/codehaus-the-once-great-house-of-code-has-fallen.html)
 
-# 译文及简析
+# 译文
 
 ## Codehaus宣言
 
-1. `Codehaus`意识到，基于对提交者的指标、活跃时间和指派任务，有些提交者在项目上有更大的话语权。
+1. `Codehaus`观察到，基于指标、活跃时间和指派任务的分析，贡献更多的提交者在项目上有更大的话语权。
 1. `Codehaus`是鼓励人们持续做出代码的地方，而不是用官僚流程把人们的项目框在一起的地方。
 1. `Codehaus`鼓励项目追求质量和频繁的小发布。
 1. `Codehaus`鼓励提交者为成敬人有礼的朋友，尽可能地与大家碰面交流。面对面优于邮件。
@@ -27,9 +32,11 @@ PS: [Codehaus下线前最近存档 2015-02-17](https://web.archive.org/web/20150
 1. `Codehaus`鼓励人们在邮件沟通上要简明扼要，并注重互联网的礼仪。十篇长文来证明一个问题是个拙劣的方式；更好的方式是一个（失败的）单元测试。
 1. 当争论不定时，专制是正解。
 
-## 原文及点评
+# 原文及点评
 
-点评来自[**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。**_Qian Sir_**之点评一字未动，貌似随性又犀利劲到的点评让内容更多一分神采飞扬！
+点评来自 [**@_ShawnQianx_**](http://weibo.com/shawnqianx) 2018年9月的技术分享。
+
+**_Qian Sir_** 之点评一字未动，貌似随性又犀利劲到的点评让内容更多一分神采飞扬！
 
 因为这份点评火力十足，个人觉得对原文原义的口感影响不少，所以没有直接放到译文中，以免先入为主影响你对原文原义的品味。
 
