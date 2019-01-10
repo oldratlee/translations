@@ -1,4 +1,3 @@
-
 原文链接：[A Look Into NASA’s Coding Philosophy](https://mystudentvoices.com/a-look-into-nasas-coding-philosophy-b747957c7f8a)  
 基于译文稿：[看NASA的编码哲学](http://www.10tiao.com/html/262/201708/2651375489/1.html)
 
@@ -10,6 +9,34 @@
 </div>
 
 为肯尼迪工作过并不意味着我为`NASA`代言。这个写作是以个人身份进行的，来自于我在`Twitch`上的现场演讲。
+
+-----------------------------
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [谁在我们中说出真相？](#%E8%B0%81%E5%9C%A8%E6%88%91%E4%BB%AC%E4%B8%AD%E8%AF%B4%E5%87%BA%E7%9C%9F%E7%9B%B8)
+    - [现代软件世界](#%E7%8E%B0%E4%BB%A3%E8%BD%AF%E4%BB%B6%E4%B8%96%E7%95%8C)
+- [`NASA`的四个假设](#nasa%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%81%87%E8%AE%BE)
+    - [你可以问导师](#%E4%BD%A0%E5%8F%AF%E4%BB%A5%E9%97%AE%E5%AF%BC%E5%B8%88)
+    - [我们相信彼此的潜力](#%E6%88%91%E4%BB%AC%E7%9B%B8%E4%BF%A1%E5%BD%BC%E6%AD%A4%E7%9A%84%E6%BD%9C%E5%8A%9B)
+    - [你会说『我不明白』](#%E4%BD%A0%E4%BC%9A%E8%AF%B4%E3%80%8E%E6%88%91%E4%B8%8D%E6%98%8E%E7%99%BD%E3%80%8F)
+    - [我们深入了解计算机系统如何运作](#%E6%88%91%E4%BB%AC%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C)
+- [避免不可靠的知识来源](#%E9%81%BF%E5%85%8D%E4%B8%8D%E5%8F%AF%E9%9D%A0%E7%9A%84%E7%9F%A5%E8%AF%86%E6%9D%A5%E6%BA%90)
+    - [信仰](#%E4%BF%A1%E4%BB%B0)
+    - [启发](#%E5%90%AF%E5%8F%91)
+    - [魅力](#%E9%AD%85%E5%8A%9B)
+    - [光辉](#%E5%85%89%E8%BE%89)
+- [扩展你的计算机素养](#%E6%89%A9%E5%B1%95%E4%BD%A0%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B4%A0%E5%85%BB)
+- [建议](#%E5%BB%BA%E8%AE%AE)
+    - [计算机系统：程序员的视角](#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%A7%86%E8%A7%92)
+    - [寻找志同道合的人](#%E5%AF%BB%E6%89%BE%E5%BF%97%E5%90%8C%E9%81%93%E5%90%88%E7%9A%84%E4%BA%BA)
+- [关于作者](#%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+-----------------------------
 
 ## 谁在我们中说出真相？
 
