@@ -1,8 +1,16 @@
 原文链接： [Motivations · RSocket](http://rsocket.io/docs/Motivations) - https://github.com/rsocket/rsocket  
 
+<a href="https://github.com/rsocket/rsocket-website/tree/master/website/static/img"><img src="r-socket-pink.png" width="20%" align="right" /></a>
+
 ## 🍎 译序
 
 译文由阿里中间件的 [罗毅(北纬)](https://yq.aliyun.com/articles/593279) 提供，感谢翻译！
+
+关于`RSocket`包含三部分
+
+- FAQ
+- [动机](README.md)
+- [协议](protocol.md)
 
 # 动机
 
@@ -232,7 +240,7 @@ RSocket 寻求的是：
 背景：
 
 * RSocket 是 OSI 5/6 层或者 TCP/IP 应用层的协议。
-* RSocket 被设计成全双工、二进制传输，并具备类似 TCP 行为的协议(更详细的描述请参阅[这里](https://github.com/RSocket/reactivesocket/blob/master/Protocol.md#transport-protocol))。
+* RSocket 被设计成全双工、二进制传输，并具备类似 TCP 行为的协议(更详细的描述请参阅[这里](protocol.md#transport-protocol))。
 
 
 ### TCP & QUIC

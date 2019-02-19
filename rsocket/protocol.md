@@ -1,3 +1,17 @@
+原文链接： [Protocol · RSocket](http://rsocket.io/docs/Protocol) - https://github.com/rsocket/rsocket  
+
+<a href="https://github.com/rsocket/rsocket-website/tree/master/website/static/img"><img src="r-socket-pink.png" width="20%" align="right" /></a>
+
+## 🍎 译序
+
+译文由阿里中间件的 [罗毅(北纬)](https://yq.aliyun.com/articles/593279) 提供，感谢翻译！
+
+关于`RSocket`包含三部分
+
+- FAQ
+- [动机](README.md)
+- [协议](protocol.md)
+
 # 协议
 
 ## 状态
@@ -25,72 +39,38 @@ RSocket 假设了一种操作范式。这些假设包括：
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [协议](#%E5%8D%8F%E8%AE%AE)
-    - [状态](#%E7%8A%B6%E6%80%81)
-    - [介绍](#%E4%BB%8B%E7%BB%8D)
-    - [目录](#%E7%9B%AE%E5%BD%95)
-    - [术语](#%E6%9C%AF%E8%AF%AD)
-    - [版本号说明](#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%AF%B4%E6%98%8E)
-        - [跨版本兼容性](#%E8%B7%A8%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7)
-    - [数据和元信息](#%E6%95%B0%E6%8D%AE%E5%92%8C%E5%85%83%E4%BF%A1%E6%81%AF)
-    - [组帧 (Framing)](#%E7%BB%84%E5%B8%A7-framing)
-        - [Transport 协议](#transport-%E5%8D%8F%E8%AE%AE)
-        - [组帧 (Framing) 协议的用法](#%E7%BB%84%E5%B8%A7-framing-%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%94%A8%E6%B3%95)
-        - [组帧格式](#%E7%BB%84%E5%B8%A7%E6%A0%BC%E5%BC%8F)
-        - [Frame 头的格式](#frame-%E5%A4%B4%E7%9A%84%E6%A0%BC%E5%BC%8F)
-            - [处理 Ignore 标记](#%E5%A4%84%E7%90%86-ignore-%E6%A0%87%E8%AE%B0)
-            - [Frame 校验](#frame-%E6%A0%A1%E9%AA%8C)
-            - [可选的元数据头](#%E5%8F%AF%E9%80%89%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%E5%A4%B4)
-        - [Stream 标识](#stream-%E6%A0%87%E8%AF%86)
-            - [生成](#%E7%94%9F%E6%88%90)
-            - [生命周期](#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F)
-        - [Frame 类型](#frame-%E7%B1%BB%E5%9E%8B)
-        - [SETUP Frame (0x01)](#setup-frame-0x01)
-        - [ERROR Frame (0x0B)](#error-frame-0x0b)
-            - [错误码](#%E9%94%99%E8%AF%AF%E7%A0%81)
-        - [LEASE Frame (0x02)](#lease-frame-0x02)
-        - [KEEPALIVE Frame (0x03)](#keepalive-frame-0x03)
-        - [REQUEST_RESPONSE Frame (0x04)](#request_response-frame-0x04)
-        - [REQUEST_FNF (Fire-n-Forget) Frame (0x05)](#request_fnf-fire-n-forget-frame-0x05)
-        - [REQUEST_STREAM Frame (0x06)](#request_stream-frame-0x06)
-        - [REQUEST_CHANNEL Frame (0x07)](#request_channel-frame-0x07)
-        - [REQUEST_N Frame (0x08)](#request_n-frame-0x08)
-        - [CANCEL Frame (0x09)](#cancel-frame-0x09)
-        - [PAYLOAD Frame (0x0A)](#payload-frame-0x0a)
-        - [METADATA_PUSH Frame (0x0C)](#metadata_push-frame-0x0c)
-        - [EXT (Extension) Frame (0x3F)](#ext-extension-frame-0x3f)
-    - [恢复操作](#%E6%81%A2%E5%A4%8D%E6%93%8D%E4%BD%9C)
-        - [假设](#%E5%81%87%E8%AE%BE)
-        - [隐式位置](#%E9%9A%90%E5%BC%8F%E4%BD%8D%E7%BD%AE)
-        - [客户端生命管理](#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%94%9F%E5%91%BD%E7%AE%A1%E7%90%86)
-        - [恢复操作](#%E6%81%A2%E5%A4%8D%E6%93%8D%E4%BD%9C-1)
-            - [RESUME Frame (0x0D)](#resume-frame-0x0d)
-            - [RESUME_OK Frame (0x0E)](#resume_ok-frame-0x0e)
-            - [Keepalive 位置字段](#keepalive-%E4%BD%8D%E7%BD%AE%E5%AD%97%E6%AE%B5)
-        - [身份标识的处理](#%E8%BA%AB%E4%BB%BD%E6%A0%87%E8%AF%86%E7%9A%84%E5%A4%84%E7%90%86)
-    - [连接建立](#%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B)
-        - [协商](#%E5%8D%8F%E5%95%86)
-        - [不带 LEASE 的序列](#%E4%B8%8D%E5%B8%A6-lease-%E7%9A%84%E5%BA%8F%E5%88%97)
-        - [带 LEASE 的序列](#%E5%B8%A6-lease-%E7%9A%84%E5%BA%8F%E5%88%97)
-    - [分段和重组](#%E5%88%86%E6%AE%B5%E5%92%8C%E9%87%8D%E7%BB%84)
-            - [PAYLOAD Frame](#payload-frame)
-            - [REQUEST Frames](#request-frames)
-    - [Stream 序列和存活时间](#stream-%E5%BA%8F%E5%88%97%E5%92%8C%E5%AD%98%E6%B4%BB%E6%97%B6%E9%97%B4)
-        - [Request Response](#request-response)
-        - [Request Fire-n-Forget](#request-fire-n-forget)
-        - [Request Stream](#request-stream)
-        - [Request Channel](#request-channel)
-            - [请求方和回应方的 COMPLETE 共存](#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%92%8C%E5%9B%9E%E5%BA%94%E6%96%B9%E7%9A%84-complete-%E5%85%B1%E5%AD%98)
-            - [请求方的错误，回应方终止](#%E8%AF%B7%E6%B1%82%E6%96%B9%E7%9A%84%E9%94%99%E8%AF%AF%E5%9B%9E%E5%BA%94%E6%96%B9%E7%BB%88%E6%AD%A2)
-            - [请求方的错误，回应方已经完成](#%E8%AF%B7%E6%B1%82%E6%96%B9%E7%9A%84%E9%94%99%E8%AF%AF%E5%9B%9E%E5%BA%94%E6%96%B9%E5%B7%B2%E7%BB%8F%E5%AE%8C%E6%88%90)
-            - [回应方错误，请求方终止](#%E5%9B%9E%E5%BA%94%E6%96%B9%E9%94%99%E8%AF%AF%E8%AF%B7%E6%B1%82%E6%96%B9%E7%BB%88%E6%AD%A2)
-            - [回应方错误，请求方已经完成](#%E5%9B%9E%E5%BA%94%E6%96%B9%E9%94%99%E8%AF%AF%E8%AF%B7%E6%B1%82%E6%96%B9%E5%B7%B2%E7%BB%8F%E5%AE%8C%E6%88%90)
-            - [请求方取消，回应方终止](#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%8F%96%E6%B6%88%E5%9B%9E%E5%BA%94%E6%96%B9%E7%BB%88%E6%AD%A2)
-        - [流量控制](#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6)
-            - [Reactive Streams 语义](#reactive-streams-%E8%AF%AD%E4%B9%89)
-            - [租约语义](#%E7%A7%9F%E7%BA%A6%E8%AF%AD%E4%B9%89)
-            - [服务质量和优先级](#%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7)
-        - [意外的处理](#%E6%84%8F%E5%A4%96%E7%9A%84%E5%A4%84%E7%90%86)
+- [术语](#%E6%9C%AF%E8%AF%AD)
+- [版本号说明](#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%AF%B4%E6%98%8E)
+    - [跨版本兼容性](#%E8%B7%A8%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7)
+- [数据和元信息](#%E6%95%B0%E6%8D%AE%E5%92%8C%E5%85%83%E4%BF%A1%E6%81%AF)
+- [组帧 (Framing)](#%E7%BB%84%E5%B8%A7-framing)
+    - [Transport 协议](#transport-%E5%8D%8F%E8%AE%AE)
+    - [组帧 (Framing) 协议的用法](#%E7%BB%84%E5%B8%A7-framing-%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%94%A8%E6%B3%95)
+    - [组帧格式](#%E7%BB%84%E5%B8%A7%E6%A0%BC%E5%BC%8F)
+    - [Frame 头的格式](#frame-%E5%A4%B4%E7%9A%84%E6%A0%BC%E5%BC%8F)
+    - [Stream 标识](#stream-%E6%A0%87%E8%AF%86)
+    - [Frame 类型](#frame-%E7%B1%BB%E5%9E%8B)
+- [恢复操作](#%E6%81%A2%E5%A4%8D%E6%93%8D%E4%BD%9C)
+    - [假设](#%E5%81%87%E8%AE%BE)
+    - [隐式位置](#%E9%9A%90%E5%BC%8F%E4%BD%8D%E7%BD%AE)
+    - [客户端生命管理](#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%94%9F%E5%91%BD%E7%AE%A1%E7%90%86)
+    - [恢复操作](#%E6%81%A2%E5%A4%8D%E6%93%8D%E4%BD%9C-1)
+    - [身份标识的处理](#%E8%BA%AB%E4%BB%BD%E6%A0%87%E8%AF%86%E7%9A%84%E5%A4%84%E7%90%86)
+- [连接建立](#%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B)
+    - [协商](#%E5%8D%8F%E5%95%86)
+    - [不带 LEASE 的序列](#%E4%B8%8D%E5%B8%A6-lease-%E7%9A%84%E5%BA%8F%E5%88%97)
+    - [带 LEASE 的序列](#%E5%B8%A6-lease-%E7%9A%84%E5%BA%8F%E5%88%97)
+- [分段和重组](#%E5%88%86%E6%AE%B5%E5%92%8C%E9%87%8D%E7%BB%84)
+- [Stream 序列和存活时间](#stream-%E5%BA%8F%E5%88%97%E5%92%8C%E5%AD%98%E6%B4%BB%E6%97%B6%E9%97%B4)
+    - [Request Response](#request-response)
+    - [Request Fire-n-Forget](#request-fire-n-forget)
+    - [Request Stream](#request-stream)
+    - [Request Channel](#request-channel)
+- [流量控制](#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6)
+    - [Reactive Streams 语义](#reactive-streams-%E8%AF%AD%E4%B9%89)
+    - [租约语义](#%E7%A7%9F%E7%BA%A6%E8%AF%AD%E4%B9%89)
+    - [服务质量和优先级](#%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7)
+- [意外的处理](#%E6%84%8F%E5%A4%96%E7%9A%84%E5%A4%84%E7%90%86)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -99,7 +79,7 @@ RSocket 假设了一种操作范式。这些假设包括：
 * __Frame__: 一个单一的消息，其中包含了一个请求、一个回应、或者协议的处理。
 * __Fragment__: 一个应用消息的一部分，被分段以便可以被包含在一个 Frame 中。参见 [分段与重组](#fragmentation-and-reassembly).
 * __Transport__: 用于搭载 RSocket 协议的协议。WebSockets、TCP、或者 Aeron 中的一个。Transport **必须** 提供在 [transport protocol](#transport-protocol) 章节中提到的能力。
-* __Stream__: 操作单位（request/response 等）。参见[动机](Motivations.md)。
+* __Stream__: 操作单位（request/response 等）。参见[动机](README.md)。
 * __Request__: 一个 stream 请求。可能是四种类型中的一个。也可以是请求更多的请求或者说取消上一次请求的请求。
 * __Payload__: 一个 stream 消息（上游或者下游）。包含与上次请求创建的 stream 想关联的数据。在 Reactive Streams 和 Rx 中这代表 'onNext' 事件。
 * __Complete__: 终止一个 stream 上事件的发送并示意成功完成。在 Reactive Streams 和 Rx 中代表 'onComplete' 事件。
@@ -321,7 +301,7 @@ Stream ID 的生成遵循 [HTTP/2](https://tools.ietf.org/html/rfc7540) 中的�
 
 <a name="frame-setup"></a>
 
-### SETUP Frame (0x01)
+#### SETUP Frame (0x01)
 
 Setup frames **必须**始终使用 Stream ID 0，因为它们与连接相关。
 
@@ -378,7 +358,7 @@ __注意__: 如果服务器接受到了一个设置了 (__R__)esume Enabled 的 
 
 <a name="frame-error"></a>
 
-### ERROR Frame (0x0B)
+#### ERROR Frame (0x0B)
 
 当某个 request/stream 发生错误时，或者连接发生错误，或者回应 SETUP frame 时，都可以使用 Error frame。
 
@@ -406,7 +386,7 @@ Stream ID 为 0 表示错误与连接有关，包括连接的建立。Stream ID 
 
 Error Data 通常是 Exception 消息，但是也可以包含 stacktrace 信息，如果合适的话。
 
-#### 错误码
+##### 错误码
 
 | 类型                    | 值          | 描述                                       |
 | :-------------------- | :--------- | :--------------------------------------- |
@@ -435,7 +415,7 @@ __注意__: 0x0001 - 0x00300 之间还未使用的值作为协议未来的扩展
 
 <a name="frame-lease"></a>
 
-### LEASE Frame (0x02)
+#### LEASE Frame (0x02)
 
 Lease frame **可能**由来自客户端或者服务器端的回应方发送，用来通知请求方可以发送请求的时长，以及在这段时间窗口之内可以发送的数量。详见 [租约场景](#lease-semantics)。
 
@@ -474,7 +454,7 @@ Frame 内容
 
 <a name="frame-keepalive"></a>
 
-### KEEPALIVE Frame (0x03)
+#### KEEPALIVE Frame (0x03)
 
 KEEPALIVE frame **必须**永远使用 Stream ID 0，因为其与连接相关。
 
@@ -513,7 +493,7 @@ Frame 内容
 
 <a name="frame-request-response"></a>
 
-### REQUEST_RESPONSE Frame (0x04)
+#### REQUEST_RESPONSE Frame (0x04)
 
 Frame 内容
 
@@ -536,7 +516,7 @@ Frame 内容
 
 <a name="frame-fnf"></a>
 
-### REQUEST_FNF (Fire-n-Forget) Frame (0x05)
+#### REQUEST_FNF (Fire-n-Forget) Frame (0x05)
 
 Frame 内容
 
@@ -559,7 +539,7 @@ Frame 内容
 
 <a name="frame-request-stream"></a>
 
-### REQUEST_STREAM Frame (0x06)
+#### REQUEST_STREAM Frame (0x06)
 
 Frame 内容
 
@@ -587,7 +567,7 @@ Frame 内容
 
 <a name="frame-request-channel"></a>
 
-### REQUEST_CHANNEL Frame (0x07)
+#### REQUEST_CHANNEL Frame (0x07)
 
 Frame 内容
 
@@ -623,7 +603,7 @@ A requester MUST send only __one__ REQUEST_CHANNEL frame. Subsequent messages fr
 
 <a name="frame-request-n"></a>
 
-### REQUEST_N Frame (0x08)
+#### REQUEST_N Frame (0x08)
 
 Frame 内容
 
@@ -646,7 +626,7 @@ Frame 内容
 
 <a name="frame-cancel"></a>
 
-### CANCEL Frame (0x09)
+#### CANCEL Frame (0x09)
 
 Frame 内容
 
@@ -664,7 +644,7 @@ Frame 内容
 
 <a name="frame-payload"></a>
 
-### PAYLOAD Frame (0x0A)
+#### PAYLOAD Frame (0x0A)
 
 Frame 内容
 
@@ -706,7 +686,7 @@ Frame 内容
 
 <a name="frame-metadata-push"></a>
 
-### METADATA_PUSH Frame (0x0C)
+#### METADATA_PUSH Frame (0x0C)
 
 请求方或者回应方可以使用 Metadata Push frame 来异步发送元信息通知给它的对端。
 
@@ -733,7 +713,7 @@ Frame 内容
 
 <a name="frame-ext"></a>
 
-### EXT (Extension) Frame (0x3F)
+#### EXT (Extension) Frame (0x3F)
 
 扩展 frame 的通用格式如下所示。
 
@@ -1234,13 +1214,13 @@ Upon reception, the stream is terminated by the Responder.
 
 请求方可以通过在初始的 REQUEST_CHANNEL frame 中或者最后一个 PAYLOAD frame 中设置 C 标志位来表示 COMPLETE。请求方**严禁**在发送了带 C 标志位的 frame 之后再发送额外的 PAYLOAD frame。
 
-### 流量控制
+## 流量控制
 
 协议提供了多种流量控制机制。
 
 <a name="flow-control-reactive-streams"></a>
 
-#### Reactive Streams 语义
+### Reactive Streams 语义
 
 [Reactive Streams](http://www.reactive-streams.org/) 语义用在 Streams，Subscriptions，以及 Channels 的流控上。这是一个基于信用的模型，请求方授信回应方可以发送的 PAYLOAD 数目。有时这个模型也被称之为 "request-n" 或者 "request(n)"。
 
@@ -1265,7 +1245,7 @@ Upon reception, the stream is terminated by the Responder.
 
 <a name="flow-control-lease"></a>
 
-#### 租约语义
+### 租约语义
 
 LEASE 语义控制在给定时间段内请求方可以发送的请求（所有类型）数量。
 
@@ -1277,13 +1257,13 @@ LEASE 语义控制在给定时间段内请求方可以发送的请求（所有�
 
 <a name="flow-control-qos"></a>
 
-#### 服务质量和优先级
+### 服务质量和优先级
 
 Stream 的服务质量和优先级是应用层和网络层应该考虑的，并且只有它们才能做的更好。元信息的能力，包括 METADATA_PUSH，是应用可以借助调优优先级的有效工具。
 
 DiffServ via IP QoS 最好由底层的网络层协议来处理。
 
-### 意外的处理
+## 意外的处理
 
 本协议对错误 frame 的处理持容忍态度。如果与当前上下文无关的错误**就应该**采取忽略的态度。下面是针对一些场景的进一步澄清：
 
