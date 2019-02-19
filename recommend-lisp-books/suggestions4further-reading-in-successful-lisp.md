@@ -22,7 +22,7 @@ ANSI Common Lisp
 On Lisp: Advanced Techniques for Common Lisp
 -------------------------------------
 
-*Graham*, Prentice Hall, 1994, ISBN 0-13-030552-9 
+*Graham*, Prentice Hall, 1994, ISBN 0-13-030552-9
 
 这本书已经成为了宏技术的权威参考。
 

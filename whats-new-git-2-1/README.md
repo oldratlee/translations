@@ -84,7 +84,7 @@ issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | 
 >
 > 当从子目录运行时，命令输出的路径通常相对于当前目录。这个选项强制输出的路径是相对项目的顶级目录。
 
-非常贴心！这个缺省行为非常符合我的工作方式，我常常会运行`git grep`找出一个文件的路径，拷贝粘贴到一个`XML`文件中（这样的做法可能出卖了我是个`Java`开发 :grin:）。如果你也觉得有用，只要简单运行： 
+非常贴心！这个缺省行为非常符合我的工作方式，我常常会运行`git grep`找出一个文件的路径，拷贝粘贴到一个`XML`文件中（这样的做法可能出卖了我是个`Java`开发 :grin:）。如果你也觉得有用，只要简单运行：
 
 ```bash
 $ git config --global grep.fullname true
@@ -115,7 +115,7 @@ $ git replace --edit master
 $ git replace --edit master:jira-components/pom.xml
 ```
 
-应该这么做？基本上不会 😄 大部分情况应该用`git rebase`重写对象，这样会正确的重写提交的`SHA`，保证历史是健全的（`sane history`）。 
+应该这么做？基本上不会 😄 大部分情况应该用`git rebase`重写对象，这样会正确的重写提交的`SHA`，保证历史是健全的（`sane history`）。
 
 > `git replace`会读取`--graft`选项，可以编辑父提交。
 

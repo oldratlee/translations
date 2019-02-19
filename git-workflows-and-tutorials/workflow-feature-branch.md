@@ -33,7 +33,7 @@
 另外，如果你在功能开发中有问题卡住了，可以开一个`pull requests`来向同学们征求建议。
 这些做法的重点就是，`pull requests`让团队成员之间互相评论工作变成非常方便！
 
-🍺 工作方式 
+🍺 工作方式
 ---------------------
 
 功能分支工作流仍然用中央仓库，并且`master`分支还是代表了正式项目的历史。
@@ -60,7 +60,7 @@
 
 仓库管理的产品解决方案像[`Bitbucket`](http://bitbucket.org/)或[`Stash`](http://www.atlassian.com/stash)，可以良好地支持`Pull Requests`。可以看看`Stash`的[`Pull Requests`文档](https://confluence.atlassian.com/display/STASH/Using+pull+requests+in+Stash)。
 
-🍺 示例 
+🍺 示例
 ---------------------
 
 下面的示例演示了如何把`Pull Requests`作为`Code Review`的方式，但注意`Pull Requests`可以用于很多其它的目的。
@@ -153,7 +153,7 @@ git push
 这个过程常常会生成一个合并提交。有些开发者喜欢有合并提交，因为它像一个新功能和原来代码基线的连通符。
 但如果你偏爱线性的提交历史，可以在执行合并时`rebase`新功能到`master`分支的顶部，这样生成一个快进（`fast-forward`）的合并。
 
-【译注】生成一个快进的合并的命令行：（感觉步骤有些多:sweat:，欢迎给出更简捷的做法:two_hearts:） 
+【译注】生成一个快进的合并的命令行：（感觉步骤有些多:sweat:，欢迎给出更简捷的做法:two_hearts:）
 
 ```bash
 git checkout marys-feature
@@ -174,7 +174,7 @@ git push
 
 通过隔离功能到独立的分支上，每个人都可以自主的工作，当然必要的时候在开发者之间分享变更还是比较繁琐的。
 
-🍺 下一站 
+🍺 下一站
 -----------------
 
 到了这里，但愿你发现了功能分支可以很直接地在[集中式工作流](workflow-centralized.md)的仅有的`master`分支上完成多功能的开发。

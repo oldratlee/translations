@@ -2,7 +2,7 @@
 基于开源中国社区的译文稿： [日志：每个软件工程师都应该知道的有关实时数据的统一概念](http://www.oschina.net/translate/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)  
 译文发在[伯乐在线](http://blog.jobbole.com/)：[The Log：每个程序员都应该知道有关实时数据的统一抽象](http://blog.jobbole.com/89674/)， 2015-08-21
 
-## 🍎 译序 
+## 🍎 译序
 
 这篇文章是`LinkedIn`的`Kreps`发表的一篇博文，虽然很长，但被称为[程序员史诗般必读文章](http://bryanpendleton.blogspot.hk/2014/01/the-log-epic-software-engineering.html)。
 
@@ -10,7 +10,7 @@
 
 但作为一篇 **_经典_** 文章，还是值得去完整地研读和理解：
 
-1. 原文可以作为大数据/分布式系统领域一份导论式的资料。   
+1. 原文可以作为大数据/分布式系统领域一份导论式的资料。  
     作者对整个领域的理解和实战精深广博，抓出并梳理了这个领域的核心：日志。
 1. 原文作为一手资料，有完整的分析过程，能够深入和核对自己的理解。
 1. 解读和摘要不能替代自己理解。  

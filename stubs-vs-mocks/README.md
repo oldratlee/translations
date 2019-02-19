@@ -21,9 +21,9 @@
 `stubs`只检查的是状态（`state`），而`mocks`检查了行为（`behavior`）。在测试中使用`mock`，不仅检查你测试和其依赖之间和状态，而且还有行为。
 
 > 原文如下：
-> 
+>
 > Stubs vs. Mocks
-> 
+>
 > In the article “Mocks Aren’t Stubs,” (<http://martinfowler.com/articles/mocksArentStubs.html>),
 > Martin Fowler discusses the difference between stubs and mocks. A stub stands in for a real object.
 > It simply reciprocates the coached expected response when called by the code being tested.

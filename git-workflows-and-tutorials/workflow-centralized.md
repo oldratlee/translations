@@ -31,7 +31,7 @@
 
 其次，`Git`提供了强壮的分支和合并模型。不像`SVN`，`Git`的分支设计成可以做为一种用来在仓库之间集成代码和分享修改的『失败安全』的机制。
 
-🍺 工作方式 
+🍺 工作方式
 ---------------------
 
 像`Subversion`一样，集中式工作流以中央仓库作为项目所有修改的单点实体。相比`SVN`缺省的开发分支`trunk`，`Git`叫做`master`，所有修改提交到这个分支上。本工作流只用到`master`这一个分支。
@@ -54,7 +54,7 @@
 
 如果本地修改和上游提交有冲突，`Git`会暂停`rebase`过程，给你手动解决冲突的机会。`Git`解决合并冲突，用和生成提交一样的[`git status`](https://www.atlassian.com/git/tutorials/inspecting-a-repository#git-status)和[`git add`](https://www.atlassian.com/git/tutorials/saving-changes#git-add)命令，很一致方便。还有一点，如果解决冲突时遇到麻烦，`Git`可以很简单中止整个`rebase`操作，重来一次（或者让别人来帮助解决）。
 
-🍺 示例 
+🍺 示例
 ---------------------
 
 让我们一起逐步分解来看看一个常见的小团队如何用这个工作流来协作的。有两个开发者小明和小红，看他们是如何开发自己的功能并提交到中央仓库上的。
@@ -210,7 +210,7 @@ CONFLICT (content): Merge conflict in <some-file>
 接着小红编辑这些文件。修改完成后，用老套路暂存这些文件，并让[`git rebase`](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase)完成剩下的事：
 
 ```bash
-git add <some-file> 
+git add <some-file>
 git rebase --continue
 ```
 
@@ -236,7 +236,7 @@ git push
 # 原因同上
 ```
 
-🍺 下一站 
+🍺 下一站
 -----------------
 
 如你所见，仅使用几个`Git`命令我们就可以模拟出传统`Subversion`开发环境。对于要从`SVN`迁移过来的团队来说这太好了，但没有发挥出`Git`分布式本质的优势。
