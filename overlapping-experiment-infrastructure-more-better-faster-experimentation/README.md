@@ -1,6 +1,13 @@
 原文链接： [Overlapping Experiment Infrastructure: More, Better, Faster Experimentation](http://research.google.com/pubs/pub36500.html "Overlapping Experiment Infrastructure: More, Better, Faster Experimentation") - _Diane Tang, Ashish Agarwal, Deirdre O’Brien, Mike Meyer_，2010-07 （[本地`PDF`](overlapping-experiment-infrastructure-more-better-faster-experimentation-36500.pdf)），2010年  
 基于[火光摇曳Flickering](http://www.flickering.cn/)上 _lexqu（屈伟）_ 的译文稿`v1.2.0`： [Google 重叠实验框架：更多，更好，更快地实验](http://www.flickering.cn/uncategorized/2015/01/%E9%87%8D%E5%8F%A0%E5%AE%9E%E9%AA%8C%E5%B9%B3%E5%8F%B0%EF%BC%9A%E6%9B%B4%E5%A4%9A%EF%BC%8C%E6%9B%B4%E5%A5%BD%EF%BC%8C%E6%9B%B4%E5%BF%AB%E5%9C%B0%E5%AE%9E%E9%AA%8C/)
 
+## 🍎 译序
+
+`Google`这篇8年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资料。不单说明了，实验设施的系统设计，还包含实验的进阶主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。
+
+- 对于了解`Growth Hacking`/`ABTest`的同学，可以有效的学习实验设施的系统设计，尤其是重叠实验设施要考虑多方面的需求、维度，如何建模是很复杂的；
+- 对于不了解`Growth Hacking`/`ABTest`这个领域知识的同学，可以通过这篇文章，学习一个复杂系统整体的思考和设计的模式，包含需求、场景、模型设计、产品流程、落地关键。
+
 # 重叠实验设施：更多、更好、更快地实验
 
 <img src="expt0.png" align="right" />
