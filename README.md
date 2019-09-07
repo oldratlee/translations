@@ -81,6 +81,8 @@ Chinese translations for classic IT resources.
 
 1. [务实的函数式编程（by Bob大叔）](pragmatic-functional-programming/README.md)  
     `Bob`大叔的短文，`FP`在软件开发优点上务实的思考，引导大家理解、学习和使用`FP`，文章后半篇还用`FP`语言`Clojure`简约演示了一番。在文末不忘呼吁学习`FP`，并推荐`Clojure`语言。
+1. [手把手介绍函数式编程：从命令式重构到函数式](a-practical-introduction-to-functional-programming/README.md)  
+    本文是一篇手把手的函数式编程入门介绍，借助代码示例讲解细腻。但又不乏洞见，第一节中列举和点评了函数式种种让眼花缭乱特质，给出了『理解函数式特质的指南针：函数式代码的核心特质就一条，**无副作用**』，相信对于有积极学过挖过的函数式同学看来更是有相知恨晚的感觉。希望看了这篇文章之后能在学习和使用函数式编程的旅途中不再迷路哦，兄die～
 1. [**_Successful Lisp_** 中的`Lisp`书籍推荐](recommend-lisp-books/suggestions4further-reading-in-successful-lisp.md)
     - [`Lisp`书籍推荐和点评](recommend-lisp-books/README.md)，由于`Lisp`与其它语言从**基本概念**就开始的差异，已有的语言经验反而是个学习阻碍，深入浅出的巧妙讲解对入门太重要了。
     - 特别提这篇好文[【转】学习`Lisp`的书籍推荐](recommend-lisp-books/recommend-lisp-books.md)
