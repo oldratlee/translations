@@ -137,7 +137,7 @@
 可以认识到日志是更基本的数据结构：日志除了可用来创建原表，也可以用来创建各类衍生表。
 （是的，表可以是非关系型用户用的键值数据存储（`keyed data store`）。）
 
-<img src="images/yin-yang.jpg" width="180" hspace="10px" align="right" >
+<img src="images/yin-yang.jpg" width="20%" hspace="10px" align="right" >
 
 这个过程也是可逆的：如果你对一张表进行更新，你可以记录这些变更，并把所有更新的『变更日志』发布到表的状态信息中。
 这些变更日志正是你所需要的支持准实时的复制。

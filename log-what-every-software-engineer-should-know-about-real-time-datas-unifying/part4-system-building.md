@@ -92,7 +92,7 @@
 这正是不同系统间的应该变化的部分，例如：一个全文搜索查询语句可能需要查询所有分区，
 而一个主键查询只需要查询负责这个主键数据的单个节点就可以了。
 
-<img src="images/system.png" width="130" hspace="10px" align="right" >
+<img src="images/system.png" width="20%" hspace="10px" align="right" >
 
 下面我们来看下系统是如何工作的。
 系统被分为两个逻辑部分：日志和服务层。日志按顺序捕获状态变化。
