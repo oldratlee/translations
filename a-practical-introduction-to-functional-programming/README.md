@@ -6,7 +6,8 @@
 
 希望看了这篇文章之后，能在学习和使用函数式编程的旅途中不迷路哦，兄die～
 
-PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://alvinalexander.com/scala/functional-programming-simplified-book)》这本书了解到这篇文章。这本书由浅入深循序渐进地对`FP`做了体系讲解，力荐！[书的豆瓣链接](https://book.douban.com/subject/30326807/)。
+PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://alvinalexander.com/scala/functional-programming-simplified-book)》了解到本文。这本书由浅入深循序渐进地对`FP`做了体系讲解，力荐！[书的豆瓣链接](https://book.douban.com/subject/30326807/)。  
+翻译中肯定会有不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提交代码](https://github.com/oldratlee/translations/fork)）！
 
 # 手把手介绍函数式编程：从命令式重构到函数式
 
@@ -14,7 +15,7 @@ PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://
 
 本文的第一部分选用了简短的数据转换循环，将它们重构成函数式的`map`和`reduce`。第二部分则对更长的循环代码，将它们分解成多个单元，然后重构各个单元成函数式的。第三部分选用的是有一系列连续的数据转换循环代码，将其拆解成为一个函数式管道（`functional pipeline`）。
 
-示例代码用的是`Python`语言，因为多数人都觉得`Python`易于阅读。示例代码避免使用`Python`范的（`pythonic`）代码，以便展示出各个语言通用的函数式技术：`map`、`reduce`和管道。所有示例都用的是`Python 2`。
+示例代码用的是`Python`语言，因为多数人都觉得`Python`易于阅读。示例代码避免使用`Python`范的（`pythonic`）代码，以便展示出对各种语言通用的函数式技术：`map`、`reduce`和管道。所有示例都用的是`Python 2`。
 
 <img src="lambda.png" width="25%" hspace="10px" align="right" >
 
@@ -28,7 +29,7 @@ PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://
 - [不要迭代列表，使用`map`和`reduce`](#%E4%B8%8D%E8%A6%81%E8%BF%AD%E4%BB%A3%E5%88%97%E8%A1%A8%E4%BD%BF%E7%94%A8map%E5%92%8Creduce)
     - [`map`](#map)
     - [`reduce`](#reduce)
-- [声明方式编写代码，而非命令式](#%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81%E8%80%8C%E9%9D%9E%E5%91%BD%E4%BB%A4%E5%BC%8F)
+- [编写声明式代码，而非命令式](#%E7%BC%96%E5%86%99%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BB%A3%E7%A0%81%E8%80%8C%E9%9D%9E%E5%91%BD%E4%BB%A4%E5%BC%8F)
     - [使用函数](#%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0)
     - [消除状态](#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81)
 - [使用管道](#%E4%BD%BF%E7%94%A8%E7%AE%A1%E9%81%93)
@@ -235,7 +236,7 @@ if len(heights) > 0:
     average_height = reduce(add, heights) / len(heights)
 ```
 
-# 声明方式编写代码，而非命令式
+# 编写声明式代码，而非命令式
 
 下面的程序演示三辆赛车的比赛。每过一段时间，赛车可能向前跑了，也可能抛锚而原地不动。在每个时间段，程序打印出目前为止的赛车路径。五个时间段后比赛结束。
 
@@ -285,11 +286,11 @@ while time:
         print '-' * car_positions[i]
 ```
 
-这份代码是命令式的。函数式版本则是声明性的，描述要做什么，而不是如何做。
+这份代码是命令式的。函数式版本则是声明式的，描述要做什么，而不是如何做。
 
 ## 使用函数
 
-通过将代码片段打包到函数中，程序可以更具声明性。
+通过将代码片段打包到函数中，程序可以更加声明式。
 
 ```python
 from random import random
@@ -410,7 +411,7 @@ def rule_sequence(s, rules):
     return s
 ```
 
-**练习3**：上面的代码使用循环来实现。通过重写为递归来使其更具声明性。
+**练习3**：上面的代码使用循环来实现。通过重写为递归来使代码更加声明式。
 
 我的实现方案：
 
@@ -614,7 +615,7 @@ def pluck(keys):
 
 1. <a id="note1"></a>[^](#note_mark1) 不可变数据是无法更改的。某些语言（如`Clojure`）默认就是所有值都不可变。任何『变更』操作都会复制该值，更改副本然后返回更改后的副本。这消除了不完整模型下程序可能进入状态所带来的`Bug`。
 1. <a id="note2"></a>[^](#note_mark1) 支持一等公民函数的语言允许像任何其他值一样对待函数。这意味着函数可以创建，传递给函数，从函数返回，以及存储在数据结构中。
-1. <a id="note3"></a>[^](#note_mark1) 尾调用优化是一个编程语言特性。函数递归调用时，会创建一个新的栈帧（`stack frame`）。栈帧用于存储当前函数调用的参数和本地值。如果函数递归很多次，解释器或编译器可能会耗尽内存。支持尾调用优化的语言为其整个递归调用序列重用相同的栈帧。像`Python`这样没有尾调用优化的语言通常会限制函数递归的次数（如数千次）。对于上面例子中`race()`函数，因为只有5个时间段，所以是安全的。
+1. <a id="note3"></a>[^](#note_mark1) 尾调用优化是一个编程语言特性。函数递归调用时，会创建一个新的栈帧（`stack frame`）。栈帧用于存储当前函数调用的参数和本地值。如果函数递归很多次，解释器或编译器可能会耗尽内存。支持尾调用优化的语言对整个递归调用序列重用同一个的栈帧。像`Python`这样没有尾调用优化的语言通常会限制函数递归的次数（如数千次）。对于上面例子中`race()`函数，因为只有5个时间段，所以是安全的。
 1. <a id="note4"></a>[^](#note_mark4) 柯里化（`currying`）是指将一个带有多个参数的函数转换成另一个函数，这个函数接受第一个参数，并返回一个接受下一个参数的函数，依此类推所有参数。
 1. <a id="note5"></a>[^](#note_mark5) 并行化（`parallelization`）是指，在没有同步的情况下，相同的代码可以并发运行。这些并发处理通常运行在多个处理器上。
 1. <a id="note6"></a>[^](#note_mark5) 惰性求值（`lazy evaluation`）是一种编译器技术，可以避免在需要结果之前运行代码。
