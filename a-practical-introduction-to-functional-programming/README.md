@@ -46,7 +46,7 @@ PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://
 - <a id="note_mark4"></a>人们也会提到`map`、`reduce`、管道、递归（`recursing`）、柯里化[<sup>4</sup>](#note4)（`currying`）以及高阶函数的使用。这些是**用于编写函数式代码的编程技术**。
 - <a id="note_mark5"></a>人们还会提到并行化[<sup>5</sup>](#note5)（`parallelization`）、惰性求值[<sup>6</sup>](#note6)（`lazy evaluation`）和确定性[<sup>7</sup>](#note7)（`determinism`）。这些是**函数式程序的优点**。
 
-无视这一切。函数式代码的核心特质就一条：**无副作用**（`side effect`）。即代码逻辑不依赖于当前函数之外的数据，并且也不会更改当前函数之外的数据。所有其他的『函数式』特质都可以从这一条派生出来。在你学习过程中，请以此作为指南针。不要再迷路哦，兄die～
+无视这一切。函数式代码的核心特质就一条：**无副作用**（`the absence of side effects`）。即代码逻辑不依赖于当前函数之外的数据，并且也不会更改当前函数之外的数据。所有其他的『函数式』特质都可以从这一条派生出来。在你学习过程中，请以此作为指南针。不要再迷路哦，兄die～
 
 这是一个非函数式的函数：
 
