@@ -1,5 +1,7 @@
 原文链接： [A practical introduction to functional programming](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming) - [Mary Rose](https://github.com/maryrosecook)，2015-08-10  
 
+<img src="lambda.png" width="20%" hspace="2px" align="right" >
+
 ## 🍎 译序
 
 本文是一篇手把手的函数式编程入门介绍，借助代码示例讲解细腻。但又不乏洞见，第一节中列举和点评了函数式种种让眼花缭乱的特质，给出了『理解函数式特质的指南针：函数式代码的核心特质就一条，**无副作用**』，相信这个指南针对于有积极学过挖过函数式的同学看来更是有相知恨晚的感觉。
@@ -16,8 +18,6 @@ PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://
 本文的第一部分选用了简短的数据转换循环，将它们重构成函数式的`map`和`reduce`。第二部分则对更长的循环代码，将它们分解成多个单元，然后重构各个单元成函数式的。第三部分选用的是有一系列连续的数据转换循环代码，将其拆解成为一个函数式管道（`functional pipeline`）。
 
 示例代码用的是`Python`语言，因为多数人都觉得`Python`易于阅读。示例代码避免使用`Python`范的（`pythonic`）代码，以便展示出对各种语言通用的函数式技术：`map`、`reduce`和管道。所有示例都用的是`Python 2`。
-
-<img src="lambda.png" width="25%" hspace="10px" align="right" >
 
 -------------------
 
@@ -38,6 +38,8 @@ PS：本人是在《[Functional Programming, Simplified(Scala edition)](https://
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 -------------------
+
+<img src="compass-small.jpg" width="25%" hspace="2px" align="right" >
 
 # 理解函数式特质的指南针
 
