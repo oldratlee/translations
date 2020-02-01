@@ -1,10 +1,25 @@
 原文链接： [A Bottom-Up View of Kotlin Coroutines](https://www.infoq.com/articles/kotlin-coroutines-bottom-up/) - _Garth Gilmour_ / _Eamonn Boyle_，2020-01-11
 
+## 🍎 译序
+
+`Kotlin`的协程应该是`Java`生态中最好的协程实现，在生产环境（`Android` / 后端场景）也有比较多实际应用。在移动`Android`开发中，`Google`宣导`Kotlin First`。而在后端开发中，`Spring 5 / Spring Boot`一等公民支持`Kotlin`语言，也[添加了对`Kotlin`协程的支持](https://www.baeldung.com/spring-boot-kotlin-coroutines)；相信有后端开发框架王者`Spring`的加持，`Kotlin`语言与`Kotlin`协程的发展普及有着乐观的前景。
+
+无论是`Kotlin`语言还是`Kotlin`协程，都非常注重务实与开发者友好：
+
+- `Kotlin`语言：相对`Java`，方便简洁（如字符串插值、`data class`、统一原生类型与包装类型、扩展方法、命名参数、默认参数）与安全（如非空类型）。
+- `Kotlin`协程：以大家习惯的命令式/过程式的编程方式写出非阻塞的高效并发程序。
+
+但并发编程是计算机最复杂的问题之一，即使是用协程的编写方式；再者`Kotlin`协程的友好使用方式，对于使用者理解协程背后的运行机制其实反而是个障碍。而真正的理解协程才能让使用协程做到心中有数避免踩坑。这篇文章自底向上视角的讲解方式，正是有意于正面解决这个问题：如何有效理解`Kotlin`协程运行机制。
+
+考虑到原文中只给了代码示例但没有给出代码工程，不方便读者直接运行起来以跟着文章自己探索，译者提供了示例代码的可运行代码工程，参见`GitHub`仓库：[`oldratlee/kotlin-coroutines-bottom-up`](https://github.com/oldratlee/kotlin-coroutines-bottom-up)。
+
+[自己](http://weibo.com/oldratlee)理解有限，翻译中不足和不对之处，欢迎建议（[提交Issue](https://github.com/oldratlee/translations/issues)）和指正（[Fork后提Pull Request](https://github.com/oldratlee/translations/fork)）。
+
 # 理解`Kotlin`协程：自底向上的视角
 
 <img src="images/kotlin-coroutines.png" vspace="10px" hspace="10px" align="right" width="35%" >
 
---------------------------------------
+----------------------------------------
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -19,7 +34,7 @@
 - [3. 开始探索](#3-%E5%BC%80%E5%A7%8B%E6%8E%A2%E7%B4%A2)
     - [3.1 延续传递风格（`Continuation Passing Style`/`CPS`）](#31-%E5%BB%B6%E7%BB%AD%E4%BC%A0%E9%80%92%E9%A3%8E%E6%A0%BCcontinuation-passing-stylecps)
     - [3.2 挂起还是不挂起 —— 这是一个问题](#32-%E6%8C%82%E8%B5%B7%E8%BF%98%E6%98%AF%E4%B8%8D%E6%8C%82%E8%B5%B7--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
-    - [3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）](#33-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BElabel)
+    - [3.3 大`switch`语句（`The Big Switch Statement`）和标签](#33-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BE)
 - [4. 追踪执行](#4-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C)
     - [4.1 第三次调用`fetchNewName`的请求 —— 不挂起](#41-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%8C%82%E8%B5%B7)
     - [4.2 第三次调用`fetchNewName` —— 挂起](#42-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%8C%82%E8%B5%B7)
@@ -28,19 +43,19 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
---------------------------------------
+----------------------------------------
 
 ## 0. 关键要点
 
 - `JVM`没有原生支持协程（`coroutines`）
-- `Kotlin`在编译器中通过转换为状态机的方式实现协程
-- `Kotlin`协程的实现使用了一个关键字，剩下的通过库来实现
+- `Kotlin`实现协程方式是，在编译器中将代码转换为状态机
+- 实现协程，`Kotlin`语言只用了一个关键字，剩下的通过库来实现
 - `Kotlin`使用延续传递风格（`Continuation Passing Style`/`CPS`）来实现协程
 - 协程使用了调度器（`Dispatchers`），因此在`JavaFX`、`Android`、`Swing`等中使用方式略有不同
 
---------------------------------------
+----------------------------------------
 
-协程是一个令人着迷的主题，尽管并不是一个新话题。正如[其他地方所说的那样](https://www.youtube.com/watch?v=dWBsdh0BndM)，协程多年来已经被多次重新发现，通常是作为轻量级线程（`lightweight threading`）或『回调地狱』（`callback hell`）的解决方案。
+协程是一个令人着迷的主题，尽管并不是一个新话题。正如[其他地方提到的](https://www.youtube.com/watch?v=dWBsdh0BndM)，协程这些年来已经被多次重新发现挖掘出来，通常是作为轻量级线程（`lightweight threading`）或『回调地狱』（`callback hell`）的解决方案。
 
 最近在`JVM`上，协程已成为反应式编程（`Reactive Programming`）的一种替代方法。诸如[`RxJava`](https://github.com/ReactiveX/RxJava)或[`Project Reactor`](https://projectreactor.io/)之类的框架为客户端提供了一种增量处理传入信息的方式，并且对节流（`throttling`）和并行（`parallelism`）提供了广泛的支持。但是，您必须围绕反应流（`reactive streams`）上的函数式操作（`functional operations`）来重新组织代码，[在很多情况下这样做成本是大于收益的](https://www.youtube.com/watch?v=5TJiTSWktLU)。
 
@@ -296,7 +311,7 @@ $continuation = new ContinuationImpl($completion) {
 - `L$1`持有`starterName`参数的值。始终有值。
 - `L$2`到`L$5`持有局部变量的值。在代码执行时逐步填充。`L$2`将持有`firstName`的值，依此类推。
 
-另外还有用于最终结果的字段，以及一个名为`label`的引人注意的整数字段。
+另外还有用于最终结果的字段，以及一个名为`label`引人注意的整型字段。
 
 ### 3.2 挂起还是不挂起 —— 这是一个问题
 
@@ -308,9 +323,9 @@ $continuation = new ContinuationImpl($completion) {
 
 我们的示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是挂起总是会发生。但是，如果要理解所生成的代码，我们必须记住，实现需要能够处理所有可能性。
 
-### 3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）
+### 3.3 大`switch`语句（`The Big Switch Statement`）和标签
 
-如果进一步查看反汇编的代码，会发现埋在多个嵌套标签中的`switch`语句。这是状态机（`state machine`）的实现，用于控制`wheresWaldo()`方法中的不同挂起点。下面的代码用于说明`switch`语句的高层结构：
+如果进一步查看反汇编的代码，会发现埋在多个嵌套标签（`label`）中的`switch`语句。这是状态机（`state machine`）的实现，用于控制`wheresWaldo()`方法中的不同挂起点。下面的代码用于说明`switch`语句的高层结构：
 
 ```java
 // listing one: the generated switch statement and labels
@@ -518,17 +533,17 @@ label48: {
 
 我们可以得出一些有用的结论：
 
-1. **没有魔法**。当次了解协程时，很容易以为会有一些特殊的『魔法』来把所有东西连接起来。正如我们上面所看到的，生成的代码只使用过程编程（`procedural programming`）的基本构建块，比如条件语句和带有标签的`break`。
-2. **实现是基于延续的**。如`KEEP`提案中所说明，实现函数的挂起和恢复的方式是将函数的状态捕捉到一个对象中。因此，对于每一个挂起函数，编译器会创建一个具有`N`个字段的延续类，其中`N`是函数参数个数加上函数变量个数加上3。最后三个持有当前对象，最终结果和索引。
+1. **没有魔法**。当次了解协程时，很容易以为会有一些特殊的『魔法』来把所有东西连接起来。正如我们上面所看到的，生成的代码只使用过程式编程（`Procedural Programming`）的基本构建块，比如条件语句和带有标签的`break`。
+2. **实现是基于延续的**。如`KEEP`提案中所说明，实现函数的挂起和恢复的方式是将函数的状态捕捉到一个对象中。因此，对于每一个挂起函数，编译器会创建一个具有`N`个字段的延续类，其中`N`是函数参数个数加上函数变量个数加上3。后面3个字段持有的是当前对象、最终结果和索引。
 3. **执行始终遵循标准模式**。如果要从挂起中恢复，使用的是延续的`label`字段跳转到`switch`语句的对应分支。在这个分支中，从延续对象中取出所找到的数据，然后用带有标签的`break`语句跳转到如果没有发生挂起所要执行的代码。
 
-------------------------
+----------------------------------------
 
 **关于作者**
 
 <img src="images/Garth-Gilmour.jpg" vspace="10px" hspace="10px" align="left" >
 
-**[Garth Gilmour](https://twitter.com/GarthGilmour)** 是`Instil`的学习主管。他在1999年放弃了全职开发工作，先是给`C`程序员讲授`C++`，然后给`C++`程序员讲授`Java`，再给`Java`程序员讲授`C#`，现在向所有人讲授所有东西，但更喜欢讲授`Kotlin`。如果算算上过的课话，那一定会超过1000次了。他是20多门课程的作者，经常在聚会上演讲，在国家和国际会议上发表演讲，并共同组织了贝尔法斯特（北爱尔兰首府）开发者活动的`BASH`系列主题和最近成立的贝尔法斯特`Kotlin`用户组。如不在黑板前，他以教色列搏击术（_Krav Maga_）和练举重。
+**[Garth Gilmour](https://twitter.com/GarthGilmour)** 是`Instil`的学习主管。他在1999年放弃了全职开发工作，先是给`C`程序员讲授`C++`，然后给`C++`程序员讲授`Java`，再给`Java`程序员讲授`C#`，现在向所有人讲授所有东西，但更喜欢讲授`Kotlin`。如果算算上过的课话，那一定会超过1000次了。他是20多门课程的作者，经常在聚会上演讲，在国家和国际会议上发表演讲，并共同组织了贝尔法斯特（北爱尔兰首府）开发者活动的`BASH`系列主题和最近成立的贝尔法斯特`Kotlin`用户组。如不在黑板前，就会教色列搏击术（_Krav Maga_）和练举重。
 
 <img src="images/Eamonn-Boyle.jpg" vspace="10px" hspace="10px" align="left" >
 
