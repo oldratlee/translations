@@ -8,18 +8,19 @@
 
 - [0. 关键要点](#0-%E5%85%B3%E9%94%AE%E8%A6%81%E7%82%B9)
 - [1. 协程的理解挑战](#1-%E5%8D%8F%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3%E6%8C%91%E6%88%98)
-- [2. 示例应用（服务端）](#2-%E7%A4%BA%E4%BE%8B%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF)
-- [3. 示例应用（客户端）](#3-%E7%A4%BA%E4%BE%8B%E5%BA%94%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF)
-- [4. 访问`REST endpoint`的服务](#4-%E8%AE%BF%E9%97%AErest-endpoint%E7%9A%84%E6%9C%8D%E5%8A%A1)
-- [5. 开始我们的探索](#5-%E5%BC%80%E5%A7%8B%E6%88%91%E4%BB%AC%E7%9A%84%E6%8E%A2%E7%B4%A2)
-- [6. 延续传递风格（`Continuation Passing Style`/`CPS`）](#6-%E5%BB%B6%E7%BB%AD%E4%BC%A0%E9%80%92%E9%A3%8E%E6%A0%BCcontinuation-passing-stylecps)
-- [7. 暂停还是不暂停 —— 这是一个问题](#7-%E6%9A%82%E5%81%9C%E8%BF%98%E6%98%AF%E4%B8%8D%E6%9A%82%E5%81%9C--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
-- [8. 大`switch`语句（`The Big Switch Statement`）和标签（`label`）](#8-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BElabel)
-- [9. 追踪执行](#9-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C)
-- [10. 第三次调用`fetchNewName`的请求 —— 不暂停](#10-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%9A%82%E5%81%9C)
-- [11. 第三次调用`fetchNewName` —— 暂停](#11-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%9A%82%E5%81%9C)
-- [12. 总结执行](#12-%E6%80%BB%E7%BB%93%E6%89%A7%E8%A1%8C)
-- [13. 结论](#13-%E7%BB%93%E8%AE%BA)
+- [2. 示例应用](#2-%E7%A4%BA%E4%BE%8B%E5%BA%94%E7%94%A8)
+    - [2.1 示例应用（服务端）](#21-%E7%A4%BA%E4%BE%8B%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF)
+    - [2.2 示例应用（客户端）](#22-%E7%A4%BA%E4%BE%8B%E5%BA%94%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF)
+    - [2.3 访问`REST endpoint`的服务](#23-%E8%AE%BF%E9%97%AErest-endpoint%E7%9A%84%E6%9C%8D%E5%8A%A1)
+- [3. 开始探索](#3-%E5%BC%80%E5%A7%8B%E6%8E%A2%E7%B4%A2)
+    - [3.1 延续传递风格（`Continuation Passing Style`/`CPS`）](#31-%E5%BB%B6%E7%BB%AD%E4%BC%A0%E9%80%92%E9%A3%8E%E6%A0%BCcontinuation-passing-stylecps)
+    - [3.2 暂停还是不暂停 —— 这是一个问题](#32-%E6%9A%82%E5%81%9C%E8%BF%98%E6%98%AF%E4%B8%8D%E6%9A%82%E5%81%9C--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
+    - [3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）](#33-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BElabel)
+- [4. 追踪执行](#4-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C)
+    - [4.1 第三次调用`fetchNewName`的请求 —— 不暂停](#41-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%9A%82%E5%81%9C)
+    - [4.2 第三次调用`fetchNewName` —— 暂停](#42-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%9A%82%E5%81%9C)
+    - [4.3 总结执行](#43-%E6%80%BB%E7%BB%93%E6%89%A7%E8%A1%8C)
+- [5. 结论](#5-%E7%BB%93%E8%AE%BA)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -47,7 +48,9 @@
 
 而要理解协程有挑战的其实是底层实现。在`Kotlin`协程，编译器仅实现 **_`suspend`_** 关键字，其他所有内容都由协程库处理。结果是，`Kotlin`协程非常强大和灵活，但同时也显得用无定形。对于新手来说，这是学习障碍，新手想要的是有一致的指导方针和固定的原则来学习。本文有意于提供这个基础，自底向上地介绍协程。
 
-## 2. 示例应用（服务端）
+## 2. 示例应用
+
+### 2.1 示例应用（服务端）
 
 示例应用是一个典型问题：安全有效地对`RESTful`服务进行多次调用。播放[《威利在哪里？》](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)的文本版本 —— 用户要追踪一个连着一个的人名链，直到出现`Waldo`。
 
@@ -100,7 +103,7 @@ $ curl http://localhost:8080/wheresWaldo/Lucy
 Waldo
 ```
 
-## 3. 示例应用（客户端）
+### 2.2 示例应用（客户端）
 
 客户端应用基于`JavaFX`库来创建桌面用户界面，为了简化任务并避免不必要的细节，使用[`TornadoFX`](https://github.com/edvin/tornadofx)，它为`JavaFX`提供了`Kotlin`的`DSL`实现。
 
@@ -168,7 +171,7 @@ fun String.addThreadId() = "$this on thread ${Thread.currentThread().id}"
 
 这样的设计是为了避免并发编程中的常见问题，例如在没有终止子任务的情况下终止了父任务。
 
-## 4. 访问`REST endpoint`的服务
+### 2.3 访问`REST endpoint`的服务
 
 下面是`HttpWaldoFinder`服务的完整代码：
 
@@ -235,7 +238,7 @@ Sending HTTP Request for Lucy on thread 26
 
 可以看到，对于上面的这次运行，`Main Dispatcher`/`UI`事件`Handler`在线程17上运行，而`IO Dispatcher`在包含线程24和26的线程池上运行。
 
-## 5. 开始我们的探索
+## 3. 开始探索
 
 使用`IntelliJ`自带的字节码反汇编工具，可以窥探底层的实际情况。注意，也可以使用`JDK`自带的标准`javap`工具。
 
@@ -253,7 +256,7 @@ public final class HttpWaldoFinder extends Controller implements WaldoFinder {
 
 现在，让我们深入研究添加到这些方法中的代码，并解释`Continuation`是什么以及返回的是什么。
 
-## 6. 延续传递风格（`Continuation Passing Style`/`CPS`）
+### 3.1 延续传递风格（`Continuation Passing Style`/`CPS`）
 
 正如`Kotlin`标准化流程（也称为`KEEP`）中的[协程提案](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)所记录的，协程的实现基于『延续传递风格』。延续（`continuation`）对象用于存储函数在挂起期间所需的状态。
 
@@ -289,7 +292,7 @@ $continuation = new ContinuationImpl($completion) {
 
 另外还有用于最终结果的字段，以及一个名为`label`的引人注意的整数字段。
 
-## 7. 暂停还是不暂停 —— 这是一个问题
+### 3.2 暂停还是不暂停 —— 这是一个问题
 
 在检查生成的代码时，需要记住：整个过程必须处理两个用例。每当一个挂起函数在调用另一个挂起函数时，要么挂起当前协程（以便另一个可以在同一线程上运行），要么继续执行当前协程。
 
@@ -299,7 +302,7 @@ $continuation = new ContinuationImpl($completion) {
 
 我们的示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是暂停总是会发生。但是，如果要理解所生成的代码，我们必须记住，实现需要能够处理所有可能性。
 
-## 8. 大`switch`语句（`The Big Switch Statement`）和标签（`label`）
+### 3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）
 
 如果进一步查看反汇编的代码，会发现埋在多个嵌套标签中的`switch`语句。这是状态机（`state machine`）的实现，用于控制`wheresWaldo()`方法中的不同挂起点。下面的代码用于说明`switch`语句的高层结构：
 
@@ -357,7 +360,7 @@ if (var10000 == var11) {
 
 再强调一次，请记住：生成的代码不能假定所有调用都将挂起，或者所有调用都将继续执行当前协程。必须能够应对任何可能的组合。
 
-## 9. 追踪执行
+## 4. 追踪执行
 
 当执行开始时，延续中`label`字段的值设置的是`0`。`switch`语句中相应分支代码如下：
 
@@ -399,7 +402,7 @@ if (var10000 == var11) {
 
 更新延续中的字段，以添加从服务器检索到的值。请注意，`label`的值现在为2。然后，我们第三次调用`fetchNewName`。
 
-## 10. 第三次调用`fetchNewName`的请求 —— 不暂停
+### 4.1 第三次调用`fetchNewName`的请求 —— 不暂停
 
 我们必须再次基于`fetchNewName`返回的值进行选择，如果返回的值是 _`COROUTINE_SUSPENDED`_，那么我们将从当前函数返回。下次调用时，我们将进入`switch`语句的`case 2`分支。
 
@@ -424,7 +427,7 @@ if (var10000 == var11) {
 
 对于所有剩余的调用（假设从未返回 _`COROUTINE_SUSPENDED`_），此模式将重复进行，直到到达结尾为止。
 
-## 11. 第三次调用`fetchNewName` —— 暂停
+### 4.2 第三次调用`fetchNewName` —— 暂停
 
 另一情况是协程被挂起，那么要运行下面的`case`块：
 
@@ -441,7 +444,7 @@ case 2:
 
 从延续中提取值到函数的局部变量中。然后用带标签的`break`将执行跳转到上面的代码段4。因此，最终将在同一个地方结束整个协程的执行。
 
-## 12. 总结执行
+### 4.3 总结执行
 
 现在我们可以重新梳理代码结构，并对每个部分中所做的进行高层的描述：
 
@@ -503,7 +506,7 @@ label48: {
 // return either the final result or COROUTINE_SUSPENDED
 ```
 
-## 13. 结论
+## 5. 结论
 
 这不是一份容易理解的代码。我们研究了由`Kotlin`编译器生成的字节码所反汇编的`Java`代码。`Kotlin`编译器生成的字节码目标是执行的效率和简约，而不是清晰易读。
 
