@@ -56,6 +56,8 @@
 
 示例应用是一个典型问题：安全有效地对`RESTful`服务进行多次调用。播放[《威利在哪里？》](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)的文本版本 —— 用户要追踪一个连着一个的人名链，直到出现`Waldo`。
 
+> 【译注】《威利在哪里？》是一套由英国插画家 _Martin Handford_ 创作的儿童书籍。这个书的目标就是在一张人山人海的图片中找出一个特定的人物 —— 威利。他总是会弄丢东西，如书本、野营设备甚至是他的鞋子，而读者也要帮他在图中找出这些东西来。更多参见 [威利在哪里 - 百度百科](https://baike.baidu.com/item/%E5%A8%81%E5%88%A9%E5%9C%A8%E5%93%AA%E9%87%8C/1019034)、[威利在哪里 - 维基百科](https://zh.wikipedia.org/wiki/%E5%A8%81%E5%88%A9%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F)。
+
 下面是用[`Http4k`](https://www.http4k.org/)编写的完整`RESTful`服务实现。`Http4k`是 _Marius Eriksen_ 的[著名论文](https://monkey.org/~marius/funsrv.pdf)中所写的函数式服务端架构的`Kotlin`版本实现。实现有许多其他语言，包括`Scala`（[`Http4s`](https://http4s.org/)）和`Java 8`或更高版本（[`Http4j`](https://github.com/fzakaria/http4j)）。
 
 实现有唯一一个`endpoint`，通过`Map`实现人名链。给定一个人名，返回匹配值和200状态代码，或是返回404和错误消息。
