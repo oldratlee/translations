@@ -16,11 +16,11 @@
     - [2.3 访问`REST endpoint`的服务](#23-%E8%AE%BF%E9%97%AErest-endpoint%E7%9A%84%E6%9C%8D%E5%8A%A1)
 - [3. 开始探索](#3-%E5%BC%80%E5%A7%8B%E6%8E%A2%E7%B4%A2)
     - [3.1 延续传递风格（`Continuation Passing Style`/`CPS`）](#31-%E5%BB%B6%E7%BB%AD%E4%BC%A0%E9%80%92%E9%A3%8E%E6%A0%BCcontinuation-passing-stylecps)
-    - [3.2 暂停还是不暂停 —— 这是一个问题](#32-%E6%9A%82%E5%81%9C%E8%BF%98%E6%98%AF%E4%B8%8D%E6%9A%82%E5%81%9C--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
+    - [3.2 挂起还是不挂起 —— 这是一个问题](#32-%E6%8C%82%E8%B5%B7%E8%BF%98%E6%98%AF%E4%B8%8D%E6%8C%82%E8%B5%B7--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
     - [3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）](#33-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BElabel)
 - [4. 追踪执行](#4-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C)
-    - [4.1 第三次调用`fetchNewName`的请求 —— 不暂停](#41-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%9A%82%E5%81%9C)
-    - [4.2 第三次调用`fetchNewName` —— 暂停](#42-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%9A%82%E5%81%9C)
+    - [4.1 第三次调用`fetchNewName`的请求 —— 不挂起](#41-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%8C%82%E8%B5%B7)
+    - [4.2 第三次调用`fetchNewName` —— 挂起](#42-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%8C%82%E8%B5%B7)
     - [4.3 总结执行](#43-%E6%80%BB%E7%BB%93%E6%89%A7%E8%A1%8C)
 - [5. 结论](#5-%E7%BB%93%E8%AE%BA)
 
@@ -163,7 +163,7 @@ fun String.addThreadId() = "$this on thread ${Thread.currentThread().id}"
 
 有哪些`Dispatcher`可用取决于`Kotlin`代码的所运行环境。`Main Dispatcher`对应的是`UI`库的事件处理线程，因此（在`JVM`上）仅在`Android`、`JavaFX`和`Swing`中可用。`Kotlin Native`的协程在开始时完全不支持多线程，[但是这种情况正在改变](https://www.youtube.com/watch?v=oxQ6e1VeH4M)。在服务端，可以自己引入协程，但是缺省就可用情况会越来越多，[比如在`Spring 5`中](https://www.baeldung.com/spring-boot-kotlin-coroutines)。
 
-在开始调用暂停方法（`suspending methods`）之前，必须要有一个协程、一个`CoroutineScope`和一个`Dispatcher`。如果是最开始的调用（如上面的代码所示），可以通过『协程构建器』（`coroutine builder`）函数（如`launch`和`async`）来启动这个过程。
+在开始调用挂起方法（`suspending methods`）之前，必须要有一个协程、一个`CoroutineScope`和一个`Dispatcher`。如果是最开始的调用（如上面的代码所示），可以通过『协程构建器』（`coroutine builder`）函数（如`launch`和`async`）来启动这个过程。
 
 调用协程构建器函数或诸如`withContext`之类的上下文函数总会创建一个新的`CoroutineScope`。在这个上下文中，一个执行任务对应的是由`Job`实例构成的一个层次结构。
 
@@ -219,7 +219,7 @@ class HttpWaldoFinder : Controller(), WaldoFinder {
 
 ![](images/3-1578570191290.jpg)
 
-当执行`suspend`调用时，`IntelliJ`会提示在协程之间有控制权转移。请注意，如果不切换`Dispatcher`，则调用不一定会导致新协程的创建。当一个`suspend`函数调用另一个`suspend`函数时，可以在同一协程中继续执行，实际上，如果处于在同一线程上，这就是我们想要的行为。
+当调用挂起函数时，`IntelliJ`会提示在协程之间有控制权转移。请注意，如果不切换`Dispatcher`，则调用不一定会导致新协程的创建。当一个挂起函数调用另一个挂起函数时，可以在同一协程中继续执行，实际上，如果处于在同一线程上，这就是我们想要的行为。
 
 ![](images/4-1578570189602.jpg)
 
@@ -248,7 +248,7 @@ Sending HTTP Request for Lucy on thread 26
 
 ![](images/6-1578570190679.jpg)
 
-可以看到`HttpWaldoFinder`的方法签名已经改变了，因此可以接受`continuation`对象作为额外的参数，并返回一个通用的`Object`。
+可以看到`HttpWaldoFinder`的方法签名已经改变了，因此可以接受延续对象（`continuation object`）作为额外的参数，并返回一个通用的`Object`。
 
 ```java
 public final class HttpWaldoFinder extends Controller implements WaldoFinder {
@@ -258,13 +258,13 @@ public final class HttpWaldoFinder extends Controller implements WaldoFinder {
 }
 ```
 
-现在，让我们深入研究添加到这些方法中的代码，并解释`Continuation`是什么以及返回的是什么。
+现在，让我们深入研究添加到这些方法中的代码，并解释『延续（`Continuation`）』是什么，以及返回的是什么。
 
 ### 3.1 延续传递风格（`Continuation Passing Style`/`CPS`）
 
-正如`Kotlin`标准化流程（也称为`KEEP`）中的[协程提案](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)所记录的，协程的实现基于『延续传递风格』。延续（`continuation`）对象用于存储函数在挂起期间所需的状态。
+正如`Kotlin`标准化流程（也称为`KEEP`）中的[协程提案](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)所记录的，协程的实现基于『延续传递风格』。延续对象用于存储函数在挂起期间所需的状态。
 
-暂停函数的每个局部变量都成为延续的字段。另外还需要为各个函数的参数和当前对象（如果函数是方法）创建字段。因此，有四个参数和五个局部变量的暂停方法有至少十个字段的延续。
+挂起函数的每个局部变量都成为延续的字段。另外还需要为各个函数的参数和当前对象（如果函数是方法）创建字段。因此，有四个参数和五个局部变量的挂起方法有至少十个字段的延续。
 
 对于`HttpWaldoFinder`中的`wheresWaldo`方法，只有一个参数和四个局部变量，因此延续实现类型具有六个字段。如果将`Kotlin`编译器生成的字节码反汇编为`Java`源代码，可以看到确实如此：
 
@@ -296,15 +296,15 @@ $continuation = new ContinuationImpl($completion) {
 
 另外还有用于最终结果的字段，以及一个名为`label`的引人注意的整数字段。
 
-### 3.2 暂停还是不暂停 —— 这是一个问题
+### 3.2 挂起还是不挂起 —— 这是一个问题
 
 在检查生成的代码时，需要记住：整个过程必须处理两个用例。每当一个挂起函数在调用另一个挂起函数时，要么挂起当前协程（以便另一个可以在同一线程上运行），要么继续执行当前协程。
 
-考虑一个从数据存储中读取的挂起函数，在发生`IO`操作时这个函数起很可能会挂起，但也可能读取的是缓存的结果。后续调用可以同步返回缓存的值，而不会暂停。`Kotlin`编译器生成的代码对于这两个路径必须都是允许的。
+考虑一个从数据存储中读取的挂起函数，在发生`IO`操作时这个函数起很可能会挂起，但也可能读取的是缓存的结果。后续调用可以同步返回缓存的值，而不会挂起。`Kotlin`编译器生成的代码对于这两个路径必须都是允许的。
 
-`Kotlin`编译器调整了每个挂起函数的返回类型，以便可以返回实际结果或特殊值 _`COROUTINE_SUSPENDED`_。对于后一种情况下当前的协程是被暂停的。这就是挂起函数的返回类型从结果类型更改为`Object`的原因。
+`Kotlin`编译器调整了每个挂起函数的返回类型，以便可以返回实际结果或特殊值 _`COROUTINE_SUSPENDED`_。对于后一种情况下当前的协程是被挂起的。这就是挂起函数的返回类型从结果类型更改为`Object`的原因。
 
-我们的示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是暂停总是会发生。但是，如果要理解所生成的代码，我们必须记住，实现需要能够处理所有可能性。
+我们的示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是挂起总是会发生。但是，如果要理解所生成的代码，我们必须记住，实现需要能够处理所有可能性。
 
 ### 3.3 大`switch`语句（`The Big Switch Statement`）和标签（`label`）
 
@@ -349,7 +349,7 @@ label48: {
 // code omitted
 ```
 
-现在可以看清楚延续的`label`字段的用途。当完成`wheresWaldo`的不同阶段时，更改`label`的值。嵌套的标签块包含原来`Kotlin`代码中挂起点之间的代码块。`label`的值允许重新进入该代码：跳到上次暂停的位置（适当的`case`语句），从延续中提取一些数据，然后开始执行对应的标签块代码 。
+现在可以看清楚延续的`label`字段的用途。当完成`wheresWaldo`的不同阶段时，更改`label`的值。嵌套的标签块包含原来`Kotlin`代码中挂起点之间的代码块。`label`的值允许重新进入该代码：跳到上次挂起的位置（适当的`case`语句），从延续中提取一些数据，然后开始执行对应的标签块代码 。
 
 但是，如果所有的挂起点都没有实际挂起，则整个代码块会同步执行掉。在生成的代码中，下面的代码片段反复出现：
 
@@ -406,7 +406,7 @@ if (var10000 == var11) {
 
 更新延续中的字段，以添加从服务器检索到的值。请注意，`label`的值现在为2。然后，我们第三次调用`fetchNewName`。
 
-### 4.1 第三次调用`fetchNewName`的请求 —— 不暂停
+### 4.1 第三次调用`fetchNewName`的请求 —— 不挂起
 
 我们必须再次基于`fetchNewName`返回的值进行选择，如果返回的值是 _`COROUTINE_SUSPENDED`_，那么我们将从当前函数返回。下次调用时，我们将进入`switch`语句的`case 2`分支。
 
@@ -431,7 +431,7 @@ if (var10000 == var11) {
 
 对于所有剩余的调用（假设从未返回 _`COROUTINE_SUSPENDED`_），此模式将重复进行，直到到达结尾为止。
 
-### 4.2 第三次调用`fetchNewName` —— 暂停
+### 4.2 第三次调用`fetchNewName` —— 挂起
 
 另一情况是协程被挂起，那么要运行下面的`case`块：
 
