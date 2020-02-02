@@ -113,6 +113,8 @@ fun main() {
 }
 ```
 
+> 【译注】上面示例代码 完整实现的工程文件： [`ServerMain.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/server/src/main/java/com/oldratlee/demo/koroutines_bottom_up/server/ServerMain.kt)
+
 也就是说，我们的客户要完成的操作是执行下面的请求链：
 
 ```ruby
@@ -164,15 +166,21 @@ class HelloWorldView: View("Coroutines Client UI") {
 }
 ```
 
+> 【译注】上面示例代码 完整实现的工程文件： [`HelloWorldView.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/client/src/main/java/com/oldratlee/demo/koroutines_bottom_up/client/views/HelloWorldView.kt)
+
 另外还使用了下面的辅助函数作为`String`类型的扩展方法：
 
 ```kotlin
 fun String.addThreadId() = "$this on thread ${Thread.currentThread().id}"
 ```
 
+> 【译注】上面示例代码 完整实现的工程文件： [`Utils.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/client/src/main/java/com/oldratlee/demo/koroutines_bottom_up/client/Utils.kt)
+
 下面是用户界面运行起来的样子：
 
 ![](images/2-1578570190101.jpg)
+
+> 【译注】在可运行代码工程中，通过文件[`MyApp.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/client/src/main/java/com/oldratlee/demo/koroutines_bottom_up/client/MyApp.kt)的`main`启动客户端。
 
 当用户单击按钮时，会启动一个新的协程，并通过类型为`HttpWaldoFinder`的服务对象访问`RESTful endpoint`。
 
@@ -230,13 +238,15 @@ class HttpWaldoFinder : Controller(), WaldoFinder {
 }
 ```
 
+> 【译注】上面示例代码 完整实现的工程文件：[`WaldoFinder.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/client/src/main/java/com/oldratlee/demo/koroutines_bottom_up/client/services/WaldoFinder.kt)
+
 `fetchNewName`函数的参数是已知人名，在`endpoint`中查询关联的人名。通过`HttpClient`类完成，这个类在`Java 11`及以后版本的标准库中。实际的`HTTP GET`操作在使用`IO Dispatcher`的新子协程中运行。`IO Dispatcher`代表了为长时间运行的活动（如网络调用）优化的线程池。
 
 `wheresWaldo`函数追踪人名称链五次，以（期望能）找到`Waldo`。因为后面要反汇编生成的字节码，所以逻辑实现得尽可能简单。我们感兴趣的是，每次调用`fetchNewName`都会导致当前协程被挂起，尽管它的子协程会在运行。在这种特殊情况下，父协程在`Main Dispatcher`上运行，而子协程在`IO Dispatcher`上运行。因此，尽管子协程在执行`HTTP`请求，`UI`事件处理线程已经释放了，以处理其他用户与视图的交互。如下图所示：
 
 ![](images/3-1578570191290.jpg)
 
-当调用挂起函数时，`IntelliJ`会提示在协程之间有控制权转移。请注意，如果不切换`Dispatcher`，则调用不一定会导致新协程的创建。当一个挂起函数调用另一个挂起函数时，可以在同一协程中继续执行，实际上，如果处于在同一线程上，这就是我们想要的行为。
+当调用挂起函数时，`IntelliJ`会在编辑器窗口左边条用图标提示在协程之间有控制权转移。请注意，如果不切换`Dispatcher`，则调用不一定会导致新协程的创建。当一个挂起函数调用另一个挂起函数时，可以在同一协程中继续执行，实际上，如果处于在同一线程上，这就是我们想要的行为。
 
 ![](images/4-1578570189602.jpg)
 
@@ -257,7 +267,7 @@ Found Lucy name on thread 17
 Sending HTTP Request for Lucy on thread 26
 ```
 
-可以看到，对于上面的这次运行，`Main Dispatcher`/`UI`事件`Handler`在线程17上运行，而`IO Dispatcher`在包含线程24和26的线程池上运行。
+可以看到，对于上面的这次运行，`Main Dispatcher` / `UI`事件`Handler`在线程17上运行，而`IO Dispatcher`在包含线程24和26的线程池上运行。
 
 ## 3. 开始探索
 
@@ -327,8 +337,9 @@ $continuation = new ContinuationImpl($completion) {
 
 如果进一步查看反汇编的代码，会发现埋在多个嵌套标签（`label`）中的`switch`语句。这是状态机（`state machine`）的实现，用于控制`wheresWaldo()`方法中的不同挂起点。下面的代码用于说明`switch`语句的高层结构：
 
+**_代码段 1_**：生成的`switch`语句与标签
+
 ```java
-// listing one: the generated switch statement and labels
 String firstName;
 String secondName;
 String thirdName;
@@ -370,8 +381,9 @@ label48: {
 
 但是，如果所有的挂起点都没有实际挂起，则整个代码块会同步执行掉。在生成的代码中，下面的代码片段反复出现：
 
+**_代码段 2_**：决定当前协程是否应该挂起
+
 ```java
-// listing two - deciding if the current coroutine should suspend
 if (var10000 == var11) {
   return var11;
 }
@@ -385,8 +397,9 @@ if (var10000 == var11) {
 
 当执行开始时，延续中`label`字段的值设置的是`0`。`switch`语句中相应分支代码如下：
 
+**_代码段 3_**：`switch`语句的第一个分支
+
 ```java
-// listing three - the first branch of the switch
 case 0:
   ResultKt.throwOnFailure($result);
   $continuation.L$0 = this;
@@ -403,8 +416,9 @@ case 0:
 
 如果协程被挂起，那么从函数中返回，并且当协程继续时跳转到`case 1`分支。如果继续执行当前的协程（即没有被挂起），那么将穿过`switch`语句的一个标签，执行下面的代码：
 
+**_代码段 4_**：第二次调用`fetchNewName`
+
 ```java
-// listing four - calling ‘fetchNewName’ for the second time
 firstName = (String)var10000;
 secondName = UtilsKt.addThreadId("Found " + firstName + " name");
 boolean var13 = false;
@@ -429,8 +443,9 @@ if (var10000 == var11) {
 
 如果我们继续当前的协程，则执行下面的代码块。正如您所看到的，它与上面的相同，除了我们现在有更多数据要存储在延续中。
 
+**_代码段 4_**：第三次调用`fetchNewName`
+
 ```java
-// listing four - calling ‘fetchNewName’ for the third time
 secondName = (String)var10000;
 thirdName = UtilsKt.addThreadId("Found " + secondName + " name");
 boolean var14 = false;
@@ -452,8 +467,9 @@ if (var10000 == var11) {
 
 另一情况是协程被挂起，那么要运行下面的`case`块：
 
+**_代码段 5_**：`switch`语句的第三个分支
+
 ```java
-// listing five - the third branch of the switch
 case 2:
   firstName = (String)$continuation.L$2;
   starterName = (String)$continuation.L$1;
@@ -469,8 +485,9 @@ case 2:
 
 现在我们可以重新梳理代码结构，并对每个部分中所做的进行高层的描述：
 
+**_代码段 6_**：生成的`switch`语句与标签，带展开深入的说明
+
 ```java
-// listing six - the generated switch statement and labels in depth
 String firstName;
 String secondName;
 String thirdName;
@@ -484,47 +501,42 @@ label48: {
         var11 = IntrinsicsKt.getCOROUTINE_SUSPENDED();
         switch($continuation.label) {
         case 0:
-            // set label to 1 and make the first call to ‘fetchNewName’
-            // if suspending return, otherwise break from the switch
+            // 设置延续的`label`字段值 成1，进行第一次调用`fetchNewName`
+            // 如果fetchNewName调用挂起，则返回；否则执行switch的break
         case 1:
-            // extract the parameter from the continuation
-            // break from the switch
+            // 从延续中提提取 参数值
+            // 执行switch的break（即跳过`switch`代码块）
         case 2:
-            // extract the parameter and first result from the continuation
-            // break to outside ‘label46’
+            // 从延续中提取 参数值 以及 第一个结果
+            // 执行外面`label46`标签的break（即跳过`label46`的代码块）
         case 3:
-            // extract the parameter, first and second results from the
-            //   continuation
-            // break to outside ‘label47’
+            // 从延续中提取 参数值 以及 第一个和第二个结果
+            // 执行外面`label47`标签的break（即跳过`label47`的代码块）
         case 4:
-            // extract the parameter, first, second and third results from
-            //   the continuation
-            // break to outside ‘label48’
+            // 从延续中提取 参数值 以及 第一个、第二个和第三个结果
+            // 执行外面`label48`标签的break（即跳过`label48`的代码块）
         case 5:
-            // extract the parameter, first, second, third and fourth
-            //   results from the continuation
-            // return the final result
+            // 从延续中提取 参数值 以及 第一个、第二个、第三个和第四个结果
+            // 返回最终的结果
         default:
            throw new IllegalStateException(
                 "call to 'resume' before 'invoke' with coroutine");
         } // end of switch
-        // store the parameter and first result in the continuation
-        // set the label to 2 and make the second call to ‘fetchNewName’
-        // if suspending return, otherwise proceed
+        // 将参数 以及 第一个结果 存入 延续
+        // 设置 延续的`label`字段值 成2，进行第二次调用`fetchNewName`
+        // 如果fetchNewName调用挂起，则返回；否则继续执行
     } // end of label 46
-        // store the parameter, first and second results in the
-        //   continuation
-        // set the label to 3 and make the third call to ‘fetchNewName’
-        // if suspending return, otherwise proceed
+        // 将参数 以及 第一个和第二个结果 存入 延续
+        // 设置 延续的`label`字段值 成3，进行第三次调用`fetchNewName`
+        // 如果fetchNewName调用挂起，则返回；否则继续执行
   } // end of label 47
-        // store the parameter, first, second and third results in the
-        //   continuation
-        // set the label to 4 and make the fourth call to ‘fetchNewName’
-        // if suspending return, otherwise proceed
+        // 将参数 以及 第一个、第二个和第三个结果 存入 延续
+        // 设置 延续的`label`字段值 成4，进行第四次调用`fetchNewName`
+        // 如果fetchNewName调用挂起，则返回；否则继续执行
 } // end of label 48
-// store the parameter, first, second, third and fourth results in the continuation
-// set the label to 5 and make the fifth call to ‘fetchNewName’
-// return either the final result or COROUTINE_SUSPENDED
+// 将参数 以及 第一个、第二个、第三个和第四个结果 存入 延续
+// 设置 延续的`label`字段值 成5，进行第五次调用`fetchNewName`
+// 返回 最终结果 或是 COROUTINE_SUSPENDED
 ```
 
 ## 5. 结论
