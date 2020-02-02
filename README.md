@@ -74,6 +74,10 @@ Chinese translations for classic IT resources.
 
 # 并发
 
+1. [理解`Kotlin`协程：自底向上的视角](kotlin-coroutines-bottom-up/README.md)  
+    `Kotlin`的协程应该是`Java`生态中最好的协程实现，在生产环境（`Android` / 后端场景）也有比较多实际应用。
+    无论是`Kotlin`语言还是`Kotlin`协程，都非常注重务实与开发者友好，`Kotlin`协程以大家习惯的命令式/过程式的编程方式写出非阻塞的高效并发程序。
+    但并发编程是计算机最复杂的主题之一，即使是用协程的编写方式；再者`Kotlin`协程的友好使用方式，对于使用者理解协程背后的运行机制其实反而是个障碍。而真正的理解协程才能让使用协程做到心中有数避免踩坑。这篇文章自底向上视角的讲解方式，正是有意于正面解决这个问题：如何有效理解`Kotlin`协程运行机制。
 1. [`Java` `Fork/Join`框架](a-java-fork-join-framework/README.md)  
     _Doug Lea_ 大神关于`Java 7`引入的他写的`Fork/Join`框架的论文。[反应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming`/`RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有着稳健的接纳和跟进能力，有着令人惊叹的生命活力：`Java 7`提供了`ForkJoinPool`，支持了`Java 8`提供的`Stream`，另外`Java 8`还提供了`Lambda`（有效地表达和使用`RP`需要`FP`的语言构件和理念）；有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的官方[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，实际上是直接把[`Reactive Streams`](http://www.reactive-streams.org/)的接口加在`Java`标准库中，即[`Reactive Streams`规范](https://github.com/reactive-streams/reactive-streams-jvm#specification)转正了。`Reactive Streams`是`RP`的基础核心组件，`Java`提供了`Flow API` 标志着 `RP`完成了由 **集市**式的自由探索阶段 向 **教堂**式的规范统一阶段 的转变。通过上面这些说明，可以看到`ForkJoinPool`的基础重要性。
 

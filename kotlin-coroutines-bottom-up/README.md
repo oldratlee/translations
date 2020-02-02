@@ -2,14 +2,14 @@
 
 ## 🍎 译序
 
-`Kotlin`的协程应该是`Java`生态中最好的协程实现，在生产环境（`Android` / 后端场景）也有比较多实际应用。在移动`Android`开发中，`Google`宣导`Kotlin First`。而在后端开发中，`Spring 5 / Spring Boot`一等公民支持`Kotlin`语言，也[添加了对`Kotlin`协程的支持](https://www.baeldung.com/spring-boot-kotlin-coroutines)；相信有后端开发框架王者`Spring`的加持，`Kotlin`语言与`Kotlin`协程的发展普及有着乐观的前景。
+`Kotlin`的协程应该是`Java`生态中最好的协程实现，在生产环境（`Android` / 后端场景）也有比较多实际应用。在移动`Android`开发中，`Google`宣导`Kotlin-First`。而在后端开发中，`Spring 5 / Spring Boot`一等公民支持`Kotlin`语言，也[添加了对`Kotlin`协程的支持](https://www.baeldung.com/spring-boot-kotlin-coroutines)；相信有后端开发框架王者`Spring`的加持，`Kotlin`语言与`Kotlin`协程的发展普及有着乐观的前景。
 
 无论是`Kotlin`语言还是`Kotlin`协程，都非常注重务实与开发者友好：
 
-- `Kotlin`语言：相对`Java`，方便简洁（如字符串插值、`data class`、统一原生类型与包装类型、扩展方法、命名参数、默认参数）与安全（如非空类型）。
+- `Kotlin`语言：相对`Java`，方便简洁（如字符串插值、`smart cast`、`data class`、统一原生类型与包装类型、扩展方法、命名参数、默认参数）与安全（如非空类型）。
 - `Kotlin`协程：以大家习惯的命令式/过程式的编程方式写出非阻塞的高效并发程序。
 
-但并发编程是计算机最复杂的问题之一，即使是用协程的编写方式；再者`Kotlin`协程的友好使用方式，对于使用者理解协程背后的运行机制其实反而是个障碍。而真正的理解协程才能让使用协程做到心中有数避免踩坑。这篇文章自底向上视角的讲解方式，正是有意于正面解决这个问题：如何有效理解`Kotlin`协程运行机制。
+但并发编程是计算机最复杂的主题之一，即使是用协程的编写方式；再者`Kotlin`协程的友好使用方式，对于使用者理解协程背后的运行机制其实反而是个障碍。而真正的理解协程才能让使用协程做到心中有数避免踩坑。这篇文章自底向上视角的讲解方式，正是有意于正面解决这个问题：如何有效理解`Kotlin`协程运行机制。
 
 考虑到原文中只给了代码示例但没有给出代码工程，不方便读者直接运行起来以跟着文章自己探索，译者提供了示例代码的可运行代码工程，参见`GitHub`仓库：[`oldratlee/kotlin-coroutines-bottom-up`](https://github.com/oldratlee/kotlin-coroutines-bottom-up)。
 
@@ -35,10 +35,10 @@
     - [3.1 延续传递风格（`Continuation Passing Style`/`CPS`）](#31-%E5%BB%B6%E7%BB%AD%E4%BC%A0%E9%80%92%E9%A3%8E%E6%A0%BCcontinuation-passing-stylecps)
     - [3.2 挂起还是不挂起 —— 这是一个问题](#32-%E6%8C%82%E8%B5%B7%E8%BF%98%E6%98%AF%E4%B8%8D%E6%8C%82%E8%B5%B7--%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98)
     - [3.3 大`switch`语句（`The Big Switch Statement`）和标签](#33-%E5%A4%A7switch%E8%AF%AD%E5%8F%A5the-big-switch-statement%E5%92%8C%E6%A0%87%E7%AD%BE)
-- [4. 追踪执行](#4-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C)
+- [4. 追踪执行过程](#4-%E8%BF%BD%E8%B8%AA%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B)
     - [4.1 第三次调用`fetchNewName`的请求 —— 不挂起](#41-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname%E7%9A%84%E8%AF%B7%E6%B1%82--%E4%B8%8D%E6%8C%82%E8%B5%B7)
     - [4.2 第三次调用`fetchNewName` —— 挂起](#42-%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%B0%83%E7%94%A8fetchnewname--%E6%8C%82%E8%B5%B7)
-    - [4.3 总结执行](#43-%E6%80%BB%E7%BB%93%E6%89%A7%E8%A1%8C)
+    - [4.3 执行过程总结](#43-%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93)
 - [5. 结论](#5-%E7%BB%93%E8%AE%BA)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -51,27 +51,27 @@
 - `Kotlin`实现协程方式是，在编译器中将代码转换为状态机
 - 实现协程，`Kotlin`语言只用了一个关键字，剩下的通过库来实现
 - `Kotlin`使用延续传递风格（`Continuation Passing Style`/`CPS`）来实现协程
-- 协程使用了调度器（`Dispatchers`），因此在`JavaFX`、`Android`、`Swing`等中使用方式略有不同
+- 协程使用了调度器（`dispatchers`），因此在`JavaFX`、`Android`、`Swing`等中使用方式略有不同
 
 ----------------------------------------
 
 协程是一个令人着迷的主题，尽管并不是一个新话题。正如[其他地方提到的](https://www.youtube.com/watch?v=dWBsdh0BndM)，协程这些年来已经被多次重新发现挖掘出来，通常是作为轻量级线程（`lightweight threading`）或『回调地狱』（`callback hell`）的解决方案。
 
-最近在`JVM`上，协程已成为反应式编程（`Reactive Programming`）的一种替代方法。诸如[`RxJava`](https://github.com/ReactiveX/RxJava)或[`Project Reactor`](https://projectreactor.io/)之类的框架为客户端提供了一种增量处理传入信息的方式，并且对节流（`throttling`）和并行（`parallelism`）提供了广泛的支持。但是，您必须围绕反应流（`reactive streams`）上的函数式操作（`functional operations`）来重新组织代码，[在很多情况下这样做成本是大于收益的](https://www.youtube.com/watch?v=5TJiTSWktLU)。
+最近在`JVM`上，协程已成为反应式编程（`Reactive Programming`）的一种替代方法。诸如[`RxJava`](https://github.com/ReactiveX/RxJava)或[`Project Reactor`](https://projectreactor.io/)之类的框架为客户端提供了一种增量处理传入信息的方式，并且对节流（`throttling`）和并行（`parallelism`）提供了广泛的支持。但是，必须围绕反应流（`reactive streams`）上的函数式操作（`functional operations`）来重新组织代码，[在很多情况下这样做的成本是高过收益的](https://www.youtube.com/watch?v=5TJiTSWktLU)。
 
-这就是为什么像`Android`社区会对更简单的替代方案有需求的原因。`Kotlin`语言引入协程作为一个实验功能来满足这个需求，并且经过改进后已成为`Kotlin 1.3`的正式功能。`Kotlin`协程的采用范围已从`UI`开发拓展到服务器端框架（例如[`Spring 5`添加了支持](https://www.baeldung.com/spring-boot-kotlin-coroutines)），甚至是像`Arrow`之类的函数式框架（通过[`Arrow Fx`](https://arrow-kt.io/docs/effects/fx/)）。
+这就是为什么像`Android`社区会对更简单的替代方案有需求的原因。`Kotlin`语言引入协程作为一个实验功能来满足这个需求，并且经过改进后已成为`Kotlin 1.3`的正式功能。`Kotlin`协程的采用范围已从`UI`开发拓展到服务器端框架（比如[`Spring 5`添加了支持](https://www.baeldung.com/spring-boot-kotlin-coroutines)），甚至是像`Arrow`之类的函数式框架（通过[`Arrow Fx`](https://arrow-kt.io/docs/effects/fx/)）。
 
 ## 1. 协程的理解挑战
 
-不幸的是理解协程并非易事。尽管`Kotlin`专家进行了许多协程介绍分享，但主要是关于协程是什么（或应如何使用）这方面的见解和介绍。你可能会说协程是并行编程的单子🙂。
+不幸的是理解协程并非易事。尽管有非常多`Kotlin`专家的协程分享，但主要是关于协程是什么（或是协程的用法）这方面的见解和介绍。你可能会说协程是并行编程的单子🙂。
 
-而要理解协程有挑战的其实是底层实现。在`Kotlin`协程，编译器仅实现 **_`suspend`_** 关键字，其他所有内容都由协程库处理。结果是，`Kotlin`协程非常强大和灵活，但同时也显得用无定形。对于新手来说，这是学习障碍，新手想要的是有一致的指导方针和固定的原则来学习。本文有意于提供这个基础，自底向上地介绍协程。
+而要理解协程有挑战的其实是底层实现。在`Kotlin`协程，编译器仅实现 **_`suspend`_** 关键字，其他所有内容都由协程库处理。结果是，`Kotlin`协程非常强大和灵活，但同时也显得用无定形。对于新手来说，这是学习障碍，而在初学一个东西时就给到固定一致的准则和原则是最好的。本文有意于提供这个基础，自底向上地介绍协程。
 
 ## 2. 示例应用
 
 ### 2.1 示例应用（服务端）
 
-示例应用是一个典型问题：安全有效地对`RESTful`服务进行多次调用。播放[《威利在哪里？》](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)的文本版本 —— 用户要追踪一个连着一个的人名链，直到出现`Waldo`。
+示例应用是一个典型问题：安全有效地对`RESTful`服务进行多次调用。播放[《威利在哪里？》](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)的文字版 —— 用户要追踪一个连着一个的人名链，直到出现`Waldo`。
 
 > 【译注】《威利在哪里？》是一套由英国插画家 _Martin Handford_ 创作的儿童书籍。这个书的目标就是在一张人山人海的图片中找出一个特定的人物 —— 威利。他总是会弄丢东西，如书本、野营设备甚至是他的鞋子，而读者也要帮他在图中找出这些东西来。更多参见 [威利在哪里 - 百度百科](https://baike.baidu.com/item/%E5%A8%81%E5%88%A9%E5%9C%A8%E5%93%AA%E9%87%8C/1019034)、[威利在哪里 - 维基百科](https://zh.wikipedia.org/wiki/%E5%A8%81%E5%88%A9%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F)。
 
@@ -115,7 +115,7 @@ fun main() {
 
 > 【译注】上面示例代码 完整实现的工程文件： [`ServerMain.kt`](https://github.com/oldratlee/kotlin-coroutines-bottom-up/blob/master/server/src/main/java/com/oldratlee/demo/koroutines_bottom_up/server/ServerMain.kt)
 
-也就是说，我们的客户要完成的操作是执行下面的请求链：
+也就是说，用户要完成的操作是执行下面的请求链：
 
 ```ruby
 $ curl http://localhost:8080/wheresWaldo/Mary
@@ -184,21 +184,21 @@ fun String.addThreadId() = "$this on thread ${Thread.currentThread().id}"
 
 当用户单击按钮时，会启动一个新的协程，并通过类型为`HttpWaldoFinder`的服务对象访问`RESTful endpoint`。
 
-`Kotlin`协程存在于`CoroutineScope`之中，`CoroutineScope`关联了表示底层并发模型的`Dispatcher`。并发模型通常是线程池，但可以是其它的。
+`Kotlin`协程存在于`CoroutineScope`之中，`CoroutineScope`关联了表示底层并发模型的`dispatcher`。并发模型通常是线程池，但可以是其它的。
 
-有哪些`Dispatcher`可用取决于`Kotlin`代码的所运行环境。`Main Dispatcher`对应的是`UI`库的事件处理线程，因此（在`JVM`上）仅在`Android`、`JavaFX`和`Swing`中可用。`Kotlin Native`的协程在开始时完全不支持多线程，[但是这种情况正在改变](https://www.youtube.com/watch?v=oxQ6e1VeH4M)。在服务端，可以自己引入协程，但是缺省就可用情况会越来越多，[比如在`Spring 5`中](https://www.baeldung.com/spring-boot-kotlin-coroutines)。
+有哪些`dispatcher`可用取决于`Kotlin`代码的所运行环境。`Main Dispatcher`对应的是`UI`库的事件处理线程，因此（在`JVM`上）仅在`Android`、`JavaFX`和`Swing`中可用。`Kotlin Native`的协程在开始时完全不支持多线程，[但是这种情况正在改变](https://www.youtube.com/watch?v=oxQ6e1VeH4M)。在服务端，可以自己引入协程，但缺省就可用的情况变得越来越常见，[比如在`Spring 5`中](https://www.baeldung.com/spring-boot-kotlin-coroutines)。
 
-在开始调用挂起方法（`suspending methods`）之前，必须要有一个协程、一个`CoroutineScope`和一个`Dispatcher`。如果是最开始的调用（如上面的代码所示），可以通过『协程构建器』（`coroutine builder`）函数（如`launch`和`async`）来启动这个过程。
+在开始调用挂起方法（`suspending methods`）之前，必须要有一个协程、一个`CoroutineScope`和一个`dispatcher`。如果是最开始的调用（如上面的代码所示），可以通过『协程构建器』（`coroutine builder`）函数（如`launch`和`async`）来启动这个过程。
 
-调用协程构建器函数或诸如`withContext`之类的上下文函数总会创建一个新的`CoroutineScope`。在这个上下文中，一个执行任务对应的是由`Job`实例构成的一个层次结构。
+调用协程构建器函数或诸如`withContext`之类的作用域函数(`scoping function`)总会创建一个新的`CoroutineScope`。在这个上下文中，执行的任务（`task`）对应由`Job`实例组成的层次结构。
 
-任务具有一些有趣的属性，即：
+协程的任务具有一些有趣的特性，即：
 
 - `Job`在自己完成之前，会等待自己区域中的所有协程完成。
 - 取消`Job`导致其所有子`Job`被取消。
 - `Job`的失败或取消会传播给他的父`Job`。
 
-这样的设计是为了避免并发编程中的常见问题，例如在没有终止子任务的情况下终止了父任务。
+这样的设计是为了避免并发编程中的常见问题，比如在没有终止子任务的情况下终止了父任务。
 
 ### 2.3 访问`REST endpoint`的服务
 
@@ -246,7 +246,7 @@ class HttpWaldoFinder : Controller(), WaldoFinder {
 
 ![](images/3-1578570191290.jpg)
 
-当调用挂起函数时，`IntelliJ`会在编辑器窗口左边条用图标提示在协程之间有控制权转移。请注意，如果不切换`Dispatcher`，则调用不一定会导致新协程的创建。当一个挂起函数调用另一个挂起函数时，可以在同一协程中继续执行，实际上，如果处于在同一线程上，这就是我们想要的行为。
+当调用挂起函数时，`IntelliJ`会在编辑器窗口左边条用图标提示在协程之间有控制权转移。请注意，如果不切换`dispatcher`，则调用不一定会导致新协程的创建。当一个挂起函数调用另一个挂起函数时，可以在同一协程中继续执行，实际上，如果处在同一线程上，这就是我们想要的行为。
 
 ![](images/4-1578570189602.jpg)
 
@@ -271,7 +271,7 @@ Sending HTTP Request for Lucy on thread 26
 
 ## 3. 开始探索
 
-使用`IntelliJ`自带的字节码反汇编工具，可以窥探底层的实际情况。注意，也可以使用`JDK`自带的标准`javap`工具。
+使用`IntelliJ`自带的字节码反汇编工具，可以窥探底层的实际情况。当然你也可以使用`JDK`自带的标准`javap`工具。
 
 ![](images/6-1578570190679.jpg)
 
@@ -315,7 +315,7 @@ $continuation = new ContinuationImpl($completion) {
 };
 ```
 
-由于所有字段都为`Object`类型，因此如何使用它们并不是很明显。但是随着我们进一步探索，可以看到：
+由于所有字段都为`Object`类型，因此如何使用它们并不是很明显。但是随着进一步探索，可以看到：
 
 - `L$0`持有对`HttpWaldoFinder`实例的引用。始终有值。
 - `L$1`持有`starterName`参数的值。始终有值。
@@ -331,7 +331,7 @@ $continuation = new ContinuationImpl($completion) {
 
 `Kotlin`编译器调整了每个挂起函数的返回类型，以便可以返回实际结果或特殊值 _`COROUTINE_SUSPENDED`_。对于后一种情况下当前的协程是被挂起的。这就是挂起函数的返回类型从结果类型更改为`Object`的原因。
 
-我们的示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是挂起总是会发生。但是，如果要理解所生成的代码，我们必须记住，实现需要能够处理所有可能性。
+示例应用`wheresWaldo`会重复调用`fetchNewName`。从理论上讲，这些调用中的都可以挂起或不挂起当前的协程。在写`fetchNewName`的时候，我们知道的是挂起总是会发生。但是，如果要理解所生成的代码，必须记住，实现需要能够处理所有可能性。
 
 ### 3.3 大`switch`语句（`The Big Switch Statement`）和标签
 
@@ -393,7 +393,7 @@ if (var10000 == var11) {
 
 再强调一次，请记住：生成的代码不能假定所有调用都将挂起，或者所有调用都将继续执行当前协程。必须能够应对任何可能的组合。
 
-## 4. 追踪执行
+## 4. 追踪执行过程
 
 当执行开始时，延续中`label`字段的值设置的是`0`。`switch`语句中相应分支代码如下：
 
@@ -435,13 +435,13 @@ if (var10000 == var11) {
 
 因为知道`var10000`是函数返回值，所以可以将其转型为正确的类型并存储在本地变量`firstName`中。然后，生成的代码使用变量`secondName`存储连接线程`ID`的结果，然后将其打印出来。
 
-更新延续中的字段，以添加从服务器检索到的值。请注意，`label`的值现在为2。然后，我们第三次调用`fetchNewName`。
+更新延续中的字段，以添加从服务器检索到的值。请注意，`label`的值现在为2。然后，第三次调用`fetchNewName`。
 
 ### 4.1 第三次调用`fetchNewName`的请求 —— 不挂起
 
-我们必须再次基于`fetchNewName`返回的值进行选择，如果返回的值是 _`COROUTINE_SUSPENDED`_，那么我们将从当前函数返回。下次调用时，我们将进入`switch`语句的`case 2`分支。
+实现流程必须再次基于`fetchNewName`返回值进行选择，如果返回的值是 _`COROUTINE_SUSPENDED`_，那么将从当前函数返回。下次调用时，将进入`switch`语句的`case 2`分支。
 
-如果我们继续当前的协程，则执行下面的代码块。正如您所看到的，它与上面的相同，除了我们现在有更多数据要存储在延续中。
+如果继续当前的协程，则执行下面的代码块。从实现流程可以看到，这与前一步相同，除了现在有更多数据要存储在延续中。
 
 **_代码段 4_**：第三次调用`fetchNewName`
 
@@ -481,7 +481,7 @@ case 2:
 
 从延续中提取值到函数的局部变量中。然后用带标签的`break`将执行跳转到上面的代码段4。因此，最终将在同一个地方结束整个协程的执行。
 
-### 4.3 总结执行
+### 4.3 执行过程总结
 
 现在我们可以重新梳理代码结构，并对每个部分中所做的进行高层的描述：
 
@@ -543,11 +543,11 @@ label48: {
 
 这不是一份容易理解的代码。我们研究了由`Kotlin`编译器生成的字节码所反汇编的`Java`代码。`Kotlin`编译器生成的字节码目标是执行的效率和简约，而不是清晰易读。
 
-我们可以得出一些有用的结论：
+可以得出一些有用的结论：
 
-1. **没有魔法**。当次了解协程时，很容易以为会有一些特殊的『魔法』来把所有东西连接起来。正如我们上面所看到的，生成的代码只使用过程式编程（`Procedural Programming`）的基本构建块，比如条件语句和带有标签的`break`。
-2. **实现是基于延续的**。如`KEEP`提案中所说明，实现函数的挂起和恢复的方式是将函数的状态捕捉到一个对象中。因此，对于每一个挂起函数，编译器会创建一个具有`N`个字段的延续类，其中`N`是函数参数个数加上函数变量个数加上3。后面3个字段持有的是当前对象、最终结果和索引。
-3. **执行始终遵循标准模式**。如果要从挂起中恢复，使用的是延续的`label`字段跳转到`switch`语句的对应分支。在这个分支中，从延续对象中取出所找到的数据，然后用带有标签的`break`语句跳转到如果没有发生挂起所要执行的代码。
+1. **没有魔法**。当初次了解协程时，很容易会以为有一些特殊的『魔法』来把所有东西连接起来。正如我们上面所看到的，生成的代码只使用过程式编程（`Procedural Programming`）的基本构建块，比如条件语句和带有标签的`break`。
+2. **实现是基于延续的**。如`KEEP`提案中所说明，实现函数的挂起和恢复的方式是将函数的状态捕捉到一个对象中。因此，对于每一个挂起函数，编译器会创建一个具有`N`个字段的延续类，其中`N`是函数参数个数加上函数变量个数加上3。后面3个字段分别持有的是当前对象、最终结果和索引。
+3. **执行始终遵循标准模式**。如果要从挂起中恢复，使用延续的`label`字段跳转到`switch`语句里的对应分支。在这个分支中，从延续对象中取出所找到的数据，然后用带有标签的`break`语句跳转到如果没有发生挂起所要执行的代码。
 
 ----------------------------------------
 
