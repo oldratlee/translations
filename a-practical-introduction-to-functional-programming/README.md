@@ -282,7 +282,7 @@ while time:
     for i in range(len(car_positions)):
         # move car
         if random() > 0.3:
-        car_positions[i] += 1
+            car_positions[i] += 1
 
         # draw car
         print '-' * car_positions[i]
