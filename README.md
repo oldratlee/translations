@@ -52,7 +52,7 @@ Chinese translations for classic IT resources.
 1. [Codehaus宣言：技术管理与开源项目运营之道](codehaus-manifesto/README.md)  
     `Codehaus`：协作构建开源项目的社区，强烈强调现代语言，并开发聚焦于满足实际需求的高质量组件。`Groovy`、`Jetty`、`Gradle`、`XStream`、`Jackson`、`Drools`、`jMock`、`EasyMock`、`Grails`、`XDoclet`、`QDox`、`Esper`、`Mule`、`Janino`、`JBehave`、`Stomp` 以及其他数以百计开源项目，都得感谢`Codehaus`社区。很多项目听起来都是如雷贯耳吧，而这份精小的`Codehaus`宣言是`Codehaus`多年在技术管理与开源项目运营上的思考、总结与领悟，相信非常值得一读！**向`Codehaus`致敬！！**
 1. [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/README.md)  
-    给出了一个通用`Java` `IO` `API`设计，更重要的是给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。文中示范了从 普通简单实现 整理成 正交分解、可复用、可扩展、高性能、无错误的`API`设计 的过程，这个过程是很值得理解和学习！设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件美事。给出 _**减少艺术的艺术工作量**_ 的方法的人是 **大师**。
+    给出了一个通用`Java` `IO` `API`设计，更重要的是给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。文中示范了从 普通简单实现 整理成 正交分解、可复用、可扩展、高性能、无错误的`API`设计 的过程，这个过程是很值得理解和学习！设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件美事。在艺术工作中，真的艺术性工作量也只是一部分，而给出 _**方法**_ 以 _**减少艺术工作之中艺术性工作量**_ 的人是 **大师**。
 1. [`API`设计原则 - `Qt`官网的设计实践总结](api-design-principles-from-qt/README.md)  
     `Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的（如果你对`C++`还不精通，可以忽略与`C++`强相关或是过于细节的部分，仍然可以学习或梳理关于`API`设计最有价值的内容）。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
