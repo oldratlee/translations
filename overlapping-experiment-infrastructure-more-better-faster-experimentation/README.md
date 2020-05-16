@@ -3,7 +3,7 @@
 
 ## 🍎 译序
 
-`Google`这篇8年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资料。不单说明了，实验设施的系统设计，还包含实验的进阶主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。
+`Google`这篇10年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资料。不单说明了，实验设施的系统设计，还包含实验的进阶主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。
 
 - 对于了解`Growth Hacking`/`ABTest`的同学，可以有效的学习实验设施的系统设计，尤其是重叠实验设施要考虑多方面的需求、维度，如何建模是很复杂的；
 - 对于不了解`Growth Hacking`/`ABTest`这个领域知识的同学，可以通过这篇文章，学习一个复杂系统整体的思考和设计的模式，包含需求、场景、模型设计、产品流程、落地关键。
@@ -285,7 +285,7 @@ _Kohavi_ 假设实验与对照实验有相同的大小，比如 <img src="http:/
 
 我们将继续对实验进行创新，因为实验越来越多，用数据驱动的决定越来越多。
 
-**感谢**：很多参与了本文的工作，并没有以作者的身份出现。下面下一个不完全的参与者名单：Eric Bauer、Ilia Mirkin、Jim Morrison、Susan Shannon、Daryl Pregibon、Diane Lambert、Patrick Riley、Bill Heavlin、Nick Chamandy、Wael Salloum、Jeremy Shute、David Agraz、Simon Favreau-Lessard、Amir Najmi、Everett Wetchler、Martin Reichelt、Jay Crim、and Eric Flatt。Robin Jeffries、Rehan Khan、Ramakrishnan Srikant、Roberto Bayardo，他们对本文提出宝贵意见。
+**感谢**：很多人参与了本文的工作，并没有以作者的身份出现。下面是一个不完整的参与者名单：Eric Bauer、Ilia Mirkin、Jim Morrison、Susan Shannon、Daryl Pregibon、Diane Lambert、Patrick Riley、Bill Heavlin、Nick Chamandy、Wael Salloum、Jeremy Shute、David Agraz、Simon Favreau-Lessard、Amir Najmi、Everett Wetchler、Martin Reichelt、Jay Crim、and Eric Flatt。Robin Jeffries、Rehan Khan、Ramakrishnan Srikant、Roberto Bayardo，他们对本文提出了宝贵的意见。
 
 # 8. 参考资料
 

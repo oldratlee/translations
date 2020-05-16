@@ -1,4 +1,4 @@
-原文链接：[A generic input/output API in Java](https://dzone.com/articles/generic-inputoutput-api-java) - _Rickard Öberg_ （PS：[文章原始链路](http://www.jroller.com/rickard/entry/a_generic_input_output_api)已失效）  
+原文链接：[A generic input/output API in Java](https://dzone.com/articles/generic-inputoutput-api-java) - _Rickard Öberg_ （PS：[文章原始链接](http://www.jroller.com/rickard/entry/a_generic_input_output_api)已失效）  
 译文发在：[【译】Java的通用I/O API](http://oldratlee.com/474/tech/java/generic-io-api-in-java-and-api-design.html)，2012-05-11
 
 ## 🍎 译序
