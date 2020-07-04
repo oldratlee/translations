@@ -16,7 +16,7 @@ Chinese translations for classic IT resources.
 - 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 👏
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Requst`贡献修改](https://github.com/oldratlee/translations/fork)
-- 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意:raised_hands:[提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
+- 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意🙌 [提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
 
 # 文章分类
 

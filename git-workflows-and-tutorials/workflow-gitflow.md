@@ -107,11 +107,15 @@ git push -u origin develop
 
 ```bash
 git clone ssh://user@host/path/to/repo.git
-git checkout -b develop origin/develop
+git checkout develop
 
-#【译注】当没有本地分支 develop 时，
-# 最后一条命令，我使用更简单的 git checkout develop
-# 会自动 把 远程分支origin/develop 检出成 本地分支 develop
+# 【译注】：
+# 原文用的命令是 git checkout -b develop origin/develop
+#
+# 当没有本地分支 develop 时，
+# git checkout develop 这条命令
+# 会自动 把 远程分支origin/develop 检出成 本地分支 develop。
+# 这样的用法更简单自然，我平时就是这么用的。
 ```
 
 现在每个开发都有了这些历史分支的本地拷贝。
@@ -145,7 +149,7 @@ git commit
 git pull origin develop
 git checkout develop
 # 本地分支some-feature合并上develop
-#【注意】这个分支已经有远程的develop修改了，所以本地develop无需再做远程拉取的操作
+#【注意】因为pull过develop分支，已经有远程的develop修改了，所以本地develop无需再做远程拉取的操作
 git merge some-feature
 git push
 # 删除本地分支

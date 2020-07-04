@@ -147,7 +147,7 @@ git push
 ```
 
 无论谁来做合并，首先要检出`master`分支并确认它是最新的。然后执行`git pull origin marys-feature`合并`marys-feature`分支到已经和远程一致的本地`master`分支。
-你可以使用简单`git merge marys-feature`命令，但前面的命令可以保证总是最新的新功能分支。
+你可以使用更简单命令`git merge marys-feature`，但前提是之前操作过的命令保证了功能分支是最新的。
 最后更新的`master`分支要重新`push`回到`origin`。
 
 这个过程常常会生成一个合并提交。有些开发者喜欢有合并提交，因为它像一个新功能和原来代码基线的连通符。
