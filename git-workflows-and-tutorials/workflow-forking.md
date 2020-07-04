@@ -189,7 +189,10 @@ git merge FETCH_HEAD
 变更集成到本地的`master`分支后，维护者要`push`变更到服务器上的正式仓库，这样其它的开发者都能访问到：
 
 ```bash
-git push origin master
+git push
+# 【译注】：
+# 原文用的命令是 git push origin master
+# 原因同前文
 ```
 
 注意，维护者的`origin`是指向他自己公开仓库的，即是项目的正式代码库。到此，开发者的贡献完全集成到了项目中。
