@@ -45,13 +45,14 @@
 
 **_[1] [2]_** 单词 complex 的意思是 复杂，而 complicated 是 结构复杂。
 
-在计算机领域中，complex 可以对应 单个模块复杂，而 complicated 则可以对应 多个模块互相关联的复杂。
-用计算机的术语来说，complicated 是不同模块之间紧『耦合』，体现了理解不深，设计不好。
+在计算机领域中，complex 可以对应 **单个模块**的复杂，而 complicated 则可以对应 **多个模块**互相关联的复杂。  
+用计算机的术语来说，complicated 是不同模块之间紧『耦合』，体现了理解不深、设计不好。
 
-软件的核心复杂度不可避免，但要这些集中一起，给用户一个干净高级的接口，
-也就是说：如果 **complex**（核心复杂度）不可避免可以接受，
-但 **complicated** 一定要想办法去除，随着系统深入理解，模块职责的划分会更简明干净。  
-PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
+软件的核心复杂度是不可避免的，但要这些集中一起，给用户一个干净高级的接口。  
+也就是说：如果 **complex**（核心复杂性）不可避免可以接受，但 **complicated**（偶然复杂性） 一定要想办法去除。
+
+随着系统的理解深入，模块职责的划分以及之间的交互会更简单明了。  
+PS： 核心复杂性（`essential`）与偶然复杂性（`accidental`）的说明讨论可以参见[《代码大全》](http://book.douban.com/subject/1477390/)与[《领域驱动设计》](https://book.douban.com/subject/26819666/)。
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
@@ -66,12 +67,12 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 - [The author makes the assertion that flat is better than nested, and indeed it's one of the rules in "import this", but I just don't see it. | Hacker News](https://news.ycombinator.com/item?id=627858)
 
 **_[4]_** 稀疏、稠密指的是代码行中操作的疏密。
-`C`的`Geek`，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
-在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的副作用），也降低了代码的可读性。
+
+`C`的`Geek`，喜欢写稠密的代码，比如使用`++`、`--`运算符来压缩代码行。在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的副作用），也降低了代码的可读性。
 
 **_[5]_** 这里的荷兰人指`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
-在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)即含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ 😁
+在这里作者[_TimPeters_](http://www.c2.com/cgi/wiki?TimPeters)既含蓄地表达了对`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)的敬意，又体现了自己作为`Python`开发的傲娇，不是吗？ 😁
 
 **_[6] [7]_** 关于『Now/现在』、『never/决不』、『right now/马上』，个人理解，这个条目要说的是：
 
@@ -91,7 +92,7 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 
 每一个点都千锤百炼；每一点都有直指内心的感觉。
 
-看了N遍，每遍都会深思。
+看了 N 遍，每遍都会深思。
 
 `Python`说得内容对生活个人觉得一样有指导性，果然是哲学。
 
@@ -128,4 +129,3 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 1. If the implementation is hard to explain, it's a bad idea.
 1. If the implementation is easy to explain, it may be a good idea.
 1. Namespaces are one honking great idea -- let's do more of those!
-
