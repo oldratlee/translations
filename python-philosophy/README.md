@@ -49,9 +49,9 @@
 用计算机的术语来说，complicated 是不同模块之间紧『耦合』，体现了理解不深，设计不好。
 
 软件的核心复杂度不可避免，但要这些集中一起，给用户一个干净高级的接口，
-也就是说：如果 **complex**（核心复杂度）不可避免可以接受，
-但 **complicated** 一定要想办法去除，随着系统深入理解，模块职责的划分会更简明干净。  
-PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book.douban.com/subject/1477390/)一书。
+也就是说：如果 **complex**（本质复杂性）不可避免可以接受，
+但 **complicated**（偶然复杂性） 一定要想办法去除，随着系统深入理解，模块职责的划分会更简明干净。  
+PS： 核心复杂度（`essential`）与偶然复杂性（`accidental`）的说明讨论可以参见[《代码大全》](http://book.douban.com/subject/1477390/)与[《领域驱动设计》](https://book.douban.com/subject/26819666/)。
 
 翻译上，complex 翻成 复杂，complicated 翻成 纠结。
 
@@ -66,8 +66,8 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 - [The author makes the assertion that flat is better than nested, and indeed it's one of the rules in "import this", but I just don't see it. | Hacker News](https://news.ycombinator.com/item?id=627858)
 
 **_[4]_** 稀疏、稠密指的是代码行中操作的疏密。
-`C`的`Geek`，喜欢写稠密的代码，比如使用`++`，`--`运算符来压缩代码行。
-在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的副作用），也降低了代码的可读性。
+
+`C`的`Geek`，喜欢写稠密的代码，比如使用`++`、`--`运算符来压缩代码行。在`Python`看来，这个做法不可取，即会让代码更可能出错（如自增操作的副作用），也降低了代码的可读性。
 
 **_[5]_** 这里的荷兰人指`Python`之父[_Guido_](https://zh.wikipedia.org/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)，参见说明：[武汉大学开源技术俱乐部 技术交流 第1期](http://qianjigui.iteye.com/blog/266365)。
 
@@ -128,4 +128,3 @@ PS： 核心复杂度的说明讨论可以参见[《代码大全》](http://book
 1. If the implementation is hard to explain, it's a bad idea.
 1. If the implementation is easy to explain, it may be a good idea.
 1. Namespaces are one honking great idea -- let's do more of those!
-
