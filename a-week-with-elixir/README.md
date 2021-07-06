@@ -467,7 +467,7 @@ iex> lc x inlist [1, 2, 3] do: 2*x
 ** (SyntaxError) iex:3: syntax error before: do
 ```
 
-列表后面额外的冒号让人迷惑。
+列表后面额外的逗号让人迷惑。
 
 # 10. 奇怪的空白符
 
