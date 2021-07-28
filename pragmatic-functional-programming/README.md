@@ -1,5 +1,5 @@
 原文链接： [Pragmatic Functional Programming](http://blog.cleancoder.com/uncle-bob/2017/07/11/PragmaticFunctionalProgramming.html) - _Robert C. Martin (Uncle Bob)_，2017-07  
-基于[liuchengxu](https://www.jianshu.com/u/daf68451f175)的译文稿：[实用的函数式编程](https://www.jianshu.com/p/b14bdc4d1fd3)
+译于 2018-10-19，基于[liuchengxu](https://www.jianshu.com/u/daf68451f175)的译文稿：[实用的函数式编程](https://www.jianshu.com/p/b14bdc4d1fd3)
 
 <img src="clojure-logo.png" width="20%" align="right" >
 

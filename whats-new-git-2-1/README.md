@@ -1,4 +1,4 @@
-原文链接： [What’s new in Git 2.1](http://blogs.atlassian.com/2014/08/whats-new-git-2-1/) - [Tim Pettersen](http://blogs.atlassian.com/author/tpettersen/)，2014-08-25   
+原文链接： [What’s new in Git 2.1](http://blogs.atlassian.com/2014/08/whats-new-git-2-1/) - [Tim Pettersen](http://blogs.atlassian.com/author/tpettersen/)，2014-08-25  
 译文发在[博乐在线](http://www.jobbole.com/)： [http://blog.jobbole.com/76550/](http://blog.jobbole.com/76550/)，2014-09-08
 
 `Git` `2.1`有哪些新特性？

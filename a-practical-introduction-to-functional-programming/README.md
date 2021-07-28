@@ -1,4 +1,5 @@
 原文链接： [A practical introduction to functional programming](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming) - [Mary Rose](https://github.com/maryrosecook)，2015-08-10  
+译于 2019-09-07
 
 <img src="lambda.png" width="20%" hspace="2px" align="right" >
 

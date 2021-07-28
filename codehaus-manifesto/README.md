@@ -1,4 +1,5 @@
-原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md) PS: [Codehaus下线前最近的存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)
+原文链接： [Codehaus Manifesto](https://github.com/codehaus/www-codehaus-org/blob/master/app/manifesto.md) PS: [Codehaus下线前最近的存档 2015-02-17](https://web.archive.org/web/20150217163243/http://www.codehaus.org:80/customs/manifesto.html)  
+译于 2018-10-21
 
 <img src="streetlight_manifesto.png" width="20%" align="right" >
 

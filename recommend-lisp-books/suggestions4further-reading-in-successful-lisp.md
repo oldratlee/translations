@@ -1,4 +1,5 @@
-原文链接：[Suggestions for further reading](http://psg.com/~dlamkins/sl/chapter33.html)
+原文链接：[Suggestions for further reading](http://psg.com/~dlamkins/sl/chapter33.html)  
+译于 2018-10-21
 
 [Successful Lisp](http://book.douban.com/subject/1456905/)中的`Lisp`书籍推荐
 ===============================
