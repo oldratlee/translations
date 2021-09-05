@@ -186,3 +186,6 @@ Chinese translations for classic IT resources.
 
 1. [如何用`Linux`命令行管理网络：11个你必须知道的命令](how-to-work-with-network-from-linux-terminal/README.md)
 1. [为什么`Android`手机会越用越慢，如何提速？](why-android-phones-slow-down-over-time-and-how-to-speed-them-up/README.md)
+
+
+# 阅读的价值，取决于你真正想得到的是什么体验
