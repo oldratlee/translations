@@ -1,5 +1,5 @@
 | 原文链接： `PaxosLease: Diskless Paxos for Leases <http://arxiv.org/pdf/1209.4187.pdf>`_，2012-09-19
-| 译文发在 `dsdoc.net <http://dsdoc.net/>`_： `【译】PaxosLease：实现租约的无盘Paxos算法 <http://dsdoc.net/paxoslease/index.html>`_，2013-01-04
+| 译文发在： `【译】PaxosLease：实现租约的无盘Paxos算法 <https://web.archive.org/web/20170705103429/http://dsdoc.net/paxoslease/index.html>`_，2013-01-04
 
 .. highlight:: c
 

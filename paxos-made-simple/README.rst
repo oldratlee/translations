@@ -1,5 +1,5 @@
 | 原文链接： `Paxos Made Simple <http://research.microsoft.com/en-us/um/people/lamport/pubs/paxos-simple.pdf>`_，2001-11-01
-| 译文发在 `dsdoc.net <http://dsdoc.net/>`_： `【译】Paxos Made Simple <http://dsdoc.net/paxosmadesimple/index.html>`_，2012-12-31
+| 译文发在： `【译】Paxos Made Simple <https://web.archive.org/web/20180530124902/http://dsdoc.net/paxosmadesimple/index.html>`_，2012-12-31
 
 .. highlight:: c
 
