@@ -29,10 +29,7 @@ Chinese translations for classic IT resources.
 
 翻译遵循的原则：『信』为本，力求『达』，不妄追『雅』。
 
-> - 信：译文忠实表达作者思想；
-> - 达：让读者轻松地阅读；
-> - 雅：让读者愉悦地阅读。
->
+> 信：译文忠实表达作者思想；达：让读者轻松地阅读；雅：让读者愉悦地阅读。  
 > 详见[信达雅 - 百度百科](http://baike.baidu.com/view/645992.htm)。
 
 ----------------------------------------
@@ -42,13 +39,13 @@ Chinese translations for classic IT resources.
     - 指正，[`Fork`后提通过`Pull Request`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意 🙌 [提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
 
-> 翻译是译者用自己的思想，换一种语言，对原作者想法的重新阐释。鉴于我的学识所限，误解和错译在所难免。如果你能买到本书的原版，且有能力阅读英文，请直接去读原文。因为与之相较，我的译文可能根本不值得一读。
-> <p align="right">— 云风，《<a href="https://book.douban.com/subject/35006892/">程序员修炼之道 第2版</a>》译者</p>
-> <br/>
-> 阅读的价值，取决于你真正想得到的是什么体验。
-> <p align="right">— 此句由 <a href="https://github.com/mj5219054"><code>@mj5219054</code></a> 的<code>PR</code>提供</p>
+> 翻译是译者用自己的思想，换一种语言，对原作者想法的重新阐释。鉴于我的学识所限，误解和错译在所难免。如果你能买到本书的原版，且有能力阅读英文，请直接去读原文。因为与之相较，我的译文可能根本不值得一读。  
+> 　— 云风，《[程序员修炼之道 第2版](https://book.douban.com/subject/35006892/)》译者
+>
+> 阅读的价值，取决于你真正想得到的是什么体验。  
+> 　— 此句由`@mj5219054`的`PR`提供
 
-祝你阅读愉快，日有所进～ 💕
+愿你阅读愉快，祝你日有所进～ 💕
 
 # ⏳ Archive（按内容时间排序）
 
