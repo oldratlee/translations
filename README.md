@@ -42,6 +42,14 @@ Chinese translations for classic IT resources.
     - 指正，[`Fork`后提通过`Pull Request`贡献修改](https://github.com/oldratlee/translations/fork)
 - 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意 🙌 [提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
 
+> 翻译是译者用自己的思想，换一种语言，对原作者想法的重新阐释。鉴于我的学识所限，误解和错译在所难免。如果你能买到本书的原版，且有能力阅读英文，请直接去读原文。因为与之相较，我的译文可能根本不值得一读。
+> <p align="right">— 云风，《<a href="https://book.douban.com/subject/35006892/">程序员修炼之道 第2版</a>》译者</p>
+> <br/>
+> 阅读的价值，取决于你真正想得到的是什么体验。
+> <p align="right">— 此句由 <a href="https://github.com/mj5219054"><code>@mj5219054</code></a> 的<code>PR</code>提供</p>
+
+祝你阅读愉快，日有所进～ 💕
+
 # ⏳ Archive（按内容时间排序）
 
 - **2020-02** [理解`Kotlin`协程：自底向上的视角](kotlin-coroutines-bottom-up/README.md)  
@@ -186,6 +194,3 @@ Chinese translations for classic IT resources.
 
 1. [如何用`Linux`命令行管理网络：11个你必须知道的命令](how-to-work-with-network-from-linux-terminal/README.md)
 1. [为什么`Android`手机会越用越慢，如何提速？](why-android-phones-slow-down-over-time-and-how-to-speed-them-up/README.md)
-
-
-# 阅读的价值，取决于你真正想得到的是什么体验
