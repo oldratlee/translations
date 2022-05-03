@@ -2,8 +2,7 @@
 
 <img src="images/icon.png" width="20%" align="right" />
 
-[![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-FE6B3A.svg) ![Attribution-NonCommercial-ShareAlike](images/LICENSE.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)  
-[![Chat at gitter.im](https://img.shields.io/gitter/room/oldratlee/translations?color=46BC99&logo=gitter&logoColor=white)](https://gitter.im/oldratlee/translations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-FE6B3A.svg?logo=apache) ![Licence: CC BY-NC-SA 4.0](images/LICENSE.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)  
 [![GitHub stars](https://img.shields.io/github/stars/oldratlee/translations.svg?style=social&label=Star)](https://github.com/oldratlee/translations/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/oldratlee/translations.svg?style=social&label=Fork)](https://github.com/oldratlee/translations/fork)
 [![GitHub Contributors](https://img.shields.io/github/contributors/oldratlee/translations?style=social&logo=github)](https://github.com/oldratlee/translations/graphs/contributors)
