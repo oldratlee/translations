@@ -19,11 +19,11 @@ Chinese translations for classic IT resources.
     - 而深入学习理解是翻译所要求反复推敲的副产品，主动表达会是个更好的学习方式。
 1. 训练 自己的**写作基础技能**。
     - 写作即是思考，文字是我们表达思想最常用的方式，也可能是最有用的方式。
-    - 写作、遣词造句是最重要的基础技能之一，而翻译是在刻意训练遣词造句的写作技能。
-    - 虽说纸短情长、言外有意，语言文字并不能表达想要表达的一切；但只要输出成了语言文字 就有更好的时间与空间的扩展性：
+    - 写作、遣词造句是最重要的基础技能之一，而翻译是在刻意练习这个技能。
+    - 虽说纸短情长、言外有意，语言文字并不能表达想要表达的一切，但只要输出成语言文字就有了在时间与空间上更好的扩展性：
         - 语言文字可以长时间的流传，而不限于作者的几十年光景。
-        - 语言文字可以大量人的阅读，而不限于作者所在的场合范围。
-        - 可以被使用传承，甚至进一步改进。
+        - 语言文字可以给大量人的阅读，而不限于作者所在的场合范围。
+        - 可以被使用传承，甚至进一步改进和衍生。
     - 思想的文字化/文档化 意味着 **文明**（仅个人的拔高说辞 😂 ）。
 1. 能为大家 带来**便利**。
 1. **兴趣**。
@@ -35,10 +35,10 @@ Chinese translations for classic IT resources.
 
 ----------------------------------------
 
-- 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中不足和不对之处，欢迎 👏
+- 🙈 [自己](http://weibo.com/oldratlee)理解粗浅，翻译中的不足和不对之处，欢迎 👏
     - 建议，[提交`Issue`](https://github.com/oldratlee/translations/issues/new)
     - 指正，[`Fork`后提通过`Pull Request`贡献修改](https://github.com/oldratlee/translations/fork)
-- 如有文章理解上有疑问 或是 使用过程中碰到些疑惑，请随意 🙌 [提交`Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
+- 如果文章理解上有疑问 或是 应用过程中碰到疑惑，请[提交 🙌 `Issue`](https://github.com/oldratlee/translations/issues/new) ，一起学习交流讨论！
 
 > 翻译是译者用自己的思想，换一种语言，对原作者想法的重新阐释。鉴于我的学识所限，误解和错译在所难免。如果你能买到本书的原版，且有能力阅读英文，请直接去读原文。因为与之相较，我的译文可能根本不值得一读。  
 > 　— 云风，《[程序员修炼之道 第2版](https://book.douban.com/subject/35006892/)》译者
@@ -65,7 +65,7 @@ Chinese translations for classic IT resources.
 - **2017-11** [`Java` `Fork/Join`框架](a-java-fork-join-framework/README.md)  
     _Doug Lea_ 大神关于`Java 7`引入的他写的`Fork/Join`框架的论文。[反应式编程](https://www.reactivemanifesto.org/zh-CN)（`Reactive Programming`/`RP`）作为一种范式在整个业界正在逐步受到认可和落地，是对过往系统的业务需求理解梳理之后对系统技术设计/架构模式的提升总结。`Java`作为一个成熟平台，对于趋势一向有着稳健的接纳和跟进能力，有着令人惊叹的生命活力：`Java 7`提供了`ForkJoinPool`，支持了`Java 8`提供的`Stream`，另外`Java 8`还提供了`Lambda`（有效地表达和使用`RP`需要`FP`的语言构件和理念）；有了前面的这些稳健但不失时机的准备，在`Java 9`中提供了面向`RP`的官方[`Flow API`](https://community.oracle.com/docs/DOC-1006738)，实际上是直接把[`Reactive Streams`](http://www.reactive-streams.org/)的接口加在`Java`标准库中，即[`Reactive Streams`规范](https://github.com/reactive-streams/reactive-streams-jvm#specification)转正了。`Reactive Streams`是`RP`的基础核心组件，`Java`提供了`Flow API` 标志着 `RP`完成了由 **集市**式的自由探索阶段 向 **教堂**式的规范统一阶段 的转变。通过上面这些说明，可以看到`ForkJoinPool`的基础重要性。
 - **2017-07** [`API`设计原则 - `Qt`官网的设计实践总结](api-design-principles-from-qt/README.md)  
-    `Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的（如果你对`C++`还不精通，可以忽略与`C++`强相关或是过于细节的部分，仍然可以学习或梳理关于`API`设计最有价值的内容）。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
+    `Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的；如果你对`C++`还不精通，完全可以忽略与`C++`强相关或是过于细节的部分，仍然能学习或梳理关于`API`设计最有价值的内容。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
 - **2017-05** [重叠实验设施：更多、更好、更快地实验](overlapping-experiment-infrastructure-more-better-faster-experimentation/README.md)  
     `Google`这篇10年前2010年的关于『实验基础设施』设计的论文，现在看来仍然是关于这个领域最有深度和体系的资料。不单说明了，实验设施的系统设计，还包含实验的进阶主题如：实验可信度、敏感度、围绕实验数据驱动的整体流程。对于了解`Growth Hacking`/`ABTest`的同学，可以有效的学习实验设施的系统设计，尤其是重叠实验设施要考虑多方面的需求、维度，如何建模是很复杂的；对于不了解`Growth Hacking`/`ABTest`这个领域知识的同学，可以通过这篇文章，学习一个复杂系统整体的思考和设计的模式，包含需求、场景、模型设计、产品流程、落地关键。
 - **2016-10** [`Erlang`之父学习`Elixir`语言的一周](a-week-with-elixir/README.md)  
@@ -99,9 +99,9 @@ Chinese translations for classic IT resources.
 
 # 🎵 按内容主题分类
 
-> 上一节是 [⬆️ **按内容时间排序** ⬆️](#-%E6%8C%89%E5%86%85%E5%AE%B9%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F)
-
 <img src="images/icon.png" width="30%" align="right" />
+
+> 上一节是 [⬆️ **按内容时间排序** ⬆️](#-%E6%8C%89%E5%86%85%E5%AE%B9%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -134,7 +134,7 @@ Chinese translations for classic IT resources.
 1. [`Java`的通用`I/O` `API`设计](generic-io-api-in-java-and-api-design/README.md)  
     给出了一个通用`Java` `IO` `API`设计，更重要的是给出了这个`API`设计本身的步骤和过程，这让`API`设计有些条理。文中示范了从 普通简单实现 整理成 正交分解、可复用、可扩展、高性能、无错误的`API`设计 的过程，这个过程是很值得理解和学习！设计偏向是艺术，一个赏心悦目的设计，尤其是`API`设计，旁人看来多是妙手偶得的感觉，如果能有些章可循真是一件美事。在艺术工作中，真的艺术性工作量也只是一部分，而给出 _**方法**_ 以 _**减少艺术工作之中艺术性工作量**_ 的人是 **大师**。
 1. [`API`设计原则 - `Qt`官网的设计实践总结](api-design-principles-from-qt/README.md)  
-    `Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的（如果你对`C++`还不精通，可以忽略与`C++`强相关或是过于细节的部分，仍然可以学习或梳理关于`API`设计最有价值的内容）。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
+    `Qt`的设计水准在业界很有口碑，一致、易于掌握和强大的`API`是`Qt`最著名的优点之一。此文既是`Qt`官网上的`API`设计指导准则，也是`Qt`在`API`设计上的实践总结。虽然`Qt`用的是`C++`，但其中设计原则和思考是具有普适性的；如果你对`C++`还不精通，完全可以忽略与`C++`强相关或是过于细节的部分，仍然能学习或梳理关于`API`设计最有价值的内容。整个篇幅中有很多示例，是关于`API`设计一篇难得的好文章。
 1. [`GUI` & `CLI`原则](gui-and-cli-principles/README.md)  
     文中列出的`GUI`和`CLI`的原则：说明了两种`Interface`适合的场景和优劣；进而引导你去思考，面向用户或作为程序员的你，交互/操作 如何才能是高效的。
 
