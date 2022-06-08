@@ -17,7 +17,7 @@
 
 但是，等会儿，流处理到底是什么呢？
 
-如果你是上世纪90年代晚期或者21世纪初[数据库](http://cs.brown.edu/research/aurora/vldb03_journal.pdf) [文化](http://db.cs.berkeley.edu/papers/cidr03-tcq.pdf)或者成功了一半的[数据](http://www-03.ibm.com/software/products/us/en/infosphere-streams) [基础设施](http://en.wikipedia.org/wiki/StreamBase_Systems) [产品](http://en.wikipedia.org/wiki/Truviso)的爱好者，那么你就可能会把流处理与建创`SQL`引擎或者『箱子和箭头』（`boxes and arrows`）接口用于事件驱动的处理联系起来。
+如果你是上世纪90年代晚期或者21世纪初[数据库](http://cs.brown.edu/research/aurora/vldb03_journal.pdf) [文化](http://db.cs.berkeley.edu/papers/cidr03-tcq.pdf)或者成功了一半的[数据](http://www-03.ibm.com/software/products/us/en/infosphere-streams) [基础设施](http://en.wikipedia.org/wiki/StreamBase_Systems) [产品](http://en.wikipedia.org/wiki/Truviso)的爱好者，那么你就可能会把流处理与创建`SQL`引擎或者『箱子和箭头』（`boxes and arrows`）接口用于事件驱动的处理联系起来。
 
 如果你关注大量出现的开源数据库系统，你就可能把流处理和一些这领域的系统关联起来，
 比如[`Storm`](http://storm-project.net/)、[`Akka`](http://akka.io/)、[`S4`](http://incubator.apache.org/s4)和`Samza`。
