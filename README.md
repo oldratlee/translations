@@ -1,6 +1,6 @@
 # 🐼 translations
 
-<img src="images/icon.png" width="20%" align="right" />
+<a href="##"><img src="images/icon.png" width="20%" align="right" /></a>
 
 [![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-FE6B3A.svg?logo=apache) ![Licence: CC BY-NC-SA 4.0](images/LICENSE.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)  
 [![GitHub stars](https://img.shields.io/github/stars/oldratlee/translations.svg?style=social&label=Star)](https://github.com/oldratlee/translations/stargazers)
@@ -99,7 +99,7 @@ Chinese translations for classic IT resources.
 
 # 🎵 按内容主题分类
 
-<img src="images/icon.png" width="30%" align="right" />
+<a href="##"><img src="images/icon.png" width="30%" align="right" /></a>
 
 > 上一节是 [⬆️ **按内容时间排序** ⬆️](#-%E6%8C%89%E5%86%85%E5%AE%B9%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F)
 
